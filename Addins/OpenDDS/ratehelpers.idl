@@ -1,0 +1,298 @@
+/*
+   Copyright (C) 2013 Mike Kipnis
+
+   This file is part of QLDDS, a free-software/open-source library
+   for utilization of QuantLib in the distributed envrionment via DDS.
+
+   QLDDS is free software: you can redistribute it and/or modify it
+   under the terms of the QLDDS license.  You should have received a
+   copy of the license along with this program; if not, please email
+   <dev@qldds.org>. The license is also available online at
+   <http://qldds.org/qldds-license/>.
+
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE.  See the license for more details.
+*/
+// This file was generated automatically by qldds_gensrc.py.  If you edit this file
+// manually then your changes will be lost the next time gensrc runs.
+
+// This source code file was generated from the following stub:
+//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.module
+
+#ifndef ratehelpers_IDL
+#define ratehelpers_IDL
+
+#include <qldds_types.idl>
+
+module ratehelpers {
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlBondHelper"
+#pragma DCPS_DATA_KEY "ratehelpers::qlBondHelper instanceID" 
+
+   struct qlBondHelper { 
+          string instanceID;
+          
+             string ObjectId;
+             double CleanPrice;
+             string Bond;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlDatedOISRateHelper"
+#pragma DCPS_DATA_KEY "ratehelpers::qlDatedOISRateHelper instanceID" 
+
+   struct qlDatedOISRateHelper { 
+          string instanceID;
+          
+             string ObjectId;
+             string StartDate;
+             string EndDate;
+             double FixedRate;
+             string ONIndex;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlDepositRateHelper"
+#pragma DCPS_DATA_KEY "ratehelpers::qlDepositRateHelper instanceID" 
+
+   struct qlDepositRateHelper { 
+          string instanceID;
+          
+             string ObjectId;
+             double Rate;
+             string IborIndex;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlDepositRateHelper2"
+#pragma DCPS_DATA_KEY "ratehelpers::qlDepositRateHelper2 instanceID" 
+
+   struct qlDepositRateHelper2 { 
+          string instanceID;
+          
+             string ObjectId;
+             double Rate;
+             string Tenor;
+             long FixingDays;
+             string Calendar;
+             string Convention;
+             boolean EndOfMonth;
+             string DayCounter;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlFixedRateBondHelper"
+#pragma DCPS_DATA_KEY "ratehelpers::qlFixedRateBondHelper instanceID" 
+
+   struct qlFixedRateBondHelper { 
+          string instanceID;
+          
+             string ObjectId;
+             double CleanPrice;
+             long SettlementDays;
+             double FaceAmount;
+             string ScheduleID;
+             CORBA::DoubleSeq Coupons;
+             string DayCounter;
+             string PaymentBDC;
+             double Redemption;
+             string IssueDate;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlFraRateHelper"
+#pragma DCPS_DATA_KEY "ratehelpers::qlFraRateHelper instanceID" 
+
+   struct qlFraRateHelper { 
+          string instanceID;
+          
+             string ObjectId;
+             double Rate;
+             string PeriodToStart;
+             string IborIndex;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlFraRateHelper2"
+#pragma DCPS_DATA_KEY "ratehelpers::qlFraRateHelper2 instanceID" 
+
+   struct qlFraRateHelper2 { 
+          string instanceID;
+          
+             string ObjectId;
+             double Rate;
+             string PeriodToStart;
+             long LengthInMonths;
+             long FixingDays;
+             string Calendar;
+             string Convention;
+             boolean EndOfMonth;
+             string DayCounter;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlFuturesRateHelper"
+#pragma DCPS_DATA_KEY "ratehelpers::qlFuturesRateHelper instanceID" 
+
+   struct qlFuturesRateHelper { 
+          string instanceID;
+          
+             string ObjectId;
+             double Price;
+             string IMM;
+             string IborIndex;
+             double ConvexityAdjQuote;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlFuturesRateHelper2"
+#pragma DCPS_DATA_KEY "ratehelpers::qlFuturesRateHelper2 instanceID" 
+
+   struct qlFuturesRateHelper2 { 
+          string instanceID;
+          
+             string ObjectId;
+             double Price;
+             string IMM;
+             long LengthInMonths;
+             string Calendar;
+             string Convention;
+             boolean EndOfMonth;
+             string DayCounter;
+             double ConvexityAdjQuote;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlFuturesRateHelper3"
+#pragma DCPS_DATA_KEY "ratehelpers::qlFuturesRateHelper3 instanceID" 
+
+   struct qlFuturesRateHelper3 { 
+          string instanceID;
+          
+             string ObjectId;
+             double Price;
+             string IMM;
+             string EndDate;
+             string DayCounter;
+             double ConvexityAdjQuote;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlOISRateHelper"
+#pragma DCPS_DATA_KEY "ratehelpers::qlOISRateHelper instanceID" 
+
+   struct qlOISRateHelper { 
+          string instanceID;
+          
+             string ObjectId;
+             long SettlDays;
+             string Tenor;
+             double FixedRate;
+             string ONIndex;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlRateHelperImpliedQuote"
+#pragma DCPS_DATA_KEY "ratehelpers::qlRateHelperImpliedQuote instanceID" 
+
+   struct qlRateHelperImpliedQuote { 
+          string instanceID;
+          
+             string ObjectId;
+             boolean Trigger; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlRateHelperQuoteError"
+#pragma DCPS_DATA_KEY "ratehelpers::qlRateHelperQuoteError instanceID" 
+
+   struct qlRateHelperQuoteError { 
+          string instanceID;
+          
+             string ObjectId;
+             boolean Trigger; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlRateHelperQuoteIsValid"
+#pragma DCPS_DATA_KEY "ratehelpers::qlRateHelperQuoteIsValid instanceID" 
+
+   struct qlRateHelperQuoteIsValid { 
+          string instanceID;
+          
+             string ObjectId;
+             boolean Trigger; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlRateHelperQuoteValue"
+#pragma DCPS_DATA_KEY "ratehelpers::qlRateHelperQuoteValue instanceID" 
+
+   struct qlRateHelperQuoteValue { 
+          string instanceID;
+          
+             string ObjectId;
+             boolean Trigger; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlSwapRateHelper"
+#pragma DCPS_DATA_KEY "ratehelpers::qlSwapRateHelper instanceID" 
+
+   struct qlSwapRateHelper { 
+          string instanceID;
+          
+             string ObjectId;
+             double Rate;
+             string SwapIndex;
+             double Spread;
+             string ForwardStart;
+             string DiscountingCurve;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlSwapRateHelper2"
+#pragma DCPS_DATA_KEY "ratehelpers::qlSwapRateHelper2 instanceID" 
+
+   struct qlSwapRateHelper2 { 
+          string instanceID;
+          
+             string ObjectId;
+             double Rate;
+             string Tenor;
+             string Calendar;
+             string FixedLegFrequency;
+             string FixedLegConvention;
+             string FixedLegDayCounter;
+             string IborIndex;
+             double Spread;
+             string ForwardStart;
+             string DiscountingCurve;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+};
+
+#endif

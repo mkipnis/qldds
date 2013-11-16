@@ -1,0 +1,117 @@
+/*
+   Copyright (C) 2013 Mike Kipnis
+
+   This file is part of QLDDS, a free-software/open-source library
+   for utilization of QuantLib in the distributed envrionment via DDS.
+
+   QLDDS is free software: you can redistribute it and/or modify it
+   under the terms of the QLDDS license.  You should have received a
+   copy of the license along with this program; if not, please email
+   <dev@qldds.org>. The license is also available online at
+   <http://qldds.org/qldds-license/>.
+
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE.  See the license for more details.
+*/
+// This file was generated automatically by qldds_gensrc.py.  If you edit this file
+// manually then your changes will be lost the next time gensrc runs.
+
+// This source code file was generated from the following stub:
+//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.module
+
+#ifndef credit_IDL
+#define credit_IDL
+
+#include <qldds_types.idl>
+
+module credit {
+
+#pragma DCPS_DATA_TYPE "credit::qlHazardRateCurve"
+#pragma DCPS_DATA_KEY "credit::qlHazardRateCurve instanceID" 
+
+   struct qlHazardRateCurve { 
+          string instanceID;
+          
+             string ObjectId;
+             CORBA::StringSeq CurveDates;
+             CORBA::DoubleSeq CurveRates;
+             string DayCounter;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "credit::qlMidPointCdsEngine"
+#pragma DCPS_DATA_KEY "credit::qlMidPointCdsEngine instanceID" 
+
+   struct qlMidPointCdsEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string DefaultCurve;
+             double RecoveryRate;
+             string YieldCurve;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "credit::qlPiecewiseFlatForwardCurve"
+#pragma DCPS_DATA_KEY "credit::qlPiecewiseFlatForwardCurve instanceID" 
+
+   struct qlPiecewiseFlatForwardCurve { 
+          string instanceID;
+          
+             string ObjectId;
+             string ReferenceDate;
+             CORBA::StringSeq RateHelpers;
+             string DayCounter;
+             double Accuracy;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "credit::qlPiecewiseFlatHazardRateCurve"
+#pragma DCPS_DATA_KEY "credit::qlPiecewiseFlatHazardRateCurve instanceID" 
+
+   struct qlPiecewiseFlatHazardRateCurve { 
+          string instanceID;
+          
+             string ObjectId;
+             string ReferenceDate;
+             CORBA::StringSeq Helpers;
+             string DayCounter;
+             double Accuracy;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "credit::qlSpreadCdsHelper"
+#pragma DCPS_DATA_KEY "credit::qlSpreadCdsHelper instanceID" 
+
+   struct qlSpreadCdsHelper { 
+          string instanceID;
+          
+             string ObjectId;
+             double RunningSpread;
+             string Tenor;
+             long SettlementDays;
+             string Calendar;
+             string Frequency;
+             string PaymentConvention;
+             string GenRule;
+             string DayCounter;
+             double RecoveryRate;
+             string DiscountingCurve;
+             boolean SettleAccrual;
+             boolean PayAtDefault;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+};
+
+#endif

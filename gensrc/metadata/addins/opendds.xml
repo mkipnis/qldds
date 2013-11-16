@@ -1,0 +1,30 @@
+
+<Addin name='OpenDDS'>
+
+  <relativePath>Addins/OpenDDS</relativePath>
+  <rootDirectory>Addins/OpenDDS</rootDirectory>
+  <namespaceAddin>QuantLibAddinDDS</namespaceAddin>
+  <coreCategories>true</coreCategories>
+  <addinCategories>true</addinCategories>
+
+  <copyright>
+    Copyright (C) Mike Kipnis
+  </copyright>
+
+  <Buffers>
+    <Buffer name='bufferIDL' fileName='stub.opendds.idl' local='true'/>
+    <Buffer name='bufferModule' fileName='stub.opendds.module' local='true'/>
+    <Buffer name='bufferDataReaderDeclaration' fileName='stub.opendds.DataReaderDeclaration' local='true'/>
+    <Buffer name='bufferHeader' fileName='stub.opendds.header' local='true'/>
+    <Buffer name='bufferDataReaderImplementation' fileName='stub.opendds.DataReaderImplementation' local='true'/>
+    <Buffer name='bufferBody' fileName='stub.opendds.body' local='true'/>
+    <Buffer name='bufferMpc' fileName='stub.opendds.mpc' local='true'/>
+    <Buffer name='bufferLib' fileName='stub.opendds.library' local='true'/>
+    <Buffer name='bufferMpcDataReader' fileName='stub.opendds.mpc.datareader' local='true'/>
+    <Buffer name='bufferMpcDataReaderNT' fileName='stub.opendds.mpc.datareader' local='true'/>
+    <Buffer name='bufferLibDataReader' fileName='stub.opendds.library.datareader' local='true'/>
+    <Buffer name='bufferLibDataReaderNT' fileName='stub.opendds.library.datareader.nt' local='true'/>
+  </Buffers>
+
+</Addin>
+

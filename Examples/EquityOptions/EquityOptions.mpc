@@ -1,0 +1,176 @@
+//
+//   Copyright (C) 2013 Mike Kipnis
+
+//   This file is part of QLDDS, a free-software/open-source library
+//   for utilization of QuantLib in the distributed envrionment via DDS.
+
+//   QLDDS is free software: you can redistribute it and/or modify it
+//   under the terms of the QLDDS license.  You should have received a
+//   copy of the license along with this program; if not, please email
+//   <dev@qldds.org>. The license is also available online at
+//   <http://qldds.org/qldds-license/>.
+
+//   This program is distributed in the hope that it will be useful, but WITHOUT
+//   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+//   FOR A PARTICULAR PURPOSE.  See the license for more details.
+//
+
+project( *EquityOptions ) : dcps {
+
+  sharedname	= EquityOptions
+  dynamicflags  = EQUITYOPTIONS_BUILD_DLL
+  libout	= .
+  requires	+= tao_orbsvcs
+  after		+= Svc_Utils
+  includes      += $(TAO_ROOT)/orbsvcs \
+                   $(QLDDS_ROOT)/qldds_utils \
+                   $(QLDDS_ROOT)/Addins/OpenDDS 
+
+  idlflags      += -I$(TAO_ROOT)/orbsvcs \
+                   -I$(QLDDS_ROOT)/qldds_utils \
+                   -I$(QLDDS_ROOT)/Addins/OpenDDS \
+                   -Wb,export_macro=EquityOptions_Export \
+                   -Wb,export_include=EquityOptions_Export.h
+
+  dcps_ts_flags += -Wb,export_macro=EquityOptions_Export \
+                   -I$(QLDDS_ROOT)/qldds_utils \
+                   -I$(QLDDS_ROOT)/Addins/OpenDDS
+ 
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+
+  libs          += pricingengines exercise volatilities payoffs processes
+
+  TypeSupport_Files {
+    EquityOptions.idl
+  }
+
+  IDL_Files {
+    EquityOptions.idl
+    EquityOptionsTypeSupport.idl
+  }
+
+  // We only want the generated files
+  Header_Files {
+  }
+
+  // We only want the generated files
+  Source_Files {
+  }
+}
+
+project( *Straddles ) : dcps {
+
+  sharedname    = Straddles 
+  dynamicflags  = STRADDLES_BUILD_DLL
+  libout        = .
+  requires      += tao_orbsvcs
+  after         += Svc_Utils
+  includes      += $(TAO_ROOT)/orbsvcs
+  idlflags      += -I$(TAO_ROOT)/orbsvcs \
+                   -Wb,export_macro=Straddles_Export \
+                   -Wb,export_include=Straddles_Export.h
+  dcps_ts_flags += -Wb,export_macro=Straddles_Export
+
+
+  TypeSupport_Files {
+    Straddles.idl
+  }
+
+  IDL_Files {
+    Straddles.idl
+    StraddlesTypeSupport.idl
+  }
+
+  // We only want the generated files
+  Header_Files {
+  }
+
+  // We only want the generated files
+  Source_Files {
+  }
+}
+
+
+project( *DataPublisher ) : dcpsexe, svc_utils {
+	exename 	= 	DataPublisher	
+        after           =       *EquityOptions
+
+        includes       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+        libpaths       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+        dcps_ts_flags  +=       -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS
+        idlflags       +=       -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS 
+
+        libs           +=       qldds_utils pricingengines exercise volatilities payoffs processes EquityOptions
+
+	TypeSupport_Files {
+        }
+
+        IDL_Files {
+        }
+
+	Source_Files {
+		EquityOptionsDataPublisher.cpp
+	}
+}
+
+project( *Server ) : dcpsexe, svc_utils {
+        exename         =       EquityOptionsServer
+        after           =       *EquityOptions *Straddles 		     
+        requires        +=      tao_orbsvcs
+        includes        +=      $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT)/include \ 
+                                $(QUANTLIB_ADDIN_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include/qlo $(BOOST_ROOT)/include
+        idlflags        +=      -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS
+        dcps_ts_flags   +=      -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS
+        libpaths        +=      $(QUANTLIB_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib \
+                                $(OH_ROOT)/lib \
+                                $(QUANTLIB_ADDIN_ROOT)/lib \
+                                $(BOOST_ROOT)/lib \
+                                $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+
+        libs            +=      qldds_utils pricingengines exercise volatilities payoffs processes \
+                                boost_filesystem boost_serialization boost_system boost_regex log4cxx \
+                                EquityOptions Straddles
+
+        pure_libs       =       $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddinCpp.a \
+                                $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddin.a \
+                                $(OH_ROOT)/lib/libObjectHandler.a \
+                                $(QUANTLIB_ROOT)/lib/libQuantLib.a 
+				
+
+        idlflags        +=      -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS
+
+        Source_Files {
+                EquityOptionsServer.cpp
+        }
+
+        TypeSupport_Files {
+        }
+       
+        IDL_Files {
+        }
+}
+
+project( *Client ) : dcpsexe, svc_utils {
+        exename         =       EquityOptionsClient
+        after		=	*Straddles
+        requires        +=      tao_orbsvcs
+        includes        +=      $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+        idlflags        +=      -I$(QLDDS_ROOT)/qldds_utils 
+        dcps_ts_flags   +=      -I$(QLDDS_ROOT)/qldds_utils
+        libpaths        +=      $(QLDDS_ROOT)/qldds_utils
+
+        libs  		+=       qldds_utils Straddles
+
+        idlflags        +=      -I$(QLDDS_ROOT)/qldds_utils
+
+        Source_Files {
+                EquityOptionsClient.cpp
+        }
+
+        TypeSupport_Files {
+        }
+
+        IDL_Files {
+        }
+
+}

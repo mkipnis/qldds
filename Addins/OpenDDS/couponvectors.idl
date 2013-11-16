@@ -1,0 +1,261 @@
+/*
+   Copyright (C) 2013 Mike Kipnis
+
+   This file is part of QLDDS, a free-software/open-source library
+   for utilization of QuantLib in the distributed envrionment via DDS.
+
+   QLDDS is free software: you can redistribute it and/or modify it
+   under the terms of the QLDDS license.  You should have received a
+   copy of the license along with this program; if not, please email
+   <dev@qldds.org>. The license is also available online at
+   <http://qldds.org/qldds-license/>.
+
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE.  See the license for more details.
+*/
+// This file was generated automatically by qldds_gensrc.py.  If you edit this file
+// manually then your changes will be lost the next time gensrc runs.
+
+// This source code file was generated from the following stub:
+//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.module
+
+#ifndef couponvectors_IDL
+#define couponvectors_IDL
+
+#include <qldds_types.idl>
+
+module couponvectors {
+
+#pragma DCPS_DATA_TYPE "couponvectors::qlCmsCouponPricer"
+#pragma DCPS_DATA_KEY "couponvectors::qlCmsCouponPricer instanceID" 
+
+   struct qlCmsCouponPricer { 
+          string instanceID;
+          
+             string ObjectId;
+             string Volatility;
+             string CmsCouponPricerType;
+             string YieldCurveModel;
+             double MeanReversion;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "couponvectors::qlCmsLeg"
+#pragma DCPS_DATA_KEY "couponvectors::qlCmsLeg instanceID" 
+
+   struct qlCmsLeg { 
+          string instanceID;
+          
+             string ObjectId;
+             string PaymentBDC;
+             CORBA::DoubleSeq Nominals;
+             string ScheduleID;
+             CORBA::LongSeq FixingDays;
+             boolean IsInArrears;
+             string DayCounter;
+             CORBA::DoubleSeq Floors;
+             CORBA::DoubleSeq Gearings;
+             string SwapIndex;
+             CORBA::DoubleSeq Spreads;
+             CORBA::DoubleSeq Caps;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "couponvectors::qlCmsZeroLeg"
+#pragma DCPS_DATA_KEY "couponvectors::qlCmsZeroLeg instanceID" 
+
+   struct qlCmsZeroLeg { 
+          string instanceID;
+          
+             string ObjectId;
+             string PaymentBDC;
+             CORBA::DoubleSeq Nominals;
+             string ScheduleID;
+             CORBA::LongSeq FixingDays;
+             boolean IsInArrears;
+             string DayCounter;
+             CORBA::DoubleSeq Floors;
+             CORBA::DoubleSeq Gearings;
+             string SwapIndex;
+             CORBA::DoubleSeq Spreads;
+             CORBA::DoubleSeq Caps;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "couponvectors::qlConundrumPricerByNumericalIntegration"
+#pragma DCPS_DATA_KEY "couponvectors::qlConundrumPricerByNumericalIntegration instanceID" 
+
+   struct qlConundrumPricerByNumericalIntegration { 
+          string instanceID;
+          
+             string ObjectId;
+             string SwaptionVol;
+             string YieldCurveModel;
+             double MeanReversion;
+             double LowerLimit;
+             double UpperLimit;
+             double Precision;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "couponvectors::qlDigitalCmsLeg"
+#pragma DCPS_DATA_KEY "couponvectors::qlDigitalCmsLeg instanceID" 
+
+   struct qlDigitalCmsLeg { 
+          string instanceID;
+          
+             string ObjectId;
+             string PaymentBDC;
+             CORBA::DoubleSeq Nominals;
+             string ScheduleID;
+             CORBA::LongSeq FixingDays;
+             boolean IsInArrears;
+             string DayCounter;
+             CORBA::DoubleSeq Gearings;
+             string SwapIndex;
+             CORBA::DoubleSeq Spreads;
+             CORBA::DoubleSeq CallStrikes;
+             string CallSpecs;
+             CORBA::DoubleSeq CallPayoff;
+             CORBA::DoubleSeq PutStrikes;
+             string PutSpecs;
+             CORBA::DoubleSeq PutPayoff;
+             string Replication;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "couponvectors::qlDigitalIborLeg"
+#pragma DCPS_DATA_KEY "couponvectors::qlDigitalIborLeg instanceID" 
+
+   struct qlDigitalIborLeg { 
+          string instanceID;
+          
+             string ObjectId;
+             string PaymentBDC;
+             CORBA::DoubleSeq Nominals;
+             string ScheduleID;
+             CORBA::LongSeq FixingDays;
+             boolean IsInArrears;
+             string DayCounter;
+             CORBA::DoubleSeq Gearings;
+             string IborIndex;
+             CORBA::DoubleSeq Spreads;
+             CORBA::DoubleSeq CallStrikes;
+             string CallSpecs;
+             CORBA::DoubleSeq CallPayoff;
+             CORBA::DoubleSeq PutStrikes;
+             string PutSpecs;
+             CORBA::DoubleSeq PutPayoff;
+             string Replication;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "couponvectors::qlFixedRateLeg"
+#pragma DCPS_DATA_KEY "couponvectors::qlFixedRateLeg instanceID" 
+
+   struct qlFixedRateLeg { 
+          string instanceID;
+          
+             string ObjectId;
+             string PaymentBDC;
+             CORBA::DoubleSeq Nominals;
+             string ScheduleID;
+             CORBA::DoubleSeq Coupons;
+             string DayCounter;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "couponvectors::qlFixedRateLeg2"
+#pragma DCPS_DATA_KEY "couponvectors::qlFixedRateLeg2 instanceID" 
+
+   struct qlFixedRateLeg2 { 
+          string instanceID;
+          
+             string ObjectId;
+             string PaymentBDC;
+             CORBA::DoubleSeq Nominals;
+             string ScheduleID;
+             CORBA::StringSeq Coupons;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "couponvectors::qlIborCouponPricer"
+#pragma DCPS_DATA_KEY "couponvectors::qlIborCouponPricer instanceID" 
+
+   struct qlIborCouponPricer { 
+          string instanceID;
+          
+             string ObjectId;
+             string Volatility;
+             string IborCouponPricerType;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "couponvectors::qlIborLeg"
+#pragma DCPS_DATA_KEY "couponvectors::qlIborLeg instanceID" 
+
+   struct qlIborLeg { 
+          string instanceID;
+          
+             string ObjectId;
+             string PaymentBDC;
+             CORBA::DoubleSeq Nominals;
+             string ScheduleID;
+             CORBA::LongSeq FixingDays;
+             boolean IsInArrears;
+             string DayCounter;
+             CORBA::DoubleSeq Floors;
+             CORBA::DoubleSeq Gearings;
+             string IborIndex;
+             CORBA::DoubleSeq Spreads;
+             CORBA::DoubleSeq Caps;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "couponvectors::qlRangeAccrualLeg"
+#pragma DCPS_DATA_KEY "couponvectors::qlRangeAccrualLeg instanceID" 
+
+   struct qlRangeAccrualLeg { 
+          string instanceID;
+          
+             string ObjectId;
+             string PaymentBDC;
+             CORBA::DoubleSeq Nominals;
+             string ScheduleID;
+             CORBA::LongSeq FixingDays;
+             string DayCounter;
+             CORBA::DoubleSeq LowerStrikes;
+             CORBA::DoubleSeq Gearings;
+             string IborIndex;
+             CORBA::DoubleSeq Spreads;
+             CORBA::DoubleSeq UpperStrikes;
+             string ObservationsTenor;
+             string ObservationsBDC;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+};
+
+#endif

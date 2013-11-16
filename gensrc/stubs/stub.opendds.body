@@ -1,0 +1,6 @@
+#include "%(categoryName)sDataReaderListenerImpl.hpp"
+
+#include <qldds_convert_utils.h>
+
+namespace %(categoryName)s {
+%(bufferCpp)s}

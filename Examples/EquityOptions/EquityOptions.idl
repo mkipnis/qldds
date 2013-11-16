@@ -1,0 +1,99 @@
+/*
+   Copyright (C) 2013 Mike Kipnis
+
+   This file is part of QLDDS, a free-software/open-source library
+   for utilization of QuantLib in the distributed envrionment via DDS.
+
+   QLDDS is free software: you can redistribute it and/or modify it
+   under the terms of the QLDDS license.  You should have received a
+   copy of the license along with this program; if not, please email
+   <dev@qldds.org>. The license is also available online at
+   <http://qldds.org/qldds-license/>.
+
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE.  See the license for more details.
+*/
+
+#ifndef EQUITY_OPTIONS_IDL
+#define EQUITY_OPTIONS_IDL 
+
+#include <volatilities.idl>
+#include <processes.idl>
+#include <payoffs.idl>
+#include <exercise.idl>
+#include <pricingengines.idl>
+#include <options.idl>
+
+#pragma DCPS_DATA_TYPE "qlBlackConstantVols"
+#pragma DCPS_DATA_KEY "qlBlackConstantVols ticker"
+
+typedef sequence < volatilities::qlBlackConstantVol > qlBlackConstantVolSeq; 
+typedef sequence < qlBlackConstantVolSeq > qlBlackConstantVolMatrix;
+
+struct qlBlackConstantVols
+{
+  string ticker;
+
+  qlBlackConstantVolMatrix putVols;
+  qlBlackConstantVolMatrix callVols;
+};
+
+
+#pragma DCPS_DATA_TYPE "qlGeneralizedBlackScholesProcesses"
+#pragma DCPS_DATA_KEY "qlGeneralizedBlackScholesProcesses ticker"
+
+struct qlGeneralizedBlackScholesProcesses
+{
+  string ticker;
+
+  processes::qlGeneralizedBlackScholesProcess process;
+};
+
+
+#pragma DCPS_DATA_TYPE "qlStrikedTypePayoffs"
+#pragma DCPS_DATA_KEY "qlStrikedTypePayoffs ticker"
+
+typedef sequence < payoffs::qlStrikedTypePayoff > qlStrikedTypePayoffSeq; 
+
+struct qlStrikedTypePayoffs 
+{
+  string ticker;
+
+  qlStrikedTypePayoffSeq callPayoffs;
+  qlStrikedTypePayoffSeq putPayoffs;
+};
+
+
+#pragma DCPS_DATA_TYPE "qlEuropeanExercises"
+#pragma DCPS_DATA_KEY "qlEuropeanExercises ticker"
+
+typedef sequence < exercise::qlEuropeanExercise > qlEuropeanExerciseSeq;
+
+struct qlEuropeanExercises
+{
+  string ticker;
+
+  qlEuropeanExerciseSeq exercises;
+};
+
+#pragma DCPS_DATA_TYPE "StraddleSetup"
+#pragma DCPS_DATA_KEY "StraddleSetup ticker"
+
+struct StraddleSetup 
+{
+  string ticker;
+
+  qlBlackConstantVolMatrix putVols;
+  qlBlackConstantVolMatrix callVols;
+
+  qlStrikedTypePayoffSeq putPayoffs;
+  qlStrikedTypePayoffSeq callPayoffs;
+
+  processes::qlGeneralizedBlackScholesProcess process;
+
+
+  qlEuropeanExerciseSeq exercises;
+};
+
+#endif

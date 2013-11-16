@@ -1,0 +1,179 @@
+/*
+   Copyright (C) 2013 Mike Kipnis
+
+   This file is part of QLDDS, a free-software/open-source library
+   for utilization of QuantLib in the distributed envrionment via DDS.
+
+   QLDDS is free software: you can redistribute it and/or modify it
+   under the terms of the QLDDS license.  You should have received a
+   copy of the license along with this program; if not, please email
+   <dev@qldds.org>. The license is also available online at
+   <http://qldds.org/qldds-license/>.
+
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE.  See the license for more details.
+*/
+// This file was generated automatically by qldds_gensrc.py.  If you edit this file
+// manually then your changes will be lost the next time gensrc runs.
+
+// This source code file was generated from the following stub:
+//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.module
+
+#ifndef quotes_IDL
+#define quotes_IDL
+
+#include <qldds_types.idl>
+
+module quotes {
+
+#pragma DCPS_DATA_TYPE "quotes::qlCompositeQuote"
+#pragma DCPS_DATA_KEY "quotes::qlCompositeQuote instanceID" 
+
+   struct qlCompositeQuote { 
+          string instanceID;
+          
+             string ObjectId;
+             double Element1;
+             double Element2;
+             string Operator;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "quotes::qlEurodollarFuturesImpliedStdDevQuote"
+#pragma DCPS_DATA_KEY "quotes::qlEurodollarFuturesImpliedStdDevQuote instanceID" 
+
+   struct qlEurodollarFuturesImpliedStdDevQuote { 
+          string instanceID;
+          
+             string ObjectId;
+             double AtmForwardValue;
+             double CallPrice;
+             double PutPrice;
+             double Strike;
+             double Guess;
+             double Accuracy;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "quotes::qlForwardSwapQuote"
+#pragma DCPS_DATA_KEY "quotes::qlForwardSwapQuote instanceID" 
+
+   struct qlForwardSwapQuote { 
+          string instanceID;
+          
+             string ObjectId;
+             string SwapIndex;
+             double Spread;
+             string ForwardStart;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "quotes::qlForwardValueQuote"
+#pragma DCPS_DATA_KEY "quotes::qlForwardValueQuote instanceID" 
+
+   struct qlForwardValueQuote { 
+          string instanceID;
+          
+             string ObjectId;
+             string IborIndex;
+             string FixingDate;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "quotes::qlFuturesConvAdjustmentQuote"
+#pragma DCPS_DATA_KEY "quotes::qlFuturesConvAdjustmentQuote instanceID" 
+
+   struct qlFuturesConvAdjustmentQuote { 
+          string instanceID;
+          
+             string ObjectId;
+             string IborIndex;
+             string ImmCode;
+             double FuturesQuote;
+             double Volatility;
+             double MeanReversion;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "quotes::qlImpliedStdDevQuote"
+#pragma DCPS_DATA_KEY "quotes::qlImpliedStdDevQuote instanceID" 
+
+   struct qlImpliedStdDevQuote { 
+          string instanceID;
+          
+             string ObjectId;
+             string OptionType;
+             double AtmForwardValue;
+             double OptionPrice;
+             double Strike;
+             double Guess;
+             double Accuracy;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "quotes::qlLastFixingQuote"
+#pragma DCPS_DATA_KEY "quotes::qlLastFixingQuote instanceID" 
+
+   struct qlLastFixingQuote { 
+          string instanceID;
+          
+             string ObjectId;
+             string Index;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "quotes::qlRelinkableHandleQuote"
+#pragma DCPS_DATA_KEY "quotes::qlRelinkableHandleQuote instanceID" 
+
+   struct qlRelinkableHandleQuote { 
+          string instanceID;
+          
+             string ObjectId;
+             string CurrentLink;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "quotes::qlSimpleQuote"
+#pragma DCPS_DATA_KEY "quotes::qlSimpleQuote instanceID" 
+
+   struct qlSimpleQuote { 
+          string instanceID;
+          
+             string ObjectId;
+             double Value;
+             double TickValue;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "quotes::qlSimpleQuoteSetValue"
+#pragma DCPS_DATA_KEY "quotes::qlSimpleQuoteSetValue instanceID" 
+
+   struct qlSimpleQuoteSetValue { 
+          string instanceID;
+          
+             string ObjectId;
+             double Value;
+             boolean Trigger; 
+   };
+};
+
+#endif

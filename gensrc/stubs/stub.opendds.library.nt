@@ -1,0 +1,30 @@
+project(*%(libname)s) : dcps, install {
+
+  sharedname     = %(sharedname)s
+  dynamicflags   = QLDDS_BUILD_DLL
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs ../../qldds_utils 
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libpaths	+= $(QLDDS_ROOT)/qldds_utils
+  libs		+= qldds_utils 
+
+  TypeSupport_Files {
+        %(idlfile)s
+  }
+
+  IDL_Files {
+        %(idlfile)s
+        %(idlfileTypeSupport)s
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+}

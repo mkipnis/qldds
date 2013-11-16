@@ -1,0 +1,20 @@
+
+This directory contains QLDDS DataTypes and DataReaders
+
+
+
+Configuring and Compiling:
+--------------------------
+
+Unix:
+-----
+$ $ACE_ROOT/bin/mwc.pl -type gnuace QLDDS.mwc
+$ make
+
+Windows(Visual Studio Command Prompt 2008):
+-------------------------------------------
+> %ACE_ROOT%\bin\mwc.pl -type vc9 QLDDS_vc.mwc
+> msbuild.exe QLDDS_vc.mwc
+
+> %ACE_ROOT%\bin\mwc.pl -type vc9 QLDDSDataReaders_vc.mwc
+> msbuild.exe QLDDSDataReaders_vc.mwc

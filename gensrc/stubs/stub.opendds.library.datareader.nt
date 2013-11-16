@@ -1,0 +1,49 @@
+project(*%(libname)sDefaultDataReader) : dcps, install {
+
+  after    += *%(libname)s
+
+  staticname     = %(sharedname)sDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         %(readerImplHpp)s
+  }
+
+  Source_Files {
+         %(readerImplCpp)s
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}

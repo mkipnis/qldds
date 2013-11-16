@@ -1,0 +1,18 @@
+
+
+qldds_convert_utils.h - Type conversions between DDS and QuantLib types
+BasicDomainParticipant.h - Wrapper for OpenDDS
+NamingServiceUtils.h - Wrapper for TAO NamingService
+
+Configuring and Compiling:
+--------------------------
+
+Unix:
+-----
+$ $ACE_ROOT/bin/mwc.pl -type gnuace qldds_utils.mwc
+$ make
+
+Windows(Visual Studio Command Prompt 2008):
+-------------------------------------------
+> %ACE_ROOT%\bin\mwc.pl -type vc9 qldds_utils.mwc
+> msbuild.exe qldds_utils.mwc

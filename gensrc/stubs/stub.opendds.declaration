@@ -1,0 +1,2 @@
+module %(categoryName)s {
+%(bufferHpp)s};

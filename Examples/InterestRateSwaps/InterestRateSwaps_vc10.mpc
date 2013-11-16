@@ -1,0 +1,150 @@
+//
+//   Copyright (C) 2013 Mike Kipnis
+
+//   This file is part of QLDDS, a free-software/open-source library
+//   for utilization of QuantLib in the distributed envrionment via DDS.
+
+//   QLDDS is free software: you can redistribute it and/or modify it
+//   under the terms of the QLDDS license.  You should have received a
+//   copy of the license along with this program; if not, please email
+//   <dev@qldds.org>. The license is also available online at
+//   <http://qldds.org/qldds-license/>.
+
+//   This program is distributed in the hope that it will be useful, but WITHOUT
+//   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+//   FOR A PARTICULAR PURPOSE.  See the license for more details.
+//
+
+project(*IRSPortfolio) : dcps {
+  sharedname     = IRSPortfolio
+  dynamicflags   = IRSPORTFOLIOCOMMON_BUILD_DLL
+  libout         = .
+  requires += tao_orbsvcs
+  after    += Svc_Utils
+  includes      += $(TAO_ROOT)/orbsvcs
+  idlflags      += -I$(TAO_ROOT)/orbsvcs \
+                   -Wb,export_macro=IRSPortfolioCommon_Export \
+                   -Wb,export_include=IRSPortfolioCommon_Export.h
+  dcps_ts_flags += -Wb,export_macro=IRSPortfolioCommon_Export
+
+
+  TypeSupport_Files {
+    IRSPortfolio.idl
+  }
+
+  IDL_Files {
+    IRSPortfolioTypeSupport.idl
+    IRSPortfolio.idl
+  }
+
+  // We only want the generated files
+  Header_Files {
+  }
+
+  // We only want the generated files
+  Source_Files {
+  }
+}
+
+
+project(*MarketDataPublisher) : dcpsexe, svc_utils {
+        exename         =       MarketDataPublisher 
+        requires       +=       tao_orbsvcs
+
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(BOOST_ROOT)
+        libpaths       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(BOOST_ROOT)/lib
+
+        libs           +=       ratehelpers 
+
+        TypeSupport_Files {
+        }
+
+        IDL_Files {
+        }
+   
+        Header_Files {
+        }
+
+        Source_Files {
+                MarketDataPublisher.cpp
+        }
+}
+
+project(*InstrumentDataPublisher) : dcpsexe, svc_utils {
+        exename         =       InstrumentDataPublisher 
+        requires       +=       tao_orbsvcs
+
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(BOOST_ROOT)
+        libpaths       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(BOOST_ROOT)/lib
+
+        libs           +=       schedule vanillaswap
+
+        TypeSupport_Files {
+        }
+
+        IDL_Files {
+        }
+   
+        Header_Files {
+        }
+
+        Source_Files {
+                InstrumentDataPublisher.cpp
+        }
+}
+
+project(*IRSCalculator) : dcpsexe, svc_utils {
+        after          +=       *IRSPortfolio
+        exename         =       IRSCalculator 
+        requires       +=       tao_orbsvcs
+
+        staticflags += _SCL_SECURE_NO_WARNINGS
+
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) $(BOOST_ROOT)
+        libpaths       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS \
+                                $(QUANTLIB_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/Addins/Cpp/lib \
+                                $(OH_ROOT)/../log4cxx\msvc\lib $(BOOST_ROOT)/lib
+
+        libs           +=        ratehelpers vanillaswap schedule ratehelpersDefaultDataReaders vanillaswapDefaultDataReaders scheduleDefaultDataReaders IRSPortfolio
+        lit_libs       +=       addincpp-vc100-mt-gd-1_2_0 quantlibobjects-vc100-mt-gd-1_2_0 \
+                                objecthandler-vc100-mt-gd-1_2_0 log4cxxs-vc100-mt-gd-0_10_0 apr-vc100-mt-gd-0_10_0 \
+                                aprutil-vc100-mt-gd-0_10_0
+        TypeSupport_Files {
+        }
+
+        IDL_Files {
+        }
+   
+        Header_Files {
+        }
+
+        Source_Files {
+               IRSCalculator.cpp
+        }
+
+}
+
+project(*IRSClient) : dcpsexe, svc_utils {
+        after          +=       *IRSPortfolio
+        exename         =       IRSClient
+        requires       +=       tao_orbsvcs
+
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+        libpaths       +=       $(QLDDS_ROOT)/qldds_utils 
+
+        libs           +=       IRSPortfolio
+
+        TypeSupport_Files {
+        }
+
+        IDL_Files {
+        }
+   
+        Header_Files {
+        }
+
+        Source_Files {
+               IRSClient.cpp
+        }
+}
+

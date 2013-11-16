@@ -1,0 +1,9 @@
+#ifndef %(categoryName)s_IDL
+#define %(categoryName)s_IDL
+
+#include <qldds_types.idl>
+
+module %(categoryName)s {
+%(bufferIdl)s};
+
+#endif

@@ -1,0 +1,2983 @@
+// This file was generated automatically by qldds_gensrc.py.  If you edit this file
+// manually then your changes will be lost the next time gensrc runs.
+
+// This source code file was generated from the following stub:
+//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.mpc.datareader
+
+//
+//   Copyright (C) 2013 Mike Kipnis
+
+//   This file is part of QLDDS, a free-software/open-source library
+//   for utilization of QuantLib in the distributed envrionment via DDS.
+
+//   QLDDS is free software: you can redistribute it and/or modify it
+//   under the terms of the QLDDS license.  You should have received a
+//   copy of the license along with this program; if not, please email
+//   <dev@qldds.org>. The license is also available online at
+//   <http://qldds.org/qldds-license/>.
+
+//   This program is distributed in the hope that it will be useful, but WITHOUT
+//   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+//   FOR A PARTICULAR PURPOSE.  See the license for more details.
+//
+
+project(*garbagecollectionDefaultDataReader) : dcps, install {
+
+  after    += *garbagecollection
+
+  staticname     = garbagecollectionDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	garbagecollectionDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	garbagecollectionDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*loggingDefaultDataReader) : dcps, install {
+
+  after    += *logging
+
+  staticname     = loggingDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	loggingDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	loggingDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*ohutilsDefaultDataReader) : dcps, install {
+
+  after    += *ohutils
+
+  staticname     = ohutilsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	ohutilsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	ohutilsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*serializationDefaultDataReader) : dcps, install {
+
+  after    += *serialization
+
+  staticname     = serializationDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	serializationDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	serializationDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*valueobjectsDefaultDataReader) : dcps, install {
+
+  after    += *valueobjects
+
+  staticname     = valueobjectsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	valueobjectsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	valueobjectsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*abcdDefaultDataReader) : dcps, install {
+
+  after    += *abcd
+
+  staticname     = abcdDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	abcdDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	abcdDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*accountingenginesDefaultDataReader) : dcps, install {
+
+  after    += *accountingengines
+
+  staticname     = accountingenginesDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	accountingenginesDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	accountingenginesDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*alphaformDefaultDataReader) : dcps, install {
+
+  after    += *alphaform
+
+  staticname     = alphaformDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	alphaformDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	alphaformDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*assetswapDefaultDataReader) : dcps, install {
+
+  after    += *assetswap
+
+  staticname     = assetswapDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	assetswapDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	assetswapDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*bondsDefaultDataReader) : dcps, install {
+
+  after    += *bonds
+
+  staticname     = bondsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	bondsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	bondsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*browniangeneratorsDefaultDataReader) : dcps, install {
+
+  after    += *browniangenerators
+
+  staticname     = browniangeneratorsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	browniangeneratorsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	browniangeneratorsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*btpDefaultDataReader) : dcps, install {
+
+  after    += *btp
+
+  staticname     = btpDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	btpDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	btpDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*capfloorDefaultDataReader) : dcps, install {
+
+  after    += *capfloor
+
+  staticname     = capfloorDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	capfloorDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	capfloorDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*capletvolstructureDefaultDataReader) : dcps, install {
+
+  after    += *capletvolstructure
+
+  staticname     = capletvolstructureDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	capletvolstructureDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	capletvolstructureDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*cmsmarketDefaultDataReader) : dcps, install {
+
+  after    += *cmsmarket
+
+  staticname     = cmsmarketDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	cmsmarketDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	cmsmarketDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*correlationDefaultDataReader) : dcps, install {
+
+  after    += *correlation
+
+  staticname     = correlationDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	correlationDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	correlationDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*couponvectorsDefaultDataReader) : dcps, install {
+
+  after    += *couponvectors
+
+  staticname     = couponvectorsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	couponvectorsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	couponvectorsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*creditDefaultDataReader) : dcps, install {
+
+  after    += *credit
+
+  staticname     = creditDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	creditDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	creditDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*ctsmmcapletcalibrationDefaultDataReader) : dcps, install {
+
+  after    += *ctsmmcapletcalibration
+
+  staticname     = ctsmmcapletcalibrationDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	ctsmmcapletcalibrationDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	ctsmmcapletcalibrationDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*curvestateDefaultDataReader) : dcps, install {
+
+  after    += *curvestate
+
+  staticname     = curvestateDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	curvestateDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	curvestateDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*defaulttermstructuresDefaultDataReader) : dcps, install {
+
+  after    += *defaulttermstructures
+
+  staticname     = defaulttermstructuresDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	defaulttermstructuresDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	defaulttermstructuresDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*evolutiondescriptionDefaultDataReader) : dcps, install {
+
+  after    += *evolutiondescription
+
+  staticname     = evolutiondescriptionDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	evolutiondescriptionDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	evolutiondescriptionDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*exerciseDefaultDataReader) : dcps, install {
+
+  after    += *exercise
+
+  staticname     = exerciseDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	exerciseDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	exerciseDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*forwardrateagreementDefaultDataReader) : dcps, install {
+
+  after    += *forwardrateagreement
+
+  staticname     = forwardrateagreementDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	forwardrateagreementDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	forwardrateagreementDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*handlesDefaultDataReader) : dcps, install {
+
+  after    += *handles
+
+  staticname     = handlesDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	handlesDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	handlesDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*qlIndexDefaultDataReader) : dcps, install {
+
+  after    += *qlIndex
+
+  staticname     = qlIndexDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	qlIndexDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	qlIndexDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*instrumentsDefaultDataReader) : dcps, install {
+
+  after    += *instruments
+
+  staticname     = instrumentsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	instrumentsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	instrumentsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*interpolationDefaultDataReader) : dcps, install {
+
+  after    += *interpolation
+
+  staticname     = interpolationDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	interpolationDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	interpolationDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*legDefaultDataReader) : dcps, install {
+
+  after    += *leg
+
+  staticname     = legDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	legDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	legDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*marketmodelevolversDefaultDataReader) : dcps, install {
+
+  after    += *marketmodelevolvers
+
+  staticname     = marketmodelevolversDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	marketmodelevolversDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	marketmodelevolversDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*marketmodelsDefaultDataReader) : dcps, install {
+
+  after    += *marketmodels
+
+  staticname     = marketmodelsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	marketmodelsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	marketmodelsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*optimizationDefaultDataReader) : dcps, install {
+
+  after    += *optimization
+
+  staticname     = optimizationDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	optimizationDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	optimizationDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*optionsDefaultDataReader) : dcps, install {
+
+  after    += *options
+
+  staticname     = optionsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	optionsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	optionsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*overnightindexedswapDefaultDataReader) : dcps, install {
+
+  after    += *overnightindexedswap
+
+  staticname     = overnightindexedswapDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	overnightindexedswapDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	overnightindexedswapDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*payoffsDefaultDataReader) : dcps, install {
+
+  after    += *payoffs
+
+  staticname     = payoffsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	payoffsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	payoffsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*piecewiseyieldcurveDefaultDataReader) : dcps, install {
+
+  after    += *piecewiseyieldcurve
+
+  staticname     = piecewiseyieldcurveDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	piecewiseyieldcurveDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	piecewiseyieldcurveDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*pricingenginesDefaultDataReader) : dcps, install {
+
+  after    += *pricingengines
+
+  staticname     = pricingenginesDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	pricingenginesDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	pricingenginesDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*processesDefaultDataReader) : dcps, install {
+
+  after    += *processes
+
+  staticname     = processesDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	processesDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	processesDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*productsDefaultDataReader) : dcps, install {
+
+  after    += *products
+
+  staticname     = productsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	productsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	productsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*quotesDefaultDataReader) : dcps, install {
+
+  after    += *quotes
+
+  staticname     = quotesDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	quotesDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	quotesDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*randomsequencegeneratorDefaultDataReader) : dcps, install {
+
+  after    += *randomsequencegenerator
+
+  staticname     = randomsequencegeneratorDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	randomsequencegeneratorDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	randomsequencegeneratorDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*rangeaccrualDefaultDataReader) : dcps, install {
+
+  after    += *rangeaccrual
+
+  staticname     = rangeaccrualDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	rangeaccrualDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	rangeaccrualDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*ratehelpersDefaultDataReader) : dcps, install {
+
+  after    += *ratehelpers
+
+  staticname     = ratehelpersDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	ratehelpersDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	ratehelpersDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*scheduleDefaultDataReader) : dcps, install {
+
+  after    += *schedule
+
+  staticname     = scheduleDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	scheduleDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	scheduleDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*sequencestatisticsDefaultDataReader) : dcps, install {
+
+  after    += *sequencestatistics
+
+  staticname     = sequencestatisticsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	sequencestatisticsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	sequencestatisticsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*settingsDefaultDataReader) : dcps, install {
+
+  after    += *settings
+
+  staticname     = settingsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	settingsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	settingsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*shortratemodelsDefaultDataReader) : dcps, install {
+
+  after    += *shortratemodels
+
+  staticname     = shortratemodelsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	shortratemodelsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	shortratemodelsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*smilesectionDefaultDataReader) : dcps, install {
+
+  after    += *smilesection
+
+  staticname     = smilesectionDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	smilesectionDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	smilesectionDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*statisticsDefaultDataReader) : dcps, install {
+
+  after    += *statistics
+
+  staticname     = statisticsDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	statisticsDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	statisticsDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*swapDefaultDataReader) : dcps, install {
+
+  after    += *swap
+
+  staticname     = swapDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	swapDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	swapDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*swaptionDefaultDataReader) : dcps, install {
+
+  after    += *swaption
+
+  staticname     = swaptionDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	swaptionDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	swaptionDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*swaptionvolstructureDefaultDataReader) : dcps, install {
+
+  after    += *swaptionvolstructure
+
+  staticname     = swaptionvolstructureDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	swaptionvolstructureDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	swaptionvolstructureDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*termstructuresDefaultDataReader) : dcps, install {
+
+  after    += *termstructures
+
+  staticname     = termstructuresDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	termstructuresDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	termstructuresDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*timeseriesDefaultDataReader) : dcps, install {
+
+  after    += *timeseries
+
+  staticname     = timeseriesDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	timeseriesDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	timeseriesDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*utilitiesDefaultDataReader) : dcps, install {
+
+  after    += *utilities
+
+  staticname     = utilitiesDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	utilitiesDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	utilitiesDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*vanillaswapDefaultDataReader) : dcps, install {
+
+  after    += *vanillaswap
+
+  staticname     = vanillaswapDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	vanillaswapDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	vanillaswapDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*volatilitiesDefaultDataReader) : dcps, install {
+
+  after    += *volatilities
+
+  staticname     = volatilitiesDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	volatilitiesDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	volatilitiesDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+project(*volatilityDefaultDataReader) : dcps, install {
+
+  after    += *volatility
+
+  staticname     = volatilityDefaultDataReader
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I../../qldds_utils
+
+  dcps_ts_flags += -I../../qldds_utils
+
+  staticflags += _SCL_SECURE_NO_WARNINGS
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         	volatilityDataReaderListenerImpl.hpp
+
+  }
+
+  Source_Files {
+         	volatilityDataReaderListenerImpl.cpp
+
+  }
+
+  specific ( vc9 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = 3
+    Release::runtime_library = 2
+
+  }
+
+
+  specific ( vc10 ) {
+
+    staticflags -= ACE_AS_STATIC_LIBS TAO_AS_STATIC_LIBS
+
+    Debug::runtime_library = MultiThreadedDebugDLL
+    Release::runtime_library = MultiThreadedDLL
+
+  }
+
+
+}
+
+

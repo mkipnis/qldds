@@ -1,0 +1,20 @@
+#include <qlo/qladdindefines.hpp>
+#include <qlo/handle.hpp>
+%(categoryIncludes)s
+#include <qlo/conversions/all.hpp>
+#include <oh/property.hpp>
+
+#if defined(_MSC_VER) || defined(_WIN32) 
+#include <Addins/Cpp/%(qlAddinName)s.hpp>
+#else
+#include <qlo/Addins/Cpp/%(qlAddinName)s.hpp>
+#endif
+
+#include "%(categoryName)sTypeSupportC.h"
+
+#include <DataReaderListener.hpp>
+
+namespace %(categoryName)s
+{
+%(bufferHpp)s;
+}

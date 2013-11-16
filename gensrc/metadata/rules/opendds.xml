@@ -1,0 +1,97 @@
+
+<root>
+
+  <RuleGroups>
+
+    <RuleGroup name='idlDeclaration' indent='3' delimiter=';&#10;'>
+      <Wrap>&#10;%s;</Wrap>
+      <Rules>
+        <Rule tensorRank='scalar' type='QuantLib::Date'>%(indent)s string %(name)s</Rule>
+        <Rule tensorRank='scalar' superType='libraryClass' type='QuantLib::Quote'>%(indent)s double %(name)s</Rule>
+        <Rule tensorRank='scalar' superType='libToHandle' type='QuantLib::Quote'>%(indent)s double %(name)s</Rule>
+        <Rule tensorRank='scalar' nativeType='any'>%(indent)s boolean %(name)s</Rule>
+        <Rule tensorRank='scalar' nativeType='bool'>%(indent)s boolean %(name)s</Rule>
+        <Rule tensorRank='scalar' nativeType='string'>%(indent)s string %(name)s</Rule>
+        <Rule tensorRank='scalar'>%(indent)s %(nativeType)s %(name)s</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Date'>%(indent)s CORBA::StringSeq %(name)s</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Period'>%(indent)s CORBA::StringSeq %(name)s</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Quote'>%(indent)s CORBA::DoubleSeq %(name)s</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Real'>%(indent)s CORBA::DoubleSeq %(name)s</Rule>
+        <Rule tensorRank='vector' nativeType='string'>%(indent)s CORBA::StringSeq %(name)s</Rule>
+        <Rule tensorRank='vector' nativeType='double'>%(indent)s CORBA::DoubleSeq %(name)s</Rule>
+        <Rule tensorRank='vector' nativeType='long'>%(indent)s CORBA::LongSeq %(name)s</Rule>
+        <Rule tensorRank='vector' nativeType='bool'>%(indent)s CORBA::BooleanSeq %(name)s</Rule>
+        <Rule tensorRank='matrix' type='QuantLib::Quote'>%(indent)s qldds_utils::Matrix %(name)s</Rule>
+        <Rule tensorRank='matrix' nativeType='any'>%(indent)s std::vector&lt;std::vector &lt;ObjectHandler::property_t&gt; &gt; %(name)s</Rule>
+        <Rule tensorRank='matrix' nativeType='string'>%(indent)s std::vector&lt;std::vector &lt;string&gt; &gt; %(name)s</Rule>
+        <Rule tensorRank='matrix'>%(indent)s std::vector&lt;std::vector&lt;%(nativeType)s&gt; &gt; %(name)s</Rule>
+      </Rules>
+    </RuleGroup>
+
+    <RuleGroup name='functionDeclaration' indent='3' delimiter=',&#10;'>
+      <Wrap>&#10;%s</Wrap>
+      <Rules>        
+        <Rule tensorRank='vector' nativeType='double'>%(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,CORBA::DoubleSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Quote'>%(indent)s qldds_utils::vector_cast&lt;ObjectHandler::property_t,CORBA::DoubleSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Period'>%(indent)s qldds_utils::vector_cast_str&lt;ObjectHandler::property_t,CORBA::StringSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Date'>%(indent)s qldds_utils::vector_cast&lt;ObjectHandler::property_t,CORBA::StringSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' nativeType='string'>%(indent)s qldds_utils::vector_cast&lt;std::%(nativeType)s,CORBA::StringSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' nativeType='long'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,CORBA::LongSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' nativeType='double'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,CORBA::DoubleSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' nativeType='bool'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,CORBA::BooleanSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,CORBA::StringSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='matrix' type='QuantLib::Quote'>%(indent)s qldds_utils::matrix_cast&lt;ObjectHandler::property_t,qldds_utils::Matrix&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='matrix' type='QuantLib::Period'>%(indent)s qldds_utils::matrix_cast&lt;ObjectHandler::property_t,qldds_utils::StringSeqSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='matrix' nativeType='string'>%(indent)s qldds_utils::matrix_cast&lt;std::%(nativeType)s,CORBA::StringSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='matrix' nativeType='double'>%(indent)s qldds_utils::matrix_cast&lt;%(nativeType)s,CORBA::DoubleSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='scalar' type='QuantLib::Real'> %(indent)s static_cast&lt;%(nativeType)s&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='scalar' type='QuantLib::Natural'> %(indent)s static_cast&lt;%(nativeType)s&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='scalar' type='QuantLib::Date' default='true'> %(indent)s qldds_utils::from_iso_string_to_oh_property(obj.%(name)s.in())</Rule>
+        <Rule tensorRank='scalar' type='QuantLib::Date'> %(indent)s qldds_utils::from_iso_string(obj.%(name)s.in() )</Rule>
+        <Rule tensorRank='scalar' type='QuantLib::Quote'> %(indent)s obj.%(name)s </Rule>
+        <Rule tensorRank='scalar' nativeType='string'> %(indent)s obj.%(name)s.in()</Rule>
+        <Rule tensorRank='scalar' nativeType='any'> %(indent)s obj.%(name)s</Rule>
+        <Rule tensorRank='scalar'> %(indent)s static_cast&lt;%(nativeType)s&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='scalar' nativeType='any'>%(indent)s obj.%(name)s</Rule>
+        <Rule tensorRank='scalar' nativeType='string'>%(indent)s static_cast&lt;std::%(nativeType)s &gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='scalar' superType='libraryClass' type='QuantLib::Quote'>%(indent)s ObjectHandler::property_t (static_cast&lt;std::%(nativeType)s &gt;(obj.%(name)s))</Rule>
+        <Rule tensorRank='scalar' superType='libToHandle' type='QuantLib::Quote'>%(indent)s ObjectHandler::property_t (qldds_utils::string_double_cast(obj.%(name)s))</Rule>
+        <Rule tensorRank='scalar' nativeType='any'>%(indent)s ObjectHandler::property_t ( static_cast&lt;bool&gt;(obj.%(name)s) )</Rule>
+        <Rule tensorRank='scalar' nativeType='string' default='true'>%(indent)s ObjectHandler::property_t (static_cast&lt;std::%(nativeType)s &gt;(obj.%(name)s))</Rule>
+        <Rule tensorRank='scalar' default='true'>%(indent)s ObjectHandler::property_t (static_cast&lt;%(nativeType)s &gt;(obj.%(name)s))</Rule>
+        <Rule tensorRank='scalar' nativeType='string'>%(indent)s static_cast&lt; const std::string &gt; (obj.%(name)s)</Rule>
+        <Rule tensorRank='scalar'>%(indent)s static_cast&lt;%(nativeType)s&gt; (obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Date'>%(indent)s std::vector&lt;ObjectHandler::property_t&gt; (  qldds_utils::%(nativeType)s_vector_cast (obj.%(name)s) )</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Period'>%(indent)s std::vector&lt;ObjectHandler::property_t&gt; ( qldds_utils::%(nativeType)s_vector_cast (obj.%(name)s) )</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Quote'>%(indent)s std::vector&lt;ObjectHandler::property_t&gt; ( qldds_utils::%(nativeType)s_vector_cast (obj.%(name)s) )</Rule>
+        <Rule tensorRank='vector' nativeType='string'>%(indent)s std::vector&lt;std::%(nativeType)s&gt; ( qldds_utils::string_vector_cast2(obj.%(name)s) )</Rule>
+        <Rule tensorRank='vector'>%(indent)s std::vector&lt;%(nativeType)s&gt;(qldds_utils::%(nativeType)s_vector_cast(obj.%(name)s))</Rule>
+        <Rule tensorRank='vector' nativeType='any'>%(indent)s std::vector&lt;ObjectHandler::property_t&gt; ( static_cast&lt;%(nativeType)s &gt;(obj.%(name)s) )</Rule>
+        <Rule tensorRank='vector' nativeType='string'>%(indent)s std::vector&lt;std::string&gt; (qldds_utils::string_vector_cast(obj.%(name)s))</Rule>
+        <Rule tensorRank='matrix' type='QuantLib::Quote'>%(indent)s std::vector&lt;std::vector &lt;ObjectHandler::property_t&gt; &gt; (qldds_utils::double_matrix_cast(obj.%(name)s))</Rule>
+        <Rule tensorRank='matrix' nativeType='any'>%(indent)s std::vector&lt;std::vector &lt;ObjectHandler::property_t&gt; &gt; qldds_utils::double_matrix_cast(obj.%(name)s)</Rule>
+        <Rule tensorRank='matrix' nativeType='string'>%(indent)s std::vector&lt;std::vector &lt;std::string&gt; &gt; (obj.%(name)s)</Rule>
+        <Rule tensorRank='matrix'>%(indent)s std::vector&lt;std::vector&lt;%(nativeType)s&gt; &gt; (obj.%(name)s)</Rule>
+      </Rules>
+    </RuleGroup>
+
+    <RuleGroup name='functionReturnType'>
+      <Wrap>&#10;%s</Wrap>
+      <Rules>
+	<Rule default='true'>ObjectHandler::property_t</Rule>
+        <Rule tensorRank='scalar' nativeType='string'>String</Rule>
+        <Rule tensorRank='scalar' nativeType='any'>Property</Rule>
+        <Rule tensorRank='scalar' nativeType='void'>bool</Rule>
+        <Rule tensorRank='scalar'>%(nativeType)s</Rule>
+        <Rule tensorRank='vector' nativeType='string'>stringVector</Rule>
+        <Rule tensorRank='vector' nativeType='any'>std::vector&lt;ObjectHandler::property_t&gt;</Rule>
+        <Rule tensorRank='vector'>std::vector&lt;%(nativeType)s&gt;</Rule>
+        <Rule tensorRank='matrix' nativeType='string'>std::vector&lt;std::vector&lt;std::string&gt; &gt;</Rule>
+        <Rule tensorRank='matrix'>std::vector&lt;std::vector&lt;%(nativeType)s&gt; &gt;</Rule>
+      </Rules>
+    </RuleGroup>
+
+  </RuleGroups>
+
+</root>
+

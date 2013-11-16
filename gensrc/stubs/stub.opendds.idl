@@ -1,0 +1,8 @@
+
+#pragma DCPS_DATA_TYPE "%(categoryName)s::%(functionName)s"
+#pragma DCPS_DATA_KEY "%(categoryName)s::%(functionName)s instanceID" 
+
+   struct %(functionName)s { 
+          string instanceID;
+          %(idlDeclaration)s 
+   };

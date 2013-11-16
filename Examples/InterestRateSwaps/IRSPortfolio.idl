@@ -1,0 +1,44 @@
+/*
+   Copyright (C) 2013 Mike Kipnis
+
+   This file is part of QLDDS, a free-software/open-source library
+   for utilization of QuantLib in the distributed envrionment via DDS.
+
+   QLDDS is free software: you can redistribute it and/or modify it
+   under the terms of the QLDDS license.  You should have received a
+   copy of the license along with this program; if not, please email
+   <dev@qldds.org>. The license is also available online at
+   <http://qldds.org/qldds-license/>.
+
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE.  See the license for more details.
+*/
+
+#ifndef IRS_PORTFOLIO_IDL
+#define IRS_PORTFOLIO_IDL
+
+module IRS
+{
+#pragma DCPS_DATA_TYPE "IRS::InterestRateSwap"
+#pragma DCPS_DATA_KEY "IRS::InterestRateSwap swap_description" 
+
+  struct InterestRateSwap 
+  {
+    string swap_description;
+    double npv;
+  };
+
+  typedef sequence< InterestRateSwap > IRSSeq; 
+
+#pragma DCPS_DATA_TYPE "IRS::Portfolio"
+#pragma DCPS_DATA_KEY "IRS::Portfolio term_structure"
+
+  struct Portfolio
+  {
+    string term_structure;
+    IRSSeq swaps;
+  };
+};
+
+#endif

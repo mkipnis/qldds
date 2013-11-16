@@ -1,0 +1,35 @@
+
+project(%(libname)sDefaultDataReader) : dcps, install {
+
+  after    += *%(libname)s
+
+  sharedname     = %(sharedname)sDefaultDataReader
+  dynamicflags   = QLDDS_BUILD_DLL
+  libout         = .
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
+                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
+                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+
+  libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils %(sharedname)s 
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+         %(readerImplHpp)s
+  }
+
+  Source_Files {
+         %(readerImplCpp)s
+  }
+
+}

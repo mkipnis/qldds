@@ -1,0 +1,49 @@
+/*
+   Copyright (C) 2013 Mike Kipnis
+
+   This file is part of QLDDS, a free-software/open-source library
+   for utilization of QuantLib in the distributed envrionment via DDS.
+
+   QLDDS is free software: you can redistribute it and/or modify it
+   under the terms of the QLDDS license.  You should have received a
+   copy of the license along with this program; if not, please email
+   <dev@qldds.org>. The license is also available online at
+   <http://qldds.org/qldds-license/>.
+
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE.  See the license for more details.
+*/
+// This file was generated automatically by qldds_gensrc.py.  If you edit this file
+// manually then your changes will be lost the next time gensrc runs.
+
+// This source code file was generated from the following stub:
+//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.module
+
+#ifndef processes_IDL
+#define processes_IDL
+
+#include <qldds_types.idl>
+
+module processes {
+
+#pragma DCPS_DATA_TYPE "processes::qlGeneralizedBlackScholesProcess"
+#pragma DCPS_DATA_KEY "processes::qlGeneralizedBlackScholesProcess instanceID" 
+
+   struct qlGeneralizedBlackScholesProcess { 
+          string instanceID;
+          
+             string ObjectId;
+             string BlackVolID;
+             double Underlying;
+             string DayCounter;
+             string SettlementDate;
+             double RiskFreeRate;
+             double DividendYield;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+};
+
+#endif

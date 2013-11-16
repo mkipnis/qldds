@@ -1,0 +1,29 @@
+Interest Rate Swaps
+-------------------
+
+Scenario:
+---------
+InstrumentDataPublisher publishes interest rate swap contract information.   
+MarketDataPublisher publishes components of swap curves that include Deposits, FRAs and Swaps.  
+Two calculators subscribe to swap contract information and market data,
+reprice received swaps against the latest market data and republish priced portfolio of swaps to clients.  
+
+Configuring and Compiling:
+--------------------------
+
+Unix:
+-----
+$ $ACE_ROOT/bin/mwc.pl -type gnuace InterestRateSwaps.mwc 
+$ make
+
+Windows(Visual Studio Command Prompt 2008):
+-------------------------------------------
+> %ACE_ROOT%\bin\mwc.pl -type vc9 InterestRateSwaps_vc9.mwc 
+> msbuild.exe InterestRateSwaps_vc9.sln
+
+Start scripts:
+--------------
+
+Unix : run_test.pl
+Windows : run_test.bat
+

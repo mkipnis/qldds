@@ -1,0 +1,117 @@
+/*
+   Copyright (C) 2013 Mike Kipnis
+
+   This file is part of QLDDS, a free-software/open-source library
+   for utilization of QuantLib in the distributed envrionment via DDS.
+
+   QLDDS is free software: you can redistribute it and/or modify it
+   under the terms of the QLDDS license.  You should have received a
+   copy of the license along with this program; if not, please email
+   <dev@qldds.org>. The license is also available online at
+   <http://qldds.org/qldds-license/>.
+
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE.  See the license for more details.
+*/
+// This file was generated automatically by qldds_gensrc.py.  If you edit this file
+// manually then your changes will be lost the next time gensrc runs.
+
+// This source code file was generated from the following stub:
+//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.module
+
+#ifndef optimization_IDL
+#define optimization_IDL
+
+#include <qldds_types.idl>
+
+module optimization {
+
+#pragma DCPS_DATA_TYPE "optimization::qlArmijoLineSearch"
+#pragma DCPS_DATA_KEY "optimization::qlArmijoLineSearch instanceID" 
+
+   struct qlArmijoLineSearch { 
+          string instanceID;
+          
+             string ObjectId;
+             double Epsilon;
+             double Alpha;
+             double Beta;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "optimization::qlConjugateGradient"
+#pragma DCPS_DATA_KEY "optimization::qlConjugateGradient instanceID" 
+
+   struct qlConjugateGradient { 
+          string instanceID;
+          
+             string ObjectId;
+             string LineSearch;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "optimization::qlEndCriteria"
+#pragma DCPS_DATA_KEY "optimization::qlEndCriteria instanceID" 
+
+   struct qlEndCriteria { 
+          string instanceID;
+          
+             string ObjectId;
+             long MaxIterations;
+             long MaxStationaryStateIterations;
+             double RootEpsilon;
+             double FunctionEpsilon;
+             double GradientNormEpsilon;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "optimization::qlLevenbergMarquardt"
+#pragma DCPS_DATA_KEY "optimization::qlLevenbergMarquardt instanceID" 
+
+   struct qlLevenbergMarquardt { 
+          string instanceID;
+          
+             string ObjectId;
+             double Epsfcn;
+             double Xtol;
+             double Gtol;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "optimization::qlSimplex"
+#pragma DCPS_DATA_KEY "optimization::qlSimplex instanceID" 
+
+   struct qlSimplex { 
+          string instanceID;
+          
+             string ObjectId;
+             double Lambda;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "optimization::qlSteepestDescent"
+#pragma DCPS_DATA_KEY "optimization::qlSteepestDescent instanceID" 
+
+   struct qlSteepestDescent { 
+          string instanceID;
+          
+             string ObjectId;
+             string LineSearch;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+};
+
+#endif

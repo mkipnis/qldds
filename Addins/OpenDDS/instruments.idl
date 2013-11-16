@@ -1,0 +1,62 @@
+/*
+   Copyright (C) 2013 Mike Kipnis
+
+   This file is part of QLDDS, a free-software/open-source library
+   for utilization of QuantLib in the distributed envrionment via DDS.
+
+   QLDDS is free software: you can redistribute it and/or modify it
+   under the terms of the QLDDS license.  You should have received a
+   copy of the license along with this program; if not, please email
+   <dev@qldds.org>. The license is also available online at
+   <http://qldds.org/qldds-license/>.
+
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE.  See the license for more details.
+*/
+// This file was generated automatically by qldds_gensrc.py.  If you edit this file
+// manually then your changes will be lost the next time gensrc runs.
+
+// This source code file was generated from the following stub:
+//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.module
+
+#ifndef instruments_IDL
+#define instruments_IDL
+
+#include <qldds_types.idl>
+
+module instruments {
+
+#pragma DCPS_DATA_TYPE "instruments::qlInstrumentNPV"
+#pragma DCPS_DATA_KEY "instruments::qlInstrumentNPV instanceID" 
+
+   struct qlInstrumentNPV { 
+          string instanceID;
+          
+             string ObjectId;
+             boolean Trigger; 
+   };
+
+#pragma DCPS_DATA_TYPE "instruments::qlInstrumentSetPricingEngine"
+#pragma DCPS_DATA_KEY "instruments::qlInstrumentSetPricingEngine instanceID" 
+
+   struct qlInstrumentSetPricingEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string PricingEngine;
+             boolean Trigger; 
+   };
+
+#pragma DCPS_DATA_TYPE "instruments::qlInstrumentValuationDate"
+#pragma DCPS_DATA_KEY "instruments::qlInstrumentValuationDate instanceID" 
+
+   struct qlInstrumentValuationDate { 
+          string instanceID;
+          
+             string ObjectId;
+             boolean Trigger; 
+   };
+};
+
+#endif

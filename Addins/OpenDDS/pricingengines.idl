@@ -1,0 +1,228 @@
+/*
+   Copyright (C) 2013 Mike Kipnis
+
+   This file is part of QLDDS, a free-software/open-source library
+   for utilization of QuantLib in the distributed envrionment via DDS.
+
+   QLDDS is free software: you can redistribute it and/or modify it
+   under the terms of the QLDDS license.  You should have received a
+   copy of the license along with this program; if not, please email
+   <dev@qldds.org>. The license is also available online at
+   <http://qldds.org/qldds-license/>.
+
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE.  See the license for more details.
+*/
+// This file was generated automatically by qldds_gensrc.py.  If you edit this file
+// manually then your changes will be lost the next time gensrc runs.
+
+// This source code file was generated from the following stub:
+//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.module
+
+#ifndef pricingengines_IDL
+#define pricingengines_IDL
+
+#include <qldds_types.idl>
+
+module pricingengines {
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlAnalyticCapFloorEngine"
+#pragma DCPS_DATA_KEY "pricingengines::qlAnalyticCapFloorEngine instanceID" 
+
+   struct qlAnalyticCapFloorEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string HandleModel;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlBinomialPricingEngine"
+#pragma DCPS_DATA_KEY "pricingengines::qlBinomialPricingEngine instanceID" 
+
+   struct qlBinomialPricingEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string EngineID;
+             string ProcessID;
+             long TimeSteps;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlBlackCalculator"
+#pragma DCPS_DATA_KEY "pricingengines::qlBlackCalculator instanceID" 
+
+   struct qlBlackCalculator { 
+          string instanceID;
+          
+             string ObjectId;
+             string OptionType;
+             double Strike;
+             double AtmForwardValue;
+             double StdDev;
+             double Deflator;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlBlackCalculator2"
+#pragma DCPS_DATA_KEY "pricingengines::qlBlackCalculator2 instanceID" 
+
+   struct qlBlackCalculator2 { 
+          string instanceID;
+          
+             string ObjectId;
+             string PayoffID;
+             double AtmForwardValue;
+             double StdDev;
+             double Deflator;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlBlackCapFloorEngine"
+#pragma DCPS_DATA_KEY "pricingengines::qlBlackCapFloorEngine instanceID" 
+
+   struct qlBlackCapFloorEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string YieldCurve;
+             string VolTS;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlBlackCapFloorEngine2"
+#pragma DCPS_DATA_KEY "pricingengines::qlBlackCapFloorEngine2 instanceID" 
+
+   struct qlBlackCapFloorEngine2 { 
+          string instanceID;
+          
+             string ObjectId;
+             string YieldCurve;
+             double Vol;
+             string DayCounter;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlBlackScholesCalculator"
+#pragma DCPS_DATA_KEY "pricingengines::qlBlackScholesCalculator instanceID" 
+
+   struct qlBlackScholesCalculator { 
+          string instanceID;
+          
+             string ObjectId;
+             string OptionType;
+             double Strike;
+             double Spot;
+             double Growth;
+             double StdDev;
+             double Deflator;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlBlackScholesCalculator2"
+#pragma DCPS_DATA_KEY "pricingengines::qlBlackScholesCalculator2 instanceID" 
+
+   struct qlBlackScholesCalculator2 { 
+          string instanceID;
+          
+             string ObjectId;
+             string PayoffID;
+             double Spot;
+             double Growth;
+             double StdDev;
+             double Deflator;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlBlackSwaptionEngine"
+#pragma DCPS_DATA_KEY "pricingengines::qlBlackSwaptionEngine instanceID" 
+
+   struct qlBlackSwaptionEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string YieldCurve;
+             string VolTS;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlBlackSwaptionEngine2"
+#pragma DCPS_DATA_KEY "pricingengines::qlBlackSwaptionEngine2 instanceID" 
+
+   struct qlBlackSwaptionEngine2 { 
+          string instanceID;
+          
+             string ObjectId;
+             string YieldCurve;
+             double Vol;
+             string DayCounter;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlBondEngine"
+#pragma DCPS_DATA_KEY "pricingengines::qlBondEngine instanceID" 
+
+   struct qlBondEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string YieldCurve;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlDiscountingSwapEngine"
+#pragma DCPS_DATA_KEY "pricingengines::qlDiscountingSwapEngine instanceID" 
+
+   struct qlDiscountingSwapEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string YieldCurve;
+             boolean IncludeSettlDate;
+             string SettlementDate;
+             string NpvDate;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlPricingEngine"
+#pragma DCPS_DATA_KEY "pricingengines::qlPricingEngine instanceID" 
+
+   struct qlPricingEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string EngineID;
+             string ProcessID;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+};
+
+#endif

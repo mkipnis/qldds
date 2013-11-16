@@ -1,0 +1,75 @@
+//
+//   Copyright (C) 2013 Mike Kipnis
+
+//   This file is part of QLDDS, a free-software/open-source library
+//   for utilization of QuantLib in the distributed envrionment via DDS.
+
+//   QLDDS is free software: you can redistribute it and/or modify it
+//   under the terms of the QLDDS license.  You should have received a
+//   copy of the license along with this program; if not, please email
+//   <dev@qldds.org>. The license is also available online at
+//   <http://qldds.org/qldds-license/>.
+
+//   This program is distributed in the hope that it will be useful, but WITHOUT
+//   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+//   FOR A PARTICULAR PURPOSE.  See the license for more details.
+//
+
+
+project(*MarketDataPublisher) : dcpsexe, svc_utils {
+        exename         =       MarketDataPublisher 
+        requires       +=       tao_orbsvcs
+
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+        libpaths       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+
+        libs           +=       qldds_utils ratehelpers swaptionvolstructure 
+
+        Source_Files {
+                MarketDataPublisher.cpp
+        }
+}
+
+project(*IDL): taoidldefaults, anytypecode {
+  IDL_Files {
+    SwaptionServer.idl
+  }
+  custom_only = 1
+}
+
+project(*Server) : dcpsexe, svc_utils {
+        exename         =       SwaptionServer 
+        requires       +=       tao_orbsvcs
+
+        staticflags    +=       _SCL_SECURE_NO_WARNINGS
+
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) $(BOOST_ROOT)
+        libpaths       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS \
+                                $(QUANTLIB_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/Addins/Cpp/lib \
+                                $(OH_ROOT)/../log4cxx\msvc\lib $(BOOST_ROOT)/lib
+
+        libs           +=       qldds_utils ratehelpers ratehelpersDefaultDataReaders swaptionvolstructure swaptionvolstructureDefaultDataReaders TAO_CosNaming
+        lit_libs       +=       addincpp-vc90-mt-gd-1_2_0 quantlibobjects-vc90-mt-gd-1_2_0 \
+                                objecthandler-vc90-mt-gd-1_2_0 log4cxxs-vc90-mt-gd-0_10_0 apr-vc90-mt-gd-0_10_0 \
+                                aprutil-vc90-mt-gd-0_10_0
+
+        
+        Source_Files {
+               SwaptionServer.cpp
+               SwaptionServerImpl.cpp  
+        }
+}
+
+project(*Client) : dcpsexe, svc_utils {
+        exename         =       Client
+        requires       +=       tao_orbsvcs
+
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT) $(QUANTLIB_ADDIN_ROOT)
+        libpaths       +=       $(QLDDS_ROOT)/qldds_utils
+
+        libs           +=       qldds_utils TAO_CosNaming
+
+        Source_Files {
+               SwaptionClient.cpp
+        }
+}
