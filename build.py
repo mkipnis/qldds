@@ -165,6 +165,9 @@ if compilerType == '':
       compilerType = 'vc10'
     elif framework[0:4] == 'v2.0':
       compilerType = 'vc9'
+    else:
+      print( "ERROR: Unsupport Visual Studio Framework. Please use Visual Studio 2008 or 2010.");
+      sys.exit(1)
   else:
     compilerType = 'gnuace'
 

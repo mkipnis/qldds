@@ -1,7 +1,7 @@
 Configuring and Building QLDDS
 ------------------------------
 
-Dependences:
+Dependencies:
 	OpenDDS-3.4.1
 	QuantLib-1.2.1 or later
 	ObjectHandler-1.2.0	
@@ -44,5 +44,5 @@ $ . ./qldds_env.sh
 $ python build.py
 
 Windows:
-> . qldds_env.bat 
+> call qldds_env.bat 
 > python build.py
