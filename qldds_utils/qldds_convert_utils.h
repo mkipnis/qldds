@@ -33,17 +33,9 @@
 namespace qldds_utils
 {
 
- inline CORBA::StringSeq convertStringVector( std::vector<std::string>& strVector )
- {
-   CORBA::StringSeq strSeq;
-   strSeq.length( strVector.size() );
-
-   for( unsigned int tt = 0; tt<strVector.size(); tt++ )
-     strSeq[tt] = CORBA::string_dup( strVector[tt].c_str() );
-
-   return strSeq;
-  }
-
+  //
+  // Converts ISO date string into a SerialNumber
+  //
   inline long from_iso_string( const char* iso_date )
   {
     if ( iso_date == NULL || strlen(iso_date) == 0 )
@@ -54,6 +46,9 @@ namespace qldds_utils
     return QuantLib::Date( date.day(), QuantLib::Month(date.month().as_number()), date.year() ).serialNumber();
   }
 
+  //
+  // Converts ISO date string into an ObjectHandler::property_t
+  //
   inline ObjectHandler::property_t from_iso_string_to_oh_property( std::string iso_date )
   {
     if ( iso_date.empty() )
@@ -64,6 +59,9 @@ namespace qldds_utils
     return ObjectHandler::property_t(QuantLib::Date( date.day(), QuantLib::Month(date.month().as_number()), date.year() ).serialNumber());
   }
 
+  //
+  // Converts double into a QuantLib::RelinkableHandle<QuantLib::Quote>
+  //
   inline ObjectHandler::property_t double_to_RelinkableHandle( double quote )
   {
     boost::shared_ptr<QuantLib::SimpleQuote> cp( new QuantLib::SimpleQuote( quote ) );
@@ -75,6 +73,9 @@ namespace qldds_utils
     return ObjectHandler::property_t(cp);
   }
 
+  //
+  // Converts std::vector<type> to CORBA::typeSeq
+  //
   template<class QL_TYPE, class DDS_TYPE>
   std::vector<QL_TYPE> vector_cast( DDS_TYPE& data )
   {
@@ -86,6 +87,9 @@ namespace qldds_utils
      return ql_data;
   }
 
+  //
+  // Converts std::vector<std::string> to CORBA::StringSeq
+  //
   template<class QL_TYPE, class DDS_TYPE>
   static std::vector<QL_TYPE> vector_cast_str( DDS_TYPE& data )
   {
@@ -100,6 +104,9 @@ namespace qldds_utils
   }
 
 
+  //
+  // Converts Matrix from CORBA Types to QuantLib types
+  //
   template<class QL_TYPE, class DDS_TYPE>
   static std::vector< std::vector < QL_TYPE > > matrix_cast( DDS_TYPE& data )
   {

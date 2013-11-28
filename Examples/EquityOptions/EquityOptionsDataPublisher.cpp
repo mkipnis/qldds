@@ -174,7 +174,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 
     for ( int tt = 0; tt < number_of_ticker; tt++ )
     {
-      float underlying = 50; 
+      float underlying = 30; 
       float risk_free_rate = 0.03;
 
       processes.ticker = CORBA::string_dup ( tickers[ tt ].c_str() );
@@ -186,9 +186,9 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 
       processes.process.Underlying = underlying;
       processes.process.RiskFreeRate = risk_free_rate;
-	  processes.process.DividendYield = 0.0; 
+      processes.process.DividendYield = 0.0; 
 
-      object_id = "qlGeneralizedBlackScholesProcess/" + tickers[ tt ] + "/Put";
+      object_id = "qlGeneralizedBlackScholesProcess/" + tickers[ tt ];
       processes.process.ObjectId = CORBA::string_dup( object_id.c_str() );
 
       cout << "Publishing Generalized Black Scholes Process of an Option: " << processes.ticker << endl;
@@ -276,9 +276,12 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     double underlying = 20;
     double risk_free_rate = 0.03;
 
+    //
+    // Publishing updated on the underlying tickers.
+    //
     for ( int times = 0; times < 30; times++ ) 
     {
-      underlying ++;
+      underlying++; // Incrementing price
  
       for ( int tt = 0; tt < number_of_ticker; tt++ )
       {
@@ -292,7 +295,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
         processes.process.Underlying = underlying;
         processes.process.RiskFreeRate = risk_free_rate;
 
-        object_id = "qlGeneralizedBlackScholesProcess/" + tickers[ tt ] + "/Put";
+        object_id = "qlGeneralizedBlackScholesProcess/" + tickers[ tt ];
         processes.process.ObjectId = CORBA::string_dup( object_id.c_str() );
 
         cout << "Publishing Generalized Black Scholes Process of an Option: " << processes.ticker << endl;
