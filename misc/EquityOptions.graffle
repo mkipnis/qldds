@@ -53,7 +53,7 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{347.5, 189}, {62, 15}}</string>
+			<string>{{356, 189}, {69.5, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>Head</key>
@@ -135,7 +135,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{167.774, 228.551}, {89.325, 15}}</string>
+			<string>{{341.323, 239.533}, {87.69, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>Head</key>
@@ -146,7 +146,7 @@
 			<key>ID</key>
 			<integer>36</integer>
 			<key>Rotation</key>
-			<real>335.19192504882812</real>
+			<real>212.71511840820312</real>
 			<key>Shape</key>
 			<string>AdjustableDoubleArrow</string>
 			<key>ShapeData</key>
@@ -217,7 +217,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{186.5, 189}, {62, 15}}</string>
+			<string>{{272.5, 273}, {68, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>Head</key>
@@ -227,6 +227,8 @@
 			</dict>
 			<key>ID</key>
 			<integer>35</integer>
+			<key>Rotation</key>
+			<real>270</real>
 			<key>Shape</key>
 			<string>AdjustableDoubleArrow</string>
 			<key>ShapeData</key>
@@ -297,7 +299,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{164.761, 149.652}, {92.1107, 15}}</string>
+			<string>{{183.987, 239.533}, {87.69, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>Head</key>
@@ -308,7 +310,7 @@
 			<key>ID</key>
 			<integer>34</integer>
 			<key>Rotation</key>
-			<real>204.29095458984375</real>
+			<real>147.28488159179688</real>
 			<key>Shape</key>
 			<string>AdjustableDoubleArrow</string>
 			<key>ShapeData</key>
@@ -379,7 +381,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{275.5, 116.5}, {45, 15}}</string>
+			<string>{{208, 189}, {49, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>Head</key>
@@ -389,8 +391,6 @@
 			</dict>
 			<key>ID</key>
 			<integer>27</integer>
-			<key>Rotation</key>
-			<real>90</real>
 			<key>Shape</key>
 			<string>AdjustableArrow</string>
 			<key>ShapeData</key>
@@ -463,7 +463,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{410, 178.5}, {98, 36}}</string>
+			<string>{{426, 178.5}, {98, 36}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -483,7 +483,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{75, 255}, {115, 36}}</string>
+			<string>{{393, 271}, {115, 36}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -504,7 +504,7 @@ Ticker:CCC}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{71, 178.5}, {115, 36}}</string>
+			<string>{{249, 315}, {115, 36}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -525,7 +525,7 @@ Ticker:BBB}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{71, 102}, {115, 36}}</string>
+			<string>{{105, 271}, {115, 36}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -546,7 +546,7 @@ Ticker:AAA}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{226, 65}, {144, 36}}</string>
+			<string>{{63.5, 178.5}, {144, 36}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -566,7 +566,7 @@ Ticker:AAA}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{249, 147}, {98, 99}}</string>
+			<string>{{257.5, 147}, {98, 99}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -636,7 +636,7 @@ Ticker:AAA}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-11-30 08:21:17 -0500</string>
+	<string>2013-11-30 11:22:44 -0500</string>
 	<key>Modifier</key>
 	<string>Mike Kipnis</string>
 	<key>NotesVisible</key>
