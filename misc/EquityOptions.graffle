@@ -135,7 +135,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{341.323, 239.533}, {87.69, 15}}</string>
+			<string>{{341.53, 239.403}, {89.0505, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>Head</key>
@@ -146,7 +146,7 @@
 			<key>ID</key>
 			<integer>36</integer>
 			<key>Rotation</key>
-			<real>212.71511840820312</real>
+			<real>212.35676574707031</real>
 			<key>Shape</key>
 			<string>AdjustableDoubleArrow</string>
 			<key>ShapeData</key>
@@ -483,7 +483,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{393, 271}, {115, 36}}</string>
+			<string>{{395, 271}, {115, 36}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -636,7 +636,7 @@ Ticker:AAA}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-11-30 11:22:44 -0500</string>
+	<string>2013-11-30 11:27:33 -0500</string>
 	<key>Modifier</key>
 	<string>Mike Kipnis</string>
 	<key>NotesVisible</key>
