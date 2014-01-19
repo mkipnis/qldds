@@ -175,6 +175,8 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       ACE_OS::sleep( sleep_1ms ); 
     }
 
+    ACE_OS::sleep( 10 ); 
+
   } catch (CORBA::Exception& e) {
     cerr << "Exception caught in main.cpp:" << endl << e << endl;
     ACE_OS::exit(1);
