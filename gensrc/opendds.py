@@ -1,5 +1,5 @@
 #
-#   Copyright (C) 2013 Mike Kipnis
+#   Copyright (C) 2015 Mike Kipnis
 #
 #   This file is part of QLDDS, a free-software/open-source library
 #   for utilization of QuantLib in the distributed envrionment via DDS.
@@ -16,7 +16,7 @@
 #
 
 
-import sys
+import os,sys
 
 from gensrc.addins import addin
 from gensrc.addins import cppexceptions
@@ -51,11 +51,13 @@ class OpenDDSAddin(addin.Addin):
         mpcbuffer = ''
         mpcdatareaderbuffer = ''
         mpcdatareaderbufferNT = ''
+	mpcbufferJava = ''
+        idlfiles = ''
+	mwcbufferJava = ''
 
         for cat in self.categoryList_.categories("Cpp",
             self.coreCategories_, self.addinCategories_):
             
-            idlfiles = ''
             idlfilesTypeSupport = '' 
             readersImplHpp = '' 
             readersImplCpp = ''
@@ -79,6 +81,8 @@ class OpenDDSAddin(addin.Addin):
                 bufferCpp += self.generateFunction(func, cat)
                 bufferHpp += self.generateDataReaderDeclaration(func, cat)
                 bufferIDL += self.generateIDL(func, cat)
+          
+            idlfiles += idlfile
 
             mpcbuffer += self.generateLib(func, cat, idlfile, idlfileTypeSupport, readerImplHpp, readerImplCpp)
             mpcdatareaderbuffer += self.generateLibDataReader(func, cat, idlfile, idlfileTypeSupport, readerImplHpp, readerImplCpp)
@@ -115,6 +119,24 @@ class OpenDDSAddin(addin.Addin):
             fileNameIdl = '%s%s.idl' % ( self.rootPath_, cat.name())
             outputfile.OutputFile(self, fileNameIdl, cat.copyright(), self.bufferModule_)
 
+            java_dir = '%s/java/%s' % ( self.rootPath_, cat.name() )
+            if not os.path.exists(java_dir):
+	      os.makedirs(java_dir)
+   
+            fileNameJavaIdl = '%s/%s.idl' % ( java_dir, cat.name() )
+            outputfile.OutputFile( self, fileNameJavaIdl, cat.copyright(), self.bufferModule_ )
+            
+            mpcbufferJava = self.generateLibJava( cat.name(), cat.name() + ".idl" )
+            self.bufferMpcJava_.set({ 'mpcbuffer' : mpcbufferJava })
+            
+            self.bufferMpcJava_.append("\n")
+            fileNameMpcJava = '%s/QLDDS_Java_%s.mpc' % ( java_dir, cat.name() )
+            outputfile.OutputFile( self, fileNameMpcJava, '', self.bufferMpcJava_ )
+
+            mpc_java_path = '%s/QLDDS_Java_%s.mpc' % ( cat.name(), cat.name() )
+            mwcbufferJava += mpc_java_path + '\n'
+ 
+
         self.bufferMpc_.append("\n")
         fileNameMpc = '%sQLDDS.mpc' % self.rootPath_
         outputfile.OutputFile(self, fileNameMpc, '', self.bufferMpc_)
@@ -126,6 +148,11 @@ class OpenDDSAddin(addin.Addin):
         self.bufferMpcDataReaderNT_.append("\n")
         fileNameMpc = '%sQLDDSDataReaders_vc.mpc' % self.rootPath_
         outputfile.OutputFile(self, fileNameMpc, '', self.bufferMpcDataReaderNT_)
+
+        self.bufferMwcJava_.set({'paths' : mwcbufferJava })
+        self.bufferMwcJava_.append("\n")
+        fileNameMwcJava = '%s/java/QLDDS_Java.mwc' % self.rootPath_
+        outputfile.OutputFile(self, fileNameMwcJava, '', self.bufferMwcJava_ )      
 
     def generateFunction(self, func, cat):
         """Generate source code for a given function."""
@@ -175,6 +202,12 @@ class OpenDDSAddin(addin.Addin):
             'idlfileTypeSupport' : idlfileTypeSupport,
             'readerImplHpp' : readerImplHpp,
             'readerImplCpp' : readerImplCpp })
+
+    def generateLibJava(self, libname, idlfile ) :
+        return self.bufferLibJava_.set({
+		'libname' : libname,
+		'idlfile' : idlfile
+		})
 
     def generateLibDataReader(self, func, cat, idlfile, idlfileTypeSupport, readerImplHpp, readerImplCpp ):
         return self.bufferLibDataReader_.set({

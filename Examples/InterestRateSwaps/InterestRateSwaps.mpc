@@ -47,7 +47,7 @@ project(*IRSPortfolio) : dcps {
   }
 }
 
-project(*IRSCalculator) : dcpsexe, svc_utils {
+project(*IRSCalculator) :  dcpsexe_with_tcp, dcps_udp, dcps_multicast, dcps_rtps_udp, dcps_shmem {
         after          += *IRSPortfolio
         exename         =       IRSCalculator
         requires       +=       tao_orbsvcs
@@ -60,16 +60,16 @@ project(*IRSCalculator) : dcpsexe, svc_utils {
                                 $(BOOST_ROOT)/lib \
                                 $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
-        libs           +=        qldds_utils  boost_filesystem boost_serialization boost_system boost_regex ratehelpers vanillaswap schedule log4cxx IRSPortfolio
+        libs           +=        qldds_utils boost_filesystem boost_serialization boost_system log4cxx boost_regex ratehelpers vanillaswap schedule IRSPortfolio 
 
         pure_libs       =       $(QLDDS_ROOT)/Addins/OpenDDS/libratehelpersDefaultDataReader.a \
                                 $(QLDDS_ROOT)/Addins/OpenDDS/libswaptionvolstructureDefaultDataReader.a \
                                 $(QLDDS_ROOT)/Addins/OpenDDS/libvanillaswapDefaultDataReader.a \
-                                $(QLDDS_ROOT)/Addins/OpenDDS/libscheduleDefaultDataReader.a \
-                                $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddinCpp.a \
-                                $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddin.a \
-                                $(OH_ROOT)/lib/libObjectHandler.a \
-                                $(QUANTLIB_ROOT)/lib/libQuantLib.a
+                               $(QLDDS_ROOT)/Addins/OpenDDS/libscheduleDefaultDataReader.a \
+                               $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddinCpp.a \
+                               $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddin.a \
+                               $(OH_ROOT)/lib/libObjectHandler.a \
+                               $(QUANTLIB_ROOT)/lib/libQuantLib.a 
 
 
         TypeSupport_Files {
@@ -108,7 +108,7 @@ project(*IRSClient) : dcpsexe, svc_utils {
         }
 }
 
-project(*MarketDataPublisher) : dcpsexe, svc_utils {
+project(*MarketDataPublisher) : dcpsexe_with_tcp {
         exename         =       MarketDataPublisher 
         requires       +=       tao_orbsvcs
 
@@ -116,6 +116,8 @@ project(*MarketDataPublisher) : dcpsexe, svc_utils {
         libpaths       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
         libs           +=       qldds_utils ratehelpers 
+
+         pure_libs       =       $(QLDDS_ROOT)/Addins/OpenDDS/libratehelpersDefaultDataReader.a 
 
         Source_Files {
                 MarketDataPublisher.cpp

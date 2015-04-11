@@ -26,6 +26,7 @@ USAGE = """
 Arguments :
 --type - Compiler type : gnuace, vc9, vc10
 --realclean : Perform real clean true or false
+--java : build java wrappers true or false
 """
 
 # Logger
@@ -91,6 +92,23 @@ def build_qldds_utils( compilerType, realclean = True ):
          exec_cmd(["make","realclean"])
       exec_cmd(["make"])
 
+def build_qldds_utils_java( compilerType, realclean = True ):
+    global ace_root, qldds_root
+    logging.info("building QLDDS Utils : " + compilerType )
+
+    os.chdir(qldds_root+'/qldds_utils')
+
+    exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType, "qldds_utils_java.mwc"], False )
+
+    if os.name == 'nt':
+      if realclean == True:
+        exec_cmd( ["msbuild.exe","qldds_utils_java.sln", "/t:clean"] )
+      exec_cmd( ["msbuild.exe","qldds_utils_java.sln"] )
+    else:
+      if realclean==True:
+         exec_cmd(["make","realclean"])
+      exec_cmd(["make"])
+
 def build_qldds_dds_addins( compilerType, realclean = True ):
     global ace_root, qldds_root
     logging.info( "Building QLDDS Addins" )
@@ -110,6 +128,29 @@ def build_qldds_dds_addins( compilerType, realclean = True ):
       exec_cmd( ["msbuild.exe","QLDDSDataReaders_vc.sln"] )
     else:
       exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDS.mwc"], False )
+      if realclean == True:
+        exec_cmd( ["make","realclean"] )
+      exec_cmd( ["make"] )
+
+def build_qldds_dds_addins_java( compilerType, realclean = True ):
+    global ace_root, qldds_root
+    logging.info( "Building QLDDS Addins" )
+
+    os.chdir( qldds_root+'/Addins/OpenDDS/java' )
+
+    if os.name == 'nt': # Windows
+      exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDS_vc.mwc"], False )
+      if realclean == True:
+        exec_cmd( ["msbuild.exe","QLDDS_vc.sln", "/t:clean"] )
+      exec_cmd( ["msbuild.exe","QLDDS_vc.sln"] )
+
+      exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDSDataReaders_vc.mwc"] )
+      if realclean == True:
+        exec_cmd( ["msbuild.exe","QLDDSDataReaders_vc.sln", "/t:clean"] )
+
+      exec_cmd( ["msbuild.exe","QLDDSDataReaders_vc.sln"] )
+    else:
+      exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDS_Java.mwc"], False )
       if realclean == True:
         exec_cmd( ["make","realclean"] )
       exec_cmd( ["make"] )
@@ -137,13 +178,14 @@ def build_example( directory, mwc_prefix, compilerType, realclean = True ):
 try:
 
     opts, args = getopt.getopt(sys.argv[1:], 'h',
-	 	   ['help','type=','realclean='] )
+	 	   ['help','type=','realclean=','java='] )
 
 except getopt.GetoptError:
     usage()
 
 realclean=True
 compilerType=''
+buildjava=False
 
 
 for o, v in opts:
@@ -152,6 +194,9 @@ for o, v in opts:
     elif o == '--realclean':
          if v == 'false':
             realclean = False
+    elif o == '--java':
+         if v == 'true':
+            buildjava = True
     elif o in ('-h','--help'):
       usage()
     else:
@@ -175,7 +220,14 @@ logging.info("Starting")
 set_dependencies()
 
 build_qldds_utils( compilerType, realclean )
+
+if buildjava == True:
+  build_qldds_utils_java( compilerType, realclean )
+
 build_qldds_dds_addins( compilerType, realclean )
+
+if buildjava == True:
+  build_qldds_dds_addins_java( compilerType, realclean )
 
 build_example( qldds_root+'/Examples/InterestRateSwaps',
                'InterestRateSwaps', compilerType, realclean )

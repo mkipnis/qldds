@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "piecewiseyieldcurveDataReaderListenerImpl.hpp"
 
@@ -66,10 +66,10 @@ void qlPiecewiseYieldCurveDataReaderListenerImpl::on_data_available( DDS::DataRe
               obj.ObjectId.in(),
               static_cast<long>(obj.NDays),
               obj.Calendar.in(),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.RateHelpers),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.RateHelpers),
               obj.DayCounter.in(),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::DoubleSeq>(obj.Jumps),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::StringSeq>(obj.JumpDates),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.Jumps),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.JumpDates),
               static_cast<double>(obj.Accuracy),
               obj.TraitsID.in(),
               obj.InterpolatorID.in(),

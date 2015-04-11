@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "creditDataReaderListenerImpl.hpp"
 
@@ -64,8 +64,8 @@ void qlHazardRateCurveDataReaderListenerImpl::on_data_available( DDS::DataReader
 
               returnObject = QuantLibAddinCpp::qlHazardRateCurve ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::StringSeq>(obj.CurveDates),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.CurveRates),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.CurveDates),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.CurveRates),
               obj.DayCounter.in(),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
@@ -429,7 +429,7 @@ void qlPiecewiseFlatForwardCurveDataReaderListenerImpl::on_data_available( DDS::
               returnObject = QuantLibAddinCpp::qlPiecewiseFlatForwardCurve ( 
               obj.ObjectId.in(),
               qldds_utils::from_iso_string_to_oh_property(obj.ReferenceDate.in()),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.RateHelpers),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.RateHelpers),
               obj.DayCounter.in(),
               static_cast<double>(obj.Accuracy),
               static_cast<bool>(obj.Permanent),
@@ -612,7 +612,7 @@ void qlPiecewiseFlatHazardRateCurveDataReaderListenerImpl::on_data_available( DD
               returnObject = QuantLibAddinCpp::qlPiecewiseFlatHazardRateCurve ( 
               obj.ObjectId.in(),
               qldds_utils::from_iso_string_to_oh_property(obj.ReferenceDate.in()),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.Helpers),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.Helpers),
               obj.DayCounter.in(),
               static_cast<double>(obj.Accuracy),
               static_cast<bool>(obj.Permanent),

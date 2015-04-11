@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "marketmodelsDataReaderListenerImpl.hpp"
 
@@ -68,12 +68,12 @@ void qlAbcdVolDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr rea
               static_cast<double>(obj.B),
               static_cast<double>(obj.C),
               static_cast<double>(obj.D),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Ks),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Ks),
               obj.Correlations.in(),
               obj.EvolutionDescription.in(),
               static_cast<long>(obj.Factors),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.InitialRates),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Displacements),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.InitialRates),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Displacements),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -433,12 +433,12 @@ void qlFlatVolDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr rea
 
               returnObject = QuantLibAddinCpp::qlFlatVol ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Volatilities),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Volatilities),
               obj.Correlations.in(),
               obj.EvolutionDescription.in(),
               static_cast<long>(obj.Factors),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.InitialRates),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Displacements),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.InitialRates),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Displacements),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -620,8 +620,8 @@ void qlFlatVolFactoryDataReaderListenerImpl::on_data_available( DDS::DataReader_
               obj.ObjectId.in(),
               static_cast<double>(obj.LongTermCorr),
               static_cast<double>(obj.Beta),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Times),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Volatilities),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Times),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Volatilities),
               obj.YieldCurve.in(),
               static_cast<double>(obj.Displacement),
               static_cast<bool>(obj.Permanent),
@@ -806,7 +806,7 @@ void qlFwdPeriodAdapterDataReaderListenerImpl::on_data_available( DDS::DataReade
               obj.LargeModel.in(),
               static_cast<long>(obj.Period),
               static_cast<long>(obj.Offset),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Displacements),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Displacements),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

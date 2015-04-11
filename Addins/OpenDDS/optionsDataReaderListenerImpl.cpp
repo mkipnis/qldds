@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "optionsDataReaderListenerImpl.hpp"
 
@@ -433,7 +433,7 @@ void qlDaAsianOptionDataReaderListenerImpl::on_data_available( DDS::DataReader_p
               obj.AverageType.in(),
               static_cast<double>(obj.RunningAccumulator),
               static_cast<long>(obj.PastFixings),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::StringSeq>(obj.FixingDates),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.FixingDates),
               obj.Payoff.in(),
               obj.Exercise.in(),
               static_cast<bool>(obj.Permanent),
@@ -617,8 +617,8 @@ void qlDividendVanillaOptionDataReaderListenerImpl::on_data_available( DDS::Data
               obj.ObjectId.in(),
               obj.Payoff.in(),
               obj.Exercise.in(),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::StringSeq>(obj.DividendDates),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Dividends),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.DividendDates),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Dividends),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

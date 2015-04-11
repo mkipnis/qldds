@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "statisticsDataReaderListenerImpl.hpp"
 
@@ -64,8 +64,8 @@ void qlIncrementalStatisticsDataReaderListenerImpl::on_data_available( DDS::Data
 
               returnObject = QuantLibAddinCpp::qlIncrementalStatistics ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Values),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Weights),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Values),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Weights),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -245,8 +245,8 @@ void qlStatisticsDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr 
 
               returnObject = QuantLibAddinCpp::qlStatistics ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Values),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Weights),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Values),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Weights),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "pricingenginesDataReaderListenerImpl.hpp"
 
@@ -795,6 +795,7 @@ void qlBlackCapFloorEngineDataReaderListenerImpl::on_data_available( DDS::DataRe
               obj.ObjectId.in(),
               obj.YieldCurve.in(),
               obj.VolTS.in(),
+              static_cast<double>(obj.Displacement),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -976,6 +977,7 @@ void qlBlackCapFloorEngine2DataReaderListenerImpl::on_data_available( DDS::DataR
               obj.ObjectId.in(),
               obj.YieldCurve.in(),
               obj.Vol ,
+              static_cast<double>(obj.Displacement),
               obj.DayCounter.in(),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
@@ -1527,6 +1529,7 @@ void qlBlackSwaptionEngineDataReaderListenerImpl::on_data_available( DDS::DataRe
               obj.ObjectId.in(),
               obj.YieldCurve.in(),
               obj.VolTS.in(),
+              static_cast<double>(obj.Displacement),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -1708,6 +1711,7 @@ void qlBlackSwaptionEngine2DataReaderListenerImpl::on_data_available( DDS::DataR
               obj.ObjectId.in(),
               obj.YieldCurve.in(),
               obj.Vol ,
+              static_cast<double>(obj.Displacement),
               obj.DayCounter.in(),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,

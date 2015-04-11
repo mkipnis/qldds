@@ -1,11 +1,13 @@
 #ifndef QLDDS_TYPES_IDL
 #define QLDDS_TYPES_IDL
 
-#include <tao/orb.idl>
-
 module qldds_utils
-{ 
-  typedef sequence < CORBA::DoubleSeq > Matrix; 
+{
+  typedef sequence < string > StringSeq;
+  typedef sequence < boolean > BooleanSeq;
+  typedef sequence < double > DoubleSeq;
+  typedef sequence < long > LongSeq;
+  typedef sequence < DoubleSeq > Matrix;
 };
 
 #endif

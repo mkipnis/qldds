@@ -13,14 +13,14 @@
         <Rule tensorRank='scalar' nativeType='bool'>%(indent)s boolean %(name)s</Rule>
         <Rule tensorRank='scalar' nativeType='string'>%(indent)s string %(name)s</Rule>
         <Rule tensorRank='scalar'>%(indent)s %(nativeType)s %(name)s</Rule>
-        <Rule tensorRank='vector' type='QuantLib::Date'>%(indent)s CORBA::StringSeq %(name)s</Rule>
-        <Rule tensorRank='vector' type='QuantLib::Period'>%(indent)s CORBA::StringSeq %(name)s</Rule>
-        <Rule tensorRank='vector' type='QuantLib::Quote'>%(indent)s CORBA::DoubleSeq %(name)s</Rule>
-        <Rule tensorRank='vector' type='QuantLib::Real'>%(indent)s CORBA::DoubleSeq %(name)s</Rule>
-        <Rule tensorRank='vector' nativeType='string'>%(indent)s CORBA::StringSeq %(name)s</Rule>
-        <Rule tensorRank='vector' nativeType='double'>%(indent)s CORBA::DoubleSeq %(name)s</Rule>
-        <Rule tensorRank='vector' nativeType='long'>%(indent)s CORBA::LongSeq %(name)s</Rule>
-        <Rule tensorRank='vector' nativeType='bool'>%(indent)s CORBA::BooleanSeq %(name)s</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Date'>%(indent)s qldds_utils::StringSeq %(name)s</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Period'>%(indent)s qldds_utils::StringSeq %(name)s</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Quote'>%(indent)s qldds_utils::DoubleSeq %(name)s</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Real'>%(indent)s qldds_utils::DoubleSeq %(name)s</Rule>
+        <Rule tensorRank='vector' nativeType='string'>%(indent)s qldds_utils::StringSeq %(name)s</Rule>
+        <Rule tensorRank='vector' nativeType='double'>%(indent)s qldds_utils::DoubleSeq %(name)s</Rule>
+        <Rule tensorRank='vector' nativeType='long'>%(indent)s qldds_utils::LongSeq %(name)s</Rule>
+        <Rule tensorRank='vector' nativeType='bool'>%(indent)s qldds_utils::BooleanSeq %(name)s</Rule>
         <Rule tensorRank='matrix' type='QuantLib::Quote'>%(indent)s qldds_utils::Matrix %(name)s</Rule>
         <Rule tensorRank='matrix' nativeType='any'>%(indent)s std::vector&lt;std::vector &lt;ObjectHandler::property_t&gt; &gt; %(name)s</Rule>
         <Rule tensorRank='matrix' nativeType='string'>%(indent)s std::vector&lt;std::vector &lt;string&gt; &gt; %(name)s</Rule>
@@ -31,19 +31,19 @@
     <RuleGroup name='functionDeclaration' indent='3' delimiter=',&#10;'>
       <Wrap>&#10;%s</Wrap>
       <Rules>        
-        <Rule tensorRank='vector' nativeType='double'>%(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,CORBA::DoubleSeq&gt;(obj.%(name)s)</Rule>
-        <Rule tensorRank='vector' type='QuantLib::Quote'>%(indent)s qldds_utils::vector_cast&lt;ObjectHandler::property_t,CORBA::DoubleSeq&gt;(obj.%(name)s)</Rule>
-        <Rule tensorRank='vector' type='QuantLib::Period'>%(indent)s qldds_utils::vector_cast_str&lt;ObjectHandler::property_t,CORBA::StringSeq&gt;(obj.%(name)s)</Rule>
-        <Rule tensorRank='vector' type='QuantLib::Date'>%(indent)s qldds_utils::vector_cast&lt;ObjectHandler::property_t,CORBA::StringSeq&gt;(obj.%(name)s)</Rule>
-        <Rule tensorRank='vector' nativeType='string'>%(indent)s qldds_utils::vector_cast&lt;std::%(nativeType)s,CORBA::StringSeq&gt;(obj.%(name)s)</Rule>
-        <Rule tensorRank='vector' nativeType='long'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,CORBA::LongSeq&gt;(obj.%(name)s)</Rule>
-        <Rule tensorRank='vector' nativeType='double'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,CORBA::DoubleSeq&gt;(obj.%(name)s)</Rule>
-        <Rule tensorRank='vector' nativeType='bool'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,CORBA::BooleanSeq&gt;(obj.%(name)s)</Rule>
-        <Rule tensorRank='vector'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,CORBA::StringSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' nativeType='double'>%(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,qldds_utils::DoubleSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Quote'>%(indent)s qldds_utils::vector_cast&lt;ObjectHandler::property_t,qldds_utils::DoubleSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Period'>%(indent)s qldds_utils::vector_cast_str&lt;ObjectHandler::property_t,qldds_utils::StringSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' type='QuantLib::Date'>%(indent)s qldds_utils::vector_cast&lt;ObjectHandler::property_t,qldds_utils::StringSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' nativeType='string'>%(indent)s qldds_utils::vector_cast&lt;std::%(nativeType)s,qldds_utils::StringSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' nativeType='long'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,qldds_utils::LongSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' nativeType='double'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,qldds_utils::DoubleSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector' nativeType='bool'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,qldds_utils::BooleanSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='vector'> %(indent)s qldds_utils::vector_cast&lt;%(nativeType)s,qldds_utils::StringSeq&gt;(obj.%(name)s)</Rule>
         <Rule tensorRank='matrix' type='QuantLib::Quote'>%(indent)s qldds_utils::matrix_cast&lt;ObjectHandler::property_t,qldds_utils::Matrix&gt;(obj.%(name)s)</Rule>
         <Rule tensorRank='matrix' type='QuantLib::Period'>%(indent)s qldds_utils::matrix_cast&lt;ObjectHandler::property_t,qldds_utils::StringSeqSeq&gt;(obj.%(name)s)</Rule>
-        <Rule tensorRank='matrix' nativeType='string'>%(indent)s qldds_utils::matrix_cast&lt;std::%(nativeType)s,CORBA::StringSeq&gt;(obj.%(name)s)</Rule>
-        <Rule tensorRank='matrix' nativeType='double'>%(indent)s qldds_utils::matrix_cast&lt;%(nativeType)s,CORBA::DoubleSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='matrix' nativeType='string'>%(indent)s qldds_utils::matrix_cast&lt;std::%(nativeType)s,qldds_utils::StringSeq&gt;(obj.%(name)s)</Rule>
+        <Rule tensorRank='matrix' nativeType='double'>%(indent)s qldds_utils::matrix_cast&lt;%(nativeType)s,qldds_utils::DoubleSeq&gt;(obj.%(name)s)</Rule>
         <Rule tensorRank='scalar' type='QuantLib::Real'> %(indent)s static_cast&lt;%(nativeType)s&gt;(obj.%(name)s)</Rule>
         <Rule tensorRank='scalar' type='QuantLib::Natural'> %(indent)s static_cast&lt;%(nativeType)s&gt;(obj.%(name)s)</Rule>
         <Rule tensorRank='scalar' type='QuantLib::Date' default='true'> %(indent)s qldds_utils::from_iso_string_to_oh_property(obj.%(name)s.in())</Rule>

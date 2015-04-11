@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "alphaformDataReaderListenerImpl.hpp"
 
@@ -64,7 +64,7 @@ void qlAlphaFormInverseLinearDataReaderListenerImpl::on_data_available( DDS::Dat
 
               returnObject = QuantLibAddinCpp::qlAlphaFormInverseLinear ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.RateTimes),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.RateTimes),
               static_cast<double>(obj.Alpha),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
@@ -245,7 +245,7 @@ void qlAlphaFormLinearHyperbolicDataReaderListenerImpl::on_data_available( DDS::
 
               returnObject = QuantLibAddinCpp::qlAlphaFormLinearHyperbolic ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.RateTimes),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.RateTimes),
               static_cast<double>(obj.Alpha),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,

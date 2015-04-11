@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "smilesectionDataReaderListenerImpl.hpp"
 
@@ -249,8 +249,8 @@ void qlInterpolatedSmileSectionDataReaderListenerImpl::on_data_available( DDS::D
               returnObject = QuantLibAddinCpp::qlInterpolatedSmileSection ( 
               obj.ObjectId.in(),
               qldds_utils::from_iso_string(obj.OptionDate.in() ),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Strikes),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::DoubleSeq>(obj.StdDevs),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Strikes),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.StdDevs),
               obj.AtmLevel ,
               obj.DayCounter.in(),
               static_cast<bool>(obj.Permanent),
@@ -434,10 +434,10 @@ void qlSabrInterpolatedSmileSectionDataReaderListenerImpl::on_data_available( DD
               obj.ObjectId.in(),
               qldds_utils::from_iso_string(obj.OptionDate.in() ),
               static_cast<double>(obj.ForwardRate),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Strike),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Strike),
               static_cast<bool>(obj.FloatingStrike),
               static_cast<double>(obj.AtmVolatility),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.VolatilitySpreads),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.VolatilitySpreads),
               static_cast<double>(obj.Alpha),
               static_cast<double>(obj.Beta),
               static_cast<double>(obj.Nu),
@@ -631,10 +631,10 @@ void qlSabrInterpolatedSmileSection1DataReaderListenerImpl::on_data_available( D
               obj.ObjectId.in(),
               qldds_utils::from_iso_string(obj.OptionDate.in() ),
               obj.ForwardRate ,
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Strike),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Strike),
               static_cast<bool>(obj.FloatingStrike),
               obj.AtmVolatility ,
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::DoubleSeq>(obj.VolatilitySpreads),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.VolatilitySpreads),
               static_cast<double>(obj.Alpha),
               static_cast<double>(obj.Beta),
               static_cast<double>(obj.Nu),
@@ -827,8 +827,8 @@ void qlSabrSmileSectionDataReaderListenerImpl::on_data_available( DDS::DataReade
               returnObject = QuantLibAddinCpp::qlSabrSmileSection ( 
               obj.ObjectId.in(),
               static_cast<double>(obj.OptionTime),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Strikes),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::DoubleSeq>(obj.StdDevs),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Strikes),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.StdDevs),
               obj.Forward ,
               static_cast<double>(obj.Alpha),
               static_cast<double>(obj.Beta),

@@ -4,6 +4,10 @@
 
 #include "Common.h"
 
+#include <math.h>
+
+using namespace qldds_utils;
+
 int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 {
   DDS::DomainParticipantFactory_var dpf = DDS::DomainParticipantFactory::_nil();
@@ -155,8 +159,8 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     swaption_vts_matrix.BusinessDayConvention = CORBA::string_dup("Unadjusted");
     swaption_vts_matrix.DayCounter = CORBA::string_dup("30/360 (Eurobond Basis)");
 
-    CORBA::StringSeq optionTenors;
-    CORBA::StringSeq swapTenors;
+    StringSeq optionTenors;
+    StringSeq swapTenors;
    
     optionTenors.length(5);
     optionTenors[0] = CORBA::string_dup("5D");

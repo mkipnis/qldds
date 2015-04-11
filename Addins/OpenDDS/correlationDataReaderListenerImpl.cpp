@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "correlationDataReaderListenerImpl.hpp"
 
@@ -246,11 +246,11 @@ void qlExponentialForwardCorrelationDataReaderListenerImpl::on_data_available( D
 
               returnObject = QuantLibAddinCpp::qlExponentialForwardCorrelation ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.RateTimes),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.RateTimes),
               static_cast<double>(obj.LongTermCorr),
               static_cast<double>(obj.Beta),
               static_cast<double>(obj.Gamma),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Times),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Times),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -437,8 +437,8 @@ void qlHistoricalForwardRatesAnalysisDataReaderListenerImpl::on_data_available( 
               obj.IborIndex.in(),
               obj.InitialGap.in(),
               obj.Horizon.in(),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.IborIndexes),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.SwapIndexes),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.IborIndexes),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.SwapIndexes),
               obj.DayCounter.in(),
               obj.TraitsID.in(),
               obj.InterpolatorID.in(),
@@ -626,7 +626,7 @@ void qlHistoricalRatesAnalysisDataReaderListenerImpl::on_data_available( DDS::Da
               qldds_utils::from_iso_string(obj.StartDate.in() ),
               qldds_utils::from_iso_string(obj.EndDate.in() ),
               obj.Step.in(),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.InterestRateIndexes),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.InterestRateIndexes),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

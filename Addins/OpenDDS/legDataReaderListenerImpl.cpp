@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "legDataReaderListenerImpl.hpp"
 
@@ -247,8 +247,8 @@ void qlLegDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr reader 
 
               returnObject = QuantLibAddinCpp::qlLeg ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Amounts),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::StringSeq>(obj.Dates),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Amounts),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.Dates),
               static_cast<bool>(obj.ToBeSorted),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
@@ -790,7 +790,7 @@ void qlLegSetCouponPricersDataReaderListenerImpl::on_data_available( DDS::DataRe
 
               returnObject = QuantLibAddinCpp::qlLegSetCouponPricers ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.FloatingRateCouponPricer),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.FloatingRateCouponPricer),
               obj.Trigger );
               ;
           
@@ -968,7 +968,7 @@ void qlMultiPhaseLegDataReaderListenerImpl::on_data_available( DDS::DataReader_p
 
               returnObject = QuantLibAddinCpp::qlMultiPhaseLeg ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.LegIDs),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.LegIDs),
               static_cast<bool>(obj.ToBeSorted),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,

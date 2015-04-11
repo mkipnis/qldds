@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "bondsDataReaderListenerImpl.hpp"
 
@@ -260,11 +260,11 @@ void qlCmsRateBondDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr
               static_cast<long>(obj.FixingDays),
               static_cast<bool>(obj.IsInArrears),
               obj.DayCounter.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Floors),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Gearings),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Floors),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Gearings),
               obj.SwapIndex.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Spreads),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Caps),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Spreads),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Caps),
               static_cast<double>(obj.Redemption),
               qldds_utils::from_iso_string_to_oh_property(obj.IssueDate.in()),
               static_cast<bool>(obj.Permanent),
@@ -451,7 +451,7 @@ void qlFixedRateBondDataReaderListenerImpl::on_data_available( DDS::DataReader_p
               static_cast<long>(obj.SettlementDays),
               static_cast<double>(obj.FaceAmount),
               obj.ScheduleID.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Coupons),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Coupons),
               obj.DayCounter.in(),
               obj.PaymentBDC.in(),
               static_cast<double>(obj.Redemption),
@@ -641,7 +641,7 @@ void qlFixedRateBond2DataReaderListenerImpl::on_data_available( DDS::DataReader_
               static_cast<long>(obj.SettlementDays),
               static_cast<double>(obj.FaceAmount),
               obj.ScheduleID.in(),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.Coupons),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.Coupons),
               obj.PaymentBDC.in(),
               static_cast<double>(obj.Redemption),
               qldds_utils::from_iso_string_to_oh_property(obj.IssueDate.in()),
@@ -834,11 +834,11 @@ void qlFloatingRateBondDataReaderListenerImpl::on_data_available( DDS::DataReade
               static_cast<long>(obj.FixingDays),
               static_cast<bool>(obj.IsInArrears),
               obj.DayCounter.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Floors),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Gearings),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Floors),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Gearings),
               obj.IborIndex.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Spreads),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Caps),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Spreads),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Caps),
               static_cast<double>(obj.Redemption),
               qldds_utils::from_iso_string_to_oh_property(obj.IssueDate.in()),
               static_cast<bool>(obj.Permanent),

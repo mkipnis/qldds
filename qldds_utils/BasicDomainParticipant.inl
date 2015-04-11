@@ -18,6 +18,7 @@
 
 #include "BasicDomainParticipant.h"
 
+#include <iostream>
 #include <sstream>
 
 using namespace qldds_utils;
@@ -94,6 +95,7 @@ BasicDomainParticipant::createTopicAndRegisterType( const char* topic_name, cons
      error << "register_type for [" << type_name << "] failed." << endl;
 
      throw Exception( error.str() );
+
   }
 
   ::DDS::TopicQos topic_qos;

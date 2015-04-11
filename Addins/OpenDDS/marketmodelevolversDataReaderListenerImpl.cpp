@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "marketmodelevolversDataReaderListenerImpl.hpp"
 
@@ -66,7 +66,7 @@ void qlForwardRateIpcDataReaderListenerImpl::on_data_available( DDS::DataReader_
               obj.ObjectId.in(),
               obj.MarketModel.in(),
               obj.BrownianGeneratorFactory.in(),
-              qldds_utils::vector_cast<long,CORBA::LongSeq>(obj.Numeraires),
+              qldds_utils::vector_cast<long,qldds_utils::LongSeq>(obj.Numeraires),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -248,7 +248,7 @@ void qlForwardRateNormalPcDataReaderListenerImpl::on_data_available( DDS::DataRe
               obj.ObjectId.in(),
               obj.MarketModel.in(),
               obj.BrownianGeneratorFactory.in(),
-              qldds_utils::vector_cast<long,CORBA::LongSeq>(obj.Numeraires),
+              qldds_utils::vector_cast<long,qldds_utils::LongSeq>(obj.Numeraires),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -430,7 +430,7 @@ void qlForwardRatePcDataReaderListenerImpl::on_data_available( DDS::DataReader_p
               obj.ObjectId.in(),
               obj.MarketModel.in(),
               obj.BrownianGeneratorFactory.in(),
-              qldds_utils::vector_cast<long,CORBA::LongSeq>(obj.Numeraires),
+              qldds_utils::vector_cast<long,qldds_utils::LongSeq>(obj.Numeraires),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

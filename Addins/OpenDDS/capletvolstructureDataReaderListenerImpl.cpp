@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "capletvolstructureDataReaderListenerImpl.hpp"
 
@@ -67,8 +67,8 @@ void qlCapFloorTermVolCurveDataReaderListenerImpl::on_data_available( DDS::DataR
               static_cast<long>(obj.SettlementDays),
               obj.Calendar.in(),
               obj.BusinessDayConvention.in(),
-             qldds_utils::vector_cast_str<ObjectHandler::property_t,CORBA::StringSeq>(obj.OptionTenors),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::DoubleSeq>(obj.Volatilities),
+             qldds_utils::vector_cast_str<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.OptionTenors),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.Volatilities),
               obj.DayCounter.in(),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
@@ -252,8 +252,8 @@ void qlCapFloorTermVolSurfaceDataReaderListenerImpl::on_data_available( DDS::Dat
               static_cast<long>(obj.SettlementDays),
               obj.Calendar.in(),
               obj.BusinessDayConvention.in(),
-             qldds_utils::vector_cast_str<ObjectHandler::property_t,CORBA::StringSeq>(obj.OptionTenors),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Strikes),
+             qldds_utils::vector_cast_str<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.OptionTenors),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Strikes),
              qldds_utils::matrix_cast<ObjectHandler::property_t,qldds_utils::Matrix>(obj.Volatilities),
               obj.DayCounter.in(),
               static_cast<bool>(obj.Permanent),
@@ -984,8 +984,8 @@ void qlStrippedOptionletDataReaderListenerImpl::on_data_available( DDS::DataRead
               obj.Calendar.in(),
               obj.BusinessDayConvention.in(),
               obj.IborIndex.in(),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::StringSeq>(obj.OptionletDates),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Strikes),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.OptionletDates),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Strikes),
              qldds_utils::matrix_cast<ObjectHandler::property_t,qldds_utils::Matrix>(obj.Volatilities),
               obj.DayCounter.in(),
               static_cast<bool>(obj.Permanent),

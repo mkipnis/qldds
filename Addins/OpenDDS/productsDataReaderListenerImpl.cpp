@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "productsDataReaderListenerImpl.hpp"
 
@@ -243,9 +243,9 @@ void qlMarketModelMultiStepRatchetDataReaderListenerImpl::on_data_available( DDS
 
               returnObject = QuantLibAddinCpp::qlMarketModelMultiStepRatchet ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.RateTimes),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Accruals),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.PaymentTimes),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.RateTimes),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Accruals),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.PaymentTimes),
               static_cast<double>(obj.GearingOfFloor),
               static_cast<double>(obj.GearingOfFixing),
               static_cast<double>(obj.SpreadOfFloor),
@@ -431,10 +431,10 @@ void qlMarketModelOneStepForwardsDataReaderListenerImpl::on_data_available( DDS:
 
               returnObject = QuantLibAddinCpp::qlMarketModelOneStepForwards ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.RateTimes),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Accruals),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.PaymentTimes),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Strikes),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.RateTimes),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Accruals),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.PaymentTimes),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Strikes),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -614,10 +614,10 @@ void qlMarketModelOneStepOptionletsDataReaderListenerImpl::on_data_available( DD
 
               returnObject = QuantLibAddinCpp::qlMarketModelOneStepOptionlets ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.RateTimes),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Accruals),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.PaymentTimes),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.Payoffs),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.RateTimes),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Accruals),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.PaymentTimes),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.Payoffs),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

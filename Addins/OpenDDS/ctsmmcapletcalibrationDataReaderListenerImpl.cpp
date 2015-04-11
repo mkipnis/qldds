@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "ctsmmcapletcalibrationDataReaderListenerImpl.hpp"
 
@@ -66,13 +66,13 @@ void qlCTSMMCapletAlphaFormCalibrationDataReaderListenerImpl::on_data_available(
               obj.ObjectId.in(),
               obj.Evolution.in(),
               obj.Correlations.in(),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.SwapPiecewiseConstantVariances),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.CapletVols),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.SwapPiecewiseConstantVariances),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.CapletVols),
               obj.CurveState.in(),
               static_cast<double>(obj.Displacement),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.AlphaInitial),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.AlphaMax),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.AlphaMin),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.AlphaInitial),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.AlphaMax),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.AlphaMin),
               static_cast<bool>(obj.MaximizeHomogeneity),
               obj.AlphaForm.in(),
               static_cast<bool>(obj.Permanent),
@@ -256,8 +256,8 @@ void qlCTSMMCapletMaxHomogeneityCalibrationDataReaderListenerImpl::on_data_avail
               obj.ObjectId.in(),
               obj.Evolution.in(),
               obj.Correlations.in(),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.SwapPiecewiseConstantVariances),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.CapletVols),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.SwapPiecewiseConstantVariances),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.CapletVols),
               obj.CurveState.in(),
               static_cast<double>(obj.Displacement),
               static_cast<double>(obj.Caplet0Swaption1Priority),
@@ -442,11 +442,11 @@ void qlCTSMMCapletOriginalCalibrationDataReaderListenerImpl::on_data_available( 
               obj.ObjectId.in(),
               obj.Evolution.in(),
               obj.Correlations.in(),
-             qldds_utils::vector_cast<std::string,CORBA::StringSeq>(obj.SwapPiecewiseConstantVariances),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.CapletVols),
+             qldds_utils::vector_cast<std::string,qldds_utils::StringSeq>(obj.SwapPiecewiseConstantVariances),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.CapletVols),
               obj.CurveState.in(),
               static_cast<double>(obj.Displacement),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Alphas),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Alphas),
               static_cast<bool>(obj.LowestRoot),
               static_cast<bool>(obj.UseFullApprox),
               static_cast<bool>(obj.Permanent),

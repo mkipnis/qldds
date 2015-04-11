@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "interpolationDataReaderListenerImpl.hpp"
 
@@ -64,8 +64,8 @@ void qlAbcdInterpolationDataReaderListenerImpl::on_data_available( DDS::DataRead
 
               returnObject = QuantLibAddinCpp::qlAbcdInterpolation ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.XArray),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::DoubleSeq>(obj.YArray),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.XArray),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.YArray),
               static_cast<double>(obj.A),
               static_cast<double>(obj.B),
               static_cast<double>(obj.C),
@@ -256,8 +256,8 @@ void qlCubicInterpolationDataReaderListenerImpl::on_data_available( DDS::DataRea
 
               returnObject = QuantLibAddinCpp::qlCubicInterpolation ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.XArray),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::DoubleSeq>(obj.YArray),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.XArray),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.YArray),
               obj.DerApprox.in(),
               static_cast<bool>(obj.Monotonic),
               obj.LeftConditionType.in(),
@@ -622,8 +622,8 @@ void qlInterpolationDataReaderListenerImpl::on_data_available( DDS::DataReader_p
               returnObject = QuantLibAddinCpp::qlInterpolation ( 
               obj.ObjectId.in(),
               obj.InterpolationType.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.XArray),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::DoubleSeq>(obj.YArray),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.XArray),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.YArray),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -803,8 +803,8 @@ void qlMixedLinearCubicInterpolationDataReaderListenerImpl::on_data_available( D
 
               returnObject = QuantLibAddinCpp::qlMixedLinearCubicInterpolation ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.XArray),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::DoubleSeq>(obj.YArray),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.XArray),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.YArray),
               static_cast<long>(obj.SwitchIndex),
               obj.DerApprox.in(),
               static_cast<bool>(obj.Monotonic),
@@ -991,8 +991,8 @@ void qlSABRInterpolationDataReaderListenerImpl::on_data_available( DDS::DataRead
 
               returnObject = QuantLibAddinCpp::qlSABRInterpolation ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.XArray),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::DoubleSeq>(obj.YArray),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.XArray),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.YArray),
               static_cast<double>(obj.Expiry),
               obj.Forward ,
               static_cast<double>(obj.Alpha),

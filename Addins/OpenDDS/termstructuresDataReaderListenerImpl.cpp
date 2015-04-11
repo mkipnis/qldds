@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "termstructuresDataReaderListenerImpl.hpp"
 
@@ -64,8 +64,8 @@ void qlDiscountCurveDataReaderListenerImpl::on_data_available( DDS::DataReader_p
 
               returnObject = QuantLibAddinCpp::qlDiscountCurve ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::StringSeq>(obj.CurveDates),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.CurveDiscounts),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.CurveDates),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.CurveDiscounts),
               obj.DayCounter.in(),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
@@ -431,8 +431,8 @@ void qlForwardCurveDataReaderListenerImpl::on_data_available( DDS::DataReader_pt
 
               returnObject = QuantLibAddinCpp::qlForwardCurve ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::StringSeq>(obj.CurveDates),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.ForwardYields),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.CurveDates),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.ForwardYields),
               obj.DayCounter.in(),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
@@ -975,12 +975,12 @@ void qlInterpolatedYieldCurveDataReaderListenerImpl::on_data_available( DDS::Dat
 
               returnObject = QuantLibAddinCpp::qlInterpolatedYieldCurve ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::StringSeq>(obj.Dates),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.Data),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.Dates),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Data),
               obj.Calendar.in(),
               obj.DayCounter.in(),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::DoubleSeq>(obj.Jumps),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::StringSeq>(obj.JumpDates),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.Jumps),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.JumpDates),
               obj.TraitsID.in(),
               obj.InterpolatorID.in(),
               static_cast<bool>(obj.Permanent),
@@ -1873,8 +1873,8 @@ void qlZeroCurveDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr r
 
               returnObject = QuantLibAddinCpp::qlZeroCurve ( 
               obj.ObjectId.in(),
-             qldds_utils::vector_cast<ObjectHandler::property_t,CORBA::StringSeq>(obj.CurveDates),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.CurveYields),
+             qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.CurveDates),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.CurveYields),
               obj.DayCounter.in(),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,

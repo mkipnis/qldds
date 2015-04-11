@@ -1,5 +1,5 @@
 /*
-   Copyright (C) 2013 Mike Kipnis
+   Copyright (C) 2015 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/Dev/qldds/gensrc/stubs/stub.opendds.body
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
 
 #include "swaptionvolstructureDataReaderListenerImpl.hpp"
 
@@ -975,8 +975,8 @@ void qlSwaptionVTSMatrixDataReaderListenerImpl::on_data_available( DDS::DataRead
               obj.ObjectId.in(),
               obj.Calendar.in(),
               obj.BusinessDayConvention.in(),
-             qldds_utils::vector_cast_str<ObjectHandler::property_t,CORBA::StringSeq>(obj.OptionTenors),
-             qldds_utils::vector_cast_str<ObjectHandler::property_t,CORBA::StringSeq>(obj.SwapTenors),
+             qldds_utils::vector_cast_str<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.OptionTenors),
+             qldds_utils::vector_cast_str<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.SwapTenors),
              qldds_utils::matrix_cast<ObjectHandler::property_t,qldds_utils::Matrix>(obj.Volatilities),
               obj.DayCounter.in(),
               static_cast<bool>(obj.Permanent),
@@ -1159,15 +1159,15 @@ void qlSwaptionVolCube1DataReaderListenerImpl::on_data_available( DDS::DataReade
               returnObject = QuantLibAddinCpp::qlSwaptionVolCube1 ( 
               obj.ObjectId.in(),
               obj.AtmVolStructure.in(),
-             qldds_utils::vector_cast_str<ObjectHandler::property_t,CORBA::StringSeq>(obj.OptionTenors),
-             qldds_utils::vector_cast_str<ObjectHandler::property_t,CORBA::StringSeq>(obj.SwapTenors),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.StrikeSpreads),
+             qldds_utils::vector_cast_str<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.OptionTenors),
+             qldds_utils::vector_cast_str<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.SwapTenors),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.StrikeSpreads),
              qldds_utils::matrix_cast<ObjectHandler::property_t,qldds_utils::Matrix>(obj.SpreadVols),
               obj.SwapIndexBase.in(),
               obj.ShortSwapIndexBase.in(),
               static_cast<bool>(obj.VegaWeightedSmileFit),
              qldds_utils::matrix_cast<ObjectHandler::property_t,qldds_utils::Matrix>(obj.Guess),
-              qldds_utils::vector_cast<bool,CORBA::BooleanSeq>(obj.IsFixed),
+              qldds_utils::vector_cast<bool,qldds_utils::BooleanSeq>(obj.IsFixed),
               static_cast<bool>(obj.IsAtmCalibrated),
               obj.EndCriteria.in(),
               static_cast<double>(obj.MaxErrorTol),
@@ -1352,9 +1352,9 @@ void qlSwaptionVolCube2DataReaderListenerImpl::on_data_available( DDS::DataReade
               returnObject = QuantLibAddinCpp::qlSwaptionVolCube2 ( 
               obj.ObjectId.in(),
               obj.AtmVolStructure.in(),
-             qldds_utils::vector_cast_str<ObjectHandler::property_t,CORBA::StringSeq>(obj.OptionTenor),
-             qldds_utils::vector_cast_str<ObjectHandler::property_t,CORBA::StringSeq>(obj.SwapTenor),
-             qldds_utils::vector_cast<double,CORBA::DoubleSeq>(obj.StrikeSpreads),
+             qldds_utils::vector_cast_str<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.OptionTenor),
+             qldds_utils::vector_cast_str<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.SwapTenor),
+             qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.StrikeSpreads),
              qldds_utils::matrix_cast<ObjectHandler::property_t,qldds_utils::Matrix>(obj.SpreadVols),
               obj.SwapIndexBase.in(),
               obj.ShortSwapIndexBase.in(),

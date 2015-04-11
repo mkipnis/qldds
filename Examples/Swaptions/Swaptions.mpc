@@ -20,7 +20,7 @@ project(*MarketDataPublisher) : dcpsexe, svc_utils {
         exename         =       MarketDataPublisher 
         requires       +=       tao_orbsvcs
 
-        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+        includes       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
         libpaths       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
         libs           +=       qldds_utils ratehelpers swaptionvolstructure 

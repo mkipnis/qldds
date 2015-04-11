@@ -21,6 +21,8 @@
 
 #include "Common.h"
 
+#include <math.h>
+
 int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 {
   DDS::DomainParticipantFactory_var dpf = DDS::DomainParticipantFactory::_nil();
