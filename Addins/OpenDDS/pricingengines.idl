@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.module
+//      ocm/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef pricingengines_IDL
 #define pricingengines_IDL
@@ -214,6 +214,35 @@ module pricingengines {
              boolean Overwrite; 
    };
 
+#pragma DCPS_DATA_TYPE "pricingengines::qlJamshidianSwaptionEngine"
+#pragma DCPS_DATA_KEY "pricingengines::qlJamshidianSwaptionEngine instanceID" 
+
+   struct qlJamshidianSwaptionEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string Model;
+             string YieldCurve;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlModelG2SwaptionEngine"
+#pragma DCPS_DATA_KEY "pricingengines::qlModelG2SwaptionEngine instanceID" 
+
+   struct qlModelG2SwaptionEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string Model;
+             double Range;
+             long Intervals;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
 #pragma DCPS_DATA_TYPE "pricingengines::qlPricingEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlPricingEngine instanceID" 
 
@@ -223,6 +252,21 @@ module pricingengines {
              string ObjectId;
              string EngineID;
              string ProcessID;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "pricingengines::qlTreeSwaptionEngine"
+#pragma DCPS_DATA_KEY "pricingengines::qlTreeSwaptionEngine instanceID" 
+
+   struct qlTreeSwaptionEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string Model;
+             long Nsteps;
+             string YieldCurve;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 

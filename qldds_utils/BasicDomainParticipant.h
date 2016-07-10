@@ -78,6 +78,7 @@ class BasicDomainParticipant
   template< class DRListener_var >
   DDS::DataReader_ptr createDataReaderListener( ACE_Mutex& mutex, DDS::Topic_var topic, DDS::DataReaderQos dataReaderQos = DATAREADER_QOS_DEFAULT );
 
+  DDS::DataReader_ptr createDataReaderListener( DDS::Topic_var topic,DDS::DataReaderListener_var listener, DDS::DataReaderQos dataReaderQos = DATAREADER_QOS_DEFAULT );
   //
   // Creates a DataReader without a lock.
   // This method can be used for creating DataReaders that don't require QuantLibAddin synchronization.

@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
+//      ocm/qldds/gensrc/stubs/stub.opendds.body
 
 #include "ratehelpersDataReaderListenerImpl.hpp"
 
@@ -64,8 +64,9 @@ void qlBondHelperDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr 
 
               returnObject = QuantLibAddinCpp::qlBondHelper ( 
               obj.ObjectId.in(),
-              obj.CleanPrice ,
+              obj.Price ,
               obj.Bond.in(),
+              static_cast<bool>(obj.UseCleanPrice),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -796,7 +797,7 @@ void qlFixedRateBondHelperDataReaderListenerImpl::on_data_available( DDS::DataRe
 
               returnObject = QuantLibAddinCpp::qlFixedRateBondHelper ( 
               obj.ObjectId.in(),
-              obj.CleanPrice ,
+              obj.Price ,
               static_cast<long>(obj.SettlementDays),
               static_cast<double>(obj.FaceAmount),
               obj.ScheduleID.in(),
@@ -805,6 +806,12 @@ void qlFixedRateBondHelperDataReaderListenerImpl::on_data_available( DDS::DataRe
               obj.PaymentBDC.in(),
               static_cast<double>(obj.Redemption),
               qldds_utils::from_iso_string_to_oh_property(obj.IssueDate.in()),
+              obj.PaymentCalendar.in(),
+              obj.ExCouponPeriod.in(),
+              obj.ExCouponCalendar.in(),
+              obj.ExCouponBDC.in(),
+              static_cast<bool>(obj.ExCouponEndOfMonth),
+              static_cast<bool>(obj.UseCleanPrice),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -987,6 +994,8 @@ void qlFraRateHelperDataReaderListenerImpl::on_data_available( DDS::DataReader_p
               obj.Rate ,
               obj.PeriodToStart.in(),
               obj.IborIndex.in(),
+              obj.PillarDate.in(),
+              qldds_utils::from_iso_string_to_oh_property(obj.CustomPillarDate.in()),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -1174,6 +1183,8 @@ void qlFraRateHelper2DataReaderListenerImpl::on_data_available( DDS::DataReader_
               obj.Convention.in(),
               static_cast<bool>(obj.EndOfMonth),
               obj.DayCounter.in(),
+              obj.PillarDate.in(),
+              qldds_utils::from_iso_string_to_oh_property(obj.CustomPillarDate.in()),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -1354,7 +1365,8 @@ void qlFuturesRateHelperDataReaderListenerImpl::on_data_available( DDS::DataRead
               returnObject = QuantLibAddinCpp::qlFuturesRateHelper ( 
               obj.ObjectId.in(),
               obj.Price ,
-              qldds_utils::from_iso_string(obj.IMM.in() ),
+              obj.FuturesType.in(),
+              qldds_utils::from_iso_string(obj.FuturesDate.in() ),
               obj.IborIndex.in(),
               obj.ConvexityAdjQuote ,
               static_cast<bool>(obj.Permanent),
@@ -1537,7 +1549,8 @@ void qlFuturesRateHelper2DataReaderListenerImpl::on_data_available( DDS::DataRea
               returnObject = QuantLibAddinCpp::qlFuturesRateHelper2 ( 
               obj.ObjectId.in(),
               obj.Price ,
-              qldds_utils::from_iso_string(obj.IMM.in() ),
+              obj.FuturesType.in(),
+              qldds_utils::from_iso_string(obj.FuturesDate.in() ),
               static_cast<long>(obj.LengthInMonths),
               obj.Calendar.in(),
               obj.Convention.in(),
@@ -1724,7 +1737,8 @@ void qlFuturesRateHelper3DataReaderListenerImpl::on_data_available( DDS::DataRea
               returnObject = QuantLibAddinCpp::qlFuturesRateHelper3 ( 
               obj.ObjectId.in(),
               obj.Price ,
-              qldds_utils::from_iso_string(obj.IMM.in() ),
+              obj.FuturesType.in(),
+              qldds_utils::from_iso_string(obj.FuturesDate.in() ),
               qldds_utils::from_iso_string_to_oh_property(obj.EndDate.in()),
               obj.DayCounter.in(),
               obj.ConvexityAdjQuote ,
@@ -1867,6 +1881,194 @@ void qlFuturesRateHelper3DataReaderListenerImpl::on_dds_exception( DDS::DataRead
   ACE_ERROR((LM_WARNING,
              ACE_TEXT("(%P|%t) WARNING: ")
              ACE_TEXT("qlFuturesRateHelper3DataReaderListenerImpl::on_dds_reading_error %s\n"), exp._info().c_str() ));
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr reader )
+  throw (CORBA::SystemException)
+{
+
+  try {
+   ratehelpers::qlFxSwapRateHelperDataReader_var obj_dr
+     = ratehelpers::qlFxSwapRateHelperDataReader::_narrow(reader);
+   if (CORBA::is_nil (obj_dr.in ())) {
+     ACE_ERROR((LM_ERROR,
+               ACE_TEXT("(%P|%t) ERROR: ")
+               ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_data_available: _narrow failed.\n")));
+  } 
+
+  on_reading_start( reader );
+
+  int count = 0;
+  while ( true )
+  {
+    ratehelpers::qlFxSwapRateHelper obj;
+    DDS::SampleInfo si ;
+    DDS::ReturnCode_t status = obj_dr->take_next_sample(obj, si) ;
+
+    if ( status == DDS::RETCODE_OK )
+    {
+      if ( si.valid_data == true )
+      {
+         ++count;
+
+         if ( pre_quantlib_addin_call( reader, si, obj ) )
+         {
+            std::string returnObject;;
+
+            try {
+
+              ACE_Guard<ACE_Mutex> guard( get_ACE_Mutex() );
+
+              returnObject = QuantLibAddinCpp::qlFxSwapRateHelper ( 
+              obj.ObjectId.in(),
+              obj.FwdPoint ,
+              obj.SpotFx ,
+              obj.Tenor.in(),
+              static_cast<long>(obj.FixingDays),
+              obj.Calendar.in(),
+              obj.Convention.in(),
+              static_cast<bool>(obj.EndOfMonth),
+              static_cast<bool>(obj.IsFxBaseCurrencyCollateralCurrency),
+              obj.CollateralCurve.in(),
+              static_cast<bool>(obj.Permanent),
+              obj.Trigger,
+              static_cast<bool>(obj.Overwrite) );
+              ;
+          
+            } catch ( std::exception& e )
+            {
+              on_std_exception( reader, obj, e );
+              continue;
+            }
+
+            if ( !post_quantlib_addin_call( reader, obj, returnObject ) )
+             break; 
+         }
+      }
+
+    } else if (status == DDS::RETCODE_NO_DATA) {
+
+       on_reading_end( reader, count );
+
+       break;
+
+    }  else {
+       std::string err = "ERROR: read qlFxSwapRateHelper: Error: ";
+       err += status;
+
+       on_dds_reading_error( reader, err );
+    }
+  }
+
+  } catch (CORBA::Exception& e) {
+       on_dds_exception( reader, e );
+  }
+
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_requested_deadline_missed (
+    DDS::DataReader_ptr reader,
+    const DDS::RequestedDeadlineMissedStatus &ms)
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_requested_deadline_missed\n")));
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_requested_incompatible_qos (
+    DDS::DataReader_ptr reader,
+    const DDS::RequestedIncompatibleQosStatus &qs )
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_requested_deadline_missed\n")));
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_liveliness_changed (
+    DDS::DataReader_ptr reader,
+    const DDS::LivelinessChangedStatus &ls )
+  throw (CORBA::SystemException)
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_liveliness_changed\n")));
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_subscription_matched (
+    DDS::DataReader_ptr reader,
+    const DDS::SubscriptionMatchedStatus &ms )
+  throw (CORBA::SystemException)
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_subscription_matched\n")));
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_sample_rejected(
+    DDS::DataReader_ptr reader,
+    const DDS::SampleRejectedStatus& sr)
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_sample_rejected\n")));
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_sample_lost(
+  DDS::DataReader_ptr reader,
+  const DDS::SampleLostStatus& sl)
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_sample_rejected\n")));
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_reading_start( DDS::DataReader_ptr reader )
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) INFO: ")
+             ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_reading_start\n")));
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_reading_end( DDS::DataReader_ptr reader, int count )
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) INFO: ")
+             ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_reading_end with %d items.\n"), count));
+}
+
+bool qlFxSwapRateHelperDataReaderListenerImpl::pre_quantlib_addin_call( DDS::DataReader_ptr reader, DDS::SampleInfo&, ratehelpers::qlFxSwapRateHelper& )
+{
+  return true;
+}
+
+bool qlFxSwapRateHelperDataReaderListenerImpl::post_quantlib_addin_call( DDS::DataReader_ptr reader, ratehelpers::qlFxSwapRateHelper&, std::string& )
+{
+  return true;
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_std_exception( DDS::DataReader_ptr reader, ratehelpers::qlFxSwapRateHelper&, std::exception& e )
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_std_exception %s\n"), e.what() ));
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_dds_reading_error( DDS::DataReader_ptr reader, std::string& err )
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_dds_reading_error %s\n"), err.c_str() ));
+}
+
+void qlFxSwapRateHelperDataReaderListenerImpl::on_dds_exception( DDS::DataReader_ptr reader, CORBA::Exception& exp )
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlFxSwapRateHelperDataReaderListenerImpl::on_dds_reading_error %s\n"), exp._info().c_str() ));
 }
 
 void qlOISRateHelperDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr reader )
@@ -2981,6 +3183,8 @@ void qlSwapRateHelperDataReaderListenerImpl::on_data_available( DDS::DataReader_
               obj.Spread ,
               obj.ForwardStart.in(),
               obj.DiscountingCurve.in(),
+              obj.PillarDate.in(),
+              qldds_utils::from_iso_string_to_oh_property(obj.CustomPillarDate.in()),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -3161,6 +3365,7 @@ void qlSwapRateHelper2DataReaderListenerImpl::on_data_available( DDS::DataReader
               returnObject = QuantLibAddinCpp::qlSwapRateHelper2 ( 
               obj.ObjectId.in(),
               obj.Rate ,
+              static_cast<long>(obj.SettlDays),
               obj.Tenor.in(),
               obj.Calendar.in(),
               obj.FixedLegFrequency.in(),
@@ -3170,6 +3375,8 @@ void qlSwapRateHelper2DataReaderListenerImpl::on_data_available( DDS::DataReader
               obj.Spread ,
               obj.ForwardStart.in(),
               obj.DiscountingCurve.in(),
+              obj.PillarDate.in(),
+              qldds_utils::from_iso_string_to_oh_property(obj.CustomPillarDate.in()),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

@@ -18,18 +18,21 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.header
+//      ocm/qldds/gensrc/stubs/stub.opendds.header
 
 #include <qlo/qladdindefines.hpp>
 #include <qlo/handle.hpp>
 #include <qlo/swaption.hpp>
+#include <qlo/shortratemodels.hpp>
 #include <qlo/indexes/swapindex.hpp>
 #include <qlo/vanillaswap.hpp>
 #include <qlo/termstructures.hpp>
 #include <qlo/pricingengines.hpp>
 #include <qlo/exercise.hpp>
+#include <qlo/indexes/ibor/euribor.hpp>
 #include <ql/indexes/swapindex.hpp>
 #include <ql/exercise.hpp>
+#include <ql/indexes/ibor/euribor.hpp>
 #include <qlo/valueobjects/vo_swaption.hpp>
 
 #include <qlo/conversions/all.hpp>

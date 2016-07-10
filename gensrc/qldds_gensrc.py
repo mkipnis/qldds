@@ -106,9 +106,10 @@ if os.path.exists('metadata/types/'):
     shutil.rmtree('metadata/types/', ignore_errors=True)
 shutil.copytree(qlAddingDir+'/gensrc/metadata/types/', 'metadata/types/')
 
-if os.path.exists('metadata/functions/'):
-    shutil.rmtree('metadata/functions/', ignore_errors=True)
-shutil.copytree(qlAddingDir+'/gensrc/metadata/functions/', 'metadata/functions/')
+#TODO : make optional
+#if os.path.exists('metadata/functions/'):
+#    shutil.rmtree('metadata/functions/', ignore_errors=True)
+#shutil.copytree(qlAddingDir+'/gensrc/metadata/functions/', 'metadata/functions/')
 
 sys.path.insert(0, gensrcDir)
 

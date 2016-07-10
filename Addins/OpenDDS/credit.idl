@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.module
+//      ocm/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef credit_IDL
 #define credit_IDL
@@ -26,6 +26,60 @@
 #include <qldds_types.idl>
 
 module credit {
+
+#pragma DCPS_DATA_TYPE "credit::qlBaseCorrelationTermStructure"
+#pragma DCPS_DATA_KEY "credit::qlBaseCorrelationTermStructure instanceID" 
+
+   struct qlBaseCorrelationTermStructure { 
+          string instanceID;
+          
+             string ObjectId;
+             string InterpolatorType;
+             long SettlementDays;
+             string Calendar;
+             string Convention;
+             qldds_utils::StringSeq Tenors;
+             qldds_utils::DoubleSeq LossLevel;
+             qldds_utils::Matrix Correlations;
+             string DayCounter;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "credit::qlBlackCdsOptionEngine"
+#pragma DCPS_DATA_KEY "credit::qlBlackCdsOptionEngine instanceID" 
+
+   struct qlBlackCdsOptionEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string DefaultCurve;
+             double RecoveryRate;
+             string YieldCurve;
+             double BlackVol;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "credit::qlDefaultEvent"
+#pragma DCPS_DATA_KEY "credit::qlDefaultEvent instanceID" 
+
+   struct qlDefaultEvent { 
+          string instanceID;
+          
+             string ObjectId;
+             string CreditEventType;
+             string EventDate;
+             string Currency;
+             string Seniority;
+             string SettlementDate;
+             double SettledRecovery;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
 
 #pragma DCPS_DATA_TYPE "credit::qlHazardRateCurve"
 #pragma DCPS_DATA_KEY "credit::qlHazardRateCurve instanceID" 
@@ -42,6 +96,47 @@ module credit {
              boolean Overwrite; 
    };
 
+#pragma DCPS_DATA_TYPE "credit::qlIntegralNtdEngine"
+#pragma DCPS_DATA_KEY "credit::qlIntegralNtdEngine instanceID" 
+
+   struct qlIntegralNtdEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string IntegrationStep;
+             string YieldCurve;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "credit::qlIssuer"
+#pragma DCPS_DATA_KEY "credit::qlIssuer instanceID" 
+
+   struct qlIssuer { 
+          string instanceID;
+          
+             string ObjectId;
+             string DefaultCurves;
+             string DefaultEvents;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "credit::qlMidPointCDOEngine"
+#pragma DCPS_DATA_KEY "credit::qlMidPointCDOEngine instanceID" 
+
+   struct qlMidPointCDOEngine { 
+          string instanceID;
+          
+             string ObjectId;
+             string YieldCurve;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
 #pragma DCPS_DATA_TYPE "credit::qlMidPointCdsEngine"
 #pragma DCPS_DATA_KEY "credit::qlMidPointCdsEngine instanceID" 
 
@@ -52,6 +147,27 @@ module credit {
              string DefaultCurve;
              double RecoveryRate;
              string YieldCurve;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "credit::qlNthToDefault"
+#pragma DCPS_DATA_KEY "credit::qlNthToDefault instanceID" 
+
+   struct qlNthToDefault { 
+          string instanceID;
+          
+             string ObjectId;
+             string Basket;
+             long Order;
+             string BuyerSeller;
+             string PremiumSchedule;
+             double Upfront;
+             double Spread;
+             string DayCounter;
+             double Notional;
+             boolean SettlesAccrual;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
@@ -73,17 +189,41 @@ module credit {
              boolean Overwrite; 
    };
 
-#pragma DCPS_DATA_TYPE "credit::qlPiecewiseFlatHazardRateCurve"
-#pragma DCPS_DATA_KEY "credit::qlPiecewiseFlatHazardRateCurve instanceID" 
+#pragma DCPS_DATA_TYPE "credit::qlPiecewiseHazardRateCurve"
+#pragma DCPS_DATA_KEY "credit::qlPiecewiseHazardRateCurve instanceID" 
 
-   struct qlPiecewiseFlatHazardRateCurve { 
+   struct qlPiecewiseHazardRateCurve { 
           string instanceID;
           
              string ObjectId;
-             string ReferenceDate;
              qldds_utils::StringSeq Helpers;
              string DayCounter;
+             string Calendar;
+             string Interpolation;
              double Accuracy;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "credit::qlRiskyFixedBond"
+#pragma DCPS_DATA_KEY "credit::qlRiskyFixedBond instanceID" 
+
+   struct qlRiskyFixedBond { 
+          string instanceID;
+          
+             string ObjectId;
+             string Bondname;
+             string Currency;
+             double Recovery;
+             string DefaultCurve;
+             string Schedule;
+             double Rate;
+             string DayCounter;
+             string PaymentConvention;
+             double Notional;
+             string DiscountingCurve;
+             string PricingDate;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
@@ -108,6 +248,25 @@ module credit {
              string DiscountingCurve;
              boolean SettleAccrual;
              boolean PayAtDefault;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "credit::qlSyntheticCDO"
+#pragma DCPS_DATA_KEY "credit::qlSyntheticCDO instanceID" 
+
+   struct qlSyntheticCDO { 
+          string instanceID;
+          
+             string ObjectId;
+             string Basket;
+             string BuyerSeller;
+             string PremiumSchedule;
+             double Upfront;
+             double Spread;
+             string DayCounter;
+             string PaymentConvention;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 

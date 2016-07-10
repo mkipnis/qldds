@@ -9,6 +9,7 @@
   </addinIncludes>
   <copyright>
     Copyright (C) 2006, 2007 Ferdinando Ametrano
+    Copyright (C) 2015 Paolo Mazzocchi
   </copyright>
 
   <Functions>
@@ -194,6 +195,21 @@
             <tensorRank>scalar</tensorRank>
             <description>tolerance on the function gradient norm value.</description>
           </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <!-- Constraint class and interface -->
+
+    <Constructor name='qlNoConstraint'>
+      <libraryFunction>NoConstraint</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Cpp'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
         </Parameters>
       </ParameterList>
     </Constructor>

@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.header
+//      ocm/qldds/gensrc/stubs/stub.opendds.header
 
 #include <qlo/qladdindefines.hpp>
 #include <qlo/handle.hpp>
@@ -32,6 +32,8 @@
 #include <ql/pricingengines/blackscholescalculator.hpp>
 #include <ql/termstructures/volatility/optionlet/optionletvolatilitystructure.hpp>
 #include <ql/termstructures/volatility/swaption/swaptionvolstructure.hpp>
+#include <ql/pricingengines/swaption/jamshidianswaptionengine.hpp>
+#include <ql/pricingengines/swaption/g2swaptionengine.hpp>
 #include <qlo/valueobjects/vo_pricingengines.hpp>
 
 #include <qlo/conversions/all.hpp>
@@ -554,6 +556,90 @@ namespace pricingengines
   };
 
   
+  class qlJamshidianSwaptionEngineDataReaderListenerImpl
+    : public virtual OpenDDS::DCPS::LocalObject<qldds::DataReaderListener< pricingengines::qlJamshidianSwaptionEngine, std::string > >
+  {
+    public:
+    
+      qlJamshidianSwaptionEngineDataReaderListenerImpl( ACE_Mutex& mutex ) : _mutex( mutex ) {}; 
+      virtual void on_data_available( DDS::DataReader_ptr reader) throw (CORBA::SystemException);
+
+      ACE_Mutex& get_ACE_Mutex() { return _mutex; };
+
+      virtual void on_requested_deadline_missed ( DDS::DataReader_ptr reader, const DDS::RequestedDeadlineMissedStatus & status) throw (CORBA::SystemException);
+    
+      virtual void on_requested_incompatible_qos ( DDS::DataReader_ptr reader, const DDS::RequestedIncompatibleQosStatus & status) throw (CORBA::SystemException);
+  
+      virtual void on_liveliness_changed ( DDS::DataReader_ptr reader, const DDS::LivelinessChangedStatus & status) throw (CORBA::SystemException);
+    
+      virtual void on_subscription_matched ( DDS::DataReader_ptr reader, const DDS::SubscriptionMatchedStatus & status) throw (CORBA::SystemException);
+
+      virtual void on_sample_rejected( DDS::DataReader_ptr reader, const DDS::SampleRejectedStatus& status) throw (CORBA::SystemException);
+
+      virtual void on_sample_lost( DDS::DataReader_ptr reader, const DDS::SampleLostStatus& status) throw (CORBA::SystemException); 
+
+      virtual void on_reading_start( DDS::DataReader_ptr reader );
+
+      virtual void on_reading_end( DDS::DataReader_ptr reader, int count );
+
+      virtual bool pre_quantlib_addin_call( DDS::DataReader_ptr reader, DDS::SampleInfo&, pricingengines::qlJamshidianSwaptionEngine& );
+
+      virtual bool post_quantlib_addin_call( DDS::DataReader_ptr reader, pricingengines::qlJamshidianSwaptionEngine&, std::string& );
+
+      virtual void on_std_exception( DDS::DataReader_ptr reader, pricingengines::qlJamshidianSwaptionEngine&, std::exception& e );
+
+      virtual void on_dds_reading_error( DDS::DataReader_ptr reader, std::string& err );
+
+      virtual void on_dds_exception( DDS::DataReader_ptr reader, CORBA::Exception& exp );
+
+    protected:
+      ACE_Mutex& _mutex;
+
+  };
+
+  
+  class qlModelG2SwaptionEngineDataReaderListenerImpl
+    : public virtual OpenDDS::DCPS::LocalObject<qldds::DataReaderListener< pricingengines::qlModelG2SwaptionEngine, std::string > >
+  {
+    public:
+    
+      qlModelG2SwaptionEngineDataReaderListenerImpl( ACE_Mutex& mutex ) : _mutex( mutex ) {}; 
+      virtual void on_data_available( DDS::DataReader_ptr reader) throw (CORBA::SystemException);
+
+      ACE_Mutex& get_ACE_Mutex() { return _mutex; };
+
+      virtual void on_requested_deadline_missed ( DDS::DataReader_ptr reader, const DDS::RequestedDeadlineMissedStatus & status) throw (CORBA::SystemException);
+    
+      virtual void on_requested_incompatible_qos ( DDS::DataReader_ptr reader, const DDS::RequestedIncompatibleQosStatus & status) throw (CORBA::SystemException);
+  
+      virtual void on_liveliness_changed ( DDS::DataReader_ptr reader, const DDS::LivelinessChangedStatus & status) throw (CORBA::SystemException);
+    
+      virtual void on_subscription_matched ( DDS::DataReader_ptr reader, const DDS::SubscriptionMatchedStatus & status) throw (CORBA::SystemException);
+
+      virtual void on_sample_rejected( DDS::DataReader_ptr reader, const DDS::SampleRejectedStatus& status) throw (CORBA::SystemException);
+
+      virtual void on_sample_lost( DDS::DataReader_ptr reader, const DDS::SampleLostStatus& status) throw (CORBA::SystemException); 
+
+      virtual void on_reading_start( DDS::DataReader_ptr reader );
+
+      virtual void on_reading_end( DDS::DataReader_ptr reader, int count );
+
+      virtual bool pre_quantlib_addin_call( DDS::DataReader_ptr reader, DDS::SampleInfo&, pricingengines::qlModelG2SwaptionEngine& );
+
+      virtual bool post_quantlib_addin_call( DDS::DataReader_ptr reader, pricingengines::qlModelG2SwaptionEngine&, std::string& );
+
+      virtual void on_std_exception( DDS::DataReader_ptr reader, pricingengines::qlModelG2SwaptionEngine&, std::exception& e );
+
+      virtual void on_dds_reading_error( DDS::DataReader_ptr reader, std::string& err );
+
+      virtual void on_dds_exception( DDS::DataReader_ptr reader, CORBA::Exception& exp );
+
+    protected:
+      ACE_Mutex& _mutex;
+
+  };
+
+  
   class qlPricingEngineDataReaderListenerImpl
     : public virtual OpenDDS::DCPS::LocalObject<qldds::DataReaderListener< pricingengines::qlPricingEngine, std::string > >
   {
@@ -585,6 +671,48 @@ namespace pricingengines
       virtual bool post_quantlib_addin_call( DDS::DataReader_ptr reader, pricingengines::qlPricingEngine&, std::string& );
 
       virtual void on_std_exception( DDS::DataReader_ptr reader, pricingengines::qlPricingEngine&, std::exception& e );
+
+      virtual void on_dds_reading_error( DDS::DataReader_ptr reader, std::string& err );
+
+      virtual void on_dds_exception( DDS::DataReader_ptr reader, CORBA::Exception& exp );
+
+    protected:
+      ACE_Mutex& _mutex;
+
+  };
+
+  
+  class qlTreeSwaptionEngineDataReaderListenerImpl
+    : public virtual OpenDDS::DCPS::LocalObject<qldds::DataReaderListener< pricingengines::qlTreeSwaptionEngine, std::string > >
+  {
+    public:
+    
+      qlTreeSwaptionEngineDataReaderListenerImpl( ACE_Mutex& mutex ) : _mutex( mutex ) {}; 
+      virtual void on_data_available( DDS::DataReader_ptr reader) throw (CORBA::SystemException);
+
+      ACE_Mutex& get_ACE_Mutex() { return _mutex; };
+
+      virtual void on_requested_deadline_missed ( DDS::DataReader_ptr reader, const DDS::RequestedDeadlineMissedStatus & status) throw (CORBA::SystemException);
+    
+      virtual void on_requested_incompatible_qos ( DDS::DataReader_ptr reader, const DDS::RequestedIncompatibleQosStatus & status) throw (CORBA::SystemException);
+  
+      virtual void on_liveliness_changed ( DDS::DataReader_ptr reader, const DDS::LivelinessChangedStatus & status) throw (CORBA::SystemException);
+    
+      virtual void on_subscription_matched ( DDS::DataReader_ptr reader, const DDS::SubscriptionMatchedStatus & status) throw (CORBA::SystemException);
+
+      virtual void on_sample_rejected( DDS::DataReader_ptr reader, const DDS::SampleRejectedStatus& status) throw (CORBA::SystemException);
+
+      virtual void on_sample_lost( DDS::DataReader_ptr reader, const DDS::SampleLostStatus& status) throw (CORBA::SystemException); 
+
+      virtual void on_reading_start( DDS::DataReader_ptr reader );
+
+      virtual void on_reading_end( DDS::DataReader_ptr reader, int count );
+
+      virtual bool pre_quantlib_addin_call( DDS::DataReader_ptr reader, DDS::SampleInfo&, pricingengines::qlTreeSwaptionEngine& );
+
+      virtual bool post_quantlib_addin_call( DDS::DataReader_ptr reader, pricingengines::qlTreeSwaptionEngine&, std::string& );
+
+      virtual void on_std_exception( DDS::DataReader_ptr reader, pricingengines::qlTreeSwaptionEngine&, std::exception& e );
 
       virtual void on_dds_reading_error( DDS::DataReader_ptr reader, std::string& err );
 

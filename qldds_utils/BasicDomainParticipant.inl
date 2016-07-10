@@ -244,3 +244,29 @@ BasicDomainParticipant::createDataReaderListener( DDS::Topic_var topic, DDS::Dat
 
   return DDS::DataReader::_duplicate( dr.in() );
 };
+
+DDS::DataReader_ptr BasicDomainParticipant::createDataReaderListener( DDS::Topic_var topic,DDS::DataReaderListener_var listener, DDS::DataReaderQos dataReaderQos  )
+{
+  //DDS::DataReaderListener_var listener (new DRListener_var );
+
+  if (CORBA::is_nil ( listener.in ()) ) {
+   cerr << "listener is nil." << endl;
+   ACE_OS::exit(1);
+  }
+
+  ::DDS::DataReaderQos dr_qos;
+  _subscriber->get_default_datareader_qos (dr_qos);
+
+  ::DDS::TopicQos topic_qos;
+
+  topic->get_qos( topic_qos );
+  _subscriber->copy_from_topic_qos (dr_qos, topic_qos);
+
+ DDS::DataReader_var dr =
+     _subscriber->create_datareader(topic.in (), dr_qos, listener.in (),
+        ::OpenDDS::DCPS::DEFAULT_STATUS_MASK);
+
+  return DDS::DataReader::_duplicate( dr.in() );
+
+}
+ 

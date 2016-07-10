@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.module
+//      ocm/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef shortratemodels_IDL
 #define shortratemodels_IDL
@@ -42,6 +42,24 @@ module shortratemodels {
              boolean Overwrite; 
    };
 
+#pragma DCPS_DATA_TYPE "shortratemodels::qlModelG2"
+#pragma DCPS_DATA_KEY "shortratemodels::qlModelG2 instanceID" 
+
+   struct qlModelG2 { 
+          string instanceID;
+          
+             string ObjectId;
+             string YieldCurve;
+             double A;
+             double Sigma;
+             double B;
+             double Eta;
+             double Correlation;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
 #pragma DCPS_DATA_TYPE "shortratemodels::qlVasicek"
 #pragma DCPS_DATA_KEY "shortratemodels::qlVasicek instanceID" 
 
@@ -49,10 +67,11 @@ module shortratemodels {
           string instanceID;
           
              string ObjectId;
+             double R0;
              double A;
              double B;
-             double Lambda;
              double Sigma;
+             double Lambda;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 

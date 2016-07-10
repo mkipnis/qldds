@@ -2,7 +2,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.mpc
+//      ocm/qldds/gensrc/stubs/stub.opendds.mpc
 
 //
 //   Copyright (C) 2015 Mike Kipnis
@@ -44,6 +44,11 @@ project(ohutils) :  dcps_java {
   TypeSupport_Files {
         ohutils.idl
   }
+
+  verbatim(gnuace, bottom, 1) {
+    idl_stubs: _ohutilsTypeSupportTAOPeer.java
+  }
+
 }
 
 

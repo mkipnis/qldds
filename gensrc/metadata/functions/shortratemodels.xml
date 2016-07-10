@@ -12,6 +12,7 @@
     <include>qlo/shortratemodels.hpp</include>
     <include>ql/models/shortrate/onefactormodels/vasicek.hpp</include>
     <include>ql/models/shortrate/onefactormodels/hullwhite.hpp</include>
+    <include>ql/models/shortrate/twofactormodels/g2.hpp</include>
     <include>ql/termstructures/yieldtermstructure.hpp</include>
   </addinIncludes>
   <copyright>
@@ -19,6 +20,7 @@
     Copyright (C) 2005 Aurelien Chanudet
     Copyright (C) 2005 Eric Ehlers
     Copyright (C) 2006 Chiara Fornarola
+    Copyright (C) 2015 Paolo Mazzocchi
   </copyright>
 
   <Functions>
@@ -29,6 +31,7 @@
         <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
         <SupportedPlatform name='Excel'/>
         <SupportedPlatform name='Cpp'/>
+        <SupportedPlatform name='Calc'/>
       </SupportedPlatforms>
       <ParameterList>
         <Parameters>
@@ -58,28 +61,34 @@
         <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
         <SupportedPlatform name='Excel'/>
         <SupportedPlatform name='Cpp'/>
+        <SupportedPlatform name='Calc'/>
       </SupportedPlatforms>
       <ParameterList>
         <Parameters>
-          <Parameter name='A' exampleValue ='0.03'>
+          <Parameter name='R0' default ='0.05'>
+            <type>double</type>
+            <tensorRank>scalar</tensorRank>
+            <description>initial value.</description>
+          </Parameter>
+          <Parameter name='A' default ='0.1'>
             <type>double</type>
             <tensorRank>scalar</tensorRank>
             <description>mean reverting speed.</description>
           </Parameter>
-          <Parameter name='B' exampleValue ='0.03'>
+          <Parameter name='B' default ='0.05'>
             <type>double</type>
             <tensorRank>scalar</tensorRank>
             <description>short-rate limit value.</description>
           </Parameter>
-          <Parameter name='Lambda' exampleValue ='0.0'>
-            <type>double</type>
-            <tensorRank>scalar</tensorRank>
-            <description>risk premium.</description>
-          </Parameter>
-          <Parameter name='Sigma' exampleValue ='0.15'>
+          <Parameter name='Sigma' default ='0.01'>
             <type>double</type>
             <tensorRank>scalar</tensorRank>
             <description>volatility.</description>
+          </Parameter>
+          <Parameter name='Lambda' default ='0.0'>
+            <type>double</type>
+            <tensorRank>scalar</tensorRank>
+            <description>risk premium.</description>
           </Parameter>
         </Parameters>
       </ParameterList>
@@ -127,6 +136,204 @@
         <tensorRank>scalar</tensorRank>
       </ReturnValue>
     </Procedure>
+
+    <Member name='qlVasicekA' type='QuantLib::Vasicek'>
+      <description>returns mean reverting speed a, with dr(t) = a(b-r(t))dt + sigma dW(t).</description>
+      <libraryFunction>a</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters/>
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Real</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
+
+    <Member name='qlVasicekB' type='QuantLib::Vasicek'>
+      <description>returns short-rate limit value b, with dr(t) = a(b-r(t))dt + sigma dW(t).</description>
+      <libraryFunction>b</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters/>
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Real</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
+
+    <Member name='qlVasicekLambda' type='QuantLib::Vasicek'>
+      <description>returns the risk premium.</description>
+      <libraryFunction>lambda</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters/>
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Real</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
+
+    <Member name='qlVasicekSigma' type='QuantLib::Vasicek'>
+      <description>returns the volatility sigma, with dr(t) = a(b-r(t))dt + sigma dW(t).</description>
+      <libraryFunction>sigma</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters/>
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Real</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
+
+    <Constructor name='qlModelG2'>
+      <libraryFunction>G2</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Cpp'/>
+        <SupportedPlatform name='Calc'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='YieldCurve'   exampleValue ='EURYC'>
+            <type>QuantLib::YieldTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>YieldTermStructure object ID.</description>
+          </Parameter>
+          <Parameter name='A' default ='0.1'>
+            <type>double</type>
+            <tensorRank>scalar</tensorRank>
+            <description>drift of x(t) dynamics with r(t)= x(t) + y(t).</description>
+          </Parameter>
+          <Parameter name='Sigma' default ='0.01'>
+            <type>double</type>
+            <tensorRank>scalar</tensorRank>
+            <description>volatility of x(t) dynamics with r(t)= x(t) + y(t).</description>
+          </Parameter>
+          <Parameter name='B' default ='0.1'>
+            <type>double</type>
+            <tensorRank>scalar</tensorRank>
+            <description>drift of y(t) dynamics with r(t)= x(t) + y(t).</description>
+          </Parameter>
+          <Parameter name='Eta' default ='0.01'>
+            <type>double</type>
+            <tensorRank>scalar</tensorRank>
+            <description>volatility of y(t) dynamics with r(t)= x(t) + y(t).</description>
+          </Parameter>
+          <Parameter name='Correlation' default ='-0.75'>
+            <type>double</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Correlation between x(t) and y(t)</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Member name='qlModelG2A' type='QuantLib::G2'>
+      <description>returns the drift of x(t) dynamics with r(t) = x(t) + y(t).</description>
+      <libraryFunction>a</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters/>
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Real</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
+
+    <Member name='qlModelG2sigma' type='QuantLib::G2'>
+      <description>returns the volatility of x(t) dynamics with r(t) = x(t) + y(t).</description>
+      <libraryFunction>sigma</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters/>
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Real</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
+
+    <Member name='qlModelG2B' type='QuantLib::G2'>
+      <description>returns the drift of y(t) dynamics with r(t) = x(t) + y(t).</description>
+      <libraryFunction>b</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters/>
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Real</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
+
+    <Member name='qlModelG2eta' type='QuantLib::G2'>
+      <description>returns the volatility of y(t) dynamics with r(t) = x(t) + y(t).</description>
+      <libraryFunction>eta</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters/>
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Real</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
+
+    <Member name='qlModelG2rho' type='QuantLib::G2'>
+      <description>returns the correlation between x(t) and y(t) with r(t) = x(t) + y(t).</description>
+      <libraryFunction>rho</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters/>
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Real</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
 
   </Functions>
 </Category>

@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.module
+//      ocm/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef ratehelpers_IDL
 #define ratehelpers_IDL
@@ -34,8 +34,9 @@ module ratehelpers {
           string instanceID;
           
              string ObjectId;
-             double CleanPrice;
+             double Price;
              string Bond;
+             boolean UseCleanPrice;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
@@ -98,7 +99,7 @@ module ratehelpers {
           string instanceID;
           
              string ObjectId;
-             double CleanPrice;
+             double Price;
              long SettlementDays;
              double FaceAmount;
              string ScheduleID;
@@ -107,6 +108,12 @@ module ratehelpers {
              string PaymentBDC;
              double Redemption;
              string IssueDate;
+             string PaymentCalendar;
+             string ExCouponPeriod;
+             string ExCouponCalendar;
+             string ExCouponBDC;
+             boolean ExCouponEndOfMonth;
+             boolean UseCleanPrice;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
@@ -122,6 +129,8 @@ module ratehelpers {
              double Rate;
              string PeriodToStart;
              string IborIndex;
+             string PillarDate;
+             string CustomPillarDate;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
@@ -142,6 +151,8 @@ module ratehelpers {
              string Convention;
              boolean EndOfMonth;
              string DayCounter;
+             string PillarDate;
+             string CustomPillarDate;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
@@ -155,7 +166,8 @@ module ratehelpers {
           
              string ObjectId;
              double Price;
-             string IMM;
+             string FuturesType;
+             string FuturesDate;
              string IborIndex;
              double ConvexityAdjQuote;
              boolean Permanent;
@@ -171,7 +183,8 @@ module ratehelpers {
           
              string ObjectId;
              double Price;
-             string IMM;
+             string FuturesType;
+             string FuturesDate;
              long LengthInMonths;
              string Calendar;
              string Convention;
@@ -191,10 +204,32 @@ module ratehelpers {
           
              string ObjectId;
              double Price;
-             string IMM;
+             string FuturesType;
+             string FuturesDate;
              string EndDate;
              string DayCounter;
              double ConvexityAdjQuote;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "ratehelpers::qlFxSwapRateHelper"
+#pragma DCPS_DATA_KEY "ratehelpers::qlFxSwapRateHelper instanceID" 
+
+   struct qlFxSwapRateHelper { 
+          string instanceID;
+          
+             string ObjectId;
+             double FwdPoint;
+             double SpotFx;
+             string Tenor;
+             long FixingDays;
+             string Calendar;
+             string Convention;
+             boolean EndOfMonth;
+             boolean IsFxBaseCurrencyCollateralCurrency;
+             string CollateralCurve;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
@@ -279,6 +314,8 @@ module ratehelpers {
              double Spread;
              string ForwardStart;
              string DiscountingCurve;
+             string PillarDate;
+             string CustomPillarDate;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
@@ -292,6 +329,7 @@ module ratehelpers {
           
              string ObjectId;
              double Rate;
+             long SettlDays;
              string Tenor;
              string Calendar;
              string FixedLegFrequency;
@@ -301,6 +339,8 @@ module ratehelpers {
              double Spread;
              string ForwardStart;
              string DiscountingCurve;
+             string PillarDate;
+             string CustomPillarDate;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 

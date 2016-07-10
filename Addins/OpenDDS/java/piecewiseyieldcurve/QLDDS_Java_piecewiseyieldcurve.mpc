@@ -2,7 +2,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.mpc
+//      ocm/qldds/gensrc/stubs/stub.opendds.mpc
 
 //
 //   Copyright (C) 2015 Mike Kipnis
@@ -21,7 +21,9 @@
 //   FOR A PARTICULAR PURPOSE.  See the license for more details.
 //
 
-project(piecewiseyieldcurve) :  dcps_java {
+project(piecewiseyieldcurve_java) :  dcps_java {
+
+	libout        = $(QLDDS_ROOT)/lib
 
   idlflags     +=  -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export\
                  -Wb,stub_export_include=$(QLDDS_ROOT)/qldds_utils/qldds_Export.h \
@@ -32,8 +34,8 @@ project(piecewiseyieldcurve) :  dcps_java {
                  -Wb,stub_export_include=$(QLDDS_ROOT)/qldds_utils/qldds_Export.h \
                   -Wb,stub_export_macro=QLDDS_Export
   dynamicflags += QLDDS_BUILD_DLL
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
-  libpaths      += $(QLDDS_ROOT)/qldds_utils
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/java/qldds_utils
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/lib
   libs          += qldds_utils_java
   requires += tao_orbsvcs
 
@@ -44,6 +46,11 @@ project(piecewiseyieldcurve) :  dcps_java {
   TypeSupport_Files {
         piecewiseyieldcurve.idl
   }
+
+  verbatim(gnuace, bottom, 1) {
+    idl_stubs: _piecewiseyieldcurveTypeSupportTAOPeer.java
+  }
+
 }
 
 

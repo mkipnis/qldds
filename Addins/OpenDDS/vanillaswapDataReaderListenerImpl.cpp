@@ -18,7 +18,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
+//      ocm/qldds/gensrc/stubs/stub.opendds.body
 
 #include "vanillaswapDataReaderListenerImpl.hpp"
 
@@ -250,6 +250,7 @@ void qlMakeVanillaSwapDataReaderListenerImpl::on_data_available( DDS::DataReader
 
               returnObject = QuantLibAddinCpp::qlMakeVanillaSwap ( 
               obj.ObjectId.in(),
+              static_cast<long>(obj.SettlDays),
               obj.SwapTenor.in(),
               obj.IborIndex.in(),
               static_cast<double>(obj.FixedRate),

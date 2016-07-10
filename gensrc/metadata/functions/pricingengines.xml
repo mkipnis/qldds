@@ -13,6 +13,9 @@
     <include>ql/pricingengines/blackscholescalculator.hpp</include>
     <include>ql/termstructures/volatility/optionlet/optionletvolatilitystructure.hpp</include>
     <include>ql/termstructures/volatility/swaption/swaptionvolstructure.hpp</include>
+    <include>ql/pricingengines/swaption/jamshidianswaptionengine.hpp</include>
+    <include>ql/pricingengines/swaption/g2swaptionengine.hpp</include>
+
   </serializationIncludes>
   <addinIncludes>
     <include>qlo/pricingengines.hpp</include>
@@ -25,6 +28,9 @@
     <include>ql/pricingengines/blackscholescalculator.hpp</include>
     <include>ql/termstructures/volatility/optionlet/optionletvolatilitystructure.hpp</include>
     <include>ql/termstructures/volatility/swaption/swaptionvolstructure.hpp</include>
+    <include>ql/pricingengines/swaption/jamshidianswaptionengine.hpp</include>
+    <include>ql/pricingengines/swaption/g2swaptionengine.hpp</include>
+
   </addinIncludes>
   <copyright>
     Copyright (C) 2006, 2007, 2008, 2012 Ferdinando Ametrano
@@ -1321,7 +1327,7 @@
             <type>QuantLib::Quote</type>
             <superType>libToHandle</superType>
             <tensorRank>scalar</tensorRank>
-            <description>cap/floor term volatility.</description>
+            <description>swaption Black volatility.</description>
           </Parameter>
           <Parameter name='Displacement' default='0.0'>
             <type>QuantLib::Real</type>
@@ -1438,6 +1444,90 @@
             <superType>libToHandle</superType>
             <tensorRank>scalar</tensorRank>
             <description>discounting yield term structure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlJamshidianSwaptionEngine'>
+      <libraryFunction>JamshidianSwaptionEngine</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <SupportedPlatform name='Cpp'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Model' >
+            <type>QuantLib::OneFactorAffineModel</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Model object ID.</description>
+          </Parameter>
+          <Parameter name='YieldCurve' default='""'>
+            <type>QuantLib::YieldTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>yield term structure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlTreeSwaptionEngine'>
+      <libraryFunction>TreeSwaptionEngine</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <SupportedPlatform name='Cpp'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Model' >
+            <type>QuantLib::OneFactorAffineModel</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Model object ID.</description>
+          </Parameter>
+          <Parameter name='Nsteps' >
+            <type>QuantLib::Size</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Number of time steps.</description>
+          </Parameter>
+          <Parameter name='YieldCurve' default='""'>
+            <type>QuantLib::YieldTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>yield term structure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Constructor name='qlModelG2SwaptionEngine'>
+      <libraryFunction>G2SwaptionEngine</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <SupportedPlatform name='Cpp'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Model' >
+            <type>QuantLib::G2</type>
+            <tensorRank>scalar</tensorRank>
+            <description>G2 Model object ID.</description>
+          </Parameter>
+          <Parameter name='Range' >
+            <type>QuantLib::Real</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Range.</description>
+          </Parameter>
+          <Parameter name='Intervals'>
+            <type>QuantLib::Size</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Intervals.</description>
           </Parameter>
         </Parameters>
       </ParameterList>

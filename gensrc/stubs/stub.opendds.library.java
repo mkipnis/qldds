@@ -21,4 +21,9 @@ project(%(libname)s) :  dcps_java {
   TypeSupport_Files {
         %(idlfile)s
   }
+
+  verbatim(gnuace, bottom, 1) {
+    idl_stubs: _%(libname)sTypeSupportTAOPeer.java
+  }
+
 }
