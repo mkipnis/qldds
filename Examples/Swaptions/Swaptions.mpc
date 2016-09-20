@@ -47,7 +47,7 @@ project(*Server) : dcpsexe, svc_utils {
                                 $(QUANTLIB_ADDIN_ROOT)/lib \
                                 $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
-        libs           +=       qldds_utils boost_filesystem boost_serialization boost_system boost_regex ratehelpers swaptionvolstructure TAO_CosNaming log4cxx
+        libs           +=       qldds_utils boost_filesystem boost_serialization boost_system boost_regex ratehelpers swaptionvolstructure TAO_CosNaming
        
         pure_libs	=	$(QLDDS_ROOT)/Addins/OpenDDS/libratehelpersDefaultDataReader.a \
 				$(QLDDS_ROOT)/Addins/OpenDDS/libswaptionvolstructureDefaultDataReader.a \

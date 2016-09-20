@@ -124,6 +124,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     fra_rate_helper2.EndOfMonth = true;
     fra_rate_helper2.Calendar = CORBA::string_dup("TARGET");
     fra_rate_helper2.DayCounter = CORBA::string_dup("A/365 (Fixed)");
+    fra_rate_helper2.PillarDate = CORBA::string_dup("LastRelevantDate");
     fra_rate_helper2.Overwrite = true;
 
     CORBA::Double swap_rates[] = {
@@ -151,6 +152,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     swap_rate_helper2.IborIndex =  CORBA::string_dup("Libor");
     swap_rate_helper2.ForwardStart =  CORBA::string_dup("0D");
     swap_rate_helper2.Spread = 0.0;
+    swap_rate_helper2.PillarDate = CORBA::string_dup("LastRelevantDate");
     swap_rate_helper2.Overwrite = true;
 
     // Swaption Vol Matrix

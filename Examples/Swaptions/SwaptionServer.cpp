@@ -41,11 +41,11 @@
 
 #include "SwaptionServerImpl.h"
 
+#include <qldds_convert_utils.h>
+
 #include "Common.h"
 
 ACE_Mutex qldds_lock;
-
-ObjectHandler::property_t OH_NULL;
 
 class DepositRateHelper2DataReaderListenerImpl : 
      public ratehelpers::qlDepositRateHelper2DataReaderListenerImpl
@@ -198,6 +198,15 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     swaptionServer.createDataReaderListener< SwapRateHelper2DataReaderListenerImpl > ( qldds_lock, topic_swap_rate_helper2 );
     swaptionServer.createDataReaderListener< swaptionvolstructure::qlSwaptionVTSMatrixDataReaderListenerImpl > 
          ( qldds_lock, topic_swaption_vts_matrix );
+
+    std::vector<ObjectHandler::property_t> fixingDates(1);
+    fixingDates[0] = qldds_utils::from_iso_string_to_oh_property("20040916");
+
+
+    std::vector<double> fixingValues(1);
+    fixingValues[0] = 0.05;
+
+   QuantLibAddinCpp::qlIndexAddFixings("Libor", fixingDates, fixingValues, false, false);
 
     
     // SwapServerORB POA

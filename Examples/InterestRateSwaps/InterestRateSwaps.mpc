@@ -60,7 +60,7 @@ project(*IRSCalculator) :  dcpsexe_with_tcp, dcps_udp, dcps_multicast, dcps_rtps
                                 $(BOOST_ROOT)/lib \
                                 $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
-        libs           +=        qldds_utils boost_filesystem boost_serialization boost_system log4cxx boost_regex ratehelpers vanillaswap schedule IRSPortfolio 
+        libs           +=        qldds_utils boost_filesystem boost_serialization boost_system  boost_regex ratehelpers vanillaswap schedule IRSPortfolio 
 
         pure_libs       =       $(QLDDS_ROOT)/Addins/OpenDDS/libratehelpersDefaultDataReader.a \
                                 $(QLDDS_ROOT)/Addins/OpenDDS/libswaptionvolstructureDefaultDataReader.a \
