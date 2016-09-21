@@ -94,11 +94,11 @@ def build_qldds_utils( compilerType, realclean = True ):
 
 def build_qldds_utils_java( compilerType, realclean = True ):
     global ace_root, qldds_root
-    logging.info("building QLDDS Utils : " + compilerType )
+    logging.info("building QLDDS Utils Java: " + compilerType )
 
-    os.chdir(qldds_root+'/qldds_utils')
+    os.chdir(qldds_root+'/java/qldds_utils')
 
-    exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType, "qldds_utils_java.mwc"], False )
+    exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType], False )
 
     if os.name == 'nt':
       if realclean == True:
