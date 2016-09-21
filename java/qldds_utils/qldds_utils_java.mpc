@@ -1,0 +1,37 @@
+//
+//   Copyright (C) 2013 Mike Kipnis
+
+//   This file is part of QLDDS, a free-software/open-source library
+//   for utilization of QuantLib in the distributed envrionment via DDS.
+
+//   QLDDS is free software: you can redistribute it and/or modify it
+//   under the terms of the QLDDS license.  You should have received a
+//   copy of the license along with this program; if not, please email
+//   <dev@qldds.org>. The license is also available online at
+//   <http://qldds.org/qldds-license/>.
+
+//   This program is distributed in the hope that it will be useful, but WITHOUT
+//   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+//   FOR A PARTICULAR PURPOSE.  See the license for more details.
+//
+
+project :  taolib, idl2jni, dcps_java {
+  dynamicflags   = QLDDS_BUILD_DLL
+  includes      +=  $(QLDDS_ROOT) $(QLDDS_ROOT)/qldds_utils
+  libout         =  $(QLDDS_ROOT)/lib
+  idl2jniflags  += -SS -Wb,stub_export_include=QLDDS_Export.h\
+			-Wb,export_macro=QLDDS_Export \
+                   	-Wb,tao_include_predix=qldds_utils/
+
+  libs		+=	qldds_utils
+
+
+  specific {
+	jarname	= qldds_utils_java
+  }
+
+  Idl2Jni_Files {
+	$(QLDDS_ROOT)/qldds_utils/qldds_types.idl
+  }
+
+}
