@@ -1,19 +1,28 @@
-#
-#   Copyright (C) 2013 Mike Kipnis
-#
-#   This file is part of QLDDS, a free-software/open-source library
-#   for utilization of QuantLib in the distributed envrionment via DDS.
-#
-#   QLDDS is free software: you can redistribute it and/or modify it
-#   under the terms of the QLDDS license.  You should have received a
-#   copy of the license along with this program; if not, please email
-#   <dev@qldds.org>. The license is also available online at
-#   <http://qldds.org/qldds-license/>.
-#
-#   This program is distributed in the hope that it will be useful, but WITHOUT
-#   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-#   FOR A PARTICULAR PURPOSE.  See the license for more details.
-#
+
+"""
+   Copyright (C) 2016 Mike Kipnis
+
+   This file is part of QLDDS, a free-software/open-source library
+   for utilization of QuantLib in the distributed envrionment via DDS.
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
+"""
 
 import sys
 import getopt
@@ -25,8 +34,9 @@ import logging
 USAGE = """
 Arguments :
 --type - Compiler type : gnuace, vc9, vc10
---realclean : Perform real clean true or false
---java : build java wrappers true or false
+--realclean=true/false : Perform real clean true or false
+--java=true/false : build java wrappers true or false
+--realcleanonlue : only cleans all packages
 """
 
 # Logger
@@ -75,85 +85,102 @@ def exec_cmd( cmd_args, log_output = True ):
        logging.error(e)
        exit(0)
 
-def build_qldds_utils( compilerType, realclean = True ):
+def realclean_all( compilerType, java ):
     global ace_root, qldds_root
-    logging.info("building QLDDS Utils : " + compilerType )
 
     os.chdir(qldds_root+'/qldds_utils')
-
-    exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType, "qldds_utils.mwc"], False )
-
+    exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType, "qldds_utils.mwc"], False ) 
     if os.name == 'nt':
-      if realclean == True:
-        exec_cmd( ["msbuild.exe","qldds_utils.sln", "/t:clean"] )
-      exec_cmd( ["msbuild.exe","qldds_utils.sln"] )
+      exec_cmd( ["msbuild.exe","qldds_utils.sln", "/t:clean"] )
     else:
-      if realclean==True:
-         exec_cmd(["make","realclean"])
-      exec_cmd(["make"])
-
-def build_qldds_utils_java( compilerType, realclean = True ):
-    global ace_root, qldds_root
-    logging.info("building QLDDS Utils Java: " + compilerType )
-
-    os.chdir(qldds_root+'/java/qldds_utils')
-
-    exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType], False )
-
-    if os.name == 'nt':
-      if realclean == True:
-        exec_cmd( ["msbuild.exe","qldds_utils_java.sln", "/t:clean"] )
-      exec_cmd( ["msbuild.exe","qldds_utils_java.sln"] )
-    else:
-      if realclean==True:
-         exec_cmd(["make","realclean"])
-      exec_cmd(["make"])
-
-def build_qldds_dds_addins( compilerType, realclean = True ):
-    global ace_root, qldds_root
-    logging.info( "Building QLDDS Addins" )
+      exec_cmd(["make","realclean"])
 
     os.chdir( qldds_root+'/Addins/OpenDDS/' )
-
     if os.name == 'nt': # Windows
       exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDS_vc.mwc"], False )
-      if realclean == True:
-        exec_cmd( ["msbuild.exe","QLDDS_vc.sln", "/t:clean"] )
-      exec_cmd( ["msbuild.exe","QLDDS_vc.sln"] )
-
+      exec_cmd( ["msbuild.exe","QLDDS_vc.sln", "/t:clean"] )
       exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDSDataReaders_vc.mwc"] )
-      if realclean == True:
-        exec_cmd( ["msbuild.exe","QLDDSDataReaders_vc.sln", "/t:clean"] )
+      exec_cmd( ["msbuild.exe","QLDDSDataReaders_vc.sln", "/t:clean"] )
+    else:
+      exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDS.mwc"], False )
+      exec_cmd( ["make","realclean"] )
 
+    realclean_example( qldds_root+'/Examples/InterestRateSwaps', 'InterestRateSwaps', compilerType )
+    realclean_example( qldds_root+'/Examples/Swaptions', 'Swaptions', compilerType )
+    realclean_example( qldds_root+'/Examples/EquityOptions', 'EquityOptions', compilerType )
+
+    if java == False:
+      return
+
+    if os.name != 'nt': 
+      os.chdir(qldds_root+'/java/qldds_utils')
+      exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType, "qldds_utils_java.mwc"], False ) 
+      exec_cmd(["make","realclean"])
+
+      os.chdir( qldds_root+'/java/Addins/OpenDDS/' )
+      exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType], False )
+      exec_cmd(["make","realclean"]) 
+
+      os.chdir( qldds_root+'/java/Examples/CurveBuilder/' )
+      exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType], False )
+      exec_cmd(["make","realclean"])
+
+def buildall( compilerType, build_java ):
+    global ace_root, qldds_root
+
+    os.chdir(qldds_root+'/qldds_utils')
+    exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType, "qldds_utils.mwc"], False )
+    if os.name == 'nt':
+      exec_cmd( ["msbuild.exe","qldds_utils.sln"] )
+    else:
+      exec_cmd(["make"])
+
+    os.chdir( qldds_root+'/Addins/OpenDDS/' )
+    if os.name == 'nt': # Windows
+      exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDS_vc.mwc"], False )
+      exec_cmd( ["msbuild.exe","QLDDS_vc.sln"] )
+      exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDSDataReaders_vc.mwc"] )
       exec_cmd( ["msbuild.exe","QLDDSDataReaders_vc.sln"] )
     else:
       exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDS.mwc"], False )
-      if realclean == True:
-        exec_cmd( ["make","realclean"] )
       exec_cmd( ["make"] )
 
-def build_qldds_dds_addins_java( compilerType, realclean = True ):
-    global ace_root, qldds_root
-    logging.info( "Building QLDDS Addins" )
+    build_example( qldds_root+'/Examples/InterestRateSwaps', 'InterestRateSwaps', compilerType )
+    build_example( qldds_root+'/Examples/Swaptions', 'Swaptions', compilerType )
+    build_example( qldds_root+'/Examples/EquityOptions', 'EquityOptions', compilerType )
 
-    os.chdir( qldds_root+'/Addins/OpenDDS/java' )
+    if java == false:
+      return
 
-    if os.name == 'nt': # Windows
-      exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDS_vc.mwc"], False )
-      if realclean == True:
-        exec_cmd( ["msbuild.exe","QLDDS_vc.sln", "/t:clean"] )
-      exec_cmd( ["msbuild.exe","QLDDS_vc.sln"] )
+    if os.name != 'nt':
+      os.chdir(qldds_root+'/java/qldds_utils')
+      exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType, "qldds_utils_java.mwc"], False )
+      exec_cmd(["make"])
 
-      exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDSDataReaders_vc.mwc"] )
-      if realclean == True:
-        exec_cmd( ["msbuild.exe","QLDDSDataReaders_vc.sln", "/t:clean"] )
+      os.chdir( qldds_root+'/java/Addins/OpenDDS/' )
+      exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType], False )
+      exec_cmd(["make"])
 
-      exec_cmd( ["msbuild.exe","QLDDSDataReaders_vc.sln"] )
+    os.chdir( qldds_root+'/java/Examples/CurveBuilder/' )
+    exec_cmd([ace_root+'/bin/mwc.pl','-type', compilerType], False )
+    os.chdir( qldds_root+'/java/Examples/CurveBuilder/CurveBuilderIDL/' )
+    exec_cmd(["make"])
+    os.chdir( qldds_root+'/java/Examples/CurveBuilder/' )
+    exec_cmd(["make"])
+
+
+def realclean_example( directory, mwc_prefix, compilerType ):
+    global ace_root, qldds_root, logger
+
+    os.chdir( directory )
+
+    if os.name == 'nt':
+      prefix = mwc_prefix +"_" + compilerType
+      exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, prefix+".mwc" ] )
+      exec_cmd( ["msbuild.exe",prefix+".sln", "/t:clean"] )
     else:
-      exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDS_Java.mwc"], False )
-      if realclean == True:
-        exec_cmd( ["make","realclean"] )
-      exec_cmd( ["make"] )
+      exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, mwc_prefix+".mwc"] )
+      exec_cmd( ["make","realclean"] )
 
 def build_example( directory, mwc_prefix, compilerType, realclean = True ):
     global ace_root, qldds_root, logger
@@ -178,7 +205,7 @@ def build_example( directory, mwc_prefix, compilerType, realclean = True ):
 try:
 
     opts, args = getopt.getopt(sys.argv[1:], 'h',
-	 	   ['help','type=','realclean=','java='] )
+	 	   ['help','type=','realclean=','java=','realcleanonly'] )
 
 except getopt.GetoptError:
     usage()
@@ -186,6 +213,8 @@ except getopt.GetoptError:
 realclean=True
 compilerType=''
 buildjava=False
+realcleanOnly=False
+
 
 
 for o, v in opts:
@@ -199,6 +228,8 @@ for o, v in opts:
             buildjava = True
     elif o in ('-h','--help'):
       usage()
+    elif o == '--realcleanonly': 
+      realcleanOnly = True
     else:
       usage()
 
@@ -219,22 +250,11 @@ if compilerType == '':
 logging.info("Starting") 
 set_dependencies()
 
-build_qldds_utils( compilerType, realclean )
+if realcleanOnly == True:
+  realclean_all(compilerType, buildjava)
+  sys.exit(0)
 
-if buildjava == True:
-  build_qldds_utils_java( compilerType, realclean )
+if realclean == True:
+  realclean_all(compilerType, buildjava)
 
-build_qldds_dds_addins( compilerType, realclean )
-
-if buildjava == True:
-  build_qldds_dds_addins_java( compilerType, realclean )
-
-build_example( qldds_root+'/Examples/InterestRateSwaps',
-               'InterestRateSwaps', compilerType, realclean )
-
-build_example( qldds_root+'/Examples/Swaptions',
-               'Swaptions', compilerType, realclean )
-
-build_example( qldds_root+'/Examples/EquityOptions',
-               'EquityOptions', compilerType, realclean )
-
+buildall(compilerType, buildjava)

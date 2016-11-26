@@ -1,0 +1,68 @@
+// This file was generated automatically by qldds_gensrc.py.  If you edit this file
+// manually then your changes will be lost the next time gensrc runs.
+
+// This source code file was generated from the following stub:
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.mwc.java
+
+workspace {
+        garbagecollection/QLDDS_Java_garbagecollection.mpc
+logging/QLDDS_Java_logging.mpc
+ohutils/QLDDS_Java_ohutils.mpc
+serialization/QLDDS_Java_serialization.mpc
+valueobjects/QLDDS_Java_valueobjects.mpc
+abcd/QLDDS_Java_abcd.mpc
+accountingengines/QLDDS_Java_accountingengines.mpc
+alphaform/QLDDS_Java_alphaform.mpc
+assetswap/QLDDS_Java_assetswap.mpc
+bonds/QLDDS_Java_bonds.mpc
+browniangenerators/QLDDS_Java_browniangenerators.mpc
+btp/QLDDS_Java_btp.mpc
+capfloor/QLDDS_Java_capfloor.mpc
+capletvolstructure/QLDDS_Java_capletvolstructure.mpc
+cmsmarket/QLDDS_Java_cmsmarket.mpc
+correlation/QLDDS_Java_correlation.mpc
+couponvectors/QLDDS_Java_couponvectors.mpc
+credit/QLDDS_Java_credit.mpc
+ctsmmcapletcalibration/QLDDS_Java_ctsmmcapletcalibration.mpc
+curvestate/QLDDS_Java_curvestate.mpc
+defaulttermstructures/QLDDS_Java_defaulttermstructures.mpc
+evolutiondescription/QLDDS_Java_evolutiondescription.mpc
+exercise/QLDDS_Java_exercise.mpc
+forwardrateagreement/QLDDS_Java_forwardrateagreement.mpc
+handles/QLDDS_Java_handles.mpc
+qlIndex/QLDDS_Java_qlIndex.mpc
+instruments/QLDDS_Java_instruments.mpc
+interpolation/QLDDS_Java_interpolation.mpc
+leg/QLDDS_Java_leg.mpc
+marketmodelevolvers/QLDDS_Java_marketmodelevolvers.mpc
+marketmodels/QLDDS_Java_marketmodels.mpc
+optimization/QLDDS_Java_optimization.mpc
+options/QLDDS_Java_options.mpc
+overnightindexedswap/QLDDS_Java_overnightindexedswap.mpc
+payoffs/QLDDS_Java_payoffs.mpc
+piecewiseyieldcurve/QLDDS_Java_piecewiseyieldcurve.mpc
+pricingengines/QLDDS_Java_pricingengines.mpc
+processes/QLDDS_Java_processes.mpc
+products/QLDDS_Java_products.mpc
+quotes/QLDDS_Java_quotes.mpc
+randomsequencegenerator/QLDDS_Java_randomsequencegenerator.mpc
+rangeaccrual/QLDDS_Java_rangeaccrual.mpc
+ratehelpers/QLDDS_Java_ratehelpers.mpc
+schedule/QLDDS_Java_schedule.mpc
+sequencestatistics/QLDDS_Java_sequencestatistics.mpc
+settings/QLDDS_Java_settings.mpc
+shortratemodels/QLDDS_Java_shortratemodels.mpc
+smilesection/QLDDS_Java_smilesection.mpc
+statistics/QLDDS_Java_statistics.mpc
+swap/QLDDS_Java_swap.mpc
+swaption/QLDDS_Java_swaption.mpc
+swaptionvolstructure/QLDDS_Java_swaptionvolstructure.mpc
+termstructures/QLDDS_Java_termstructures.mpc
+timeseries/QLDDS_Java_timeseries.mpc
+utilities/QLDDS_Java_utilities.mpc
+vanillaswap/QLDDS_Java_vanillaswap.mpc
+volatilities/QLDDS_Java_volatilities.mpc
+volatility/QLDDS_Java_volatility.mpc
+
+}
+

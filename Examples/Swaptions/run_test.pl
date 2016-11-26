@@ -2,14 +2,15 @@ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
     & eval 'exec perl -S $0 $argv:q'
     if 0;
 
-use Env (ACE_ROOT);
-use Env (DDS_ROOT);
+use Env qw(ACE_ROOT DDS_ROOT QLDDS_ROOT);
 use lib "$ACE_ROOT/bin";
 use lib "$DDS_ROOT/bin";
 use PerlDDS::Run_Test;
 
 my $status = 0;
 my $failed = 0;
+
+PerlACE::add_lib_path("$QLDDS_ROOT/lib");
 
 my $repo_ior = PerlACE::LocalFile ("repo.ior");
 my $ns_ior   = PerlACE::LocalFile ("ns.ior");

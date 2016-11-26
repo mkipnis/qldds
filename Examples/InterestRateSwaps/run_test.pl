@@ -2,14 +2,15 @@ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
     & eval 'exec perl -S $0 $argv:q'
     if 0;
 
-use Env (ACE_ROOT);
-use Env (DDS_ROOT);
-use lib "$ACE_ROOT/bin";
+use Env qw(ACE_ROOT DDS_ROOT QLDDS_ROOT);
 use lib "$DDS_ROOT/bin";
+use lib "$ACE_ROOT/bin";
 use PerlDDS::Run_Test;
-
+#use strict;
 my $status = 0;
 my $failed = 0;
+
+PerlACE::add_lib_path("$QLDDS_ROOT/lib");
 
 my $repo_ior = PerlACE::LocalFile ("repo.ior");
 
@@ -20,8 +21,8 @@ my $repo_opts      = "-ORBEndpoint iiop://localhost:12345";
 my $opts	   = "-DCPSConfigFile $dds_ini -m 0";
 
 my $arg_ns_ref = "-ORBLogFile debug.log -ORBDebugLevel 1";
-my $repo_args        = "$common_opts $repo_opts";
-my $args   = "$common_opts $opts";
+my $repo_args        = "$repo_opts";
+my $args   = "$opts";
 
 my $REPO;
 my $MARKET_DATA_PUBLISHER;
@@ -45,7 +46,7 @@ if (PerlACE::waitforfile_timed ($repo_ior, 30) == -1) {
 
 sleep(1);
 
-$curveA = "Deposit/1M|Deposit/3M|FRA/6M9|FRA/6M12|Swap/2Y|Swap/5Y|Swap/10Y|Swap/15Y|Swap/50Y|";
+my $curveA = "Deposit/1M|Deposit/3M|FRA/6M9|FRA/6M12|Swap/2Y|Swap/5Y|Swap/10Y|Swap/15Y|Swap/50Y|";
 
 # Start Calculator 1
 my $args_a = "$args -n depot-fra-swap -c $curveA -ORBLogFile curve_a_calculator.log -ORBDebugLevel 10";
@@ -55,7 +56,7 @@ $IRS_CALCULATOR_1->Spawn ();
 
 sleep(1);
 
-$curveB = "Deposit/1M|Deposit/3M|Deposit/6M|Deposit/1Y|Swap/2Y|Swap/5Y|Swap/10Y|Swap/15Y|Swap/50Y|";
+my $curveB = "Deposit/1M|Deposit/3M|Deposit/6M|Deposit/1Y|Swap/2Y|Swap/5Y|Swap/10Y|Swap/15Y|Swap/50Y|";
 
 # Start Calculator 2
 my $args_b = "$args -n depo-swap -c $curveB -ORBLogFile curve_b_calculator.log -ORBDebugLevel 1";

@@ -1,0 +1,14 @@
+#ifndef QLDDS_TYPES_IDL
+#define QLDDS_TYPES_IDL
+
+module qldds_utils
+{
+  typedef sequence < string > StringSeq;
+  typedef sequence < boolean > BooleanSeq;
+  typedef sequence < double > DoubleSeq;
+  typedef sequence < long > LongSeq;
+  typedef sequence < DoubleSeq > Matrix;
+};
+
+#endif
+

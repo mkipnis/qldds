@@ -2,30 +2,37 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      ocm/qldds/gensrc/stubs/stub.opendds.mpc
+//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.mpc
 
 //
-//   Copyright (C) 2015 Mike Kipnis
+//   Copyright (C) 2016 Mike Kipnis
 
 //   This file is part of QLDDS, a free-software/open-source library
 //   for utilization of QuantLib in the distributed envrionment via DDS.
 
-//   QLDDS is free software: you can redistribute it and/or modify it
-//   under the terms of the QLDDS license.  You should have received a
-//   copy of the license along with this program; if not, please email
-//   <dev@qldds.org>. The license is also available online at
-//   <http://qldds.org/qldds-license/>.
+//   Permission is hereby granted, free of charge, to any person obtaining a copy
+//   of this software and associated documentation files (the "Software"), to deal
+//   in the Software without restriction, including without limitation the rights
+//   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//   copies of the Software, and to permit persons to whom the Software is
+//   furnished to do so, subject to the following conditions:
 
-//   This program is distributed in the hope that it will be useful, but WITHOUT
-//   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-//   FOR A PARTICULAR PURPOSE.  See the license for more details.
-//
+//   The above copyright notice and this permission notice shall be included in all
+//   copies or substantial portions of the Software.
 
-project(garbagecollection) : dcps, install {
+//   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//   SOFTWARE.
+
+
+project(garbagecollection) : dcps {
 
   sharedname     = garbagecollection
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -35,6 +42,7 @@ project(garbagecollection) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	garbagecollection.idl
@@ -55,11 +63,10 @@ project(garbagecollection) : dcps, install {
   }
 
 }
-project(logging) : dcps, install {
+project(logging) : dcps {
 
   sharedname     = logging
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -69,6 +76,7 @@ project(logging) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	logging.idl
@@ -89,11 +97,10 @@ project(logging) : dcps, install {
   }
 
 }
-project(ohutils) : dcps, install {
+project(ohutils) : dcps {
 
   sharedname     = ohutils
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -103,6 +110,7 @@ project(ohutils) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	ohutils.idl
@@ -123,11 +131,10 @@ project(ohutils) : dcps, install {
   }
 
 }
-project(serialization) : dcps, install {
+project(serialization) : dcps {
 
   sharedname     = serialization
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -137,6 +144,7 @@ project(serialization) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	serialization.idl
@@ -157,11 +165,10 @@ project(serialization) : dcps, install {
   }
 
 }
-project(valueobjects) : dcps, install {
+project(valueobjects) : dcps {
 
   sharedname     = valueobjects
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -171,6 +178,7 @@ project(valueobjects) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	valueobjects.idl
@@ -191,11 +199,10 @@ project(valueobjects) : dcps, install {
   }
 
 }
-project(abcd) : dcps, install {
+project(abcd) : dcps {
 
   sharedname     = abcd
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -205,6 +212,7 @@ project(abcd) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	abcd.idl
@@ -225,11 +233,10 @@ project(abcd) : dcps, install {
   }
 
 }
-project(accountingengines) : dcps, install {
+project(accountingengines) : dcps {
 
   sharedname     = accountingengines
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -239,6 +246,7 @@ project(accountingengines) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	accountingengines.idl
@@ -259,11 +267,10 @@ project(accountingengines) : dcps, install {
   }
 
 }
-project(alphaform) : dcps, install {
+project(alphaform) : dcps {
 
   sharedname     = alphaform
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -273,6 +280,7 @@ project(alphaform) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	alphaform.idl
@@ -293,11 +301,10 @@ project(alphaform) : dcps, install {
   }
 
 }
-project(assetswap) : dcps, install {
+project(assetswap) : dcps {
 
   sharedname     = assetswap
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -307,6 +314,7 @@ project(assetswap) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	assetswap.idl
@@ -327,11 +335,10 @@ project(assetswap) : dcps, install {
   }
 
 }
-project(bonds) : dcps, install {
+project(bonds) : dcps {
 
   sharedname     = bonds
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -341,6 +348,7 @@ project(bonds) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	bonds.idl
@@ -361,11 +369,10 @@ project(bonds) : dcps, install {
   }
 
 }
-project(browniangenerators) : dcps, install {
+project(browniangenerators) : dcps {
 
   sharedname     = browniangenerators
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -375,6 +382,7 @@ project(browniangenerators) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	browniangenerators.idl
@@ -395,11 +403,10 @@ project(browniangenerators) : dcps, install {
   }
 
 }
-project(btp) : dcps, install {
+project(btp) : dcps {
 
   sharedname     = btp
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -409,6 +416,7 @@ project(btp) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	btp.idl
@@ -429,11 +437,10 @@ project(btp) : dcps, install {
   }
 
 }
-project(capfloor) : dcps, install {
+project(capfloor) : dcps {
 
   sharedname     = capfloor
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -443,6 +450,7 @@ project(capfloor) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	capfloor.idl
@@ -463,11 +471,10 @@ project(capfloor) : dcps, install {
   }
 
 }
-project(capletvolstructure) : dcps, install {
+project(capletvolstructure) : dcps {
 
   sharedname     = capletvolstructure
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -477,6 +484,7 @@ project(capletvolstructure) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	capletvolstructure.idl
@@ -497,11 +505,10 @@ project(capletvolstructure) : dcps, install {
   }
 
 }
-project(cmsmarket) : dcps, install {
+project(cmsmarket) : dcps {
 
   sharedname     = cmsmarket
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -511,6 +518,7 @@ project(cmsmarket) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	cmsmarket.idl
@@ -531,11 +539,10 @@ project(cmsmarket) : dcps, install {
   }
 
 }
-project(correlation) : dcps, install {
+project(correlation) : dcps {
 
   sharedname     = correlation
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -545,6 +552,7 @@ project(correlation) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	correlation.idl
@@ -565,11 +573,10 @@ project(correlation) : dcps, install {
   }
 
 }
-project(couponvectors) : dcps, install {
+project(couponvectors) : dcps {
 
   sharedname     = couponvectors
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -579,6 +586,7 @@ project(couponvectors) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	couponvectors.idl
@@ -599,11 +607,10 @@ project(couponvectors) : dcps, install {
   }
 
 }
-project(credit) : dcps, install {
+project(credit) : dcps {
 
   sharedname     = credit
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -613,6 +620,7 @@ project(credit) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	credit.idl
@@ -633,11 +641,10 @@ project(credit) : dcps, install {
   }
 
 }
-project(ctsmmcapletcalibration) : dcps, install {
+project(ctsmmcapletcalibration) : dcps {
 
   sharedname     = ctsmmcapletcalibration
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -647,6 +654,7 @@ project(ctsmmcapletcalibration) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	ctsmmcapletcalibration.idl
@@ -667,11 +675,10 @@ project(ctsmmcapletcalibration) : dcps, install {
   }
 
 }
-project(curvestate) : dcps, install {
+project(curvestate) : dcps {
 
   sharedname     = curvestate
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -681,6 +688,7 @@ project(curvestate) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	curvestate.idl
@@ -701,11 +709,10 @@ project(curvestate) : dcps, install {
   }
 
 }
-project(defaulttermstructures) : dcps, install {
+project(defaulttermstructures) : dcps {
 
   sharedname     = defaulttermstructures
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -715,6 +722,7 @@ project(defaulttermstructures) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	defaulttermstructures.idl
@@ -735,11 +743,10 @@ project(defaulttermstructures) : dcps, install {
   }
 
 }
-project(evolutiondescription) : dcps, install {
+project(evolutiondescription) : dcps {
 
   sharedname     = evolutiondescription
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -749,6 +756,7 @@ project(evolutiondescription) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	evolutiondescription.idl
@@ -769,11 +777,10 @@ project(evolutiondescription) : dcps, install {
   }
 
 }
-project(exercise) : dcps, install {
+project(exercise) : dcps {
 
   sharedname     = exercise
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -783,6 +790,7 @@ project(exercise) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	exercise.idl
@@ -803,11 +811,10 @@ project(exercise) : dcps, install {
   }
 
 }
-project(forwardrateagreement) : dcps, install {
+project(forwardrateagreement) : dcps {
 
   sharedname     = forwardrateagreement
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -817,6 +824,7 @@ project(forwardrateagreement) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	forwardrateagreement.idl
@@ -837,11 +845,10 @@ project(forwardrateagreement) : dcps, install {
   }
 
 }
-project(handles) : dcps, install {
+project(handles) : dcps {
 
   sharedname     = handles
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -851,6 +858,7 @@ project(handles) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	handles.idl
@@ -871,11 +879,10 @@ project(handles) : dcps, install {
   }
 
 }
-project(qlIndex) : dcps, install {
+project(qlIndex) : dcps {
 
   sharedname     = qlIndex
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -885,6 +892,7 @@ project(qlIndex) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	qlIndex.idl
@@ -905,11 +913,10 @@ project(qlIndex) : dcps, install {
   }
 
 }
-project(instruments) : dcps, install {
+project(instruments) : dcps {
 
   sharedname     = instruments
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -919,6 +926,7 @@ project(instruments) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	instruments.idl
@@ -939,11 +947,10 @@ project(instruments) : dcps, install {
   }
 
 }
-project(interpolation) : dcps, install {
+project(interpolation) : dcps {
 
   sharedname     = interpolation
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -953,6 +960,7 @@ project(interpolation) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	interpolation.idl
@@ -973,11 +981,10 @@ project(interpolation) : dcps, install {
   }
 
 }
-project(leg) : dcps, install {
+project(leg) : dcps {
 
   sharedname     = leg
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -987,6 +994,7 @@ project(leg) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	leg.idl
@@ -1007,11 +1015,10 @@ project(leg) : dcps, install {
   }
 
 }
-project(marketmodelevolvers) : dcps, install {
+project(marketmodelevolvers) : dcps {
 
   sharedname     = marketmodelevolvers
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1021,6 +1028,7 @@ project(marketmodelevolvers) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	marketmodelevolvers.idl
@@ -1041,11 +1049,10 @@ project(marketmodelevolvers) : dcps, install {
   }
 
 }
-project(marketmodels) : dcps, install {
+project(marketmodels) : dcps {
 
   sharedname     = marketmodels
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1055,6 +1062,7 @@ project(marketmodels) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	marketmodels.idl
@@ -1075,11 +1083,10 @@ project(marketmodels) : dcps, install {
   }
 
 }
-project(optimization) : dcps, install {
+project(optimization) : dcps {
 
   sharedname     = optimization
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1089,6 +1096,7 @@ project(optimization) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	optimization.idl
@@ -1109,11 +1117,10 @@ project(optimization) : dcps, install {
   }
 
 }
-project(options) : dcps, install {
+project(options) : dcps {
 
   sharedname     = options
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1123,6 +1130,7 @@ project(options) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	options.idl
@@ -1143,11 +1151,10 @@ project(options) : dcps, install {
   }
 
 }
-project(overnightindexedswap) : dcps, install {
+project(overnightindexedswap) : dcps {
 
   sharedname     = overnightindexedswap
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1157,6 +1164,7 @@ project(overnightindexedswap) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	overnightindexedswap.idl
@@ -1177,11 +1185,10 @@ project(overnightindexedswap) : dcps, install {
   }
 
 }
-project(payoffs) : dcps, install {
+project(payoffs) : dcps {
 
   sharedname     = payoffs
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1191,6 +1198,7 @@ project(payoffs) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	payoffs.idl
@@ -1211,11 +1219,10 @@ project(payoffs) : dcps, install {
   }
 
 }
-project(piecewiseyieldcurve) : dcps, install {
+project(piecewiseyieldcurve) : dcps {
 
   sharedname     = piecewiseyieldcurve
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1225,6 +1232,7 @@ project(piecewiseyieldcurve) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	piecewiseyieldcurve.idl
@@ -1245,11 +1253,10 @@ project(piecewiseyieldcurve) : dcps, install {
   }
 
 }
-project(pricingengines) : dcps, install {
+project(pricingengines) : dcps {
 
   sharedname     = pricingengines
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1259,6 +1266,7 @@ project(pricingengines) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	pricingengines.idl
@@ -1279,11 +1287,10 @@ project(pricingengines) : dcps, install {
   }
 
 }
-project(processes) : dcps, install {
+project(processes) : dcps {
 
   sharedname     = processes
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1293,6 +1300,7 @@ project(processes) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	processes.idl
@@ -1313,11 +1321,10 @@ project(processes) : dcps, install {
   }
 
 }
-project(products) : dcps, install {
+project(products) : dcps {
 
   sharedname     = products
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1327,6 +1334,7 @@ project(products) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	products.idl
@@ -1347,11 +1355,10 @@ project(products) : dcps, install {
   }
 
 }
-project(quotes) : dcps, install {
+project(quotes) : dcps {
 
   sharedname     = quotes
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1361,6 +1368,7 @@ project(quotes) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	quotes.idl
@@ -1381,11 +1389,10 @@ project(quotes) : dcps, install {
   }
 
 }
-project(randomsequencegenerator) : dcps, install {
+project(randomsequencegenerator) : dcps {
 
   sharedname     = randomsequencegenerator
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1395,6 +1402,7 @@ project(randomsequencegenerator) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	randomsequencegenerator.idl
@@ -1415,11 +1423,10 @@ project(randomsequencegenerator) : dcps, install {
   }
 
 }
-project(rangeaccrual) : dcps, install {
+project(rangeaccrual) : dcps {
 
   sharedname     = rangeaccrual
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1429,6 +1436,7 @@ project(rangeaccrual) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	rangeaccrual.idl
@@ -1449,11 +1457,10 @@ project(rangeaccrual) : dcps, install {
   }
 
 }
-project(ratehelpers) : dcps, install {
+project(ratehelpers) : dcps {
 
   sharedname     = ratehelpers
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1463,6 +1470,7 @@ project(ratehelpers) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	ratehelpers.idl
@@ -1483,11 +1491,10 @@ project(ratehelpers) : dcps, install {
   }
 
 }
-project(schedule) : dcps, install {
+project(schedule) : dcps {
 
   sharedname     = schedule
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1497,6 +1504,7 @@ project(schedule) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	schedule.idl
@@ -1517,11 +1525,10 @@ project(schedule) : dcps, install {
   }
 
 }
-project(sequencestatistics) : dcps, install {
+project(sequencestatistics) : dcps {
 
   sharedname     = sequencestatistics
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1531,6 +1538,7 @@ project(sequencestatistics) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	sequencestatistics.idl
@@ -1551,11 +1559,10 @@ project(sequencestatistics) : dcps, install {
   }
 
 }
-project(settings) : dcps, install {
+project(settings) : dcps {
 
   sharedname     = settings
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1565,6 +1572,7 @@ project(settings) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	settings.idl
@@ -1585,11 +1593,10 @@ project(settings) : dcps, install {
   }
 
 }
-project(shortratemodels) : dcps, install {
+project(shortratemodels) : dcps {
 
   sharedname     = shortratemodels
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1599,6 +1606,7 @@ project(shortratemodels) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	shortratemodels.idl
@@ -1619,11 +1627,10 @@ project(shortratemodels) : dcps, install {
   }
 
 }
-project(smilesection) : dcps, install {
+project(smilesection) : dcps {
 
   sharedname     = smilesection
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1633,6 +1640,7 @@ project(smilesection) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	smilesection.idl
@@ -1653,11 +1661,10 @@ project(smilesection) : dcps, install {
   }
 
 }
-project(statistics) : dcps, install {
+project(statistics) : dcps {
 
   sharedname     = statistics
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1667,6 +1674,7 @@ project(statistics) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	statistics.idl
@@ -1687,11 +1695,10 @@ project(statistics) : dcps, install {
   }
 
 }
-project(swap) : dcps, install {
+project(swap) : dcps {
 
   sharedname     = swap
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1701,6 +1708,7 @@ project(swap) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	swap.idl
@@ -1721,11 +1729,10 @@ project(swap) : dcps, install {
   }
 
 }
-project(swaption) : dcps, install {
+project(swaption) : dcps {
 
   sharedname     = swaption
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1735,6 +1742,7 @@ project(swaption) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	swaption.idl
@@ -1755,11 +1763,10 @@ project(swaption) : dcps, install {
   }
 
 }
-project(swaptionvolstructure) : dcps, install {
+project(swaptionvolstructure) : dcps {
 
   sharedname     = swaptionvolstructure
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1769,6 +1776,7 @@ project(swaptionvolstructure) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	swaptionvolstructure.idl
@@ -1789,11 +1797,10 @@ project(swaptionvolstructure) : dcps, install {
   }
 
 }
-project(termstructures) : dcps, install {
+project(termstructures) : dcps {
 
   sharedname     = termstructures
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1803,6 +1810,7 @@ project(termstructures) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	termstructures.idl
@@ -1823,11 +1831,10 @@ project(termstructures) : dcps, install {
   }
 
 }
-project(timeseries) : dcps, install {
+project(timeseries) : dcps {
 
   sharedname     = timeseries
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1837,6 +1844,7 @@ project(timeseries) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	timeseries.idl
@@ -1857,11 +1865,10 @@ project(timeseries) : dcps, install {
   }
 
 }
-project(utilities) : dcps, install {
+project(utilities) : dcps {
 
   sharedname     = utilities
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1871,6 +1878,7 @@ project(utilities) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	utilities.idl
@@ -1891,11 +1899,10 @@ project(utilities) : dcps, install {
   }
 
 }
-project(vanillaswap) : dcps, install {
+project(vanillaswap) : dcps {
 
   sharedname     = vanillaswap
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1905,6 +1912,7 @@ project(vanillaswap) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	vanillaswap.idl
@@ -1925,11 +1933,10 @@ project(vanillaswap) : dcps, install {
   }
 
 }
-project(volatilities) : dcps, install {
+project(volatilities) : dcps {
 
   sharedname     = volatilities
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1939,6 +1946,7 @@ project(volatilities) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	volatilities.idl
@@ -1959,11 +1967,10 @@ project(volatilities) : dcps, install {
   }
 
 }
-project(volatility) : dcps, install {
+project(volatility) : dcps {
 
   sharedname     = volatility
   dynamicflags   = QLDDS_BUILD_DLL
-  libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
@@ -1973,6 +1980,7 @@ project(volatility) : dcps, install {
 
   libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
         	volatility.idl
