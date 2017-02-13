@@ -158,6 +158,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       "50Y"
     };
 
+    swap_rate_helper2.SettlDays = 2;
     swap_rate_helper2.Calendar = CORBA::string_dup("TARGET");
     swap_rate_helper2.FixedLegFrequency = CORBA::string_dup("Annual");
     swap_rate_helper2.FixedLegConvention = CORBA::string_dup("Unadjusted");

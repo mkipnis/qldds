@@ -109,7 +109,7 @@ def realclean_all( compilerType, java ):
     realclean_example( qldds_root+'/Examples/Swaptions', 'Swaptions', compilerType )
     realclean_example( qldds_root+'/Examples/EquityOptions', 'EquityOptions', compilerType )
 
-    if java == False:
+    if buildjava == False:
       return
 
     if os.name != 'nt': 
@@ -145,11 +145,11 @@ def buildall( compilerType, build_java ):
       exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDS.mwc"], False )
       exec_cmd( ["make"] )
 
-    build_example( qldds_root+'/Examples/InterestRateSwaps', 'InterestRateSwaps', compilerType )
-    build_example( qldds_root+'/Examples/Swaptions', 'Swaptions', compilerType )
-    build_example( qldds_root+'/Examples/EquityOptions', 'EquityOptions', compilerType )
+    #build_example( qldds_root+'/Examples/InterestRateSwaps', 'InterestRateSwaps', compilerType )
+    #build_example( qldds_root+'/Examples/Swaptions', 'Swaptions', compilerType )
+    #build_example( qldds_root+'/Examples/EquityOptions', 'EquityOptions', compilerType )
 
-    if java == false:
+    if buildjava == False:
       return
 
     if os.name != 'nt':

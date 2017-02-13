@@ -66,18 +66,19 @@ project(*IRSCalculator) :  dcpsexe_with_tcp, dcps_udp, dcps_multicast, dcps_rtps
                                 $(OH_ROOT)/lib \
                                 $(QUANTLIB_ADDIN_ROOT)/lib \
                                 $(BOOST_ROOT)/lib \
-                                $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+                                $(QLDDS_ROOT)/lib
 
-        libs           +=        qldds_utils boost_filesystem boost_serialization boost_system  boost_regex ratehelpers vanillaswap schedule IRSPortfolio 
+        libs           +=        qldds_utils boost_filesystem boost_serialization boost_system  boost_regex ratehelpers vanillaswap schedule IRSPortfolio ObjectHandler QuantLib  
 
-        pure_libs       =       $(QLDDS_ROOT)/Addins/OpenDDS/libratehelpersDefaultDataReader.a \
-                                $(QLDDS_ROOT)/Addins/OpenDDS/libswaptionvolstructureDefaultDataReader.a \
-                                $(QLDDS_ROOT)/Addins/OpenDDS/libvanillaswapDefaultDataReader.a \
-                               $(QLDDS_ROOT)/Addins/OpenDDS/libscheduleDefaultDataReader.a \
+        pure_libs       =       $(QLDDS_ROOT)/lib/libratehelpersDefaultDataReader.a \
+                                $(QLDDS_ROOT)/lib/libswaptionvolstructureDefaultDataReader.a \
+                                $(QLDDS_ROOT)/lib/libvanillaswapDefaultDataReader.a \
+                               $(QLDDS_ROOT)/lib/libscheduleDefaultDataReader.a \
                                $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddinCpp.a \
                                $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddin.a \
-                               $(OH_ROOT)/lib/libObjectHandler.a \
-                               $(QUANTLIB_ROOT)/lib/libQuantLib.a 
+				$(QLDDS_ROOT)/lib/libqldds_utils.so \
+				$(BOOST_ROOT)/lib/libboost_serialization.so \
+				$(BOOST_ROOT)/lib/libboost_regex.so
 
 
         TypeSupport_Files {
