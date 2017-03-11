@@ -1,27 +1,18 @@
-
 /*
-   Copyright (C) 2016 Mike Kipnis
+   Copyright (C) 2013 Mike Kipnis
 
    This file is part of QLDDS, a free-software/open-source library
    for utilization of QuantLib in the distributed envrionment via DDS.
 
-   Permission is hereby granted, free of charge, to any person obtaining a copy
-   of this software and associated documentation files (the "Software"), to deal
-   in the Software without restriction, including without limitation the rights
-   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-   copies of the Software, and to permit persons to whom the Software is
-   furnished to do so, subject to the following conditions:
+   QLDDS is free software: you can redistribute it and/or modify it
+   under the terms of the QLDDS license.  You should have received a
+   copy of the license along with this program; if not, please email
+   <dev@qldds.org>. The license is also available online at
+   <http://qldds.org/qldds-license/>.
 
-   The above copyright notice and this permission notice shall be included in all
-   copies or substantial portions of the Software.
-
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-   SOFTWARE.
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE.  See the license for more details.
 */
 
 
@@ -55,6 +46,9 @@
 #include "Common.h"
 
 ACE_Mutex qldds_lock;
+
+int argc_;
+ACE_TCHAR **argv_;
 
 class DepositRateHelper2DataReaderListenerImpl : 
      public ratehelpers::qlDepositRateHelper2DataReaderListenerImpl
@@ -131,6 +125,8 @@ class SwapRateHelper2DataReaderListenerImpl :
 
 };
 
+void* calculatorThread(void* args);
+
 
 int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 {
@@ -155,25 +151,11 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
      std::cout << "Today: " << todaysDate.weekday() << ", " << todaysDate << std::endl;
      std::cout << "Settlement date: " << settlementDate.weekday() << ", " << settlementDate << std::endl;
 
-     CORBA::ORB_var swaptionServerORB = CORBA::ORB_init(argc, argv, "SwaptionServerORB");
+     argc_ = argc;
+     argv_ = argv;
 
       // Initialize, and create a DomainParticipant
      dpf = TheParticipantFactoryWithArgs(argc, argv);
-
-     std::string server_name;
-     ACE_Get_Opt cmd_opts( argc, argv, ":s:" );
-     int option;
-
-     while ( (option = cmd_opts()) != EOF )
-     {
-      switch( option )
-      {
-        case 's' :
-          server_name = cmd_opts.opt_arg();
-          std::cout << "ServerName: " << server_name << std::endl;
-        break;
-      }
-     }
 
      qldds_utils::BasicDomainParticipant swaptionServer( dpf, SWAPTION_DOMAIN_ID );
      swaptionServer.createSubscriber();
@@ -209,7 +191,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
          ( qldds_lock, topic_swaption_vts_matrix );
 
     std::vector<ObjectHandler::property_t> fixingDates(1);
-    fixingDates[0] = qldds_utils::from_iso_string_to_oh_property("20040916");
+    fixingDates[0] = qldds_utils::from_iso_string_to_oh_property("2004-09-16");
 
 
     std::vector<double> fixingValues(1);
@@ -217,24 +199,16 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 
    QuantLibAddinCpp::qlIndexAddFixings("Libor", fixingDates, fixingValues, false, false);
 
-    
-    // SwapServerORB POA
-    CORBA::Object_var obj = swaptionServerORB->resolve_initial_references( "RootPOA" );
-    PortableServer::POA_var poa = PortableServer::POA::_narrow( obj.in() );
+   ACE_Thread_Manager threadManager;
+   ACE_thread_t threadId;
 
-    // Activate POA Manager
-    PortableServer::POAManager_var mgr = poa->the_POAManager();
-    mgr->activate();
+   if ( threadManager.spawn( (ACE_THR_FUNC)calculatorThread, NULL, 0, &threadId) == -1 )
+   {
+     cerr << "Error spawning thread" << endl;
+     return -1;
+   }
 
-    qldds_utils::NamingService::Server< SwaptionServerImpl > server( qldds_lock );
-
-    server.Init( swaptionServerORB, server_name.c_str() );
-
-    ACE_Time_Value time_out(20);
-
-    swaptionServerORB->run( time_out );
-
-    swaptionServerORB->destroy();
+   threadManager.wait();
 
   } catch (CORBA::Exception& e)
   {
@@ -246,3 +220,43 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 
   return 0;
 }
+
+void* calculatorThread(void* args)
+{
+  CORBA::ORB_var swaptionServerORB = CORBA::ORB_init(argc_, argv_, "SwaptionServerORB");
+
+   std::string server_name;
+   ACE_Get_Opt cmd_opts( argc_, argv_, ":s:" );
+   int option;
+
+   while ( (option = cmd_opts()) != EOF )
+   {
+    switch( option )
+    {
+      case 's' :
+        server_name = cmd_opts.opt_arg();
+        std::cout << "ServerName: " << server_name << std::endl;
+      break;
+    }
+  }
+
+  // SwapServerORB POA
+  CORBA::Object_var obj = swaptionServerORB->resolve_initial_references( "RootPOA" );
+  PortableServer::POA_var poa = PortableServer::POA::_narrow( obj.in() );
+  
+  // Activate POA Manager
+  PortableServer::POAManager_var mgr = poa->the_POAManager();
+  mgr->activate();
+
+  qldds_utils::NamingService::Server< SwaptionServerImpl > server( qldds_lock );
+
+  server.Init( swaptionServerORB, server_name.c_str() );
+
+  ACE_Time_Value time_out(20);
+
+  swaptionServerORB->run( time_out );
+
+  swaptionServerORB->destroy();
+
+  return NULL;
+};

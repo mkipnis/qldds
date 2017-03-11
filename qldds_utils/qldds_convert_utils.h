@@ -50,7 +50,7 @@ namespace qldds_utils
     if ( iso_date == NULL || strlen(iso_date) == 0 )
       return 0;
 
-    boost::gregorian::date date ( boost::gregorian::from_undelimited_string(iso_date) );
+    boost::gregorian::date date ( boost::gregorian::from_string(iso_date) );
 
     return QuantLib::Date( date.day(), QuantLib::Month(date.month().as_number()), date.year() ).serialNumber();
   }
@@ -63,7 +63,7 @@ namespace qldds_utils
     if ( iso_date.empty() )
       return OH_NULL;
 
-    boost::gregorian::date date ( boost::gregorian::from_undelimited_string(iso_date) );
+    boost::gregorian::date date ( boost::gregorian::from_string(iso_date) );
 
     return ObjectHandler::property_t(QuantLib::Date( date.day(), QuantLib::Month(date.month().as_number()), date.year() ).serialNumber());
   }

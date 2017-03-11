@@ -45,7 +45,7 @@ project(*CurveBuilder) :  dcpsexe, dcps_tcp {
 				../CurveBuilderIDL
 
         libs           +=       qldds_utils_java ratehelpers_java \
-				vanillaswap_java piecewiseyieldcurve_java \
+				vanillaswap_java piecewiseyieldcurve_java boost_date_time \
 				QuantLibAddinCpp QuantLibAddin \
 				ObjectHandler QuantLib CurveBuilder 
 

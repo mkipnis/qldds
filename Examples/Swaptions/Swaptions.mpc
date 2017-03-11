@@ -48,20 +48,29 @@ project(*Server) : dcpsexe, svc_utils {
         exename         =       SwaptionServer 
         requires       +=       tao_orbsvcs
 
-        includes       +=       $(ACE_ROOT)/include $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include/qlo
+	 includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT)/include \
+                                $(QUANTLIB_ADDIN_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include/qlo $(BOOST_ROOT)/include
         libpaths       +=       $(QUANTLIB_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib \
                                 $(OH_ROOT)/lib \
                                 $(QUANTLIB_ADDIN_ROOT)/lib \
-                                $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+                                $(BOOST_ROOT)/lib \
+                                $(QLDDS_ROOT)/lib
 
-        libs           +=       qldds_utils boost_filesystem boost_serialization boost_system boost_regex ratehelpers swaptionvolstructure TAO_CosNaming
+
+        libs           +=       qldds_utils boost_filesystem boost_serialization boost_system boost_regex ratehelpers swaptionvolstructure TAO_CosNaming boost_date_time
        
         pure_libs	=	$(QLDDS_ROOT)/Addins/OpenDDS/libratehelpersDefaultDataReader.a \
 				$(QLDDS_ROOT)/Addins/OpenDDS/libswaptionvolstructureDefaultDataReader.a \
 				$(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddinCpp.a \
 				$(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddin.a \
 				$(OH_ROOT)/lib/libObjectHandler.a \ 
-				$(QUANTLIB_ROOT)/lib/libQuantLib.a 
+				$(QUANTLIB_ROOT)/lib/libQuantLib.a  \
+				$(QLDDS_ROOT)/lib/libqldds_utils.so \
+                                $(BOOST_ROOT)/lib/libboost_serialization.so \
+                                $(BOOST_ROOT)/lib/libboost_system.so \
+                                $(BOOST_ROOT)/lib/libboost_filesystem.so \
+                                $(BOOST_ROOT)/lib/libboost_regex.so
+	
         
         Source_Files {
                SwaptionServer.cpp

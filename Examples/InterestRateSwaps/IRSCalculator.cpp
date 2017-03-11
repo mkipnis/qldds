@@ -117,8 +117,6 @@ class SwapRateHelper2DataReaderListenerImpl :
     {
       ACE_Guard<ACE_Mutex> guard( get_ACE_Mutex() );
 
-	std::cout << "Tenor : " << swap_rate_helper2.Tenor.in() << std::endl;
-
       std::vector<std::string> objects(1);
       objects[0] = swap_rate_helper2.ObjectId;
  

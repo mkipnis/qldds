@@ -41,13 +41,14 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     DDS::DomainParticipantFactory_var dpf = DDS::DomainParticipantFactory::_nil();
     DDS::DomainParticipant_var participant = DDS::DomainParticipant::_nil();
 
-    CORBA::ORB_var orb = CORBA::ORB_init(argc, argv, "SwaptionServerORB");
 
     // Initialize, and create a DomainParticipant
     dpf = TheParticipantFactoryWithArgs(argc, argv);
 
     qldds_utils::BasicDomainParticipant volPublisher( dpf, SWAPTION_DOMAIN_ID );
     volPublisher.createPublisher();
+
+    CORBA::ORB_var orb = CORBA::ORB_init(argc, argv, "SwaptionServerORB");
 
     // CORBA Client to facilitate calculator calls
     qldds_utils::NamingService::Client< SwaptionServer::SwaptionCalculator > ns_client1;

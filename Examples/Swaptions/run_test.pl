@@ -28,7 +28,7 @@ my $MARKET_DATA_PUBLISHER;
 my $SWAPTION_SERVER;
 
 my %orbsvcs = PerlDDS::orbsvcs ();
-$NS = PerlDDS::create_process ($orbsvcs{'Naming_Service'}, "-ORBListenEndpoints iiop://localhost:23456 -o $ns_ior -ORBDebugLevel 0");
+$NS = PerlDDS::create_process ($orbsvcs{'Naming_Service'}, "-ORBListenEndpoints iiop://localhost:23456 -o $ns_ior -ORBDebugLevel 0 -m 1");
 $REPO        = PerlDDS::create_process ("$ENV{DDS_ROOT}/bin/DCPSInfoRepo", $repo_opts);
 
 unlink $repo_ior;
@@ -37,7 +37,7 @@ unlink $ns_ior;
 # Start TAO Naming Service
 print $NS->CommandLine(), "\n";
 $NS->Spawn();
-if (PerlACE::waitforfile_timed ($ns_ior, 30) == -1) {
+if (PerlACE::waitforfile_timed ($ns_ior, 1) == -1) {
     print STDERR "ERROR: cannot find file <$ns_ior>\n";
     $NS->Kill();
     exit 1;
@@ -46,7 +46,7 @@ if (PerlACE::waitforfile_timed ($ns_ior, 30) == -1) {
 # Start OpenDDS Repo 
 print $REPO->CommandLine(), "\n";
 $REPO->Spawn ();
-if (PerlACE::waitforfile_timed ($repo_ior, 30) == -1) {
+if (PerlACE::waitforfile_timed ($repo_ior, 1) == -1) {
     print STDERR "ERROR: waiting for repository IOR file\n";
     $REPO->Kill ();
     exit 1;
@@ -95,7 +95,7 @@ $failed += $status;
 print "Swaption Server 1: $status\n";
 
 # Wait up to 5 seconds for test to complete.
-$status = $SWAPTION_SERVER2->WaitKill (5);
+$status = $SWAPTION_SERVER2->WaitKill (30);
 if ($status != 0) {
     print STDERR "ERROR: Swaption Server returned $status\n";
 }
@@ -104,7 +104,7 @@ $failed += $status;
 print "Swaption Server 2: $status\n";
 
 # Wait up to 1 seconds for test to complete.
-$status = $SWAPTION_CLIENT->WaitKill (1);
+$status = $SWAPTION_CLIENT->WaitKill (30);
 if ($status != 0) {
     print STDERR "ERROR: Client returned $status\n";
 }
@@ -112,8 +112,8 @@ $failed += $status;
 
 print "Swaption Client : $status\n";
 
-# Wait up to 1 seconds for test to complete.
-$status = $MARKET_DATA_PUBLISHER->WaitKill (1);
+# Wait up to 30 seconds for test to complete.
+$status = $MARKET_DATA_PUBLISHER->WaitKill (30);
 if ($status != 0) {
     print STDERR "ERROR: Market Data Publisher returned $status\n";
 }
@@ -121,13 +121,13 @@ $failed += $status;
 
 print "MarketDataPublisher : $status\n";
 
-$status = $NS->TerminateWaitKill(5);
+$status = $NS->TerminateWaitKill(30);
 if ($status != 0) {
     print STDERR "ERROR: NamingService returned $status\n";
 }
 $failed += $status;
 
-$status = $REPO->TerminateWaitKill(5);
+$status = $REPO->TerminateWaitKill(30);
 if ($status != 0) {
     print STDERR "ERROR: Repository returned $status\n";
 } 
