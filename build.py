@@ -145,9 +145,9 @@ def buildall( compilerType, build_java ):
       exec_cmd( [ace_root+'/bin/mwc.pl',"-type", compilerType, "QLDDS.mwc"], False )
       exec_cmd( ["make"] )
 
-    #build_example( qldds_root+'/Examples/InterestRateSwaps', 'InterestRateSwaps', compilerType )
-    #build_example( qldds_root+'/Examples/Swaptions', 'Swaptions', compilerType )
-    #build_example( qldds_root+'/Examples/EquityOptions', 'EquityOptions', compilerType )
+    build_example( qldds_root+'/Examples/InterestRateSwaps', 'InterestRateSwaps', compilerType )
+    build_example( qldds_root+'/Examples/Swaptions', 'Swaptions', compilerType )
+    build_example( qldds_root+'/Examples/EquityOptions', 'EquityOptions', compilerType )
 
     if buildjava == False:
       return
