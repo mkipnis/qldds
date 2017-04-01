@@ -3,10 +3,10 @@ Configuring and Building QLDDS
 
 Dependencies:
 	OpenDDS-3.4.1
-	QuantLib-1.2.1 or later
-	ObjectHandler-1.2.0	
-	gensrc-1.2.0
-	QuantLibAddin for C++ - 1.2.0
+	QuantLib-1.7 or later
+	ObjectHandler-1.7.0	
+	gensrc-1.7.0
+	QuantLibAddin for C++ - 1.7.0
 	
 Unix:
 OpenDDS needs to be compiled; QuantLib, ObjectHandler, 
@@ -34,14 +34,14 @@ Assuming OpenDDS was compiled on C:\ and QuantLib and it's dependencies were com
 
 From Visual Studio Command Prompt!
 
-C:\qldds>python configure.py --dds_dir=c:\DDS --boost_dir=c:\progra~1\boost\boost_1_51 --quantlib_dir=c:\QuantLib-1.2.1 --oh_dir=c:\build_ql_1_2_0\ObjectHandler  --qladdin_dir=c:\build_ql_1_2_0\QuantLibAddin
+C:\qldds>python configure.py --dds_dir=c:\DDS --boost_dir=c:\progra~1\boost\boost_1_51 --quantlib_dir=c:\QuantLib-1.7 --oh_dir=c:\build_ql_1_7_0\ObjectHandler  --qladdin_dir=c:\build_ql_1_7_0\QuantLibAddin
 
 Building QLDDS:
 Source created by configure.py environment file
 
 Unix:
 $ . ./qldds_env.sh 
-$ python build.py
+$ python build.py --type=gnuace --java=true
 
 Windows:
 > call qldds_env.bat 
