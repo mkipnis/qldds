@@ -107,7 +107,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     atm_vol[ tickers[1] ] = 0.20;
     atm_vol[ tickers[2] ] = 0.30;
 
-    std::string settlement_date( "20121009" );
+    std::string settlement_date( "2012-10-09" );
     std::string calendar( "TARGET" );
     std::string daycountConvention ( "Actual/365 (Fixed)" );
 
@@ -270,7 +270,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       exercise::qlEuropeanExercise exercise;
 
       exercise.ObjectId = CORBA::string_dup( object_id.c_str() );
-      exercise.ExpiryDate = CORBA::string_dup( "20121019" );
+      exercise.ExpiryDate = CORBA::string_dup( "2012-10-19" );
 
       exercises.exercises[0] = exercise;
       

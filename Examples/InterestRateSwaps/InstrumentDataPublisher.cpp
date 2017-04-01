@@ -95,9 +95,9 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     vanilla_swap.PaymentConvention = CORBA::string_dup("Unadjusted");
     vanilla_swap.Spread = 0.0;
 
-    std::string iso_date("20080915");
+    std::string iso_date("2008-09-15");
 
-    boost::gregorian::date date ( boost::gregorian::from_undelimited_string(iso_date) );
+    boost::gregorian::date date ( boost::gregorian::from_string(iso_date) );
     const std::locale fmt( std::locale::classic(), new boost::gregorian::date_facet("%m/%d/%Y") );
 
     int duration = 0; // Duration in years
@@ -114,8 +114,8 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
    
       if ( duration == 30 ) duration = 0;
 
-      std::string start_date_str( boost::gregorian::to_iso_string( start_date ) );
-      std::string end_date_str( boost::gregorian::to_iso_string( end_date ) );
+      std::string start_date_str( boost::gregorian::to_iso_extended_string( start_date ) );
+      std::string end_date_str( boost::gregorian::to_iso_extended_string( end_date ) );
 
       std::string fixed_schedule_description = "FixedLegSchedule-";
       fixed_leg_schedule.EffectiveDate = CORBA::string_dup( start_date_str.c_str() );
