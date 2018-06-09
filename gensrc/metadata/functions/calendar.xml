@@ -302,12 +302,12 @@
             <tensorRank>scalar</tensorRank>
             <description>last date of the period.</description>
           </Parameter>
-          <Parameter name='IncludeFirst' default='false'>
+          <Parameter name='IncludeFirst' const='False' default='false'>
             <type>bool</type>
             <tensorRank>scalar</tensorRank>
             <description>include the first date when counting business days.</description>
           </Parameter>
-          <Parameter name='IncludeLast' default='false'>
+          <Parameter name='IncludeLast' const='False' default='false'>
             <type>bool</type>
             <tensorRank>scalar</tensorRank>
             <description>include the last date when counting business days.</description>

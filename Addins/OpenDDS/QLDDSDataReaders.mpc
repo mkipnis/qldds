@@ -2,7 +2,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.mpc.datareader
+//      qldds/gensrc/stubs/stub.opendds.mpc.datareader
 
 //
 //   Copyright (C) 2016 Mike Kipnis
@@ -1600,7 +1600,7 @@ project(ratehelpersDefaultDataReader) : dcps, install {
                    $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
    libout        = $(QLDDS_ROOT)/lib
 
-  libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils ratehelpers
+  libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils ratehelpers 
 
   TypeSupport_Files {
   }

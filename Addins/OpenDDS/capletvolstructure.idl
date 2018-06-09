@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.module
+//      qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef capletvolstructure_IDL
 #define capletvolstructure_IDL
@@ -84,6 +84,8 @@ module capletvolstructure {
              string BusinessDayConvention;
              double Volatility;
              string DayCounter;
+             string VolatilityType;
+             double Displacement;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
@@ -131,6 +133,8 @@ module capletvolstructure {
              qldds_utils::DoubleSeq Strikes;
              qldds_utils::Matrix Volatilities;
              string DayCounter;
+             string VolatilityType;
+             double Displacement;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 

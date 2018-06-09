@@ -628,7 +628,7 @@
       </SupportedPlatforms>
       <ParameterList>
         <Parameters>
-          <Parameter name='CreditEventType' 
+          <Parameter name='QLEventType' 
                      exampleValue='FailureToPayEvent, BankruptcyEvent'
                      default='"NONE"'>
             <type>string</type>
@@ -946,7 +946,7 @@
           <Parameter name='SettlementDays'>
             <type>QuantLib::Size</type>
             <tensorRank>scalar</tensorRank>
-            <description>Numebr of settlement days.</description>
+            <description>Number of settlement days.</description>
           </Parameter>
           <Parameter name='Calendar'>
             <type>QuantLib::Calendar</type>

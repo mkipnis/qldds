@@ -575,6 +575,7 @@
         <SupportedPlatform name='Calc'/>
         <SupportedPlatform name='Cpp'/>
       </SupportedPlatforms>
+      <!-- FIXME should we add this? processorName>IndexProcessor</processorName-->
       <ParameterList>
         <Parameters>
           <Parameter name='YieldCurve' exampleValue='EURYC' default='""'>
@@ -626,6 +627,7 @@
         <SupportedPlatform name='Calc'/>
         <SupportedPlatform name='Cpp'/>
       </SupportedPlatforms>
+      <!-- FIXME should we add this? processorName>IndexProcessor</processorName-->
       <ParameterList>
         <Parameters>
           <Parameter name='YieldCurve' exampleValue='EURYC' default='""'>
@@ -771,6 +773,7 @@
       <processorName>IndexProcessor</processorName>
       <ParameterList>
         <Parameters>
+          <!-- FIXME "Default" is not a valid default value for a QuantLibAddin::SwapIndex::FixingType? -->
           <Parameter name='FixingType' default='"Default"'>
             <type>QuantLibAddin::SwapIndex::FixingType</type>
             <tensorRank>scalar</tensorRank>
@@ -813,6 +816,7 @@
             <tensorRank>scalar</tensorRank>
             <description>Libor swap index currency.</description>
           </Parameter>
+          <!-- FIXME "Default" is not a valid default value for a QuantLibAddin::SwapIndex::FixingType? -->
           <Parameter name='FixingType' default='"Default"'>
             <type>QuantLibAddin::SwapIndex::FixingType</type>
             <tensorRank>scalar</tensorRank>
@@ -847,6 +851,7 @@
         <SupportedPlatform name='Calc'/>
         <SupportedPlatform name='Cpp'/>
       </SupportedPlatforms>
+      <!-- FIXME should we add this? processorName>IndexProcessor</processorName-->
       <ParameterList>
         <Parameters>
           <Parameter name='Tenor' exampleValue='10Y'>

@@ -167,7 +167,7 @@
     </Member>
 
     <Member name='qlMarketModelEvolverNumeraires' type='QuantLib::MarketModelEvolver'>
-      <description>returns the current step index in the current path for the MarketModelEvolver object.</description>
+      <description>returns the numeraries for the MarketModelEvolver object.</description>
       <libraryFunction>numeraires</libraryFunction>
       <SupportedPlatforms>
         <SupportedPlatform name='Excel'/>

@@ -163,10 +163,8 @@
       <description>Returns the volatility implied by the given price for the given Swaption object.</description>
       <libraryFunction>impliedVolatility</libraryFunction>
       <SupportedPlatforms>
-        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
         <SupportedPlatform name='Excel'/>
         <SupportedPlatform name='Calc'/>
-        <!--SupportedPlatform name='Cpp'/-->
       </SupportedPlatforms>
       <ParameterList>
         <Parameters>
@@ -205,6 +203,11 @@
             <type>QuantLib::Volatility</type>
             <tensorRank>scalar</tensorRank>
             <description>Maximum volatility, no higher solution.</description>
+          </Parameter>
+          <Parameter name='VolatilityType' default='"ShiftedLognormal"'>
+            <type>QuantLib::VolatilityType</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Volatility type.</description>
           </Parameter>
           <Parameter name='Displacement' default='0.0'>
             <type>QuantLib::Real</type>

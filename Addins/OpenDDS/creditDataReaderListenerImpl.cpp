@@ -26,11 +26,12 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
+//      qldds/gensrc/stubs/stub.opendds.body
 
 #include "creditDataReaderListenerImpl.hpp"
 
 #include <qldds_convert_utils.h>
+#include <ace/Mutex.h>
 
 namespace credit {
 
@@ -442,7 +443,7 @@ void qlDefaultEventDataReaderListenerImpl::on_data_available( DDS::DataReader_pt
 
               returnObject = QuantLibAddinCpp::qlDefaultEvent ( 
               obj.ObjectId.in(),
-              obj.CreditEventType.in(),
+              obj.QLEventType.in(),
               qldds_utils::from_iso_string_to_oh_property(obj.EventDate.in()),
               obj.Currency.in(),
               obj.Seniority.in(),

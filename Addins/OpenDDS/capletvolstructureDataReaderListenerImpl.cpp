@@ -26,11 +26,12 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
+//      qldds/gensrc/stubs/stub.opendds.body
 
 #include "capletvolstructureDataReaderListenerImpl.hpp"
 
 #include <qldds_convert_utils.h>
+#include <ace/Mutex.h>
 
 namespace capletvolstructure {
 
@@ -448,6 +449,8 @@ void qlConstantOptionletVolatilityDataReaderListenerImpl::on_data_available( DDS
               obj.BusinessDayConvention.in(),
               obj.Volatility ,
               obj.DayCounter.in(),
+              obj.VolatilityType.in(),
+              static_cast<double>(obj.Displacement),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -996,6 +999,8 @@ void qlStrippedOptionletDataReaderListenerImpl::on_data_available( DDS::DataRead
              qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.Strikes),
              qldds_utils::matrix_cast<ObjectHandler::property_t,qldds_utils::Matrix>(obj.Volatilities),
               obj.DayCounter.in(),
+              obj.VolatilityType.in(),
+              static_cast<double>(obj.Displacement),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

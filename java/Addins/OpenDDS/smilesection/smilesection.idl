@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.module
+//      qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef smilesection_IDL
 #define smilesection_IDL
@@ -47,6 +47,8 @@ module smilesection {
              string DayCounter;
              string RefDate;
              double AtmValue;
+             string VolatilityType;
+             double Displacement;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
@@ -64,6 +66,8 @@ module smilesection {
              qldds_utils::DoubleSeq StdDevs;
              double AtmLevel;
              string DayCounter;
+             string VolatilityType;
+             double Displacement;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 

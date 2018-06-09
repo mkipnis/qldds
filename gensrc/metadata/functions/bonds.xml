@@ -256,7 +256,7 @@
     </Procedure>
 
     <Procedure name='qlBondNextCashFlowDate'>
-      <description>Returns the next cash flow amount.</description>
+      <description>Returns the next cash flow date.</description>
       <alias>QuantLib::BondFunctions::nextCashFlowDate</alias>
       <SupportedPlatforms>
         <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
@@ -316,7 +316,7 @@
     </Procedure>
 
     <Procedure name='qlBondNextCashFlowAmount'>
-      <description>Returns the next cash flow date.</description>
+      <description>Returns the next cash flow amount.</description>
       <alias>QuantLib::BondFunctions::nextCashFlowAmount</alias>
       <SupportedPlatforms>
         <!--SupportedPlatform name='Excel' calcInWizard='false'/-->

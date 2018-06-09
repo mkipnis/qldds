@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.module
+//      qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef termstructures_IDL
 #define termstructures_IDL
@@ -126,6 +126,8 @@ module termstructures {
              qldds_utils::StringSeq JumpDates;
              string TraitsID;
              string InterpolatorID;
+             string MixedInterpolationBehavior;
+             long NRateHelper;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 

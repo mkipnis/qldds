@@ -21,6 +21,7 @@
     <DataType defaultSuperType='enumeration'>QuantLib::Month</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Option::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Pillar::Choice</DataType>
+    <DataType defaultSuperType='enumeration'>QuantLib::VolatilityType</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Position::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Replication::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::SalvagingAlgorithm::Type</DataType>
@@ -30,6 +31,7 @@
     <DataType defaultSuperType='enumeration'>QuantLib::VanillaSwap::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Futures::Type</DataType>
     <DataType defaultSuperType='enumeration'>QuantLib::Weekday</DataType>
+    <DataType defaultSuperType='enumeration'>QuantLib::MixedInterpolation::Behavior</DataType>
     <DataType defaultSuperType='enumeration'>QuantLibAddin::RateHelper::DepoInclusionCriteria</DataType>
     <DataType defaultSuperType='enumeration'>QuantLibAddin::SwapIndex::FixingType</DataType>
     <DataType defaultSuperType='enumeration'>QuantLibAddin::InterpolatedYieldCurve::Interpolator</DataType>

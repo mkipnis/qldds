@@ -26,11 +26,12 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
+//      qldds/gensrc/stubs/stub.opendds.body
 
 #include "interpolationDataReaderListenerImpl.hpp"
 
 #include <qldds_convert_utils.h>
+#include <ace/Mutex.h>
 
 namespace interpolation {
 
@@ -814,6 +815,7 @@ void qlMixedLinearCubicInterpolationDataReaderListenerImpl::on_data_available( D
              qldds_utils::vector_cast<double,qldds_utils::DoubleSeq>(obj.XArray),
              qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.YArray),
               static_cast<long>(obj.SwitchIndex),
+              obj.MixedInterpolationBehavior.in(),
               obj.DerApprox.in(),
               static_cast<bool>(obj.Monotonic),
               obj.LeftConditionType.in(),

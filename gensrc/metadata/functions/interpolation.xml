@@ -234,7 +234,7 @@
       </SupportedPlatforms>
       <ParameterList>
         <Parameters>
-          <Parameter name='InterpolationType' default ='"MonotonicNaturalCubicSpline"'>
+          <Parameter name='InterpolationType' default ='"MonotonicCubicNaturalSpline"'>
             <type>string</type>
             <tensorRank>scalar</tensorRank>
             <description>interpolation type (e.g BackwardFlat, ForwardFlat, MonotonicCubicNaturalSpline, etc.)</description>
@@ -259,7 +259,6 @@
     <Constructor name='qlMixedLinearCubicInterpolation'>
       <libraryFunction>MixedLinearCubicInterpolation</libraryFunction>
       <SupportedPlatforms>
-        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
         <SupportedPlatform name='Excel'/>
         <SupportedPlatform name='Cpp'/>
       </SupportedPlatforms>
@@ -280,6 +279,11 @@
             <type>QuantLib::Size</type>
             <tensorRank>scalar</tensorRank>
             <description>zero based knot index at which interpolation switches from linear to cubic.</description>
+          </Parameter>
+          <Parameter name='MixedInterpolationBehavior' default='"ShareRanges"'>
+            <type>QuantLib::MixedInterpolation::Behavior</type>
+            <tensorRank>scalar</tensorRank>
+            <description>ShareRanges to join two different interpolations over all the pillars, SplitRanges otherwise.</description>
           </Parameter>
           <Parameter name='DerApprox' default='"Kruger"'>
             <type>QuantLib::CubicInterpolation::DerivativeApprox</type>

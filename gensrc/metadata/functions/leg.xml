@@ -77,7 +77,7 @@
     </Procedure>
 
     <Procedure name='qlLegIsExpired'>
-      <description>Returns TRUE is the Leg is expired</description>
+      <description>Returns TRUE if the Leg is expired</description>
       <alias>QuantLib::CashFlows::isExpired</alias>
       <SupportedPlatforms>
         <SupportedPlatform name='Excel'/>

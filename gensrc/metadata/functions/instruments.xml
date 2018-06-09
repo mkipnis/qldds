@@ -52,7 +52,7 @@
     </Member>
 
     <Member name='qlInstrumentValuationDate' type='QuantLib::Instrument'>
-      <description>Returns the NPV for the given Instrument object.</description>
+      <description>Returns the date to which the net present value refers.</description>
       <libraryFunction>valuationDate</libraryFunction>
       <SupportedPlatforms>
         <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
@@ -111,7 +111,7 @@
     </Member>
 
     <Member name='qlInstrumentSetPricingEngine' type='QuantLibAddin::Instrument'>
-      <description>Sets a new pricing engine to the given Instrument pbject.</description>
+      <description>Sets a new pricing engine to the given Instrument object.</description>
       <libraryFunction>setPricingEngine</libraryFunction>
       <SupportedPlatforms>
         <SupportedPlatform name='Excel'/>

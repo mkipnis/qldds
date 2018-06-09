@@ -21,9 +21,10 @@
     <include>ql/quote.hpp</include>
   </serializationIncludes>
   <copyright>
-    Copyright (C) 2007 Cristina Duminuco
     Copyright (C) 2006 Ferdinando Ametrano
     Copyright (C) 2006 Francois du Vignaud
+    Copyright (C) 2007 Cristina Duminuco
+    Copyright (C) 2016 Stefano Fondi
   </copyright>
 
   <Functions>
@@ -159,6 +160,16 @@
             <type>QuantLib::Real</type>
             <tensorRank>scalar</tensorRank>
             <description>Current value of the underlying.</description>
+          </Parameter>
+          <Parameter name='VolatilityType' default ='"ShiftedLognormal"'>
+            <type>QuantLib::VolatilityType</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Volatility type: Normal or ShiftedLognormal.</description>
+          </Parameter>
+          <Parameter name='Displacement' default ='0.00'>
+            <type>QuantLib::Real</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Shift for the lognormal model.</description>
           </Parameter>
         </Parameters>
       </ParameterList>
@@ -611,6 +622,16 @@
             <tensorRank>scalar</tensorRank>
             <description>DayCounter ID.</description>
           </Parameter>
+          <Parameter name='VolatilityType' default ='"ShiftedLognormal"'>
+            <type>QuantLib::VolatilityType</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Volatility type: Normal or ShiftedLognormal.</description>
+          </Parameter>
+          <Parameter name='Displacement' default ='0.00'>
+            <type>QuantLib::Real</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Shift for the lognormal model.</description>
+          </Parameter>        
         </Parameters>
       </ParameterList>
     </Constructor>

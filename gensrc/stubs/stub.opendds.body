@@ -1,6 +1,7 @@
 #include "%(categoryName)sDataReaderListenerImpl.hpp"
 
 #include <qldds_convert_utils.h>
+#include <ace/Mutex.h>
 
 namespace %(categoryName)s {
 %(bufferCpp)s}

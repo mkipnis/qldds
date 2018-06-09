@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.module
+//      qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef piecewiseyieldcurve_IDL
 #define piecewiseyieldcurve_IDL
@@ -51,6 +51,29 @@ module piecewiseyieldcurve {
              double Accuracy;
              string TraitsID;
              string InterpolatorID;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
+#pragma DCPS_DATA_TYPE "piecewiseyieldcurve::qlPiecewiseYieldCurveMixedInterpolation"
+#pragma DCPS_DATA_KEY "piecewiseyieldcurve::qlPiecewiseYieldCurveMixedInterpolation instanceID" 
+
+   struct qlPiecewiseYieldCurveMixedInterpolation { 
+          string instanceID;
+          
+             string ObjectId;
+             long NDays;
+             string Calendar;
+             qldds_utils::StringSeq RateHelpers;
+             string DayCounter;
+             qldds_utils::DoubleSeq Jumps;
+             qldds_utils::StringSeq JumpDates;
+             double Accuracy;
+             string TraitsID;
+             string InterpolatorID;
+             string MixedInterpolationBehavior;
+             long PillarsBeforeChange;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 

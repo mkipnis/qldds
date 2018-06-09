@@ -47,7 +47,7 @@
     </Member>
 
     <Member name='qlTimeSeriesSize' type='QuantLib::TimeSeriesDef' superType='libraryClass'>
-      <description>Returns the first date for which a historical datum exists.</description>
+      <description>Returns the size of the time series.</description>
       <libraryFunction>size</libraryFunction>
       <SupportedPlatforms>
         <SupportedPlatform name='Excel'/>

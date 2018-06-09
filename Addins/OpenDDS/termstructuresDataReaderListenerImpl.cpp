@@ -26,11 +26,12 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
+//      qldds/gensrc/stubs/stub.opendds.body
 
 #include "termstructuresDataReaderListenerImpl.hpp"
 
 #include <qldds_convert_utils.h>
+#include <ace/Mutex.h>
 
 namespace termstructures {
 
@@ -991,6 +992,8 @@ void qlInterpolatedYieldCurveDataReaderListenerImpl::on_data_available( DDS::Dat
              qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::StringSeq>(obj.JumpDates),
               obj.TraitsID.in(),
               obj.InterpolatorID.in(),
+              obj.MixedInterpolationBehavior.in(),
+              static_cast<long>(obj.NRateHelper),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

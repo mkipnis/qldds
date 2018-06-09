@@ -26,11 +26,12 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
+//      qldds/gensrc/stubs/stub.opendds.body
 
 #include "smilesectionDataReaderListenerImpl.hpp"
 
 #include <qldds_convert_utils.h>
+#include <ace/Mutex.h>
 
 namespace smilesection {
 
@@ -77,6 +78,8 @@ void qlFlatSmileSectionDataReaderListenerImpl::on_data_available( DDS::DataReade
               obj.DayCounter.in(),
               qldds_utils::from_iso_string(obj.RefDate.in() ),
               static_cast<double>(obj.AtmValue),
+              obj.VolatilityType.in(),
+              static_cast<double>(obj.Displacement),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -261,6 +264,8 @@ void qlInterpolatedSmileSectionDataReaderListenerImpl::on_data_available( DDS::D
              qldds_utils::vector_cast<ObjectHandler::property_t,qldds_utils::DoubleSeq>(obj.StdDevs),
               obj.AtmLevel ,
               obj.DayCounter.in(),
+              obj.VolatilityType.in(),
+              static_cast<double>(obj.Displacement),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

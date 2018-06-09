@@ -26,11 +26,12 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      Users/mkipnis/qldds/gensrc/stubs/stub.opendds.body
+//      qldds/gensrc/stubs/stub.opendds.body
 
 #include "pricingenginesDataReaderListenerImpl.hpp"
 
 #include <qldds_convert_utils.h>
+#include <ace/Mutex.h>
 
 namespace pricingengines {
 
@@ -212,6 +213,369 @@ void qlAnalyticCapFloorEngineDataReaderListenerImpl::on_dds_exception( DDS::Data
   ACE_ERROR((LM_WARNING,
              ACE_TEXT("(%P|%t) WARNING: ")
              ACE_TEXT("qlAnalyticCapFloorEngineDataReaderListenerImpl::on_dds_reading_error %s\n"), exp._info().c_str() ));
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr reader )
+  throw (CORBA::SystemException)
+{
+
+  try {
+   pricingengines::qlBachelierCapFloorEngineDataReader_var obj_dr
+     = pricingengines::qlBachelierCapFloorEngineDataReader::_narrow(reader);
+   if (CORBA::is_nil (obj_dr.in ())) {
+     ACE_ERROR((LM_ERROR,
+               ACE_TEXT("(%P|%t) ERROR: ")
+               ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_data_available: _narrow failed.\n")));
+  } 
+
+  on_reading_start( reader );
+
+  int count = 0;
+  while ( true )
+  {
+    pricingengines::qlBachelierCapFloorEngine obj;
+    DDS::SampleInfo si ;
+    DDS::ReturnCode_t status = obj_dr->take_next_sample(obj, si) ;
+
+    if ( status == DDS::RETCODE_OK )
+    {
+      if ( si.valid_data == true )
+      {
+         ++count;
+
+         if ( pre_quantlib_addin_call( reader, si, obj ) )
+         {
+            std::string returnObject;;
+
+            try {
+
+              ACE_Guard<ACE_Mutex> guard( get_ACE_Mutex() );
+
+              returnObject = QuantLibAddinCpp::qlBachelierCapFloorEngine ( 
+              obj.ObjectId.in(),
+              obj.YieldCurve.in(),
+              obj.VolTS.in(),
+              static_cast<bool>(obj.Permanent),
+              obj.Trigger,
+              static_cast<bool>(obj.Overwrite) );
+              ;
+          
+            } catch ( std::exception& e )
+            {
+              on_std_exception( reader, obj, e );
+              continue;
+            }
+
+            if ( !post_quantlib_addin_call( reader, obj, returnObject ) )
+             break; 
+         }
+      }
+
+    } else if (status == DDS::RETCODE_NO_DATA) {
+
+       on_reading_end( reader, count );
+
+       break;
+
+    }  else {
+       std::string err = "ERROR: read qlBachelierCapFloorEngine: Error: ";
+       err += status;
+
+       on_dds_reading_error( reader, err );
+    }
+  }
+
+  } catch (CORBA::Exception& e) {
+       on_dds_exception( reader, e );
+  }
+
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_requested_deadline_missed (
+    DDS::DataReader_ptr reader,
+    const DDS::RequestedDeadlineMissedStatus &ms)
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_requested_deadline_missed\n")));
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_requested_incompatible_qos (
+    DDS::DataReader_ptr reader,
+    const DDS::RequestedIncompatibleQosStatus &qs )
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_requested_deadline_missed\n")));
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_liveliness_changed (
+    DDS::DataReader_ptr reader,
+    const DDS::LivelinessChangedStatus &ls )
+  throw (CORBA::SystemException)
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_liveliness_changed\n")));
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_subscription_matched (
+    DDS::DataReader_ptr reader,
+    const DDS::SubscriptionMatchedStatus &ms )
+  throw (CORBA::SystemException)
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_subscription_matched\n")));
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_sample_rejected(
+    DDS::DataReader_ptr reader,
+    const DDS::SampleRejectedStatus& sr)
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_sample_rejected\n")));
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_sample_lost(
+  DDS::DataReader_ptr reader,
+  const DDS::SampleLostStatus& sl)
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_sample_rejected\n")));
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_reading_start( DDS::DataReader_ptr reader )
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) INFO: ")
+             ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_reading_start\n")));
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_reading_end( DDS::DataReader_ptr reader, int count )
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) INFO: ")
+             ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_reading_end with %d items.\n"), count));
+}
+
+bool qlBachelierCapFloorEngineDataReaderListenerImpl::pre_quantlib_addin_call( DDS::DataReader_ptr reader, DDS::SampleInfo&, pricingengines::qlBachelierCapFloorEngine& )
+{
+  return true;
+}
+
+bool qlBachelierCapFloorEngineDataReaderListenerImpl::post_quantlib_addin_call( DDS::DataReader_ptr reader, pricingengines::qlBachelierCapFloorEngine&, std::string& )
+{
+  return true;
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_std_exception( DDS::DataReader_ptr reader, pricingengines::qlBachelierCapFloorEngine&, std::exception& e )
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_std_exception %s\n"), e.what() ));
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_dds_reading_error( DDS::DataReader_ptr reader, std::string& err )
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_dds_reading_error %s\n"), err.c_str() ));
+}
+
+void qlBachelierCapFloorEngineDataReaderListenerImpl::on_dds_exception( DDS::DataReader_ptr reader, CORBA::Exception& exp )
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngineDataReaderListenerImpl::on_dds_reading_error %s\n"), exp._info().c_str() ));
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_data_available( DDS::DataReader_ptr reader )
+  throw (CORBA::SystemException)
+{
+
+  try {
+   pricingengines::qlBachelierCapFloorEngine2DataReader_var obj_dr
+     = pricingengines::qlBachelierCapFloorEngine2DataReader::_narrow(reader);
+   if (CORBA::is_nil (obj_dr.in ())) {
+     ACE_ERROR((LM_ERROR,
+               ACE_TEXT("(%P|%t) ERROR: ")
+               ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_data_available: _narrow failed.\n")));
+  } 
+
+  on_reading_start( reader );
+
+  int count = 0;
+  while ( true )
+  {
+    pricingengines::qlBachelierCapFloorEngine2 obj;
+    DDS::SampleInfo si ;
+    DDS::ReturnCode_t status = obj_dr->take_next_sample(obj, si) ;
+
+    if ( status == DDS::RETCODE_OK )
+    {
+      if ( si.valid_data == true )
+      {
+         ++count;
+
+         if ( pre_quantlib_addin_call( reader, si, obj ) )
+         {
+            std::string returnObject;;
+
+            try {
+
+              ACE_Guard<ACE_Mutex> guard( get_ACE_Mutex() );
+
+              returnObject = QuantLibAddinCpp::qlBachelierCapFloorEngine2 ( 
+              obj.ObjectId.in(),
+              obj.YieldCurve.in(),
+              obj.Vol ,
+              obj.DayCounter.in(),
+              static_cast<bool>(obj.Permanent),
+              obj.Trigger,
+              static_cast<bool>(obj.Overwrite) );
+              ;
+          
+            } catch ( std::exception& e )
+            {
+              on_std_exception( reader, obj, e );
+              continue;
+            }
+
+            if ( !post_quantlib_addin_call( reader, obj, returnObject ) )
+             break; 
+         }
+      }
+
+    } else if (status == DDS::RETCODE_NO_DATA) {
+
+       on_reading_end( reader, count );
+
+       break;
+
+    }  else {
+       std::string err = "ERROR: read qlBachelierCapFloorEngine2: Error: ";
+       err += status;
+
+       on_dds_reading_error( reader, err );
+    }
+  }
+
+  } catch (CORBA::Exception& e) {
+       on_dds_exception( reader, e );
+  }
+
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_requested_deadline_missed (
+    DDS::DataReader_ptr reader,
+    const DDS::RequestedDeadlineMissedStatus &ms)
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_requested_deadline_missed\n")));
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_requested_incompatible_qos (
+    DDS::DataReader_ptr reader,
+    const DDS::RequestedIncompatibleQosStatus &qs )
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_requested_deadline_missed\n")));
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_liveliness_changed (
+    DDS::DataReader_ptr reader,
+    const DDS::LivelinessChangedStatus &ls )
+  throw (CORBA::SystemException)
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_liveliness_changed\n")));
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_subscription_matched (
+    DDS::DataReader_ptr reader,
+    const DDS::SubscriptionMatchedStatus &ms )
+  throw (CORBA::SystemException)
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_subscription_matched\n")));
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_sample_rejected(
+    DDS::DataReader_ptr reader,
+    const DDS::SampleRejectedStatus& sr)
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_sample_rejected\n")));
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_sample_lost(
+  DDS::DataReader_ptr reader,
+  const DDS::SampleLostStatus& sl)
+  throw (CORBA::SystemException)
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_sample_rejected\n")));
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_reading_start( DDS::DataReader_ptr reader )
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) INFO: ")
+             ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_reading_start\n")));
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_reading_end( DDS::DataReader_ptr reader, int count )
+{
+  ACE_DEBUG((LM_INFO,
+             ACE_TEXT("(%P|%t) INFO: ")
+             ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_reading_end with %d items.\n"), count));
+}
+
+bool qlBachelierCapFloorEngine2DataReaderListenerImpl::pre_quantlib_addin_call( DDS::DataReader_ptr reader, DDS::SampleInfo&, pricingengines::qlBachelierCapFloorEngine2& )
+{
+  return true;
+}
+
+bool qlBachelierCapFloorEngine2DataReaderListenerImpl::post_quantlib_addin_call( DDS::DataReader_ptr reader, pricingengines::qlBachelierCapFloorEngine2&, std::string& )
+{
+  return true;
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_std_exception( DDS::DataReader_ptr reader, pricingengines::qlBachelierCapFloorEngine2&, std::exception& e )
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_std_exception %s\n"), e.what() ));
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_dds_reading_error( DDS::DataReader_ptr reader, std::string& err )
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_dds_reading_error %s\n"), err.c_str() ));
+}
+
+void qlBachelierCapFloorEngine2DataReaderListenerImpl::on_dds_exception( DDS::DataReader_ptr reader, CORBA::Exception& exp )
+{
+  ACE_ERROR((LM_WARNING,
+             ACE_TEXT("(%P|%t) WARNING: ")
+             ACE_TEXT("qlBachelierCapFloorEngine2DataReaderListenerImpl::on_dds_reading_error %s\n"), exp._info().c_str() ));
 }
 
 void qlBinomialPricingEngineDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr reader )
@@ -1537,7 +1901,6 @@ void qlBlackSwaptionEngineDataReaderListenerImpl::on_data_available( DDS::DataRe
               obj.ObjectId.in(),
               obj.YieldCurve.in(),
               obj.VolTS.in(),
-              static_cast<double>(obj.Displacement),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

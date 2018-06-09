@@ -178,6 +178,11 @@
             <tensorRank>scalar</tensorRank>
             <description>Maximum volatility, no higher solution.</description>
           </Parameter>
+          <Parameter name='VolatilityType' default='"ShiftedLognormal"'>
+            <type>QuantLib::VolatilityType</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Volatility type.</description>
+          </Parameter>
           <Parameter name='Displacement' default='0.0'>
             <type>QuantLib::Real</type>
             <tensorRank>scalar</tensorRank>

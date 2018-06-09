@@ -14,6 +14,7 @@
     <include>qlo/ratehelpers.hpp</include>
   </addinIncludes>
   <copyright>
+    Copyright (C) 2016 Stefano Fondi
     Copyright (C) 2005, 2006 Eric Ehlers
     Copyright (C) 2006, 2007, 2009 Ferdinando Ametrano
     Copyright (C) 2005 Plamen Neykov
@@ -512,7 +513,7 @@
       <libraryFunction>InterpolatedYieldCurve</libraryFunction>
       <SupportedPlatforms>
         <SupportedPlatform name='Excel'/>
-	<SupportedPlatform name='Calc'/>
+        <SupportedPlatform name='Calc'/>
         <SupportedPlatform name='Cpp'/>
       </SupportedPlatforms>
       <ParameterList>
@@ -557,6 +558,16 @@
             <type>string</type>
             <tensorRank>scalar</tensorRank>
             <description>BackwardFlat, ForwardFlat, Linear, LogLinear, LogParabolic, KrugerLogCubic, etc.</description>
+          </Parameter>
+          <Parameter name='MixedInterpolationBehavior' default='"ShareRanges"'>
+            <type>QuantLib::MixedInterpolation::Behavior</type>
+            <tensorRank>scalar</tensorRank>
+            <description>ShareRanges to join two different interpolations over all the pillars, SplitRanges otherwise.</description>
+          </Parameter>
+          <Parameter name='NRateHelper' default='1'>
+            <type>QuantLib::Size</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Number of pillar from which change the interpolation ID.</description>
           </Parameter>
         </Parameters>
       </ParameterList>

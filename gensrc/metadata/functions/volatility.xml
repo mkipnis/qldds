@@ -138,7 +138,7 @@
     </Member>
 
     <Member name='qlPiecewiseConstantVarianceTotalVolatility' type='QuantLib::PiecewiseConstantVariance'>
-      <description>Returns the total variance at a given time index of the PiecewiseConstantVariance object.</description>
+      <description>Returns the total volatility at a given time index of the PiecewiseConstantVariance object.</description>
       <libraryFunction>totalVolatility</libraryFunction>
       <SupportedPlatforms>
         <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
