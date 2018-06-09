@@ -174,7 +174,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 
      QuantLib::Date todaysDate = calendar.advance(settlementDate, -fixingDays, QuantLib::Days);
 
-     QuantLibAddinCpp::qlSettingsSetEvaluationDate( todaysDate.serialNumber(), OH_NULL );
+     QuantLibAddinCpp::qlSettingsSetEvaluationDate( static_cast<long>(todaysDate.serialNumber()), OH_NULL );
      std::cout << "Today: " << todaysDate.weekday() << ", " << todaysDate << std::endl;
      std::cout << "Settlement date: " << settlementDate.weekday() << ", " << settlementDate << std::endl;
 

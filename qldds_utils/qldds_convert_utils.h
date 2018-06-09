@@ -65,7 +65,7 @@ namespace qldds_utils
 
     boost::gregorian::date date ( boost::gregorian::from_string(iso_date) );
 
-    return ObjectHandler::property_t(QuantLib::Date( date.day(), QuantLib::Month(date.month().as_number()), date.year() ).serialNumber());
+    return ObjectHandler::property_t(static_cast<long>(QuantLib::Date( date.day(), QuantLib::Month(date.month().as_number()), date.year() ).serialNumber()));
   }
 
   //

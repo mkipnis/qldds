@@ -56,7 +56,8 @@ project(*IRSPortfolio) : dcps {
   }
 }
 
-project(*IRSCalculator) :  dcpsexe_with_tcp, dcps_udp, dcps_multicast, dcps_rtps_udp, dcps_shmem {
+//project(*IRSCalculator) :  dcpsexe_with_tcp, dcps_udp, dcps_multicast, dcps_rtps_udp, dcps_shmem {
+project(*IRSCalculator) :  dcpsexe, svc_utils {
         after          += *IRSPortfolio
         exename         =       IRSCalculator
         requires       +=       tao_orbsvcs
@@ -69,7 +70,7 @@ project(*IRSCalculator) :  dcpsexe_with_tcp, dcps_udp, dcps_multicast, dcps_rtps
                                 $(BOOST_ROOT)/lib \
                                 $(QLDDS_ROOT)/lib
 
-        libs           +=       boost_date_time qldds_utils boost_filesystem boost_serialization boost_system  boost_regex ratehelpers vanillaswap schedule IRSPortfolio ObjectHandler QuantLib boost_date_time 
+        libs           +=       qldds_utils boost_date_time boost_filesystem  boost_system  ratehelpers vanillaswap schedule IRSPortfolio ObjectHandler QuantLib boost_date_time 
 
         pure_libs       =       $(QLDDS_ROOT)/lib/libratehelpersDefaultDataReader.a \
                                 $(QLDDS_ROOT)/lib/libswaptionvolstructureDefaultDataReader.a \
@@ -213,17 +214,14 @@ project(*IRSCalculator) :  dcpsexe_with_tcp, dcps_udp, dcps_multicast, dcps_rtps
                                 $(BOOST_ROOT)/lib \
                                 $(QLDDS_ROOT)/lib
 
-        libs           +=        qldds_utils boost_filesystem boost_serialization boost_system  boost_regex ratehelpers vanillaswap schedule IRSPortfolio ObjectHandler QuantLib  
+        libs           +=        qldds_utils boost_filesystem boost_system boost_regex boost_serialization ratehelpers vanillaswap schedule IRSPortfolio ObjectHandler QuantLib boost_date_time 
 
         pure_libs       =       $(QLDDS_ROOT)/lib/libratehelpersDefaultDataReader.a \
                                 $(QLDDS_ROOT)/lib/libswaptionvolstructureDefaultDataReader.a \
                                 $(QLDDS_ROOT)/lib/libvanillaswapDefaultDataReader.a \
                                $(QLDDS_ROOT)/lib/libscheduleDefaultDataReader.a \
                                $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddinCpp.a \
-                               $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddin.a \
-				$(QLDDS_ROOT)/lib/libqldds_utils.so \
-				$(BOOST_ROOT)/lib/libboost_serialization.so \
-				$(BOOST_ROOT)/lib/libboost_regex.so
+                               $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddin.a 
 
 
         TypeSupport_Files {
