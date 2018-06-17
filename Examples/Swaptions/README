@@ -8,6 +8,15 @@ Two Swaption calculators consume volatility and curve data.
 Client is continuously making synchronous calls to calculators to compute NPV on the provided Swaption indicative data.
 That data consists of tenors of an option and an underlying swap, as well as curve and surface names.  This example demonstrates the usage of OpenDDS in conjunction with CORBA.
 
+This example requires TAO Naming Service:
+----------------------
+cd $DDS_ROOT/ACE_wrappers/TAO/orbsvcs
+$ACE_ROOT/bin/mwc.pl -type gnuace
+
+cd $DDS_ROOT/ACE_wrappers/TAO/orbsvcs/Naming_Service
+$ACE_ROOT/bin/mwc.pl -type gnuace
+
+
 Configuring and Compiling: 
 --------------------------
 Unix:

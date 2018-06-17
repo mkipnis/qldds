@@ -91,7 +91,6 @@ ObjectHandler::property_t ATM_RATE;
             option.surface_name.in(),
             OH_NULL,
             OH_NULL,
-            OH_NULL,
             true); 
 
      std::string liborSwapIndexIsdaFixAm = QuantLibAddinCpp::qlLiborSwap(
