@@ -54,7 +54,7 @@ settings/QLDDS_Java_settings.mpc
 shortratemodels/QLDDS_Java_shortratemodels.mpc
 smilesection/QLDDS_Java_smilesection.mpc
 statistics/QLDDS_Java_statistics.mpc
-swap/QLDDS_Java_swap.mpc
+qlSwapNS/QLDDS_Java_qlSwapNS.mpc
 swaption/QLDDS_Java_swaption.mpc
 swaptionvolstructure/QLDDS_Java_swaptionvolstructure.mpc
 termstructures/QLDDS_Java_termstructures.mpc

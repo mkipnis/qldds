@@ -1695,9 +1695,9 @@ project(statistics) : dcps {
   }
 
 }
-project(swap) : dcps {
+project(qlSwapNS) : dcps {
 
-  sharedname     = swap
+  sharedname     = qlSwapNS
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
@@ -1711,14 +1711,14 @@ project(swap) : dcps {
   libout        = $(QLDDS_ROOT)/lib
 
   TypeSupport_Files {
-        	swap.idl
+        	qlSwapNS.idl
 
   }
 
   IDL_Files {
-        	swap.idl
+        	qlSwapNS.idl
 
-        	swapTypeSupport.idl
+        	qlSwapNSTypeSupport.idl
 
   }
 

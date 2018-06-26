@@ -28,15 +28,15 @@
 // This source code file was generated from the following stub:
 //      qldds/gensrc/stubs/stub.opendds.module
 
-#ifndef swap_IDL
-#define swap_IDL
+#ifndef qlSwapNS_IDL
+#define qlSwapNS_IDL
 
 #include <qldds_types.idl>
 
-module swap {
+module qlSwapNS {
 
-#pragma DCPS_DATA_TYPE "swap::qlMakeCms"
-#pragma DCPS_DATA_KEY "swap::qlMakeCms instanceID" 
+#pragma DCPS_DATA_TYPE "qlSwapNS::qlMakeCms"
+#pragma DCPS_DATA_KEY "qlSwapNS::qlMakeCms instanceID" 
 
    struct qlMakeCms { 
           string instanceID;
@@ -53,8 +53,8 @@ module swap {
              boolean Overwrite; 
    };
 
-#pragma DCPS_DATA_TYPE "swap::qlSwap"
-#pragma DCPS_DATA_KEY "swap::qlSwap instanceID" 
+#pragma DCPS_DATA_TYPE "qlSwapNS::qlSwap"
+#pragma DCPS_DATA_KEY "qlSwapNS::qlSwap instanceID" 
 
    struct qlSwap { 
           string instanceID;

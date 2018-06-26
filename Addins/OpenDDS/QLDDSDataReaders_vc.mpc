@@ -2527,11 +2527,11 @@ project(*statisticsDefaultDataReader) : dcps, install {
 
 
 }
-project(*swapDefaultDataReader) : dcps, install {
+project(*qlSwapNSDefaultDataReader) : dcps, install {
 
-  after    += *swap
+  after    += *qlSwapNS
 
-  staticname     = swapDefaultDataReader
+  staticname     = qlSwapNSDefaultDataReader
   libout         = .
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QUANTLIB_ROOT) $(OH_ROOT) $(QUANTLIB_ADDIN_ROOT) ../../qldds_utils $(BOOST_ROOT)
@@ -2548,12 +2548,12 @@ project(*swapDefaultDataReader) : dcps, install {
   }
 
   Header_Files {
-         	swapDataReaderListenerImpl.hpp
+         	qlSwapNSDataReaderListenerImpl.hpp
 
   }
 
   Source_Files {
-         	swapDataReaderListenerImpl.cpp
+         	qlSwapNSDataReaderListenerImpl.cpp
 
   }
 

@@ -1842,11 +1842,11 @@ project(statisticsDefaultDataReader) : dcps, install {
 
 }
 
-project(swapDefaultDataReader) : dcps, install {
+project(qlSwapNSDefaultDataReader) : dcps, install {
 
-  after    += *swap
+  after    += *qlSwapNS
 
-  sharedname     = swapDefaultDataReader
+  sharedname     = qlSwapNSDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
@@ -1859,7 +1859,7 @@ project(swapDefaultDataReader) : dcps, install {
                    $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
    libout        = $(QLDDS_ROOT)/lib
 
-  libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils swap 
+  libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils qlSwapNS 
 
   TypeSupport_Files {
   }
@@ -1868,12 +1868,12 @@ project(swapDefaultDataReader) : dcps, install {
   }
 
   Header_Files {
-         	swapDataReaderListenerImpl.hpp
+         	qlSwapNSDataReaderListenerImpl.hpp
 
   }
 
   Source_Files {
-         	swapDataReaderListenerImpl.cpp
+         	qlSwapNSDataReaderListenerImpl.cpp
 
   }
 

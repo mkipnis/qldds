@@ -50,15 +50,15 @@
 #include <qlo/Addins/Cpp/swap.hpp>
 #endif
 
-#include "swapTypeSupportC.h"
+#include "qlSwapNSTypeSupportC.h"
 
 #include <DataReaderListener.hpp>
 
-namespace swap
+namespace qlSwapNS
 {
   
   class qlMakeCmsDataReaderListenerImpl
-    : public virtual OpenDDS::DCPS::LocalObject<qldds::DataReaderListener< swap::qlMakeCms, std::string > >
+    : public virtual OpenDDS::DCPS::LocalObject<qldds::DataReaderListener< qlSwapNS::qlMakeCms, std::string > >
   {
     public:
     
@@ -83,11 +83,11 @@ namespace swap
 
       virtual void on_reading_end( DDS::DataReader_ptr reader, int count );
 
-      virtual bool pre_quantlib_addin_call( DDS::DataReader_ptr reader, DDS::SampleInfo&, swap::qlMakeCms& );
+      virtual bool pre_quantlib_addin_call( DDS::DataReader_ptr reader, DDS::SampleInfo&, qlSwapNS::qlMakeCms& );
 
-      virtual bool post_quantlib_addin_call( DDS::DataReader_ptr reader, swap::qlMakeCms&, std::string& );
+      virtual bool post_quantlib_addin_call( DDS::DataReader_ptr reader, qlSwapNS::qlMakeCms&, std::string& );
 
-      virtual void on_std_exception( DDS::DataReader_ptr reader, swap::qlMakeCms&, std::exception& e );
+      virtual void on_std_exception( DDS::DataReader_ptr reader, qlSwapNS::qlMakeCms&, std::exception& e );
 
       virtual void on_dds_reading_error( DDS::DataReader_ptr reader, std::string& err );
 
@@ -100,7 +100,7 @@ namespace swap
 
   
   class qlSwapDataReaderListenerImpl
-    : public virtual OpenDDS::DCPS::LocalObject<qldds::DataReaderListener< swap::qlSwap, std::string > >
+    : public virtual OpenDDS::DCPS::LocalObject<qldds::DataReaderListener< qlSwapNS::qlSwap, std::string > >
   {
     public:
     
@@ -125,11 +125,11 @@ namespace swap
 
       virtual void on_reading_end( DDS::DataReader_ptr reader, int count );
 
-      virtual bool pre_quantlib_addin_call( DDS::DataReader_ptr reader, DDS::SampleInfo&, swap::qlSwap& );
+      virtual bool pre_quantlib_addin_call( DDS::DataReader_ptr reader, DDS::SampleInfo&, qlSwapNS::qlSwap& );
 
-      virtual bool post_quantlib_addin_call( DDS::DataReader_ptr reader, swap::qlSwap&, std::string& );
+      virtual bool post_quantlib_addin_call( DDS::DataReader_ptr reader, qlSwapNS::qlSwap&, std::string& );
 
-      virtual void on_std_exception( DDS::DataReader_ptr reader, swap::qlSwap&, std::exception& e );
+      virtual void on_std_exception( DDS::DataReader_ptr reader, qlSwapNS::qlSwap&, std::exception& e );
 
       virtual void on_dds_reading_error( DDS::DataReader_ptr reader, std::string& err );
 

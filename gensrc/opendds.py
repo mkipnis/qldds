@@ -72,6 +72,7 @@ class OpenDDSAddin(addin.Addin):
 
 	    qlAddinName = cat.name()
 	    if (cat.name() == 'index') : cat.name_ = 'qlIndex'
+	    if (cat.name() == 'swap') : cat.name_ = 'qlSwapNS'
 
             categoryIncludes = cat.includeList(loopIncludes)
 

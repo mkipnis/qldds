@@ -29,7 +29,7 @@
 //   SOFTWARE.
 
 
-project(swap_java) :  dcps_java {
+project(qlSwapNS_java) :  dcps_java {
 
   idlflags     +=  -I$(QLDDS_ROOT)/java/qldds_utils -Wb,export_macro=QLDDS_Export\
                  -Wb,stub_export_include=$(QLDDS_ROOT)/java/qldds_utils/QLDDS_Export.h \
@@ -47,11 +47,11 @@ project(swap_java) :  dcps_java {
   libout        = $(QLDDS_ROOT)/java/lib 
 
   specific {
-    jarname     = swap
+    jarname     = qlSwapNS
   }
 
   TypeSupport_Files {
-        swap.idl
+        qlSwapNS.idl
   }
 }
 
