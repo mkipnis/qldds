@@ -25,7 +25,7 @@
 //   SOFTWARE.
 
 
-project(*IRSPortfolio) : dcps {
+project(IRSPortfolio) : dcps {
   sharedname     = IRSPortfolio 
   dynamicflags   = IRSPORTFOLIO_BUILD_DLL
   libout         = .
@@ -56,8 +56,8 @@ project(*IRSPortfolio) : dcps {
   }
 }
 
-project(*IRSCalculator) :  dcpsexe, svc_utils {
-        after          += *IRSPortfolio
+project(IRSCalculator) :  dcpsexe, svc_utils {
+        after          += IRSPortfolio
         exename         =       IRSCalculator
         requires       +=       tao_orbsvcs
 
@@ -70,7 +70,7 @@ project(*IRSCalculator) :  dcpsexe, svc_utils {
                                 $(QLDDS_ROOT)/lib
 
 
-        libs           +=       boost_date_time boost_filesystem  boost_system  ratehelpers vanillaswap schedule IRSPortfolio ObjectHandler QuantLib boost_date_time qldds_utils ratehelpersDefaultDataReader vanillaswapDefaultDataReader scheduleDefaultDataReader QuantLibAddinCpp QuantLibAddin 
+        libs           +=       IRSPortfolio boost_date_time boost_filesystem  boost_system  ratehelpers vanillaswap schedule ObjectHandler QuantLib boost_date_time ratehelpersDefaultDataReader vanillaswapDefaultDataReader scheduleDefaultDataReader QuantLibAddinCpp QuantLibAddin qldds_utils boost_date_time
 
 
         TypeSupport_Files {
@@ -84,8 +84,8 @@ project(*IRSCalculator) :  dcpsexe, svc_utils {
         }
 }
 
-project(*IRSClient) : dcpsexe, svc_utils {
-        after          += *IRSPortfolio
+project(IRSClient) : dcpsexe, svc_utils {
+        after          += IRSPortfolio
 
         exename         =       IRSClient
         requires       +=       tao_orbsvcs
@@ -109,7 +109,8 @@ project(*IRSClient) : dcpsexe, svc_utils {
         }
 }
 
-project(*MarketDataPublisher) : dcpsexe_with_tcp {
+project(MarketDataPublisher) : dcpsexe_with_tcp {
+	after		+=	IRSPortfolio
         exename         =       MarketDataPublisher 
         requires       +=       tao_orbsvcs
 
@@ -125,7 +126,8 @@ project(*MarketDataPublisher) : dcpsexe_with_tcp {
         }
 }
 
-project(*InstrumentDataPublisher) : dcpsexe, svc_utils {
+project(InstrumentDataPublisher) : dcpsexe, svc_utils {
+	after		+=	IRSPortfolio
         exename         =       InstrumentDataPublisher 
         requires       +=       tao_orbsvcs
 

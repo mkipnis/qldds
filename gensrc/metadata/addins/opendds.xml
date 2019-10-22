@@ -18,8 +18,8 @@
     <Buffer name='bufferHeader' fileName='stub.opendds.header' local='true'/>
     <Buffer name='bufferDataReaderImplementation' fileName='stub.opendds.DataReaderImplementation' local='true'/>
     <Buffer name='bufferBody' fileName='stub.opendds.body' local='true'/>
-    <Buffer name='bufferMpc' fileName='stub.opendds.mpc' local='true'/>
-    <Buffer name='bufferMpcJava' fileName='stub.opendds.mpc' local='true'/>
+    <Buffer name='bufferMpc' fileName='stub.opendds.mpc.library' local='true'/>
+    <Buffer name='bufferMpcJava' fileName='stub.opendds.mpc.library' local='true'/>
     <Buffer name='bufferMwcJava' fileName='stub.opendds.mwc.java' local='true'/>
     <Buffer name='bufferLib' fileName='stub.opendds.library' local='true'/>
     <Buffer name='bufferLibJava' fileName='stub.opendds.library.java' local='true'/>

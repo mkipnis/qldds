@@ -2,7 +2,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.mpc
+//      dds.no_nt/gensrc/stubs/stub.opendds.mpc.library
 
 //
 //   Copyright (C) 2016 Mike Kipnis
@@ -31,6 +31,7 @@
 
 project(garbagecollection) : dcps {
 
+  after		+= qldds_utils
   sharedname     = garbagecollection
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -40,7 +41,6 @@ project(garbagecollection) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -65,6 +65,7 @@ project(garbagecollection) : dcps {
 }
 project(logging) : dcps {
 
+  after		+= qldds_utils
   sharedname     = logging
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -74,7 +75,6 @@ project(logging) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -99,6 +99,7 @@ project(logging) : dcps {
 }
 project(ohutils) : dcps {
 
+  after		+= qldds_utils
   sharedname     = ohutils
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -108,7 +109,6 @@ project(ohutils) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -133,6 +133,7 @@ project(ohutils) : dcps {
 }
 project(serialization) : dcps {
 
+  after		+= qldds_utils
   sharedname     = serialization
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -142,7 +143,6 @@ project(serialization) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -167,6 +167,7 @@ project(serialization) : dcps {
 }
 project(valueobjects) : dcps {
 
+  after		+= qldds_utils
   sharedname     = valueobjects
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -176,7 +177,6 @@ project(valueobjects) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -201,6 +201,7 @@ project(valueobjects) : dcps {
 }
 project(abcd) : dcps {
 
+  after		+= qldds_utils
   sharedname     = abcd
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -210,7 +211,6 @@ project(abcd) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -235,6 +235,7 @@ project(abcd) : dcps {
 }
 project(accountingengines) : dcps {
 
+  after		+= qldds_utils
   sharedname     = accountingengines
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -244,7 +245,6 @@ project(accountingengines) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -269,6 +269,7 @@ project(accountingengines) : dcps {
 }
 project(alphaform) : dcps {
 
+  after		+= qldds_utils
   sharedname     = alphaform
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -278,7 +279,6 @@ project(alphaform) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -303,6 +303,7 @@ project(alphaform) : dcps {
 }
 project(assetswap) : dcps {
 
+  after		+= qldds_utils
   sharedname     = assetswap
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -312,7 +313,6 @@ project(assetswap) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -337,6 +337,7 @@ project(assetswap) : dcps {
 }
 project(bonds) : dcps {
 
+  after		+= qldds_utils
   sharedname     = bonds
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -346,7 +347,6 @@ project(bonds) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -371,6 +371,7 @@ project(bonds) : dcps {
 }
 project(browniangenerators) : dcps {
 
+  after		+= qldds_utils
   sharedname     = browniangenerators
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -380,7 +381,6 @@ project(browniangenerators) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -405,6 +405,7 @@ project(browniangenerators) : dcps {
 }
 project(btp) : dcps {
 
+  after		+= qldds_utils
   sharedname     = btp
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -414,7 +415,6 @@ project(btp) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -439,6 +439,7 @@ project(btp) : dcps {
 }
 project(capfloor) : dcps {
 
+  after		+= qldds_utils
   sharedname     = capfloor
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -448,7 +449,6 @@ project(capfloor) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -473,6 +473,7 @@ project(capfloor) : dcps {
 }
 project(capletvolstructure) : dcps {
 
+  after		+= qldds_utils
   sharedname     = capletvolstructure
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -482,7 +483,6 @@ project(capletvolstructure) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -507,6 +507,7 @@ project(capletvolstructure) : dcps {
 }
 project(cmsmarket) : dcps {
 
+  after		+= qldds_utils
   sharedname     = cmsmarket
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -516,7 +517,6 @@ project(cmsmarket) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -541,6 +541,7 @@ project(cmsmarket) : dcps {
 }
 project(correlation) : dcps {
 
+  after		+= qldds_utils
   sharedname     = correlation
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -550,7 +551,6 @@ project(correlation) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -575,6 +575,7 @@ project(correlation) : dcps {
 }
 project(couponvectors) : dcps {
 
+  after		+= qldds_utils
   sharedname     = couponvectors
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -584,7 +585,6 @@ project(couponvectors) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -609,6 +609,7 @@ project(couponvectors) : dcps {
 }
 project(credit) : dcps {
 
+  after		+= qldds_utils
   sharedname     = credit
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -618,7 +619,6 @@ project(credit) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -643,6 +643,7 @@ project(credit) : dcps {
 }
 project(ctsmmcapletcalibration) : dcps {
 
+  after		+= qldds_utils
   sharedname     = ctsmmcapletcalibration
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -652,7 +653,6 @@ project(ctsmmcapletcalibration) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -677,6 +677,7 @@ project(ctsmmcapletcalibration) : dcps {
 }
 project(curvestate) : dcps {
 
+  after		+= qldds_utils
   sharedname     = curvestate
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -686,7 +687,6 @@ project(curvestate) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -711,6 +711,7 @@ project(curvestate) : dcps {
 }
 project(defaulttermstructures) : dcps {
 
+  after		+= qldds_utils
   sharedname     = defaulttermstructures
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -720,7 +721,6 @@ project(defaulttermstructures) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -745,6 +745,7 @@ project(defaulttermstructures) : dcps {
 }
 project(evolutiondescription) : dcps {
 
+  after		+= qldds_utils
   sharedname     = evolutiondescription
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -754,7 +755,6 @@ project(evolutiondescription) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -779,6 +779,7 @@ project(evolutiondescription) : dcps {
 }
 project(exercise) : dcps {
 
+  after		+= qldds_utils
   sharedname     = exercise
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -788,7 +789,6 @@ project(exercise) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -813,6 +813,7 @@ project(exercise) : dcps {
 }
 project(forwardrateagreement) : dcps {
 
+  after		+= qldds_utils
   sharedname     = forwardrateagreement
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -822,7 +823,6 @@ project(forwardrateagreement) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -847,6 +847,7 @@ project(forwardrateagreement) : dcps {
 }
 project(handles) : dcps {
 
+  after		+= qldds_utils
   sharedname     = handles
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -856,7 +857,6 @@ project(handles) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -881,6 +881,7 @@ project(handles) : dcps {
 }
 project(qlIndex) : dcps {
 
+  after		+= qldds_utils
   sharedname     = qlIndex
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -890,7 +891,6 @@ project(qlIndex) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -915,6 +915,7 @@ project(qlIndex) : dcps {
 }
 project(instruments) : dcps {
 
+  after		+= qldds_utils
   sharedname     = instruments
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -924,7 +925,6 @@ project(instruments) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -949,6 +949,7 @@ project(instruments) : dcps {
 }
 project(interpolation) : dcps {
 
+  after		+= qldds_utils
   sharedname     = interpolation
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -958,7 +959,6 @@ project(interpolation) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -983,6 +983,7 @@ project(interpolation) : dcps {
 }
 project(leg) : dcps {
 
+  after		+= qldds_utils
   sharedname     = leg
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -992,7 +993,6 @@ project(leg) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1017,6 +1017,7 @@ project(leg) : dcps {
 }
 project(marketmodelevolvers) : dcps {
 
+  after		+= qldds_utils
   sharedname     = marketmodelevolvers
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1026,7 +1027,6 @@ project(marketmodelevolvers) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1051,6 +1051,7 @@ project(marketmodelevolvers) : dcps {
 }
 project(marketmodels) : dcps {
 
+  after		+= qldds_utils
   sharedname     = marketmodels
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1060,7 +1061,6 @@ project(marketmodels) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1085,6 +1085,7 @@ project(marketmodels) : dcps {
 }
 project(optimization) : dcps {
 
+  after		+= qldds_utils
   sharedname     = optimization
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1094,7 +1095,6 @@ project(optimization) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1119,6 +1119,7 @@ project(optimization) : dcps {
 }
 project(options) : dcps {
 
+  after		+= qldds_utils
   sharedname     = options
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1128,7 +1129,6 @@ project(options) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1153,6 +1153,7 @@ project(options) : dcps {
 }
 project(overnightindexedswap) : dcps {
 
+  after		+= qldds_utils
   sharedname     = overnightindexedswap
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1162,7 +1163,6 @@ project(overnightindexedswap) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1187,6 +1187,7 @@ project(overnightindexedswap) : dcps {
 }
 project(payoffs) : dcps {
 
+  after		+= qldds_utils
   sharedname     = payoffs
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1196,7 +1197,6 @@ project(payoffs) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1221,6 +1221,7 @@ project(payoffs) : dcps {
 }
 project(piecewiseyieldcurve) : dcps {
 
+  after		+= qldds_utils
   sharedname     = piecewiseyieldcurve
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1230,7 +1231,6 @@ project(piecewiseyieldcurve) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1255,6 +1255,7 @@ project(piecewiseyieldcurve) : dcps {
 }
 project(pricingengines) : dcps {
 
+  after		+= qldds_utils
   sharedname     = pricingengines
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1264,7 +1265,6 @@ project(pricingengines) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1289,6 +1289,7 @@ project(pricingengines) : dcps {
 }
 project(processes) : dcps {
 
+  after		+= qldds_utils
   sharedname     = processes
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1298,7 +1299,6 @@ project(processes) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1323,6 +1323,7 @@ project(processes) : dcps {
 }
 project(products) : dcps {
 
+  after		+= qldds_utils
   sharedname     = products
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1332,7 +1333,6 @@ project(products) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1357,6 +1357,7 @@ project(products) : dcps {
 }
 project(quotes) : dcps {
 
+  after		+= qldds_utils
   sharedname     = quotes
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1366,7 +1367,6 @@ project(quotes) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1391,6 +1391,7 @@ project(quotes) : dcps {
 }
 project(randomsequencegenerator) : dcps {
 
+  after		+= qldds_utils
   sharedname     = randomsequencegenerator
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1400,7 +1401,6 @@ project(randomsequencegenerator) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1425,6 +1425,7 @@ project(randomsequencegenerator) : dcps {
 }
 project(rangeaccrual) : dcps {
 
+  after		+= qldds_utils
   sharedname     = rangeaccrual
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1434,7 +1435,6 @@ project(rangeaccrual) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1459,6 +1459,7 @@ project(rangeaccrual) : dcps {
 }
 project(ratehelpers) : dcps {
 
+  after		+= qldds_utils
   sharedname     = ratehelpers
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1468,7 +1469,6 @@ project(ratehelpers) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1493,6 +1493,7 @@ project(ratehelpers) : dcps {
 }
 project(schedule) : dcps {
 
+  after		+= qldds_utils
   sharedname     = schedule
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1502,7 +1503,6 @@ project(schedule) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1527,6 +1527,7 @@ project(schedule) : dcps {
 }
 project(sequencestatistics) : dcps {
 
+  after		+= qldds_utils
   sharedname     = sequencestatistics
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1536,7 +1537,6 @@ project(sequencestatistics) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1561,6 +1561,7 @@ project(sequencestatistics) : dcps {
 }
 project(settings) : dcps {
 
+  after		+= qldds_utils
   sharedname     = settings
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1570,7 +1571,6 @@ project(settings) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1595,6 +1595,7 @@ project(settings) : dcps {
 }
 project(shortratemodels) : dcps {
 
+  after		+= qldds_utils
   sharedname     = shortratemodels
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1604,7 +1605,6 @@ project(shortratemodels) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1629,6 +1629,7 @@ project(shortratemodels) : dcps {
 }
 project(smilesection) : dcps {
 
+  after		+= qldds_utils
   sharedname     = smilesection
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1638,7 +1639,6 @@ project(smilesection) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1663,6 +1663,7 @@ project(smilesection) : dcps {
 }
 project(statistics) : dcps {
 
+  after		+= qldds_utils
   sharedname     = statistics
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1672,7 +1673,6 @@ project(statistics) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1697,6 +1697,7 @@ project(statistics) : dcps {
 }
 project(qlSwapNS) : dcps {
 
+  after		+= qldds_utils
   sharedname     = qlSwapNS
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1706,7 +1707,6 @@ project(qlSwapNS) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1731,6 +1731,7 @@ project(qlSwapNS) : dcps {
 }
 project(swaption) : dcps {
 
+  after		+= qldds_utils
   sharedname     = swaption
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1740,7 +1741,6 @@ project(swaption) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1765,6 +1765,7 @@ project(swaption) : dcps {
 }
 project(swaptionvolstructure) : dcps {
 
+  after		+= qldds_utils
   sharedname     = swaptionvolstructure
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1774,7 +1775,6 @@ project(swaptionvolstructure) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1799,6 +1799,7 @@ project(swaptionvolstructure) : dcps {
 }
 project(termstructures) : dcps {
 
+  after		+= qldds_utils
   sharedname     = termstructures
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1808,7 +1809,6 @@ project(termstructures) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1833,6 +1833,7 @@ project(termstructures) : dcps {
 }
 project(timeseries) : dcps {
 
+  after		+= qldds_utils
   sharedname     = timeseries
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1842,7 +1843,6 @@ project(timeseries) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1867,6 +1867,7 @@ project(timeseries) : dcps {
 }
 project(utilities) : dcps {
 
+  after		+= qldds_utils
   sharedname     = utilities
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1876,7 +1877,6 @@ project(utilities) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1901,6 +1901,7 @@ project(utilities) : dcps {
 }
 project(vanillaswap) : dcps {
 
+  after		+= qldds_utils
   sharedname     = vanillaswap
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1910,7 +1911,6 @@ project(vanillaswap) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1935,6 +1935,7 @@ project(vanillaswap) : dcps {
 }
 project(volatilities) : dcps {
 
+  after		+= qldds_utils
   sharedname     = volatilities
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1944,7 +1945,6 @@ project(volatilities) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 
@@ -1969,6 +1969,7 @@ project(volatilities) : dcps {
 }
 project(volatility) : dcps {
 
+  after		+= qldds_utils
   sharedname     = volatility
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -1978,7 +1979,6 @@ project(volatility) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 

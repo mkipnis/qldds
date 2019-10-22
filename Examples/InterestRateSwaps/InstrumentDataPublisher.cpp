@@ -107,7 +107,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     //
     //  Publishing qlSchedule and qlVanillaSwap
     //
-    for ( int swap = 0; swap<100; swap++ )
+    for ( int swap = 0; swap<1000; swap++ )
     {
       boost::gregorian::date start_date = date;
       boost::gregorian::date end_date = start_date+boost::gregorian::years( ++duration );

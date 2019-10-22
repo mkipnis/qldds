@@ -24,7 +24,7 @@
 //
 
 
-project: dcps_java {
+project(CurveBuilderIDL): dcps_java {
 
   idlflags  += -I$(QLDDS_ROOT)/java/qldds_utils \ 
                -I$(QLDDS_ROOT)/java/Addins/OpenDDS/piecewiseyieldcurve \

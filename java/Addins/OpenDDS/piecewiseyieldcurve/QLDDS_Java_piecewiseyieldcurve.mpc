@@ -2,7 +2,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.mpc
+//      dds.no_nt/gensrc/stubs/stub.opendds.mpc.library
 
 //
 //   Copyright (C) 2016 Mike Kipnis
@@ -30,6 +30,8 @@
 
 
 project(piecewiseyieldcurve_java) :  dcps_java {
+
+   after 	+= qldds_utils_java
 
   idlflags     +=  -I$(QLDDS_ROOT)/java/qldds_utils -Wb,export_macro=QLDDS_Export\
                  -Wb,stub_export_include=$(QLDDS_ROOT)/java/qldds_utils/QLDDS_Export.h \

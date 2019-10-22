@@ -1,5 +1,6 @@
 project(%(libname)s) : dcps {
 
+  after		+= qldds_utils
   sharedname     = %(sharedname)s
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
@@ -9,7 +10,6 @@ project(%(libname)s) : dcps {
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
 
-  libpaths	+= $(QLDDS_ROOT)/qldds_utils
   libs		+= qldds_utils
   libout        = $(QLDDS_ROOT)/lib
 

@@ -1,7 +1,7 @@
 
 project(%(libname)sDefaultDataReader) : dcps, install {
 
-  after    += *%(libname)s
+  after    += qldds_utils %(libname)s
 
   sharedname     = %(sharedname)sDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL

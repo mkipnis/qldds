@@ -25,17 +25,16 @@
 
 
 workspace {
-  QLDDS.mpc
-  // tell MPC to substitute our DDS_ROOT environment variables for relative paths
-  cmdline += -relative DDS_ROOT=$DDS_ROOT
-
-  // tell the projects where to find the DDS base projects (*.mpb)
-  cmdline += -include $DDS_ROOT/MPC/config
+  qldds_utils
+  $(QLDDS_ROOT)/Addins/OpenDDS/QLDDS.mpc
 
   DataReaders {
-    cmdline += -relative DDS_ROOT=$DDS_ROOT
-    cmdline += -include $DDS_ROOT/MPC/config -static
+    cmdline += -static
 
-    QLDDSDataReaders.mpc
+    $(QLDDS_ROOT)/Addins/OpenDDS/QLDDSDataReaders.mpc
   }
+
+  $(DDS_ROOT)/ACE_wrappers/TAO/orbsvcs/Naming_Service/Naming_Service.mpc
+  Examples
+  java
 }

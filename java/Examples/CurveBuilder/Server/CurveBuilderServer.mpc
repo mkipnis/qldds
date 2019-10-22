@@ -25,7 +25,7 @@
 //
 
 
-project(*CurveBuilder) :  dcpsexe, dcps_tcp {
+project(CurveBuilder) :  dcpsexe, dcps_tcp {
         exename         = CurveBuilder 
         requires       +=  tao_orbsvcs
 
@@ -47,7 +47,7 @@ project(*CurveBuilder) :  dcpsexe, dcps_tcp {
         libs           +=       qldds_utils_java ratehelpers_java \
 				vanillaswap_java piecewiseyieldcurve_java boost_date_time \
 				QuantLibAddinCpp QuantLibAddin \
-				ObjectHandler QuantLib CurveBuilder 
+				ObjectHandler QuantLib CurveBuilderIDL 
 
 
         TypeSupport_Files {

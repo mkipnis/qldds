@@ -24,11 +24,10 @@
 //   SOFTWARE.
 
 
-project(*qldds) : dcps, install {
+project(qldds_utils) : dcps, install {
   sharedname     = qldds_utils 
   dynamicflags   = QLDDS_BUILD_DLL
   libout         = $(QLDDS_ROOT)/lib 
- // requires += tao_orbsvcs
   includes      += . $(TAO_ROOT)/orbsvcs
   idlflags      += -I$(TAO_ROOT)/orbsvcs \
                    -Wb,export_macro=QLDDS_Export \

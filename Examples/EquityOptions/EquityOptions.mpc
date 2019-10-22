@@ -135,16 +135,8 @@ project( *Server ) : dcpsexe, svc_utils {
                                 $(BOOST_ROOT)/lib \
                                 $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
-        libs            +=      qldds_utils boost_date_time pricingengines exercise volatilities payoffs processes \
-                                boost_filesystem boost_serialization boost_system boost_regex \
-                                EquityOptions Straddles ObjectHandler QuantLib
-
-        pure_libs       =       $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddinCpp.a \
-                                $(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddin.a \
-			        $(OH_ROOT)/lib/libObjectHandler.a \
-                                $(QUANTLIB_ROOT)/lib/libQuantLib.a 
- 
-				
+        libs            +=      qldds_utils pricingengines exercise volatilities payoffs processes \
+                                EquityOptions Straddles QuantLibAddinCpp QuantLibAddin ObjectHandler QuantLib boost_date_time boost_regex boost_system boost_filesystem boost_iostreams boost_serialization
 
         idlflags        +=      -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS
 

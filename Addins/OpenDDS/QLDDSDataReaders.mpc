@@ -2,7 +2,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.mpc.datareader
+//      dds.no_nt/gensrc/stubs/stub.opendds.mpc.datareader
 
 //
 //   Copyright (C) 2016 Mike Kipnis
@@ -31,7 +31,7 @@
 
 project(garbagecollectionDefaultDataReader) : dcps, install {
 
-  after    += *garbagecollection
+  after    += qldds_utils garbagecollection
 
   sharedname     = garbagecollectionDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -68,7 +68,7 @@ project(garbagecollectionDefaultDataReader) : dcps, install {
 
 project(loggingDefaultDataReader) : dcps, install {
 
-  after    += *logging
+  after    += qldds_utils logging
 
   sharedname     = loggingDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -105,7 +105,7 @@ project(loggingDefaultDataReader) : dcps, install {
 
 project(ohutilsDefaultDataReader) : dcps, install {
 
-  after    += *ohutils
+  after    += qldds_utils ohutils
 
   sharedname     = ohutilsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -142,7 +142,7 @@ project(ohutilsDefaultDataReader) : dcps, install {
 
 project(serializationDefaultDataReader) : dcps, install {
 
-  after    += *serialization
+  after    += qldds_utils serialization
 
   sharedname     = serializationDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -179,7 +179,7 @@ project(serializationDefaultDataReader) : dcps, install {
 
 project(valueobjectsDefaultDataReader) : dcps, install {
 
-  after    += *valueobjects
+  after    += qldds_utils valueobjects
 
   sharedname     = valueobjectsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -216,7 +216,7 @@ project(valueobjectsDefaultDataReader) : dcps, install {
 
 project(abcdDefaultDataReader) : dcps, install {
 
-  after    += *abcd
+  after    += qldds_utils abcd
 
   sharedname     = abcdDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -253,7 +253,7 @@ project(abcdDefaultDataReader) : dcps, install {
 
 project(accountingenginesDefaultDataReader) : dcps, install {
 
-  after    += *accountingengines
+  after    += qldds_utils accountingengines
 
   sharedname     = accountingenginesDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -290,7 +290,7 @@ project(accountingenginesDefaultDataReader) : dcps, install {
 
 project(alphaformDefaultDataReader) : dcps, install {
 
-  after    += *alphaform
+  after    += qldds_utils alphaform
 
   sharedname     = alphaformDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -327,7 +327,7 @@ project(alphaformDefaultDataReader) : dcps, install {
 
 project(assetswapDefaultDataReader) : dcps, install {
 
-  after    += *assetswap
+  after    += qldds_utils assetswap
 
   sharedname     = assetswapDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -364,7 +364,7 @@ project(assetswapDefaultDataReader) : dcps, install {
 
 project(bondsDefaultDataReader) : dcps, install {
 
-  after    += *bonds
+  after    += qldds_utils bonds
 
   sharedname     = bondsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -401,7 +401,7 @@ project(bondsDefaultDataReader) : dcps, install {
 
 project(browniangeneratorsDefaultDataReader) : dcps, install {
 
-  after    += *browniangenerators
+  after    += qldds_utils browniangenerators
 
   sharedname     = browniangeneratorsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -438,7 +438,7 @@ project(browniangeneratorsDefaultDataReader) : dcps, install {
 
 project(btpDefaultDataReader) : dcps, install {
 
-  after    += *btp
+  after    += qldds_utils btp
 
   sharedname     = btpDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -475,7 +475,7 @@ project(btpDefaultDataReader) : dcps, install {
 
 project(capfloorDefaultDataReader) : dcps, install {
 
-  after    += *capfloor
+  after    += qldds_utils capfloor
 
   sharedname     = capfloorDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -512,7 +512,7 @@ project(capfloorDefaultDataReader) : dcps, install {
 
 project(capletvolstructureDefaultDataReader) : dcps, install {
 
-  after    += *capletvolstructure
+  after    += qldds_utils capletvolstructure
 
   sharedname     = capletvolstructureDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -549,7 +549,7 @@ project(capletvolstructureDefaultDataReader) : dcps, install {
 
 project(cmsmarketDefaultDataReader) : dcps, install {
 
-  after    += *cmsmarket
+  after    += qldds_utils cmsmarket
 
   sharedname     = cmsmarketDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -586,7 +586,7 @@ project(cmsmarketDefaultDataReader) : dcps, install {
 
 project(correlationDefaultDataReader) : dcps, install {
 
-  after    += *correlation
+  after    += qldds_utils correlation
 
   sharedname     = correlationDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -623,7 +623,7 @@ project(correlationDefaultDataReader) : dcps, install {
 
 project(couponvectorsDefaultDataReader) : dcps, install {
 
-  after    += *couponvectors
+  after    += qldds_utils couponvectors
 
   sharedname     = couponvectorsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -660,7 +660,7 @@ project(couponvectorsDefaultDataReader) : dcps, install {
 
 project(creditDefaultDataReader) : dcps, install {
 
-  after    += *credit
+  after    += qldds_utils credit
 
   sharedname     = creditDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -697,7 +697,7 @@ project(creditDefaultDataReader) : dcps, install {
 
 project(ctsmmcapletcalibrationDefaultDataReader) : dcps, install {
 
-  after    += *ctsmmcapletcalibration
+  after    += qldds_utils ctsmmcapletcalibration
 
   sharedname     = ctsmmcapletcalibrationDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -734,7 +734,7 @@ project(ctsmmcapletcalibrationDefaultDataReader) : dcps, install {
 
 project(curvestateDefaultDataReader) : dcps, install {
 
-  after    += *curvestate
+  after    += qldds_utils curvestate
 
   sharedname     = curvestateDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -771,7 +771,7 @@ project(curvestateDefaultDataReader) : dcps, install {
 
 project(defaulttermstructuresDefaultDataReader) : dcps, install {
 
-  after    += *defaulttermstructures
+  after    += qldds_utils defaulttermstructures
 
   sharedname     = defaulttermstructuresDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -808,7 +808,7 @@ project(defaulttermstructuresDefaultDataReader) : dcps, install {
 
 project(evolutiondescriptionDefaultDataReader) : dcps, install {
 
-  after    += *evolutiondescription
+  after    += qldds_utils evolutiondescription
 
   sharedname     = evolutiondescriptionDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -845,7 +845,7 @@ project(evolutiondescriptionDefaultDataReader) : dcps, install {
 
 project(exerciseDefaultDataReader) : dcps, install {
 
-  after    += *exercise
+  after    += qldds_utils exercise
 
   sharedname     = exerciseDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -882,7 +882,7 @@ project(exerciseDefaultDataReader) : dcps, install {
 
 project(forwardrateagreementDefaultDataReader) : dcps, install {
 
-  after    += *forwardrateagreement
+  after    += qldds_utils forwardrateagreement
 
   sharedname     = forwardrateagreementDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -919,7 +919,7 @@ project(forwardrateagreementDefaultDataReader) : dcps, install {
 
 project(handlesDefaultDataReader) : dcps, install {
 
-  after    += *handles
+  after    += qldds_utils handles
 
   sharedname     = handlesDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -956,7 +956,7 @@ project(handlesDefaultDataReader) : dcps, install {
 
 project(qlIndexDefaultDataReader) : dcps, install {
 
-  after    += *qlIndex
+  after    += qldds_utils qlIndex
 
   sharedname     = qlIndexDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -993,7 +993,7 @@ project(qlIndexDefaultDataReader) : dcps, install {
 
 project(instrumentsDefaultDataReader) : dcps, install {
 
-  after    += *instruments
+  after    += qldds_utils instruments
 
   sharedname     = instrumentsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1030,7 +1030,7 @@ project(instrumentsDefaultDataReader) : dcps, install {
 
 project(interpolationDefaultDataReader) : dcps, install {
 
-  after    += *interpolation
+  after    += qldds_utils interpolation
 
   sharedname     = interpolationDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1067,7 +1067,7 @@ project(interpolationDefaultDataReader) : dcps, install {
 
 project(legDefaultDataReader) : dcps, install {
 
-  after    += *leg
+  after    += qldds_utils leg
 
   sharedname     = legDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1104,7 +1104,7 @@ project(legDefaultDataReader) : dcps, install {
 
 project(marketmodelevolversDefaultDataReader) : dcps, install {
 
-  after    += *marketmodelevolvers
+  after    += qldds_utils marketmodelevolvers
 
   sharedname     = marketmodelevolversDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1141,7 +1141,7 @@ project(marketmodelevolversDefaultDataReader) : dcps, install {
 
 project(marketmodelsDefaultDataReader) : dcps, install {
 
-  after    += *marketmodels
+  after    += qldds_utils marketmodels
 
   sharedname     = marketmodelsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1178,7 +1178,7 @@ project(marketmodelsDefaultDataReader) : dcps, install {
 
 project(optimizationDefaultDataReader) : dcps, install {
 
-  after    += *optimization
+  after    += qldds_utils optimization
 
   sharedname     = optimizationDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1215,7 +1215,7 @@ project(optimizationDefaultDataReader) : dcps, install {
 
 project(optionsDefaultDataReader) : dcps, install {
 
-  after    += *options
+  after    += qldds_utils options
 
   sharedname     = optionsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1252,7 +1252,7 @@ project(optionsDefaultDataReader) : dcps, install {
 
 project(overnightindexedswapDefaultDataReader) : dcps, install {
 
-  after    += *overnightindexedswap
+  after    += qldds_utils overnightindexedswap
 
   sharedname     = overnightindexedswapDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1289,7 +1289,7 @@ project(overnightindexedswapDefaultDataReader) : dcps, install {
 
 project(payoffsDefaultDataReader) : dcps, install {
 
-  after    += *payoffs
+  after    += qldds_utils payoffs
 
   sharedname     = payoffsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1326,7 +1326,7 @@ project(payoffsDefaultDataReader) : dcps, install {
 
 project(piecewiseyieldcurveDefaultDataReader) : dcps, install {
 
-  after    += *piecewiseyieldcurve
+  after    += qldds_utils piecewiseyieldcurve
 
   sharedname     = piecewiseyieldcurveDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1363,7 +1363,7 @@ project(piecewiseyieldcurveDefaultDataReader) : dcps, install {
 
 project(pricingenginesDefaultDataReader) : dcps, install {
 
-  after    += *pricingengines
+  after    += qldds_utils pricingengines
 
   sharedname     = pricingenginesDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1400,7 +1400,7 @@ project(pricingenginesDefaultDataReader) : dcps, install {
 
 project(processesDefaultDataReader) : dcps, install {
 
-  after    += *processes
+  after    += qldds_utils processes
 
   sharedname     = processesDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1437,7 +1437,7 @@ project(processesDefaultDataReader) : dcps, install {
 
 project(productsDefaultDataReader) : dcps, install {
 
-  after    += *products
+  after    += qldds_utils products
 
   sharedname     = productsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1474,7 +1474,7 @@ project(productsDefaultDataReader) : dcps, install {
 
 project(quotesDefaultDataReader) : dcps, install {
 
-  after    += *quotes
+  after    += qldds_utils quotes
 
   sharedname     = quotesDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1511,7 +1511,7 @@ project(quotesDefaultDataReader) : dcps, install {
 
 project(randomsequencegeneratorDefaultDataReader) : dcps, install {
 
-  after    += *randomsequencegenerator
+  after    += qldds_utils randomsequencegenerator
 
   sharedname     = randomsequencegeneratorDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1548,7 +1548,7 @@ project(randomsequencegeneratorDefaultDataReader) : dcps, install {
 
 project(rangeaccrualDefaultDataReader) : dcps, install {
 
-  after    += *rangeaccrual
+  after    += qldds_utils rangeaccrual
 
   sharedname     = rangeaccrualDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1585,7 +1585,7 @@ project(rangeaccrualDefaultDataReader) : dcps, install {
 
 project(ratehelpersDefaultDataReader) : dcps, install {
 
-  after    += *ratehelpers
+  after    += qldds_utils ratehelpers
 
   sharedname     = ratehelpersDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1622,7 +1622,7 @@ project(ratehelpersDefaultDataReader) : dcps, install {
 
 project(scheduleDefaultDataReader) : dcps, install {
 
-  after    += *schedule
+  after    += qldds_utils schedule
 
   sharedname     = scheduleDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1659,7 +1659,7 @@ project(scheduleDefaultDataReader) : dcps, install {
 
 project(sequencestatisticsDefaultDataReader) : dcps, install {
 
-  after    += *sequencestatistics
+  after    += qldds_utils sequencestatistics
 
   sharedname     = sequencestatisticsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1696,7 +1696,7 @@ project(sequencestatisticsDefaultDataReader) : dcps, install {
 
 project(settingsDefaultDataReader) : dcps, install {
 
-  after    += *settings
+  after    += qldds_utils settings
 
   sharedname     = settingsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1733,7 +1733,7 @@ project(settingsDefaultDataReader) : dcps, install {
 
 project(shortratemodelsDefaultDataReader) : dcps, install {
 
-  after    += *shortratemodels
+  after    += qldds_utils shortratemodels
 
   sharedname     = shortratemodelsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1770,7 +1770,7 @@ project(shortratemodelsDefaultDataReader) : dcps, install {
 
 project(smilesectionDefaultDataReader) : dcps, install {
 
-  after    += *smilesection
+  after    += qldds_utils smilesection
 
   sharedname     = smilesectionDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1807,7 +1807,7 @@ project(smilesectionDefaultDataReader) : dcps, install {
 
 project(statisticsDefaultDataReader) : dcps, install {
 
-  after    += *statistics
+  after    += qldds_utils statistics
 
   sharedname     = statisticsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1844,7 +1844,7 @@ project(statisticsDefaultDataReader) : dcps, install {
 
 project(qlSwapNSDefaultDataReader) : dcps, install {
 
-  after    += *qlSwapNS
+  after    += qldds_utils qlSwapNS
 
   sharedname     = qlSwapNSDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1881,7 +1881,7 @@ project(qlSwapNSDefaultDataReader) : dcps, install {
 
 project(swaptionDefaultDataReader) : dcps, install {
 
-  after    += *swaption
+  after    += qldds_utils swaption
 
   sharedname     = swaptionDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1918,7 +1918,7 @@ project(swaptionDefaultDataReader) : dcps, install {
 
 project(swaptionvolstructureDefaultDataReader) : dcps, install {
 
-  after    += *swaptionvolstructure
+  after    += qldds_utils swaptionvolstructure
 
   sharedname     = swaptionvolstructureDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1955,7 +1955,7 @@ project(swaptionvolstructureDefaultDataReader) : dcps, install {
 
 project(termstructuresDefaultDataReader) : dcps, install {
 
-  after    += *termstructures
+  after    += qldds_utils termstructures
 
   sharedname     = termstructuresDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -1992,7 +1992,7 @@ project(termstructuresDefaultDataReader) : dcps, install {
 
 project(timeseriesDefaultDataReader) : dcps, install {
 
-  after    += *timeseries
+  after    += qldds_utils timeseries
 
   sharedname     = timeseriesDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -2029,7 +2029,7 @@ project(timeseriesDefaultDataReader) : dcps, install {
 
 project(utilitiesDefaultDataReader) : dcps, install {
 
-  after    += *utilities
+  after    += qldds_utils utilities
 
   sharedname     = utilitiesDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -2066,7 +2066,7 @@ project(utilitiesDefaultDataReader) : dcps, install {
 
 project(vanillaswapDefaultDataReader) : dcps, install {
 
-  after    += *vanillaswap
+  after    += qldds_utils vanillaswap
 
   sharedname     = vanillaswapDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -2103,7 +2103,7 @@ project(vanillaswapDefaultDataReader) : dcps, install {
 
 project(volatilitiesDefaultDataReader) : dcps, install {
 
-  after    += *volatilities
+  after    += qldds_utils volatilities
 
   sharedname     = volatilitiesDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
@@ -2140,7 +2140,7 @@ project(volatilitiesDefaultDataReader) : dcps, install {
 
 project(volatilityDefaultDataReader) : dcps, install {
 
-  after    += *volatility
+  after    += qldds_utils volatility
 
   sharedname     = volatilityDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL

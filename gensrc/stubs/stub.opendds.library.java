@@ -1,5 +1,7 @@
 project(%(libname)s_java) :  dcps_java {
 
+   after 	+= qldds_utils_java
+
   idlflags     +=  -I$(QLDDS_ROOT)/java/qldds_utils -Wb,export_macro=QLDDS_Export\
                  -Wb,stub_export_include=$(QLDDS_ROOT)/java/qldds_utils/QLDDS_Export.h \
                   -Wb,stub_export_macro=QLDDS_Export
