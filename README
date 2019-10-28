@@ -25,7 +25,3 @@ Unix:
 Assuming OpenDDS was compiled under $HOME and QuantLib and it's dependencies were installed under $HOME (prefix=$HOME, exec-prefix=$HOME)
 
 $ python configure.py --dds_dir=$HOME/DDS --boost_dir=$HOME --quantlib_dir=$HOME --oh_dir=$HOME --qladdin_dir=$HOME
-
-Unix:
-$ . ./qldds_env.sh 
-$ python build.py --type=gnuace --java=true
