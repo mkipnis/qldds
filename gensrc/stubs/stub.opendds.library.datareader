@@ -16,7 +16,7 @@ project(%(libname)sDefaultDataReader) : dcps, install {
                    $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
    libout        = $(QLDDS_ROOT)/lib
 
-  libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils %(sharedname)s 
+  libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils %(sharedname)s boost_date_time
 
   TypeSupport_Files {
   }

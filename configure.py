@@ -30,6 +30,10 @@ quantlibDir = ''
 ohDir=''
 qlAddinDir=''
 
+if os.name == 'nt':
+	print("Windows NT is not support by this version of QLDDS, Please use the following branch : qldds-qladdin-1.12");
+	exit(0);
+
 print( "-------- Environment Settings ----------" )
 
 for o, v in opts:
@@ -105,20 +109,6 @@ if os.name == 'posix':
   lib_path += ohDir + '/lib' + path_separator
   lib_path += qlAddinDir + '/lib' + path_separator
 
-# Windows
-elif os.name == 'nt':
-  env_file += '.bat' 
-  path_separator=';'
-  export = 'set'
-
-#  path = '${PATH}' + path_separator + '${ACE_ROOT}\\bin\\'
-
-  lib_path='set PATH=%PATH%' + path_separator 
-  open_dds_env=ddsDir + '\setenv.cmd' 
-  lib_path += qldds_root + '\qldds_utils\\' + path_separator
-  lib_path += qldds_root + '\Addins\OpenDDS\\'
-
-
 try:
   file = open(env_file, 'w')
   
@@ -142,11 +132,10 @@ except IOError:
 
 print( "Configuration complete.\n\n" )
 
-if os.name == 'posix':
- print( "Source : \n\t . ./" + env_file )
-else:
- print( "Source : \n\t call " + env_file )
+environment_load = ". ./" + env_file;
+create_workspace_command = "$ACE_ROOT/bin/mwc.pl -type gnuace QLDDS.mwc";
 
-print( "Run : \n\t python build.py" )
+print("Loading Environment file : " + env_file + " and creating workspace : " + create_workspace_command);
+os.system( environment_load + ";" + create_workspace_command + ";" );
 
-
+print("Please load environment file : " + environment_load + " and run make");

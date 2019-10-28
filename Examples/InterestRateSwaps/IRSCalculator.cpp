@@ -216,7 +216,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
        }
      }
 
-     QuantLibAddinCpp::qlLibor("Libor", "USD", "6M", "", false, false, true);
+     QuantLibAddinCpp::qlLibor("Libor", "USD", "6M", "", false, OH_NULL, true);
      
      // Topics for Swap Components
      // Setting up schedule topic

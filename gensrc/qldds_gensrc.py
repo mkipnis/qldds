@@ -30,7 +30,7 @@ import shutil, errno
 
 
 USAGE_ERROR = """
-usage: %(scriptName)s --oh_dir --qladdin_dir
+usage: %(scriptName)s --oh_dir --gensrc_dir --qladdin_dir
     --oh_dir specifies the path to the root directory of the
     ObjectHandler source code tree. 
     --gensrc_dir specifies the path to the root directory of the
