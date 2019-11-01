@@ -28,11 +28,79 @@
 #include <BasicDomainParticipant.h>
 #include <ace/Get_Opt.h>
 
-#include <NamingServiceUtils.h>
-
-#include "SwaptionServerC.h"
+#include "SwaptionsC.h"
+#include "SwaptionsTypeSupportC.h"
+#include "SwaptionsTypeSupportImpl.h"
 
 #include "Common.h"
+
+#include <map>
+
+std::map<long, swaptions::SwaptionPriceRequest> swaptionPriceRequestMap;
+
+class SwaptionPriceReplyDataReaderListenerImpl : public virtual OpenDDS::DCPS::LocalObject<DDS::DataReaderListener>
+{
+  public:
+        virtual void on_data_available( DDS::DataReader_ptr reader) throw (CORBA::SystemException)
+        {
+            swaptions::SwaptionPriceReplyDataReader_var swaption_price_reply_dr = swaptions::SwaptionPriceReplyDataReader::_narrow(reader);
+            if (CORBA::is_nil ( swaption_price_reply_dr.in() ) )
+            {
+              std::cerr << "SwaptionPriceReplyDataReaderListenerImpl::on_data_available: _narrow failed." << std::endl;
+              ACE_OS::exit(1);
+            }
+
+            while( true )
+            {
+               swaptions::SwaptionPriceReply swaption_price_reply;
+               DDS::SampleInfo si ;
+               DDS::ReturnCode_t status = swaption_price_reply_dr->take_next_sample( swaption_price_reply, si );
+
+               if (status == DDS::RETCODE_OK)
+               {
+                 if ( !si.valid_data )
+                   continue;
+
+		std::map<long, swaptions::SwaptionPriceRequest>::iterator request_iter = swaptionPriceRequestMap.find( swaption_price_reply.request_id );
+
+		if ( request_iter != swaptionPriceRequestMap.end() )
+		{
+			std::cout << "Swaption Price : " <<  swaption_price_reply.request_id << "|" << swaption_price_reply.calculator_name <<  "|" << swaption_price_reply.rate << "|" << swaption_price_reply.npv  << "|" << swaption_price_reply.error << std::endl;
+
+			swaptionPriceRequestMap.erase( request_iter );
+		}
+		} else if (status == DDS::RETCODE_NO_DATA) {
+                 break;
+               } else {
+                 std::cerr << "ERROR: read IRS::Portfolio: Error: " <<  status << std::endl;
+               }
+
+		}
+
+
+	}
+
+	
+     virtual void on_requested_deadline_missed ( DDS::DataReader_ptr reader, const DDS::RequestedDeadlineMissedStatus & status)
+        throw (CORBA::SystemException) {};
+
+      virtual void on_requested_incompatible_qos ( DDS::DataReader_ptr reader, const DDS::RequestedIncompatibleQosStatus & status)
+        throw (CORBA::SystemException) {};
+
+      virtual void on_liveliness_changed ( DDS::DataReader_ptr reader, const DDS::LivelinessChangedStatus & status)
+        throw (CORBA::SystemException) {};
+
+      virtual void on_subscription_matched ( DDS::DataReader_ptr reader, const DDS::SubscriptionMatchedStatus & status)
+        throw (CORBA::SystemException) {};
+
+      virtual void on_sample_rejected( DDS::DataReader_ptr reader, const DDS::SampleRejectedStatus& status)
+        throw (CORBA::SystemException) {};
+
+      virtual void on_sample_lost( DDS::DataReader_ptr reader, const DDS::SampleLostStatus& status)
+        throw (CORBA::SystemException) {};
+
+
+};
 
 int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 {
@@ -45,17 +113,9 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     // Initialize, and create a DomainParticipant
     dpf = TheParticipantFactoryWithArgs(argc, argv);
 
-    qldds_utils::BasicDomainParticipant volPublisher( dpf, SWAPTION_DOMAIN_ID );
-    volPublisher.createPublisher();
-
-    CORBA::ORB_var orb = CORBA::ORB_init(argc, argv, "SwaptionServerORB");
-
-    // CORBA Client to facilitate calculator calls
-    qldds_utils::NamingService::Client< SwaptionServer::SwaptionCalculator > ns_client1;
-    ns_client1.Init( orb, "SwaptionServer1");
-
-    qldds_utils::NamingService::Client< SwaptionServer::SwaptionCalculator > ns_client2;
-    ns_client2.Init( orb, "SwaptionServer2");
+    qldds_utils::BasicDomainParticipant clientParticipant( dpf, SWAPTION_DOMAIN_ID );
+    clientParticipant.createPublisher();
+    clientParticipant.createSubscriber();
 
     ACE_Get_Opt cmd_opts( argc, argv, ":c:" ); 
 
@@ -80,26 +140,44 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       }
     } 
 
-	CORBA::StringSeq curve;
-    curve.length( curve_components.size() ); 
-    
+     DDS::Topic_var topic_swaption_price_request = clientParticipant.createTopicAndRegisterType
+       < swaptions::SwaptionPriceRequestTypeSupport_var, swaptions::SwaptionPriceRequestTypeSupportImpl >
+        ( SWAPTION_PRICE_REQUEST_TOPIC_NAME );
+
+     DDS::Topic_var topic_swaption_price_reply = clientParticipant.createTopicAndRegisterType
+       < swaptions::SwaptionPriceReplyTypeSupport_var, swaptions::SwaptionPriceReplyTypeSupportImpl >
+        ( SWAPTION_PRICE_REPLY_TOPIC_NAME );
+
+     swaptions::SwaptionPriceRequestDataWriter_var swaption_request_dw = clientParticipant.createDataWriter
+      < swaptions::SwaptionPriceRequestDataWriter_var, swaptions::SwaptionPriceRequestDataWriter >
+       ( topic_swaption_price_request );
+
+     clientParticipant.createDataReaderListener<SwaptionPriceReplyDataReaderListenerImpl> ( topic_swaption_price_reply );
+
+
+
+    qldds_utils::StringSeq curve;
+    curve.length( curve_components.size() );
+
     // Copy curve from std::vector to CORBA string array
-    for ( int cc = 0; cc < curve_components.size(); cc++ ) 
+    for ( int cc = 0; cc < curve_components.size(); cc++ )
     {
-      std::cout <<  curve_components[cc] << std::endl;
-      curve[cc] = CORBA::string_dup( curve_components[cc].c_str() );
+       std::cout <<  curve_components[cc] << std::endl;
+       curve[cc] = CORBA::string_dup( curve_components[cc].c_str() );
     }
 
-    // for ( int tt = 0; tt<10; tt++ )
+    long request_id = 0;
+
+    for ( int tt = 0; tt<10; tt++ )
     {
-      SwaptionServer::Swaption ss;
+      swaptions::SwaptionPriceRequest spr;
       CORBA::Double npv;
       CORBA::Double rate;
       CORBA::String_var error;
 
-      ss.curve_components = curve;
+      spr.curve_components = curve;
 
-      ss.surface_name = CORBA::string_dup( "SwaptionVTSMatrix" );
+      spr.surface_name = CORBA::string_dup( "SwaptionVTSMatrix" );
  
       for ( int month = 1; month<=12; month++ )
       {
@@ -111,37 +189,25 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
           std::stringstream swap_tenor;
           swap_tenor << year << "Y";
 
-          ss.option_period = CORBA::string_dup( swaption_tenor.str().c_str() );
-          ss.swap_period = CORBA::string_dup( swap_tenor.str().c_str() );
+	  spr.request_id = request_id++;
+          spr.swaption_tenor = CORBA::string_dup( swaption_tenor.str().c_str() );
+          spr.swap_tenor = CORBA::string_dup( swap_tenor.str().c_str() );
 
-          bool status;
+ 	 int ret = swaption_request_dw->write( spr, DDS::HANDLE_NIL );
+    	 if (ret != DDS::RETCODE_OK) {
+         	ACE_ERROR ((LM_ERROR, ACE_TEXT("(%P|%t) ERROR: Swaptions Price Request Write Returned %d.\n"), ret));
+      	 }
 
-	  // Round Robin between servers
-          if ( (month+year)%2 == 0 )
-             status = ns_client1->CalculateATM( ss, npv, rate, error );
-          else
-             status = ns_client2->CalculateATM( ss, npv, rate, error );
- 
-          if ( status )
-          {
-            std::string swaption;
-            swaption = swaption_tenor.str();
-            swaption += "/"; 
-            swaption += swap_tenor.str(); 
+	 swaptionPriceRequestMap.insert( std::pair<long,  swaptions::SwaptionPriceRequest>(request_id, spr) );
 
-            std::cout << "Swaption : " 
-                    << std::setprecision(5)  
-                    << std::setw(10) << swaption << " | "
-                    << std::setw(10) << "NPV=" << std::setw(10) << npv << " | "
-                    << std::setw(10) << "Swap Rate=" << std::setw(10) << rate << std::endl;
-          }
         }
       }
+    } 
+
+    while ( 1 )
+    {
+      ACE_OS::sleep(1);
     }
-
-    std::cout << "Done." << std::endl;
-
-    orb->destroy ();
 
   } catch (CORBA::Exception& e) {
     e._tao_print_exception("CORBA Exception caught in main():");
