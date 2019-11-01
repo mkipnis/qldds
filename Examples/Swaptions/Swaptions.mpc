@@ -23,8 +23,49 @@
 //   SOFTWARE.
 //
 
+project(*Swaptions) : dcps {
+  sharedname    = Swaptions
+  dynamicflags   = SWAPTIONS_BUILD_DLL
+
+  libout        = .
+  requires      += tao_orbsvcs
+  after         += Svc_Utils
+
+  includes      += $(TAO_ROOT)/orbsvcs \
+                   $(QLDDS_ROOT)/qldds_utils 
+
+  idlflags      += -I$(TAO_ROOT)/orbsvcs \
+                   -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=Swaptions_Export \
+                   -Wb,export_include=Swaptions_Export.h
+
+  dcps_ts_flags += -Wb,export_macro=Swaptions_Export \
+                   -I$(QLDDS_ROOT)/qldds_utils 
+
+  libpaths      += $(QLDDS_ROOT)/qldds_utils
+
+  TypeSupport_Files {
+    Swaptions.idl
+  }
+
+  IDL_Files {
+    Swaptions.idl
+    SwaptionsTypeSupport.idl
+  }
+
+  // We only want the generated files
+  Header_Files {
+  }
+
+  // We only want the generated files
+  Source_Files {
+  }
+
+}
+
 project(*MarketDataPublisher) : dcpsexe, svc_utils {
         exename         =       MarketDataPublisher 
+	
         requires       +=       tao_orbsvcs
 
         includes       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
@@ -37,18 +78,13 @@ project(*MarketDataPublisher) : dcpsexe, svc_utils {
         }
 }
 
-project(*IDL): taoidldefaults, anytypecode {
-  IDL_Files {
-    SwaptionServer.idl
-  }
-  custom_only = 1
-}
 
 project(*Server) : dcpsexe, svc_utils {
         exename         =       SwaptionServer 
+	after		+=	*Swaptions
         requires       +=       tao_orbsvcs
 
-	 includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT)/include \
+	includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT)/include \
                                 $(QUANTLIB_ADDIN_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include/qlo $(BOOST_ROOT)/include
         libpaths       +=       $(QUANTLIB_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib \
                                 $(OH_ROOT)/lib \
@@ -57,38 +93,23 @@ project(*Server) : dcpsexe, svc_utils {
                                 $(QLDDS_ROOT)/lib
 
 
-        libs           +=       qldds_utils boost_filesystem boost_serialization boost_system boost_regex ratehelpers swaptionvolstructure TAO_CosNaming boost_date_time
+        libs           +=       qldds_utils boost_filesystem boost_serialization boost_system boost_regex ratehelpers swaptionvolstructure boost_date_time ratehelpersDefaultDataReader swaptionvolstructureDefaultDataReader QuantLibAddinCpp QuantLibAddin ObjectHandler QuantLib Swaptions
        
-        pure_libs	=	$(QLDDS_ROOT)/Addins/OpenDDS/libratehelpersDefaultDataReader.a \
-				$(QLDDS_ROOT)/Addins/OpenDDS/libswaptionvolstructureDefaultDataReader.a \
-				$(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddinCpp.a \
-				$(QUANTLIB_ADDIN_ROOT)/lib/libQuantLibAddin.a \
-				$(OH_ROOT)/lib/libObjectHandler.a \ 
-				$(QUANTLIB_ROOT)/lib/libQuantLib.a  \
-				$(QLDDS_ROOT)/lib/libqldds_utils.so \
-                                $(BOOST_ROOT)/lib/libboost_serialization.so \
-                                $(BOOST_ROOT)/lib/libboost_system.so \
-                                $(BOOST_ROOT)/lib/libboost_filesystem.so \
-                                $(BOOST_ROOT)/lib/libboost_regex.so
-	
-        
         Source_Files {
                SwaptionServer.cpp
-               SwaptionServerImpl.cpp  
         }
 }
 
 project(*Client) : dcpsexe, svc_utils {
         exename         =       Client
         requires       +=       tao_orbsvcs
+	after		+=	*Swaptions
 
         includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT) $(QUANTLIB_ADDIN_ROOT)
-        libpaths       +=       $(QUANTLIB_ROOT)/ql $(QUANTLIB_ADDIN_ROOT)/qlo/.libs \
-                                $(OH_ROOT)/oh/.libs \
-                                $(QUANTLIB_ADDIN_ROOT)/Addins/Cpp/.libs/ \
-                                $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
-        libs           +=       qldds_utils TAO_CosNaming
+	libpaths	+=	$(QLDDS_ROOT)/lib
+
+        libs           +=       qldds_utils Swaptions
 
         Source_Files {
                SwaptionClient.cpp
