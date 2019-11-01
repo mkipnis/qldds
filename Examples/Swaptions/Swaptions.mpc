@@ -1,0 +1,119 @@
+
+//
+//   Copyright (C) 2016 Mike Kipnis
+
+//   This file is part of QLDDS, a free-software/open-source library
+//   for utilization of QuantLib in the distributed envrionment via DDS.
+
+//   Permission is hereby granted, free of charge, to any person obtaining a copy
+//   of this software and associated documentation files (the "Software"), to deal
+//   in the Software without restriction, including without limitation the rights
+//   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//   copies of the Software, and to permit persons to whom the Software is
+//   furnished to do so, subject to the following conditions:
+
+//   The above copyright notice and this permission notice shall be included in all
+//   copies or substantial portions of the Software.
+
+//   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//   SOFTWARE.
+//
+
+project(*Swaptions) : dcps {
+  sharedname    = Swaptions
+  dynamicflags   = SWAPTIONS_BUILD_DLL
+
+  libout        = .
+  requires      += tao_orbsvcs
+  after         += Svc_Utils
+
+  includes      += $(TAO_ROOT)/orbsvcs \
+                   $(QLDDS_ROOT)/qldds_utils 
+
+  idlflags      += -I$(TAO_ROOT)/orbsvcs \
+                   -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=Swaptions_Export \
+                   -Wb,export_include=Swaptions_Export.h
+
+  dcps_ts_flags += -Wb,export_macro=Swaptions_Export \
+                   -I$(QLDDS_ROOT)/qldds_utils 
+
+  libpaths      += $(QLDDS_ROOT)/qldds_utils
+
+  TypeSupport_Files {
+    Swaptions.idl
+  }
+
+  IDL_Files {
+    Swaptions.idl
+    SwaptionsTypeSupport.idl
+  }
+
+  // We only want the generated files
+  Header_Files {
+  }
+
+  // We only want the generated files
+  Source_Files {
+  }
+
+}
+
+project(*MarketDataPublisher) : dcpsexe, svc_utils {
+        exename         =       MarketDataPublisher 
+	
+        requires       +=       tao_orbsvcs
+
+        includes       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+        libpaths       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+
+        libs           +=       qldds_utils ratehelpers swaptionvolstructure 
+
+        Source_Files {
+                MarketDataPublisher.cpp
+        }
+}
+
+
+project(*Server) : dcpsexe, svc_utils {
+        exename         =       SwaptionServer 
+	after		+=	*Swaptions
+        requires       +=       tao_orbsvcs
+
+	includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT)/include \
+                                $(QUANTLIB_ADDIN_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include/qlo $(BOOST_ROOT)/include
+        libpaths       +=       $(QUANTLIB_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib \
+                                $(OH_ROOT)/lib \
+                                $(QUANTLIB_ADDIN_ROOT)/lib \
+                                $(BOOST_ROOT)/lib \
+                                $(QLDDS_ROOT)/lib
+
+
+        libs           +=       qldds_utils boost_filesystem boost_serialization boost_system boost_regex ratehelpers swaptionvolstructure boost_date_time ratehelpersDefaultDataReader swaptionvolstructureDefaultDataReader QuantLibAddinCpp QuantLibAddin ObjectHandler QuantLib Swaptions
+       
+        Source_Files {
+               SwaptionServer.cpp
+               // SwaptionServerImpl.cpp  
+        }
+}
+
+project(*Client) : dcpsexe, svc_utils {
+        exename         =       Client
+        requires       +=       tao_orbsvcs
+	after		+=	*Swaptions
+
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT) $(QUANTLIB_ADDIN_ROOT)
+
+	libpaths	+=	$(QLDDS_ROOT)/lib
+
+        libs           +=       qldds_utils Swaptions
+
+        Source_Files {
+               SwaptionClient.cpp
+        }
+}
