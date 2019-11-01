@@ -43,12 +43,32 @@
 
 #include <qldds_convert_utils.h>
 
+#include "SwaptionsC.h"
+#include "SwaptionsTypeSupportC.h"
+#include "SwaptionsTypeSupportImpl.h"
+
+#include <vector>
+#include <oh/repository.hpp>
+#include <ql/quantlib.hpp>
+
+#include <Addins/Cpp/addincpp.hpp>
+
+#include <qlo/conversions/coercetermstructure.hpp>
+#include <qlo/indexes/swap/liborswap.hpp>
+#include <qlo/swaption.hpp>
+#include <qlo/vanillaswap.hpp>
+
+
 #include "Common.h"
 
 ACE_Mutex qldds_lock;
 
-int argc_;
-ACE_TCHAR **argv_;
+using namespace QuantLibAddinCpp;
+
+
+std::string server_name;
+
+ObjectHandler::property_t ATM_RATE;
 
 class DepositRateHelper2DataReaderListenerImpl : 
      public ratehelpers::qlDepositRateHelper2DataReaderListenerImpl
@@ -125,7 +145,148 @@ class SwapRateHelper2DataReaderListenerImpl :
 
 };
 
-void* calculatorThread(void* args);
+
+class SwaptionPriceRequestDataReaderListenerImpl : public virtual OpenDDS::DCPS::LocalObject<DDS::DataReaderListener>
+{
+     private:
+	swaptions::SwaptionPriceReplyDataWriter_var _swaption_price_reply_dw;
+     public:
+
+
+	SwaptionPriceRequestDataReaderListenerImpl( swaptions::SwaptionPriceReplyDataWriter_var& swaption_price_reply_dw ) : _swaption_price_reply_dw( swaption_price_reply_dw  )
+	{
+	};
+
+        virtual void on_data_available( DDS::DataReader_ptr reader)
+        throw (CORBA::SystemException)
+        {
+           try
+           {
+             swaptions::SwaptionPriceRequestDataReader_var swaption_price_request_dr = swaptions::SwaptionPriceRequestDataReader::_narrow(reader);
+             if (CORBA::is_nil ( swaption_price_request_dr.in() ) )
+             {
+               std::cerr << "SwaptionPriceRequestDataReaderListenerImpl::on_data_available: _narrow failed." << std::endl;
+               ACE_OS::exit(1);
+             }
+
+             while( true )
+             {
+               swaptions::SwaptionPriceRequest swaption_price_request;
+               DDS::SampleInfo si ;
+               DDS::ReturnCode_t status = swaption_price_request_dr->take_next_sample( swaption_price_request, si );
+
+               if (status == DDS::RETCODE_OK)
+               {
+                 if ( !si.valid_data )
+                   continue;
+
+	/*	std::cout << "Recieved Swaption Price Request : " 
+				<< swaption_price_request.request_id 
+				<< "|" << swaption_price_request.surface_name 
+				<< "|" << swaption_price_request.swaption_tenor 
+				<< "|" << swaption_price_request.swap_tenor << std::endl; */
+
+		ACE_Guard<ACE_Mutex> guard( qldds_lock );
+
+		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) INFO: ") ACE_TEXT("SwaptionPriceRequestDataReaderListenerImpl CalculatingATM - %s%s\n"),
+			 swaption_price_request.swaption_tenor.in(), swaption_price_request.swap_tenor.in() ));
+
+		std::vector< std::string > curve( swaption_price_request.curve_components.length() );
+
+		for ( unsigned int tt = 0; tt < swaption_price_request.curve_components.length(); tt++ )
+			curve[tt] = swaption_price_request.curve_components[tt];
+
+		std::vector<bool> existing_objects = ObjectHandler::Repository::instance().objectExists( curve );
+
+		for ( unsigned int rate_helper = 0; rate_helper < curve.size(); rate_helper++ )
+		{
+			if ( !existing_objects[ rate_helper ] )
+			{
+				std::cout << "Rate Helper : [" << curve[ rate_helper ] << "] hasn't been setup yet." << std::endl;
+				continue;
+			}
+		}
+
+		QuantLib::Date referenceDate = QuantLib::Settings::instance().evaluationDate();
+
+		swaptions::SwaptionPriceReply reply;
+
+		try
+		{
+
+			std::vector<ObjectHandler::property_t> jumps;
+			std::vector< std::string > curve1;
+
+			QuantLibAddinCpp::qlPiecewiseYieldCurve( "PiecewiseYieldCurve", static_cast<long>(2), "Target", curve,
+				 "Actual/Actual (ISDA)", jumps, jumps, 1.0e-15, "Discount", "LogLinear", OH_NULL, OH_NULL, true);
+
+			std::string engine = QuantLibAddinCpp::qlBlackSwaptionEngine( "blackSwaptionEngine", "PiecewiseYieldCurve", swaption_price_request.surface_name.in(), OH_NULL, OH_NULL, true);
+
+			std::string liborSwapIndexIsdaFixAm = QuantLibAddinCpp::qlLiborSwap( "LiborSwapIsdaFixAm", "USD", "IsdaFixAm", swaption_price_request.swap_tenor.in(),
+				 "PiecewiseYieldCurve", "PiecewiseYieldCurve", OH_NULL, OH_NULL, true);
+
+			std::string swaption = QuantLibAddinCpp::qlMakeSwaption( "Swaption555", "LiborSwapIsdaFixAm", swaption_price_request.swaption_tenor.in(), ATM_RATE,
+				 "blackSwaptionEngine", OH_NULL, OH_NULL, true);
+
+			OH_GET_REFERENCE(ObjectIdLibObjPtr, swaption, QuantLibAddin::Swaption, QuantLib::Swaption)
+
+			reply.calculator_name = server_name.c_str();
+
+			reply.request_id = swaption_price_request.request_id;
+
+			reply.rate = ObjectIdLibObjPtr->underlyingSwap()->fairRate();
+
+			reply.npv = ObjectIdLibObjPtr->NPV();
+
+		} catch ( std::exception& exp )
+		{
+			std::cout << "Exception : " << exp.what() << std::endl;
+			reply.error = CORBA::string_dup( exp.what() );
+		}
+
+		//std::cout << "Swaption Price : " <<  reply.request_id <<  "|" << reply.rate << "|" << reply.npv << std::endl;
+		//
+		//	
+
+		int ret = _swaption_price_reply_dw->write( reply, DDS::HANDLE_NIL );
+
+	        if (ret != DDS::RETCODE_OK) {
+         	        ACE_ERROR ((LM_ERROR, ACE_TEXT("(%P|%t) ERROR: Swaptions Price Reply Write Returned %d.\n"), ret));
+         	}
+
+
+               } else if (status == DDS::RETCODE_NO_DATA) {
+                 break;
+               } else {
+                 std::cerr << "ERROR: read IRS::Portfolio: Error: " <<  status << std::endl;
+               }
+             }
+
+           } catch (CORBA::Exception& e) {
+             std::cerr << "Exception caught in read:" << std::endl << e << std::endl;
+             ACE_OS::exit(1);
+           }
+        };
+
+     virtual void on_requested_deadline_missed ( DDS::DataReader_ptr reader, const DDS::RequestedDeadlineMissedStatus & status)
+        throw (CORBA::SystemException) {};
+
+      virtual void on_requested_incompatible_qos ( DDS::DataReader_ptr reader, const DDS::RequestedIncompatibleQosStatus & status)
+        throw (CORBA::SystemException) {};
+
+      virtual void on_liveliness_changed ( DDS::DataReader_ptr reader, const DDS::LivelinessChangedStatus & status)
+        throw (CORBA::SystemException) {};
+
+      virtual void on_subscription_matched ( DDS::DataReader_ptr reader, const DDS::SubscriptionMatchedStatus & status)
+        throw (CORBA::SystemException) {};
+
+      virtual void on_sample_rejected( DDS::DataReader_ptr reader, const DDS::SampleRejectedStatus& status)
+        throw (CORBA::SystemException) {};
+
+      virtual void on_sample_lost( DDS::DataReader_ptr reader, const DDS::SampleLostStatus& status)
+        throw (CORBA::SystemException) {};
+
+};
 
 
 int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
@@ -151,14 +312,27 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
      std::cout << "Today: " << todaysDate.weekday() << ", " << todaysDate << std::endl;
      std::cout << "Settlement date: " << settlementDate.weekday() << ", " << settlementDate << std::endl;
 
-     argc_ = argc;
-     argv_ = argv;
-
       // Initialize, and create a DomainParticipant
      dpf = TheParticipantFactoryWithArgs(argc, argv);
 
      qldds_utils::BasicDomainParticipant swaptionServer( dpf, SWAPTION_DOMAIN_ID );
      swaptionServer.createSubscriber();
+     swaptionServer.createPublisher();
+
+     ACE_Get_Opt cmd_opts( argc, argv, ":s:" );
+     int option;
+
+     while ( (option = cmd_opts()) != EOF )
+     {
+       switch( option )
+       {
+        case 's' :
+          server_name = cmd_opts.opt_arg();
+          std::cout << "ServerName: " << server_name << std::endl;
+      	break;
+       }
+    }
+
 
      QuantLibAddinCpp::qlLibor("Libor", "USD", "6M", "", false, false, true);
      
@@ -183,6 +357,20 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
        < swaptionvolstructure::qlSwaptionVTSMatrixTypeSupport_var, swaptionvolstructure::qlSwaptionVTSMatrixTypeSupportImpl >
         ( SWAPTION_VTS_MATRIX_TOPIC_NAME );
 
+     DDS::Topic_var topic_swaption_price_request = swaptionServer.createTopicAndRegisterType
+       < swaptions::SwaptionPriceRequestTypeSupport_var, swaptions::SwaptionPriceRequestTypeSupportImpl >
+	( SWAPTION_PRICE_REQUEST_TOPIC_NAME );
+
+     DDS::Topic_var topic_swaption_price_reply = swaptionServer.createTopicAndRegisterType
+       < swaptions::SwaptionPriceReplyTypeSupport_var, swaptions::SwaptionPriceReplyTypeSupportImpl >
+	( SWAPTION_PRICE_REPLY_TOPIC_NAME );
+
+    
+     swaptions::SwaptionPriceReplyDataWriter_var swaption_price_reply_dw = swaptionServer.createDataWriter
+      < swaptions::SwaptionPriceReplyDataWriter_var, swaptions::SwaptionPriceReplyDataWriter >
+       ( topic_swaption_price_reply );
+
+
 
     swaptionServer.createDataReaderListener< DepositRateHelper2DataReaderListenerImpl > ( qldds_lock, topic_deposit_rate_helper2 );
     swaptionServer.createDataReaderListener< FraRateHelper2DataReaderListenerImpl > ( qldds_lock, topic_fra_rate_helper2 );
@@ -190,15 +378,24 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     swaptionServer.createDataReaderListener< swaptionvolstructure::qlSwaptionVTSMatrixDataReaderListenerImpl > 
          ( qldds_lock, topic_swaption_vts_matrix );
 
+    DDS::DataReaderListener_var swaptionPriceRequestDataReaderListenerImpl (new SwaptionPriceRequestDataReaderListenerImpl( swaption_price_reply_dw ) );
+
+    swaptionServer.createDataReaderListener ( topic_swaption_price_request, swaptionPriceRequestDataReaderListenerImpl );
+
     std::vector<ObjectHandler::property_t> fixingDates(1);
     fixingDates[0] = qldds_utils::from_iso_string_to_oh_property("2004-09-16");
-
 
     std::vector<double> fixingValues(1);
     fixingValues[0] = 0.05;
 
    QuantLibAddinCpp::qlIndexAddFixings("Libor", fixingDates, fixingValues, false, false);
 
+   while ( 1 )
+   {
+     ACE_OS::sleep(1);
+   } 
+
+   /*
    ACE_Thread_Manager threadManager;
    ACE_thread_t threadId;
 
@@ -208,7 +405,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
      return -1;
    }
 
-   threadManager.wait();
+   threadManager.wait(); */
 
   } catch (CORBA::Exception& e)
   {
@@ -221,42 +418,3 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
   return 0;
 }
 
-void* calculatorThread(void* args)
-{
-  CORBA::ORB_var swaptionServerORB = CORBA::ORB_init(argc_, argv_, "SwaptionServerORB");
-
-   std::string server_name;
-   ACE_Get_Opt cmd_opts( argc_, argv_, ":s:" );
-   int option;
-
-   while ( (option = cmd_opts()) != EOF )
-   {
-    switch( option )
-    {
-      case 's' :
-        server_name = cmd_opts.opt_arg();
-        std::cout << "ServerName: " << server_name << std::endl;
-      break;
-    }
-  }
-
-  // SwapServerORB POA
-  CORBA::Object_var obj = swaptionServerORB->resolve_initial_references( "RootPOA" );
-  PortableServer::POA_var poa = PortableServer::POA::_narrow( obj.in() );
-  
-  // Activate POA Manager
-  PortableServer::POAManager_var mgr = poa->the_POAManager();
-  mgr->activate();
-
-  qldds_utils::NamingService::Server< SwaptionServerImpl > server( qldds_lock );
-
-  server.Init( swaptionServerORB, server_name.c_str() );
-
-  ACE_Time_Value time_out(20);
-
-  swaptionServerORB->run( time_out );
-
-  swaptionServerORB->destroy();
-
-  return NULL;
-};
