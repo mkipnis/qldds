@@ -136,7 +136,7 @@ project( *Server ) : dcpsexe, svc_utils {
                                 $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
         libs            +=      qldds_utils pricingengines exercise volatilities payoffs processes \
-                                EquityOptions Straddles QuantLibAddinCpp QuantLibAddin ObjectHandler QuantLib boost_date_time boost_regex boost_system boost_filesystem boost_iostreams boost_serialization
+                                EquityOptions Straddles QuantLibAddinCpp QuantLibAddin ObjectHandler QuantLib boost_date_time boost_regex boost_system boost_filesystem boost_serialization
 
         idlflags        +=      -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS
 

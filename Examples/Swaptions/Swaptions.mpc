@@ -45,6 +45,8 @@ project(*Swaptions) : dcps {
 
   libpaths      += $(QLDDS_ROOT)/qldds_utils
 
+  libs		+= qldds_utils
+
   TypeSupport_Files {
     Swaptions.idl
   }

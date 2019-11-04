@@ -17,7 +17,6 @@ cleanup()
   kill $CLIENT_PID
 
   kill $REPO_PID
-  kill $REPO_PID
 
   echo "Done cleanup ... quitting."
   exit 1
@@ -28,10 +27,12 @@ CWD=`pwd`
 
 echo "Current working directory : " + $CWD
 
-COMMON_OPTS="-DCPSConfigFile dds_tcp_conf.ini -ORBInitRef NameService=iiop://localhost:23456/NameService"
+COMMON_OPTS="-DCPSConfigFile dds_tcp_conf.ini"
 
 $DDS_ROOT/bin/DCPSInfoRepo -o repo.ior -ORBEndpoint iiop://localhost:12345&
 REPO_PID=$!
+
+sleep 1
 
 $CWD/SwaptionServer $COMMON_OPTS -ORBLogFile swaptions_server1.log -ORBDebugLevel 10 -s SwaptionServer1 &
 SWAPTION_SERVER_A_PID=$!
@@ -56,4 +57,3 @@ kill $SWAPTION_SERVER_B_PID
 kill $SWAPTION_SERVER_A_PID
 
 kill $REPO_PID
-kill $NS_PID

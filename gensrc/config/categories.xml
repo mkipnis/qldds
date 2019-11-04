@@ -2,6 +2,17 @@
 <root>
 
   <addinCategoryNames>
+    <categoryName>swap</categoryName>
+    <categoryName>swaption</categoryName>
+    <categoryName>swaptionvolstructure</categoryName>
+    <categoryName>ratehelpers</categoryName>
+    <categoryName>schedule</categoryName>
+    <categoryName>pricingengines</categoryName>
+    <categoryName>volatilities</categoryName>
+    <categoryName>payoffs</categoryName>
+    <categoryName>processes</categoryName>
+    <categoryName>options</categoryName>
+    <categoryName>piecewiseyieldcurve</categoryName>
     <!-- <categoryName>abcd</categoryName>
     <categoryName>accountingengines</categoryName>
     <categoryName>assetswap</categoryName>
@@ -34,31 +45,20 @@
     <categoryName>marketmodelevolvers</categoryName>
     <categoryName>mathf</categoryName>
     <categoryName>optimization</categoryName>
-    <categoryName>options</categoryName>
     <categoryName>overnightindexedswap</categoryName>
-    <categoryName>payoffs</categoryName>
-    <categoryName>piecewiseyieldcurve</categoryName>
     <categoryName>prices</categoryName>
-    <categoryName>pricingengines</categoryName>
-    <categoryName>processes</categoryName>
     <categoryName>products</categoryName>
     <categoryName>randomsequencegenerator</categoryName>
-    <categoryName>rangeaccrual</categoryName> -->
-    <categoryName>ratehelpers</categoryName>
-    <categoryName>schedule</categoryName>
-    <!-- <categoryName>sequencestatistics</categoryName>
+    <categoryName>rangeaccrual</categoryName>
+    <categoryName>sequencestatistics</categoryName>
     <categoryName>settings</categoryName>
     <categoryName>shortratemodels</categoryName>
     <categoryName>smilesection</categoryName>
-    <categoryName>statistics</categoryName> -->
-    <categoryName>swap</categoryName>
-    <!-- <categoryName>swaption</categoryName>
-    <categoryName>swaptionvolstructure</categoryName>
+    <categoryName>statistics</categoryName>
     <categoryName>termstructures</categoryName>
     <categoryName>timeseries</categoryName>
-    <categoryName>utilities</categoryName> -->
+    <categoryName>utilities</categoryName>
     <categoryName>vanillaswap</categoryName> 
-    <!-- <categoryName>volatilities</categoryName>
     <categoryName>volatility</categoryName> 
     <categoryName>quotes</categoryName>
     <categoryName>credit</categoryName> -->

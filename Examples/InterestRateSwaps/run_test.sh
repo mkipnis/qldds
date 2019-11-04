@@ -48,10 +48,12 @@ sleep 1
 $CWD/IRSCalculator $COMMON_OPTS  -n depot-fra-swap -c "Deposit/1M|Deposit/3M|FRA/6M9|FRA/6M12|Swap/2Y|Swap/5Y|Swap/10Y|Swap/15Y|Swap/50Y|" -ORBLogFile curve_a_calculator.log -ORBDebugLevel 10 &
 CALCULATOR_CURVE_A_PID=$!
 
+sleep 1
+
 $CWD/IRSCalculator $COMMON_OPTS  -n depot-swap -c "Deposit/1M|Deposit/3M|Deposit/6M|Deposit/1Y|Swap/2Y|Swap/5Y|Swap/10Y|Swap/15Y|Swap/50Y|" -ORBLogFile curve_b_calculator.log -ORBDebugLevel 10 &
 CALCULATOR_CURVE_B_PID=$!
 
-sleep 1
+sleep 3
 
 $CWD/MarketDataPublisher $COMMON_OPTS -ORBLogFile market_data_publisher.log -ORBDebugLevel 10 &
 MARKET_DATA_PUBLISHER_PID=$!
