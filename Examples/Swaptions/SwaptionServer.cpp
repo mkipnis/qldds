@@ -17,7 +17,6 @@
 
 
 #include <BasicDomainParticipant.h>
-#include <NamingServiceUtils.h>
 
 #include <ql/quantlib.hpp>
 #include <oh/ohdefines.hpp>
@@ -38,8 +37,6 @@
 #include <boost/archive/xml_oarchive.hpp>
 
 #include <ace/Get_Opt.h>
-
-#include "SwaptionServerImpl.h"
 
 #include <qldds_convert_utils.h>
 
