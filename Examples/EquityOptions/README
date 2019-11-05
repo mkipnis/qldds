@@ -15,13 +15,6 @@ Unix:
 $ $ACE_ROOT/bin/mwc.pl -type gnuace EquityOptions.mwc
 $ make
 
-Windows(Visual Studio Command Prompt 2008):
--------------------------------------------
-> %ACE_ROOT%\bin\mwc.pl -type vc9 EquityOptions_vc9.mwc
-> msbuild.exe EquityOptions_vc9.sln
-
 Start scripts:
 --------------
-
-Unix : run_test.pl
-Windows : run_test.bat
+Unix : run_test.sh
