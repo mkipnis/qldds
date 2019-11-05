@@ -13,6 +13,8 @@
     <categoryName>processes</categoryName>
     <categoryName>options</categoryName>
     <categoryName>piecewiseyieldcurve</categoryName>
+    <categoryName>vanillaswap</categoryName> 
+    <categoryName>exercise</categoryName>
     <!-- <categoryName>abcd</categoryName>
     <categoryName>accountingengines</categoryName>
     <categoryName>assetswap</categoryName>
@@ -33,7 +35,6 @@
     <categoryName>daycounter</categoryName>
     <categoryName>defaulttermstructures</categoryName>
     <categoryName>driftcalculators</categoryName>
-    <categoryName>exercise</categoryName>
     <categoryName>evolutiondescription</categoryName>
     <categoryName>forwardrateagreement</categoryName>
     <categoryName>handles</categoryName>
@@ -58,7 +59,6 @@
     <categoryName>termstructures</categoryName>
     <categoryName>timeseries</categoryName>
     <categoryName>utilities</categoryName>
-    <categoryName>vanillaswap</categoryName> 
     <categoryName>volatility</categoryName> 
     <categoryName>quotes</categoryName>
     <categoryName>credit</categoryName> -->
