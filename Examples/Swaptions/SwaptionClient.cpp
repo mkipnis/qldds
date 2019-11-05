@@ -1,4 +1,3 @@
-
 /*
    Copyright (C) 2016 Mike Kipnis
 
@@ -156,7 +155,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 
 
 
-    qldds_utils::StringSeq curve;
+    CORBA::StringSeq curve;
     curve.length( curve_components.size() );
 
     // Copy curve from std::vector to CORBA string array
