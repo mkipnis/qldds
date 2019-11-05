@@ -27,7 +27,7 @@
 #ifndef __SWAPTIONS_IDL__
 #define __SWAPTIONS_IDL__
 
-#include <qldds_types.idl>
+#include "tao/StringSeq.pidl"
 
 module swaptions 
 {
@@ -37,7 +37,7 @@ module swaptions
 struct SwaptionPriceRequest
 {
   long request_id; 
-  qldds_utils::StringSeq curve_components;
+  CORBA::StringSeq curve_components;
   string surface_name;
   string swaption_tenor;
   string swap_tenor;
@@ -57,4 +57,3 @@ struct SwaptionPriceReply
 
 };
 #endif
-
