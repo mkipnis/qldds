@@ -1,1 +1,43 @@
-<mxfile host="www.draw.io" modified="2019-11-06T15:59:38.456Z" agent="Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36" version="12.2.0" etag="a1lgCP_OloVkEJZATZ6r" type="github" pages="1"><diagram id="FgFeBv1eccKTeo6hjX-A">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="www.draw.io" modified="2019-11-06T16:19:44.566Z" agent="Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36" etag="cvXtl4JhAd1iEpNSvF7w" version="12.2.0" type="github" pages="1">
+  <diagram id="FgFeBv1eccKTeo6hjX-A" name="Page-1">
+    <mxGraphModel dx="952" dy="1168" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="dGfULtTPnIdKDtHaVdav-1" value="OpenDDS" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="430" y="154.5" width="93" height="93" as="geometry"/>
+        </mxCell>
+        <mxCell id="dGfULtTPnIdKDtHaVdav-2" value="&lt;b&gt;Publisher&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="160" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="dGfULtTPnIdKDtHaVdav-6" value="&lt;b&gt;DataWriter&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="190" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="dGfULtTPnIdKDtHaVdav-7" value="&lt;b&gt;QLDDS DataType&lt;br&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="230" y="217.5" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="dGfULtTPnIdKDtHaVdav-9" value="Topic" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.6;dx=40;notch=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="350" y="176" width="80" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="dGfULtTPnIdKDtHaVdav-10" value="&lt;b&gt;Subscriber&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="160" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="dGfULtTPnIdKDtHaVdav-11" value="&lt;b&gt;DataReader&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="190" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="dGfULtTPnIdKDtHaVdav-12" value="&lt;b&gt;QLDDS DataType&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#000000;glass=0;shadow=0;comic=0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="216.5" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="dGfULtTPnIdKDtHaVdav-13" value="&lt;b&gt;QuantLibAddin C++&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="600" y="247.5" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="dGfULtTPnIdKDtHaVdav-14" value="&lt;b&gt;QuantLib&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="277.5" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="dGfULtTPnIdKDtHaVdav-15" value="Topic" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.6;dx=40;notch=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="523" y="176" width="77" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
