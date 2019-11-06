@@ -308,7 +308,7 @@ and creates default implementation of DataReaders for converted types. This scri
 $ python qldds_gensrc.py --oh_dir=$HOME/ObjectHandler-1.12.0 --gensrc_dir=$HOME/gensrc-1.12.0
      --qladdin_dir=$HOME/QuantLibAddin-1.12.0
 ```
-
+#
 ## Examples:
 
 ### Interest Rate Swaps
@@ -322,8 +322,7 @@ data, reprice received swaps against the latest market data and
 republish priced portfolio of swaps to clients. (Fig 3.0)
 (Fig 3.0)
 
-InstrumentPublishesher publishes contract information at
-a rate of 100 contracts per second. Swap contract information
+InstrumentPublishesher continuously publishes contract information to IRScalculators. Swap contract information
 consists of schedule::qlSchedule and vanillaswap::qlVanillaSwap
 QLDDS data types. Upon publishing each of the samples of a
 given data type, publisher waits for an acknowledgement from
@@ -334,11 +333,22 @@ the instrument components of a swap curve that include samples
 of ratehelpers::qlDepositRateHelper2,
 ratehelpers::qlFraRateHelper2 and
 ratehelpers::qlSwapRateHelper2 QLDDS data types.
-IRSCalculators subscribe to all listed above data types.
-Once per second, they reprice received interest rate swaps
-against the specified in command line curve. Priced interest rate
-swaps are subsequently published in form of a portfolio to three
+
+IRSCalculators subscribe to all listed above data types, once per second, reprice all swaps against the latest market data with specified in command line curve. Priced interest rate swaps are subsequently published in form of a portfolio to three
 clients.
+
+#### Curves :
+| Calculator A | Calculator B|
+|--------------|-------------|
+|Deposit/1M|Deposit/1M|
+|Deposit/3M|Deposit/3M|
+|FRA/6M9|Deposit/6M|
+|FRA/6M12|Deposit/1Y|
+|Swap/2Y|Swap/2Y|
+|Swap/5Y|Swap/5Y|
+|Swap/10Y|Swap/10Y|
+|Swap/15Y|Swap/15Y|
+|Swap/50Y|Swap/50Y|
 
 Clients subscribe to priced swap portfolio data and display
 portfolio NPVs on the screen.
@@ -364,27 +374,27 @@ $ make
 ``` bash
 $ ./run_test.pl
 ```
-
+#
 ### Swaptions
 #### Scenario:
 
 
-MarketDataPublisher publishes updates on the volatility
-surface and market data components of a swap curve. Curve
-Market Data consists of Deposits, FRAs and SwapRates. Two
+MarketDataPublisher publishes updates on swaption vol
+surface and market data components of an underlying swap curve. Curve
+components consists of Deposits, FRAs and SwapRates. Two
 Swaption calculators consume volatility and curve data. Client is
-continuously making synchronous calls to calculators to compute
-NPV on the provided Swaption indicative data. That data consists
-of tenors of an option and an underlying swap, as well as curve
-and surface names. This example demonstrates the usage of
-OpenDDS in conjunction with CORBA
+continuously publishing requests to compute
+NPV on Swaptions. Requests contains tenor of an option and an underlying swap, as well as curve
+and surface names.  Calculators consume pricing requests, compute NPVs and break even rates, and publish results back to the client.
+Client displays results along with the name of the calculator that replied first.
+
 
 #### Configuring and Compiling:
 ``` bash
 $ $ACE_ROOT/bin/mwc.pl -type gnuace Swaptions.mwc
 $ make
 ```
-
+#
 ### Equity Options
 #### Scenario:
 
@@ -402,12 +412,23 @@ EuropeanExcercises published by the DataPublisher and joined on
 the ticker by the EquityOptionServer.
 
 #### Configuring and Compiling:
+``` bash
 $ $ACE_ROOT/bin/mwc.pl -type gnuace EquityOptions.mwc
 $ make
-
-### Curve Builder (Java)
+````
+#
+### Curve Builder - Java Client
 #### Scenario:
-#### start script:
+Java client publishes curve components, market data and to be priced curve tenors to CurvePricer.  CurvePricer constructs yield curve from received components, calculates rates for provided tenors and publishes back results.  Java Client displays calculated rates on the screen.
+
+#### Configuring and Compiling
 ``` bash
-$ ./run_test.pl
+$ cd $QLDDS_ROOT/java
+$ $ACE_ROOT/bin/mwc.pl -type gnuace
+$ make
+````
+#### Start Script:
+``` bash
+$ cd Examples/CurveBuilder
+$ ./run_test.sh
 ```
