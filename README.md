@@ -382,13 +382,12 @@ $ ./run_test.pl
 #### Scenario:
 
 
-MarketDataPublisher publishes updates on swaption vol
-surface and market data components of an underlying swap curve. Curve
-components consists of Deposits, FRAs and SwapRates. Two
-Swaption calculators consume volatility and curve data. Client is
+MarketDataPublisher continuously publishes updates on swaption vol
+surface and market data components of the underlying swap curve. Curve
+components consist of Deposits, FRAs and SwapRates. Two
+Swaption calculators consume volatility and curve data. Client
 continuously publishing requests to compute
-NPV on Swaptions. Requests contains tenor of an option and an underlying swap, as well as curve
-and surface names.  Calculators consume pricing requests, compute NPVs and break even rates, and publish results back to the client.
+NPV on swaptions with various expirations and underlying swap maturities. Calculators consume pricing requests, compute NPVs, break even rates, and publish results back to the client.
 Client displays results along with the name of the calculator that replied first.
 
 ![N|Solid](https://github.com/mkipnis/qldds/blob/qldds-1.12.0/misc/swaption_example.png?raw=true)
