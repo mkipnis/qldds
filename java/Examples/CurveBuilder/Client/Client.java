@@ -37,6 +37,8 @@ class Client
 {
   public static void main( String args[] )
   {
+
+    try {
     System.out.println("Curve Request Publisher.");
 
     System.loadLibrary("qldds_utils_java");
@@ -125,10 +127,10 @@ class Client
 
     for ( int delta=0; delta<100; delta++)
     {
-      curveBuilderRequest.deportRateHelpers = curveComponents.getDeposits( delta/10000.0 );
+      curveBuilderRequest.deportRateHelpers = curveComponents.getDeposits( delta/100000.0 );
       curveBuilderRequest.futuresRateHelpers = curveComponents.getFutures( delta/100 );
-      curveBuilderRequest.fraRateHelpers = curveComponents.getFraRates( delta/10000.0 );
-      curveBuilderRequest.swapRateHelpers = curveComponents.getSwapRates( delta/10000.0 );
+      curveBuilderRequest.fraRateHelpers = curveComponents.getFraRates( delta/100000.0 );
+      curveBuilderRequest.swapRateHelpers = curveComponents.getSwapRates( delta/100000.0 );
 
       curveBuilderRequest.request_id = UUID.randomUUID().toString();
       int ret_value = cbrdw.write( curveBuilderRequest, 0 );
@@ -144,5 +146,9 @@ class Client
 
     //domainParticipant.Disconnect();
     TheServiceParticipant.shutdown();
+    } catch(Exception exp )
+    {
+	System.err.println(exp);
+    };
   }; 
 };

@@ -1,4 +1,3 @@
-
 //
 //   Copyright (C) 2016 Mike Kipnis
 
@@ -25,7 +24,7 @@
 
 
 workspace {
-  qldds_utils
+  qldds_utils 
   $(QLDDS_ROOT)/Addins/OpenDDS/QLDDS.mpc
 
   DataReaders {
@@ -33,8 +32,6 @@ workspace {
 
     $(QLDDS_ROOT)/Addins/OpenDDS/QLDDSDataReaders.mpc
   }
-
-  $(DDS_ROOT)/ACE_wrappers/TAO/orbsvcs/Naming_Service/Naming_Service.mpc
+  
   Examples
-  java
 }

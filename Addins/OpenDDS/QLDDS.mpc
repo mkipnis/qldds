@@ -2,7 +2,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.mpc.library
+//      dds.no_nt/gensrc/stubs/stub.opendds.mpc.library
 
 //
 //   Copyright (C) 2016 Mike Kipnis
@@ -199,6 +199,210 @@ project(valueobjects) : dcps {
   }
 
 }
+project(exercise) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = exercise
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	exercise.idl
+
+  }
+
+  IDL_Files {
+        	exercise.idl
+
+        	exerciseTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
+project(options) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = options
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	options.idl
+
+  }
+
+  IDL_Files {
+        	options.idl
+
+        	optionsTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
+project(payoffs) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = payoffs
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	payoffs.idl
+
+  }
+
+  IDL_Files {
+        	payoffs.idl
+
+        	payoffsTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
+project(piecewiseyieldcurve) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = piecewiseyieldcurve
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	piecewiseyieldcurve.idl
+
+  }
+
+  IDL_Files {
+        	piecewiseyieldcurve.idl
+
+        	piecewiseyieldcurveTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
+project(pricingengines) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = pricingengines
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	pricingengines.idl
+
+  }
+
+  IDL_Files {
+        	pricingengines.idl
+
+        	pricingenginesTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
+project(processes) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = processes
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	processes.idl
+
+  }
+
+  IDL_Files {
+        	processes.idl
+
+        	processesTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
 project(ratehelpers) : dcps {
 
   after		+= qldds_utils
@@ -301,6 +505,74 @@ project(qlSwapNS) : dcps {
   }
 
 }
+project(swaption) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = swaption
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	swaption.idl
+
+  }
+
+  IDL_Files {
+        	swaption.idl
+
+        	swaptionTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
+project(swaptionvolstructure) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = swaptionvolstructure
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	swaptionvolstructure.idl
+
+  }
+
+  IDL_Files {
+        	swaptionvolstructure.idl
+
+        	swaptionvolstructureTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
 project(vanillaswap) : dcps {
 
   after		+= qldds_utils
@@ -325,6 +597,40 @@ project(vanillaswap) : dcps {
         	vanillaswap.idl
 
         	vanillaswapTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
+project(volatilities) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = volatilities
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	volatilities.idl
+
+  }
+
+  IDL_Files {
+        	volatilities.idl
+
+        	volatilitiesTypeSupport.idl
 
   }
 

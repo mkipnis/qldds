@@ -1,5 +1,3 @@
-
-
 //
 //   Copyright (C) 2016 Mike Kipnis
 
@@ -56,10 +54,10 @@ project(IRSPortfolio) : dcps {
   }
 }
 
-project(IRSCalculator) :  dcpsexe, svc_utils {
-        after          += IRSPortfolio
+project(IRSCalculator) : dcpsexe, svc_utils {
         exename         =       IRSCalculator
         requires       +=       tao_orbsvcs
+        after          +=	IRSPortfolio qldds_utils ratehelpers vanillaswap schedule ratehelpersDefaultDataReader vanillaswapDefaultDataReader scheduleDefaultDataReader
 
         includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT)/include \
                                 $(QUANTLIB_ADDIN_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include/qlo $(BOOST_ROOT)/include
@@ -85,7 +83,7 @@ project(IRSCalculator) :  dcpsexe, svc_utils {
 }
 
 project(IRSClient) : dcpsexe, svc_utils {
-        after          += IRSPortfolio
+        after          += IRSPortfolio qldds_utils
 
         exename         =       IRSClient
         requires       +=       tao_orbsvcs
@@ -110,7 +108,7 @@ project(IRSClient) : dcpsexe, svc_utils {
 }
 
 project(MarketDataPublisher) : dcpsexe_with_tcp {
-	after		+=	IRSPortfolio
+	after		+=	IRSPortfolio ratehelpers 
         exename         =       MarketDataPublisher 
         requires       +=       tao_orbsvcs
 
@@ -119,15 +117,13 @@ project(MarketDataPublisher) : dcpsexe_with_tcp {
 
         libs           +=       qldds_utils ratehelpers 
 
-         pure_libs       =       $(QLDDS_ROOT)/Addins/OpenDDS/libratehelpersDefaultDataReader.a 
-
         Source_Files {
                 MarketDataPublisher.cpp
         }
 }
 
 project(InstrumentDataPublisher) : dcpsexe, svc_utils {
-	after		+=	IRSPortfolio
+	after		+=	IRSPortfolio qldds_utils schedule vanillaswap
         exename         =       InstrumentDataPublisher 
         requires       +=       tao_orbsvcs
 
