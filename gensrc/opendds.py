@@ -58,7 +58,7 @@ class OpenDDSAddin(addin.Addin):
         loopIncludes = ''
         mpcbuffer = ''
         mpcdatareaderbuffer = ''
-        mpcdatareaderbufferNT = ''
+#        mpcdatareaderbufferNT = ''
 	mpcbufferJava = ''
         idlfiles = ''
 	mwcbufferJava = ''
@@ -95,7 +95,7 @@ class OpenDDSAddin(addin.Addin):
 
             mpcbuffer += self.generateLib(func, cat, idlfile, idlfileTypeSupport, readerImplHpp, readerImplCpp)
             mpcdatareaderbuffer += self.generateLibDataReader(func, cat, idlfile, idlfileTypeSupport, readerImplHpp, readerImplCpp)
-            mpcdatareaderbufferNT += self.generateLibDataReaderNT(func, cat, idlfile, idlfileTypeSupport, readerImplHpp, readerImplCpp)
+#            mpcdatareaderbufferNT += self.generateLibDataReaderNT(func, cat, idlfile, idlfileTypeSupport, readerImplHpp, readerImplCpp)
 
             print("Processing catalog : " + cat.name())
 
@@ -117,7 +117,7 @@ class OpenDDSAddin(addin.Addin):
 
             self.bufferMpc_.set({ 'mpcbuffer' : mpcbuffer })
             self.bufferMpcDataReader_.set({ 'mpcdatareaderbuffer' : mpcdatareaderbuffer })
-            self.bufferMpcDataReaderNT_.set({ 'mpcdatareaderbuffer' : mpcdatareaderbufferNT })
+#            self.bufferMpcDataReaderNT_.set({ 'mpcdatareaderbuffer' : mpcdatareaderbufferNT })
 
             fileNameCpp = '%s%sDataReaderListenerImpl.cpp' % ( self.rootPath_, cat.name())
             outputfile.OutputFile(self, fileNameCpp, cat.copyright(), self.bufferBody_)
@@ -154,9 +154,9 @@ class OpenDDSAddin(addin.Addin):
         fileNameMpc = '%sQLDDSDataReaders.mpc' % self.rootPath_
         outputfile.OutputFile(self, fileNameMpc, '', self.bufferMpcDataReader_)
 
-        self.bufferMpcDataReaderNT_.append("\n")
-        fileNameMpc = '%sQLDDSDataReaders_vc.mpc' % self.rootPath_
-        outputfile.OutputFile(self, fileNameMpc, '', self.bufferMpcDataReaderNT_)
+#        self.bufferMpcDataReaderNT_.append("\n")
+#        fileNameMpc = '%sQLDDSDataReaders_vc.mpc' % self.rootPath_
+#        outputfile.OutputFile(self, fileNameMpc, '', self.bufferMpcDataReaderNT_)
 
         self.bufferMwcJava_.set({'paths' : mwcbufferJava })
         self.bufferMwcJava_.append("\n")

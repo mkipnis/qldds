@@ -8,9 +8,5 @@ Assuming ObjectHander, GenSrc and QuantLibAddin source trees are located under $
 
 Unix:
 -----
-$ python qldds_gensrc.py --oh_dir=$HOME/ObjectHandler-1.2.0 --gensrc_dir=$HOME/gensrc-1.2.0 --qladdin_dir=$HOME/QuantLibAddin-1.2.0
+$ python qldds_gensrc.py --oh_dir=$HOME/ObjectHandler-1.12.0 --gensrc_dir=$HOME/gensrc-1.12.0 --qladdin_dir=$HOME/QuantLibAddin-1.12.0
 
-
-Windows:
--------
-C:\qldds\gensrc>python qldds_gensrc.py --oh_dir=C:\build_ql_1_2_0\ObjectHandler --gensrc_dir=c:\build_ql_1_2_0\gensrc --qladdin_dir=c:\build_ql_1_2_0\QuantLibAddin

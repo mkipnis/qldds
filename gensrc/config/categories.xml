@@ -2,7 +2,20 @@
 <root>
 
   <addinCategoryNames>
-    <categoryName>abcd</categoryName>
+    <categoryName>swap</categoryName>
+    <categoryName>swaption</categoryName>
+    <categoryName>swaptionvolstructure</categoryName>
+    <categoryName>ratehelpers</categoryName>
+    <categoryName>schedule</categoryName>
+    <categoryName>pricingengines</categoryName>
+    <categoryName>volatilities</categoryName>
+    <categoryName>payoffs</categoryName>
+    <categoryName>processes</categoryName>
+    <categoryName>options</categoryName>
+    <categoryName>piecewiseyieldcurve</categoryName>
+    <categoryName>vanillaswap</categoryName> 
+    <categoryName>exercise</categoryName>
+    <!-- <categoryName>abcd</categoryName>
     <categoryName>accountingengines</categoryName>
     <categoryName>assetswap</categoryName>
     <categoryName>alphaform</categoryName>
@@ -22,7 +35,6 @@
     <categoryName>daycounter</categoryName>
     <categoryName>defaulttermstructures</categoryName>
     <categoryName>driftcalculators</categoryName>
-    <categoryName>exercise</categoryName>
     <categoryName>evolutiondescription</categoryName>
     <categoryName>forwardrateagreement</categoryName>
     <categoryName>handles</categoryName>
@@ -34,34 +46,22 @@
     <categoryName>marketmodelevolvers</categoryName>
     <categoryName>mathf</categoryName>
     <categoryName>optimization</categoryName>
-    <categoryName>options</categoryName>
     <categoryName>overnightindexedswap</categoryName>
-    <categoryName>payoffs</categoryName>
-    <categoryName>piecewiseyieldcurve</categoryName>
     <categoryName>prices</categoryName>
-    <categoryName>pricingengines</categoryName>
-    <categoryName>processes</categoryName>
     <categoryName>products</categoryName>
     <categoryName>randomsequencegenerator</categoryName>
     <categoryName>rangeaccrual</categoryName>
-    <categoryName>ratehelpers</categoryName>
-    <categoryName>schedule</categoryName>
     <categoryName>sequencestatistics</categoryName>
     <categoryName>settings</categoryName>
     <categoryName>shortratemodels</categoryName>
     <categoryName>smilesection</categoryName>
     <categoryName>statistics</categoryName>
-    <categoryName>swap</categoryName>
-    <categoryName>swaption</categoryName>
-    <categoryName>swaptionvolstructure</categoryName>
     <categoryName>termstructures</categoryName>
     <categoryName>timeseries</categoryName>
     <categoryName>utilities</categoryName>
-    <categoryName>vanillaswap</categoryName>
-    <categoryName>volatilities</categoryName>
-    <categoryName>volatility</categoryName>
+    <categoryName>volatility</categoryName> 
     <categoryName>quotes</categoryName>
-    <categoryName>credit</categoryName>
+    <categoryName>credit</categoryName> -->
   </addinCategoryNames>
   
 </root>

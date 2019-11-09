@@ -10,20 +10,14 @@ reprice received swaps against the latest market data and republish priced portf
 
 Configuring and Compiling:
 --------------------------
-
 Unix:
 -----
 $ $ACE_ROOT/bin/mwc.pl -type gnuace InterestRateSwaps.mwc 
 $ make
 
-Windows(Visual Studio Command Prompt 2008):
--------------------------------------------
-> %ACE_ROOT%\bin\mwc.pl -type vc9 InterestRateSwaps_vc9.mwc 
-> msbuild.exe InterestRateSwaps_vc9.sln
 
 Start scripts:
 --------------
+Unix : run_test.sh
 
-Unix : run_test.pl
-Windows : run_test.bat
 

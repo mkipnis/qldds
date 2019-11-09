@@ -23,7 +23,7 @@
 //   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //   SOFTWARE.
 
-project: dcps_tcp, dcps_udp, dcps_multicast, dcps_java {
+project(CurveBuilderClient): dcps_tcp, dcps_udp, dcps_multicast, dcps_java {
 
   after      += CurveBuilderIDL
   javacflags += -classpath ../CurveBuilderIDL/CurveBuilder.jar:$(QLDDS_ROOT)/java/lib/qldds_utils_java.jar:$(QLDDS_ROOT)/java/lib/ratehelpers.jar:$(QLDDS_ROOT)/java/lib/piecewiseyieldcurve.jar

@@ -71,7 +71,7 @@ namespace qldds_utils
   //
   // Converts double into a QuantLib::RelinkableHandle<QuantLib::Quote>
   //
-  inline ObjectHandler::property_t double_to_RelinkableHandle( double quote )
+  /* inline ObjectHandler::property_t double_to_RelinkableHandle( double quote )
   {
     boost::shared_ptr<QuantLib::SimpleQuote> cp( new QuantLib::SimpleQuote( quote ) );
 
@@ -79,8 +79,8 @@ namespace qldds_utils
 
     quoteHandle.linkTo( cp );
 
-    return ObjectHandler::property_t(cp);
-  }
+    return ObjectHandler::property_t(cp); 
+  } */
 
   //
   // Converts std::vector<type> to CORBA::typeSeq

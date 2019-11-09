@@ -17,7 +17,6 @@
 
 
 #include <BasicDomainParticipant.h>
-#include <NamingServiceUtils.h>
 
 #include <ql/quantlib.hpp>
 #include <oh/ohdefines.hpp>
@@ -38,8 +37,6 @@
 #include <boost/archive/xml_oarchive.hpp>
 
 #include <ace/Get_Opt.h>
-
-#include "SwaptionServerImpl.h"
 
 #include <qldds_convert_utils.h>
 
@@ -308,7 +305,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 
      QuantLib::Date todaysDate = calendar.advance(settlementDate, -fixingDays, QuantLib::Days);
 
-     QuantLibAddinCpp::qlSettingsSetEvaluationDate( todaysDate.serialNumber(), OH_NULL );
+     QuantLibAddinCpp::qlSettingsSetEvaluationDate( static_cast<long>(todaysDate.serialNumber()), OH_NULL );
      std::cout << "Today: " << todaysDate.weekday() << ", " << todaysDate << std::endl;
      std::cout << "Settlement date: " << settlementDate.weekday() << ", " << settlementDate << std::endl;
 
@@ -395,6 +392,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
      ACE_OS::sleep(1);
    } 
 
+
   } catch (CORBA::Exception& e)
   {
     cerr << "Exception caught in main.cpp:" << endl << e << endl;
@@ -405,3 +403,4 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 
   return 0;
 }
+

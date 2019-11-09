@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      dds.no_nt/gensrc/stubs/stub.opendds.module
 
 #ifndef assetswap_IDL
 #define assetswap_IDL

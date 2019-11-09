@@ -1,3 +1,4 @@
+
 //
 //   Copyright (C) 2016 Mike Kipnis
 
@@ -43,6 +44,8 @@ project(*Swaptions) : dcps {
                    -I$(QLDDS_ROOT)/qldds_utils 
 
   libpaths      += $(QLDDS_ROOT)/qldds_utils
+
+  libs		+= qldds_utils
 
   TypeSupport_Files {
     Swaptions.idl
@@ -93,10 +96,11 @@ project(*Server) : dcpsexe, svc_utils {
                                 $(QLDDS_ROOT)/lib
 
 
-        libs           +=       qldds_utils boost_filesystem boost_serialization boost_system boost_regex ratehelpers swaptionvolstructure boost_date_time ratehelpersDefaultDataReader swaptionvolstructureDefaultDataReader QuantLibAddinCpp QuantLibAddin ObjectHandler QuantLib Swaptions
+        libs           +=       qldds_utils boost_filesystem boost_serialization boost_system boost_regex ratehelpers swaptionvolstructure boost_date_time ratehelpersDefaultDataReader swaptionvolstructureDefaultDataReader QuantLibAddinCpp QuantLibAddin ObjectHandler QuantLib Swaptions qldds_utils
        
         Source_Files {
                SwaptionServer.cpp
+               // SwaptionServerImpl.cpp  
         }
 }
 
