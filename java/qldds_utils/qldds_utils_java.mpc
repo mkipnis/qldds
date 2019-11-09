@@ -23,7 +23,7 @@
 //   SOFTWARE.
 //
 
-project(qldds_utils_java): dcps_test_java {
+project(qldds_utils_java): dcps_java {
 
   idlflags     += -Wb,stub_export_include=QLDDS_Export.h \
                  -Wb,stub_export_macro=QLDDS_Export

@@ -41,10 +41,9 @@ class Client
     try {
     System.out.println("Curve Request Publisher.");
 
-    System.loadLibrary("qldds_utils_java");
+ //   System.loadLibrary("qldds_utils_java");
 
-    DomainParticipantFactory dpf =
-            TheParticipantFactory.WithArgs(new StringSeqHolder(args));
+    DomainParticipantFactory dpf = TheParticipantFactory.WithArgs(new StringSeqHolder(args));
 
     if (dpf == null) {
         System.err.println("ERROR: Domain Participant Factory not found");

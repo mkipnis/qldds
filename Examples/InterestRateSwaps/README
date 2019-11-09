@@ -18,6 +18,6 @@ $ make
 
 Start scripts:
 --------------
-Unix : run_test.pl
+Unix : run_test.sh
 
 
