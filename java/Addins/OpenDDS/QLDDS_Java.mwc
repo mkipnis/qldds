@@ -10,8 +10,12 @@ logging/QLDDS_Java_logging.mpc
 ohutils/QLDDS_Java_ohutils.mpc
 serialization/QLDDS_Java_serialization.mpc
 valueobjects/QLDDS_Java_valueobjects.mpc
+bonds/QLDDS_Java_bonds.mpc
 exercise/QLDDS_Java_exercise.mpc
+forwardrateagreement/QLDDS_Java_forwardrateagreement.mpc
+qlIndex/QLDDS_Java_qlIndex.mpc
 options/QLDDS_Java_options.mpc
+overnightindexedswap/QLDDS_Java_overnightindexedswap.mpc
 payoffs/QLDDS_Java_payoffs.mpc
 piecewiseyieldcurve/QLDDS_Java_piecewiseyieldcurve.mpc
 pricingengines/QLDDS_Java_pricingengines.mpc

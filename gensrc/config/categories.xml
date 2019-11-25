@@ -15,12 +15,15 @@
     <categoryName>piecewiseyieldcurve</categoryName>
     <categoryName>vanillaswap</categoryName> 
     <categoryName>exercise</categoryName>
+    <categoryName>index</categoryName>
+    <categoryName>forwardrateagreement</categoryName>
+    <categoryName>bonds</categoryName>
+    <categoryName>overnightindexedswap</categoryName>
     <!-- <categoryName>abcd</categoryName>
     <categoryName>accountingengines</categoryName>
     <categoryName>assetswap</categoryName>
     <categoryName>alphaform</categoryName>
     <categoryName>browniangenerators</categoryName>
-    <categoryName>bonds</categoryName>
     <categoryName>btp</categoryName>
     <categoryName>calendar</categoryName>
     <categoryName>capfloor</categoryName>
@@ -36,9 +39,7 @@
     <categoryName>defaulttermstructures</categoryName>
     <categoryName>driftcalculators</categoryName>
     <categoryName>evolutiondescription</categoryName>
-    <categoryName>forwardrateagreement</categoryName>
     <categoryName>handles</categoryName>
-    <categoryName>index</categoryName>
     <categoryName>instruments</categoryName>
     <categoryName>interpolation</categoryName>
     <categoryName>leg</categoryName>
@@ -46,7 +47,6 @@
     <categoryName>marketmodelevolvers</categoryName>
     <categoryName>mathf</categoryName>
     <categoryName>optimization</categoryName>
-    <categoryName>overnightindexedswap</categoryName>
     <categoryName>prices</categoryName>
     <categoryName>products</categoryName>
     <categoryName>randomsequencegenerator</categoryName>

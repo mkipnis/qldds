@@ -199,6 +199,40 @@ project(valueobjects) : dcps {
   }
 
 }
+project(bonds) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = bonds
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	bonds.idl
+
+  }
+
+  IDL_Files {
+        	bonds.idl
+
+        	bondsTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
 project(exercise) : dcps {
 
   after		+= qldds_utils
@@ -233,6 +267,74 @@ project(exercise) : dcps {
   }
 
 }
+project(forwardrateagreement) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = forwardrateagreement
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	forwardrateagreement.idl
+
+  }
+
+  IDL_Files {
+        	forwardrateagreement.idl
+
+        	forwardrateagreementTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
+project(qlIndex) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = qlIndex
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	qlIndex.idl
+
+  }
+
+  IDL_Files {
+        	qlIndex.idl
+
+        	qlIndexTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
 project(options) : dcps {
 
   after		+= qldds_utils
@@ -257,6 +359,40 @@ project(options) : dcps {
         	options.idl
 
         	optionsTypeSupport.idl
+
+  }
+
+  Header_Files {
+  }
+
+  Source_Files {
+  }
+
+}
+project(overnightindexedswap) : dcps {
+
+  after		+= qldds_utils
+  sharedname     = overnightindexedswap
+  dynamicflags   = QLDDS_BUILD_DLL
+  requires += tao_orbsvcs
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils
+  idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils \
+                   -Wb,export_macro=QLDDS_Export \
+                   -Wb,export_include=../../qldds_utils/qldds_Export.h
+  dcps_ts_flags += -I../../qldds_utils -Wb,export_macro=QLDDS_Export
+
+  libs		+= qldds_utils
+  libout        = $(QLDDS_ROOT)/lib
+
+  TypeSupport_Files {
+        	overnightindexedswap.idl
+
+  }
+
+  IDL_Files {
+        	overnightindexedswap.idl
+
+        	overnightindexedswapTypeSupport.idl
 
   }
 
