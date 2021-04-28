@@ -5,7 +5,7 @@ Scenario:
 MarketDataPublisher publishes updates on the volatility surface and market data components of a swap curve.
 Curve Market Data consists of Deposits, FRAs and SwapRates.
 Two Swaption calculators consume volatility and curve data.
-Client is continuously making synchronous calls to calculators to compute NPV on the provided Swaption indicative data.
+Client is continuously making asynchronous calls to calculators to compute NPV on the provided Swaption indicative data.
 That data consists of tenors of an option and an underlying swap, as well as curve and surface names.
 
 Configuring and Compiling: 
