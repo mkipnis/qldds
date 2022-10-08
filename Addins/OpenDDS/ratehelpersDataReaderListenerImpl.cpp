@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.body
+//      git/qldds/gensrc/stubs/stub.opendds.body
 
 #include "ratehelpersDataReaderListenerImpl.hpp"
 
@@ -2123,6 +2123,8 @@ void qlOISRateHelperDataReaderListenerImpl::on_data_available( DDS::DataReader_p
               obj.FixedRate ,
               obj.ONIndex.in(),
               obj.DiscountingCurve.in(),
+              static_cast<bool>(obj.TelescopicValueDates),
+              static_cast<long>(obj.PaymentLag),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

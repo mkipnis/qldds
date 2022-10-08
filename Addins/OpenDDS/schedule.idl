@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef schedule_IDL
 #define schedule_IDL
@@ -70,6 +70,26 @@ module schedule {
              boolean Overwrite; 
    };
 
+#pragma DCPS_DATA_TYPE "schedule::qlScheduleFullInterfaceFromDateVector"
+#pragma DCPS_DATA_KEY "schedule::qlScheduleFullInterfaceFromDateVector instanceID" 
+
+   struct qlScheduleFullInterfaceFromDateVector { 
+          string instanceID;
+          
+             string ObjectId;
+             qldds_utils::StringSeq Dates;
+             qldds_utils::BooleanSeq IsRegular;
+             string Tenor;
+             string Calendar;
+             string Convention;
+             string TermDateConv;
+             string GenRule;
+             boolean EndOfMonth;
+             boolean Permanent;
+             boolean Trigger;
+             boolean Overwrite; 
+   };
+
 #pragma DCPS_DATA_TYPE "schedule::qlScheduleTruncated"
 #pragma DCPS_DATA_KEY "schedule::qlScheduleTruncated instanceID" 
 
@@ -79,6 +99,7 @@ module schedule {
              string ObjectId;
              string OriginalSchedule;
              string TruncationDate;
+             boolean ReturnDatesBefore;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
