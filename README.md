@@ -45,7 +45,7 @@ data types and data readers are auto-generated and are located in
 | ------ | ------ |
 | [OpenDDS](https://www.opendds.org)| 3.22 |
 | [QuantLib](https://github.com/lballabio/QuantLib/releases) | 1.22 |
-| [ObjectHandler/GenSrc/QuantLibAddinCpp](https://github.com/eehlers/QuantLibAddin-Old/releases/tag/QuantLibAddin-v1.22) | 1.12 |
+| [ObjectHandler/GenSrc/QuantLibAddinCpp](https://github.com/eehlers/QuantLibAddin-Old/releases/tag/QuantLibAddin-v1.22) | 1.22 |
 
 All QuantLib dependences need to be configured, compiled
 and installed(make install). OpenDDS needs to be configured and
