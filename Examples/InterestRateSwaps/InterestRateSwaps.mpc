@@ -59,16 +59,25 @@ project(IRSCalculator) : dcpsexe, svc_utils {
         requires       +=       tao_orbsvcs
         after          +=	IRSPortfolio qldds_utils ratehelpers vanillaswap schedule ratehelpersDefaultDataReader vanillaswapDefaultDataReader scheduleDefaultDataReader
 
-        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT)/include \
-                                $(QUANTLIB_ADDIN_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include/qlo $(BOOST_ROOT)/include
-        libpaths       +=       $(QUANTLIB_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib \
-                                $(OH_ROOT)/lib \
-                                $(QUANTLIB_ADDIN_ROOT)/lib \
-                                $(BOOST_ROOT)/lib \
-                                $(QLDDS_ROOT)/lib
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QL_ROOT)/include $(QL_ROOT)/include/qlo
+	libpaths 	+= 	$(QL_ROOT)/lib $(QLDDS_ROOT)/lib
+
+	  pure_libs       =     $(QL_ROOT)/lib/libQuantLibAddinCpp.a \
+                        $(QL_ROOT)/lib/libQuantLibAddin.a \
+                        $(QL_ROOT)/lib/libObjectHandler.a \
+                        $(QL_ROOT)/lib/libQuantLib.a \
+			$(QL_ROOT)/lib/libboost_system.a  \
+			$(QL_ROOT)/lib/libboost_serialization.a \
+			$(QL_ROOT)/lib/libboost_filesystem.a \
+			$(QLDDS_ROOT)/lib/libratehelpersDefaultDataReader.a \
+			$(QLDDS_ROOT)/lib/libvanillaswapDefaultDataReader.a \
+			$(QLDDS_ROOT)/lib/libscheduleDefaultDataReader.a
 
 
-        libs           +=       IRSPortfolio boost_date_time boost_filesystem  boost_system  ratehelpers vanillaswap schedule ObjectHandler QuantLib boost_date_time ratehelpersDefaultDataReader vanillaswapDefaultDataReader scheduleDefaultDataReader QuantLibAddinCpp QuantLibAddin qldds_utils boost_date_time
+
+        libs           +=        qldds_utils IRSPortfolio  ratehelpers vanillaswap schedule
+
+
 
 
         TypeSupport_Files {
@@ -88,13 +97,10 @@ project(IRSClient) : dcpsexe, svc_utils {
         exename         =       IRSClient
         requires       +=       tao_orbsvcs
 
-        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT) $(QUANTLIB_ADDIN_ROOT)
-        libpaths       +=       $(QUANTLIB_ROOT)/ql $(QUANTLIB_ADDIN_ROOT)/qlo/.libs \
-                                $(OH_ROOT)/oh/.libs \
-                                $(QUANTLIB_ADDIN_ROOT)/Addins/Cpp/.libs/ \
-                                $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS 
+        libpaths       +=      $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
-        libs           +=       qldds_utils IRSPortfolio
+        libs           +=       qldds_utils IRSPortfolio  
 
         TypeSupport_Files {
         }
@@ -127,8 +133,8 @@ project(InstrumentDataPublisher) : dcpsexe, svc_utils {
         exename         =       InstrumentDataPublisher 
         requires       +=       tao_orbsvcs
 
-        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include $(QLDDS_ROOT)/Addins/OpenDDS
-        libpaths       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(BOOST_ROOT)/lib
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include $(QLDDS_ROOT)/Addins/OpenDDS
+        libpaths       +=       $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QL_ROOT)/lib
 
         libs           +=       qldds_utils schedule vanillaswap boost_date_time
 

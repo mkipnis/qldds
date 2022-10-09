@@ -67,6 +67,7 @@ module overnightindexedswap {
              string ForwardStart;
              string FixDayCounter;
              double Spread;
+             long PaymentLag;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 
@@ -86,6 +87,7 @@ module overnightindexedswap {
              string FixDayCounter;
              string OvernightIndex;
              double Spread;
+             long PaymentLag;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 

@@ -59,9 +59,9 @@ class OpenDDSAddin(addin.Addin):
         mpcbuffer = ''
         mpcdatareaderbuffer = ''
 #        mpcdatareaderbufferNT = ''
-	mpcbufferJava = ''
+        mpcbufferJava = ''
         idlfiles = ''
-	mwcbufferJava = ''
+        mwcbufferJava = ''
 
         for cat in self.categoryList_.categories("Cpp",
             self.coreCategories_, self.addinCategories_):
@@ -70,17 +70,17 @@ class OpenDDSAddin(addin.Addin):
             readersImplHpp = '' 
             readersImplCpp = ''
 
-	    qlAddinName = cat.name()
-	    if (cat.name() == 'index') : cat.name_ = 'qlIndex'
-	    if (cat.name() == 'swap') : cat.name_ = 'qlSwapNS'
+            qlAddinName = cat.name()
+            if (cat.name() == 'index') : cat.name_ = 'qlIndex'
+            if (cat.name() == 'swap') : cat.name_ = 'qlSwapNS'
 
             categoryIncludes = cat.includeList(loopIncludes)
 
-	    idlfile = '\t%s.idl\n' % ( cat.name() ) 
-	    idlfileTypeSupport = '\t%sTypeSupport.idl\n' % ( cat.name() )
+            idlfile = '\t%s.idl\n' % ( cat.name() ) 
+            idlfileTypeSupport = '\t%sTypeSupport.idl\n' % ( cat.name() )
 
-	    readerImplHpp = '\t%sDataReaderListenerImpl.hpp\n' % ( cat.name() ) 
-	    readerImplCpp = '\t%sDataReaderListenerImpl.cpp\n' % ( cat.name() )   
+            readerImplHpp = '\t%sDataReaderListenerImpl.hpp\n' % ( cat.name() ) 
+            readerImplCpp = '\t%sDataReaderListenerImpl.cpp\n' % ( cat.name() )   
 
             bufferCpp = ''
             bufferHpp = '' 
@@ -130,7 +130,7 @@ class OpenDDSAddin(addin.Addin):
 
             java_dir = '../java/Addins/OpenDDS/%s' % ( cat.name() )
             if not os.path.exists(java_dir):
-	      os.makedirs(java_dir)
+               os.makedirs(java_dir)
    
             fileNameJavaIdl = '%s/%s.idl' % ( java_dir, cat.name() )
             outputfile.OutputFile( self, fileNameJavaIdl, cat.copyright(), self.bufferModule_ )

@@ -125,18 +125,19 @@ project( *Server ) : dcpsexe, svc_utils {
         exename         =       EquityOptionsServer
         after           =       *EquityOptions *Straddles 		     
         requires        +=      tao_orbsvcs
-        includes        +=      $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT)/include \ 
-                                $(QUANTLIB_ADDIN_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include/qlo $(BOOST_ROOT)/include
+        includes        +=      $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QL_ROOT)/include $(QL_ROOT)/include/qlo  
         idlflags        +=      -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS
         dcps_ts_flags   +=      -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS
-        libpaths        +=      $(QUANTLIB_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib \
-                                $(OH_ROOT)/lib \
-                                $(QUANTLIB_ADDIN_ROOT)/lib \
-                                $(BOOST_ROOT)/lib \
-                                $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
+        libpaths        +=      $(QL_ROOT)/lib $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
-        libs            +=      qldds_utils pricingengines exercise volatilities payoffs processes \
-                                EquityOptions Straddles QuantLibAddinCpp QuantLibAddin ObjectHandler QuantLib boost_date_time boost_regex boost_system boost_filesystem boost_serialization
+        libs            +=      qldds_utils pricingengines exercise volatilities payoffs processes EquityOptions Straddles 
+ 	pure_libs       =     $(QL_ROOT)/lib/libQuantLibAddinCpp.a \
+  	                    $(QL_ROOT)/lib/libQuantLibAddin.a \
+                        $(QL_ROOT)/lib/libObjectHandler.a \
+                        $(QL_ROOT)/lib/libQuantLib.a \
+                        $(QL_ROOT)/lib/libboost_system.a  \
+                        $(QL_ROOT)/lib/libboost_serialization.a \
+                        $(QL_ROOT)/lib/libboost_filesystem.a
 
         idlflags        +=      -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS
 

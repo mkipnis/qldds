@@ -1,16 +1,12 @@
 import sys
 import getopt
 import os
-import shutil, errno
 
 USAGE_ERROR = """
-usage: %(scriptName)s --dds_dir --boost_dir --quantlib_dir --oh_dir --qladdin_dir
+usage: %(scriptName)s --dds_dir --ql_dir
     Arguments that specify paths to the following components : 
     --dds_dir - Installation directory of OpenDDS
-    --boost_dir - Installation directory of Boost
-    --quantlib_dir - Installation directory of QuantLib
-    --oh_dir - Intallation directory of ObjectHandler
-    --qladdin_dir - Installation directory of QuantLibAddin"""
+    --ql_dir - Installation directory of Boost/QuantLib/ObjectHandler/QuantLibAddinCpp"""
 
 def usage():
     print( USAGE_ERROR % { 'scriptName' : sys.argv[0] } )
@@ -19,19 +15,16 @@ def usage():
 # parse command line arguments
 try:
 
-    opts, args = getopt.getopt(sys.argv[1:], 'hdbqgoa', ['help','dds_dir=','boost_dir=', 'quantlib_dir=', 'oh_dir=','qladdin_dir='] )
+    opts, args = getopt.getopt(sys.argv[1:], 'hdq', ['help','dds_dir=', 'ql_dir='] )
 
 except getopt.GetoptError:
     usage()
 
 ddsDir=''
-boostDir=''
-quantlibDir = ''
-ohDir=''
-qlAddinDir=''
+qlDir = ''
 
 if os.name == 'nt':
-	print("Windows NT is not support by this version of QLDDS, Please use the following branch : qldds-qladdin-1.12");
+	print("Windows NT is not support");
 	exit(0);
 
 print( "-------- Environment Settings ----------" )
@@ -40,18 +33,9 @@ for o, v in opts:
     if o == '--dds_dir':
         ddsDir = v
         print( "OpenDDS dir : " + ddsDir )
-    elif o == '--boost_dir':
-        boostDir = v
-        print( "Boost dir : " + boostDir )
-    elif o == '--quantlib_dir':
-        quantlibDir = v
-        print( "QuantLib dir : " + quantlibDir )
-    elif o == '--oh_dir':
-        ohDir = v
-        print( "ObjectHandler dir : " + ohDir ) 
-    elif o == '--qladdin_dir':
-        qlAddinDir = v
-        print( "QuantLibAddin dir : " + qlAddinDir )
+    elif o == '--ql_dir':
+        qlDir = v
+        print( "QuantLib dir Boost/QuantLib/ObjectHandler/QuantLibAddinCpp: " + qlDir )
     elif o in ('-h', '--help'):
         usage()
     else:
@@ -60,24 +44,12 @@ for o, v in opts:
 print( "----------------------------------------" )
 
 if not len(ddsDir):
-  print( "ERROR : Location of OpenDDS [--qldds_dir] is not specified." )
+  print( "ERROR : Location of OpenDDS [--dds_dir] is not specified." )
   usage() 
 
-if not len(boostDir):
-  print( "ERROR : Location of Boost [--boost_dir] is not specified." ) 
+if not len(qlDir):
+  print( "ERROR : Location of Boost [--ql_dir] is not specified." ) 
   usage() 
-
-if not len(quantlibDir):
-  print( "ERROR : Location of QuantLib [--quantlib_dir] is not specified." )
-  usage() 
-
-if not len(ohDir):
-  print( "ERROR : Location of GenSrc [--oh_dir] is not specified." )
-  usage() 
-
-if not len(qlAddinDir):
-  print( "ERROR : Location of GenSrc [--qladdin_dir] is not specified." )
-  usage()
 
 env_file='qldds_env'
 path=''
@@ -104,20 +76,14 @@ if os.name == 'posix':
   lib_path += qldds_root + '/qldds_utils/' + path_separator
   lib_path += qldds_root + '/Addins/OpenDDS/' + path_separator
 
-  lib_path += quantlibDir + '/lib' + path_separator
-  lib_path += boostDir + '/lib' + path_separator
-  lib_path += ohDir + '/lib' + path_separator
-  lib_path += qlAddinDir + '/lib' + path_separator
+  lib_path += qlDir + '/lib' + path_separator
 
 try:
   file = open(env_file, 'w')
   
 
   file.write( export + ' QLDDS_ROOT=' + qldds_root + '\n' )
-  file.write( export + ' QUANTLIB_ROOT=' + quantlibDir + '\n' )
-  file.write( export + ' BOOST_ROOT=' + boostDir + '\n' )
-  file.write( export + ' OH_ROOT=' + ohDir + '\n' )
-  file.write( export + ' QUANTLIB_ADDIN_ROOT=' + qlAddinDir + '\n\n' )
+  file.write( export + ' QL_ROOT=' + qlDir + '\n' )
 
   file.write( path + '\n' )
   file.write( lib_path + '\n' )

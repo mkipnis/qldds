@@ -265,6 +265,7 @@ void qlMakeOISDataReaderListenerImpl::on_data_available( DDS::DataReader_ptr rea
               obj.ForwardStart.in(),
               obj.FixDayCounter.in(),
               static_cast<double>(obj.Spread),
+              static_cast<long>(obj.PaymentLag),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );
@@ -451,6 +452,7 @@ void qlOvernightIndexedSwapDataReaderListenerImpl::on_data_available( DDS::DataR
               obj.FixDayCounter.in(),
               obj.OvernightIndex.in(),
               static_cast<double>(obj.Spread),
+              static_cast<long>(obj.PaymentLag),
               static_cast<bool>(obj.Permanent),
               obj.Trigger,
               static_cast<bool>(obj.Overwrite) );

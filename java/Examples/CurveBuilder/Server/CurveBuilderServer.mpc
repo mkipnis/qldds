@@ -32,13 +32,9 @@ project(CurveBuilder) :  dcpsexe, dcps_tcp {
 	after      += CurveBuilderIDL
 
         includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils \
-				$(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT)/include \
-                                $(QUANTLIB_ADDIN_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include/qlo \
-				$(BOOST_ROOT)/include ../CurveBuilderIDL
+				$(QLDDS_ROOT)/Addins/OpenDDS $(QL_ROOT)/include $(QL_ROOT)/include/qlo ../CurveBuilderIDL
 
-        libpaths       +=       $(QUANTLIB_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib \ 
-                                $(OH_ROOT)/lib \
-                                $(QUANTLIB_ADDIN_ROOT)/lib \
+        libpaths       +=       $(QL_ROOT)/lib  \
                                 $(QLDDS_ROOT)/lib \
                                 $(QLDDS_ROOT)/java/lib \
                                 $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/java/Addins/OpenDDS \

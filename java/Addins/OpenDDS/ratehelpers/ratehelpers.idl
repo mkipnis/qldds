@@ -255,6 +255,8 @@ module ratehelpers {
              double FixedRate;
              string ONIndex;
              string DiscountingCurve;
+             boolean TelescopicValueDates;
+             long PaymentLag;
              boolean Permanent;
              boolean Trigger;
              boolean Overwrite; 

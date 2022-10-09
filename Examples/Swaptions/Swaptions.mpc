@@ -87,16 +87,20 @@ project(*Server) : dcpsexe, svc_utils {
 	after		+=	*Swaptions
         requires       +=       tao_orbsvcs
 
-	includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT)/include \
-                                $(QUANTLIB_ADDIN_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include/qlo $(BOOST_ROOT)/include
-        libpaths       +=       $(QUANTLIB_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib \
-                                $(OH_ROOT)/lib \
-                                $(QUANTLIB_ADDIN_ROOT)/lib \
-                                $(BOOST_ROOT)/lib \
-                                $(QLDDS_ROOT)/lib
+	includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QL_ROOT)/include $(QL_ROOT)/include/qlo
+        libpaths       +=       $(QL_ROOT)/lib $(QLDDS_ROOT)/lib 
+
+	pure_libs       =     $(QL_ROOT)/lib/libQuantLibAddinCpp.a \
+                        $(QL_ROOT)/lib/libQuantLibAddin.a \
+                        $(QL_ROOT)/lib/libObjectHandler.a \
+                        $(QL_ROOT)/lib/libQuantLib.a \
+                        $(QL_ROOT)/lib/libboost_system.a  \
+                        $(QL_ROOT)/lib/libboost_serialization.a \
+                        $(QL_ROOT)/lib/libboost_filesystem.a
 
 
-        libs           +=       qldds_utils boost_filesystem boost_serialization boost_system boost_regex ratehelpers swaptionvolstructure boost_date_time ratehelpersDefaultDataReader swaptionvolstructureDefaultDataReader QuantLibAddinCpp QuantLibAddin ObjectHandler QuantLib Swaptions qldds_utils
+
+        libs           +=       qldds_utils  ratehelpers swaptionvolstructure boost_date_time ratehelpersDefaultDataReader swaptionvolstructureDefaultDataReader  Swaptions qldds_utils
        
         Source_Files {
                SwaptionServer.cpp
@@ -109,7 +113,7 @@ project(*Client) : dcpsexe, svc_utils {
         requires       +=       tao_orbsvcs
 	after		+=	*Swaptions
 
-        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS $(QUANTLIB_ROOT) $(QUANTLIB_ADDIN_ROOT)
+        includes       +=       $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
 	libpaths	+=	$(QLDDS_ROOT)/lib
 
