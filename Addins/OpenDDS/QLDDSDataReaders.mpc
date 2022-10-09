@@ -2,7 +2,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      git/qldds/gensrc/stubs/stub.opendds.mpc.datareader
+//      qldds/gensrc/stubs/stub.opendds.mpc.datareader
 
 //
 //   Copyright (C) 2016 Mike Kipnis
@@ -28,7 +28,6 @@
 //   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //   SOFTWARE.
 
-
 project(garbagecollectionDefaultDataReader) : dcps, install {
 
   after    += qldds_utils garbagecollection
@@ -36,14 +35,12 @@ project(garbagecollectionDefaultDataReader) : dcps, install {
   sharedname     = garbagecollectionDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils garbagecollection boost_date_time
@@ -55,16 +52,17 @@ project(garbagecollectionDefaultDataReader) : dcps, install {
   }
 
   Header_Files {
-         	garbagecollectionDataReaderListenerImpl.hpp
+                garbagecollectionDataReaderListenerImpl.hpp
 
   }
 
   Source_Files {
-         	garbagecollectionDataReaderListenerImpl.cpp
+                garbagecollectionDataReaderListenerImpl.cpp
 
   }
 
 }
+
 
 project(loggingDefaultDataReader) : dcps, install {
 
@@ -73,14 +71,15 @@ project(loggingDefaultDataReader) : dcps, install {
   sharedname     = loggingDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils logging boost_date_time
@@ -110,14 +109,15 @@ project(ohutilsDefaultDataReader) : dcps, install {
   sharedname     = ohutilsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils ohutils boost_date_time
@@ -147,14 +147,15 @@ project(serializationDefaultDataReader) : dcps, install {
   sharedname     = serializationDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils serialization boost_date_time
@@ -184,14 +185,15 @@ project(valueobjectsDefaultDataReader) : dcps, install {
   sharedname     = valueobjectsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils valueobjects boost_date_time
@@ -221,14 +223,15 @@ project(bondsDefaultDataReader) : dcps, install {
   sharedname     = bondsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils bonds boost_date_time
@@ -258,14 +261,15 @@ project(exerciseDefaultDataReader) : dcps, install {
   sharedname     = exerciseDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils exercise boost_date_time
@@ -295,14 +299,15 @@ project(forwardrateagreementDefaultDataReader) : dcps, install {
   sharedname     = forwardrateagreementDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils forwardrateagreement boost_date_time
@@ -332,14 +337,15 @@ project(qlIndexDefaultDataReader) : dcps, install {
   sharedname     = qlIndexDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils qlIndex boost_date_time
@@ -369,14 +375,15 @@ project(optionsDefaultDataReader) : dcps, install {
   sharedname     = optionsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils options boost_date_time
@@ -406,14 +413,15 @@ project(overnightindexedswapDefaultDataReader) : dcps, install {
   sharedname     = overnightindexedswapDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils overnightindexedswap boost_date_time
@@ -443,14 +451,15 @@ project(payoffsDefaultDataReader) : dcps, install {
   sharedname     = payoffsDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils payoffs boost_date_time
@@ -480,14 +489,15 @@ project(piecewiseyieldcurveDefaultDataReader) : dcps, install {
   sharedname     = piecewiseyieldcurveDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils piecewiseyieldcurve boost_date_time
@@ -517,14 +527,15 @@ project(pricingenginesDefaultDataReader) : dcps, install {
   sharedname     = pricingenginesDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils pricingengines boost_date_time
@@ -554,14 +565,15 @@ project(processesDefaultDataReader) : dcps, install {
   sharedname     = processesDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils processes boost_date_time
@@ -591,14 +603,15 @@ project(ratehelpersDefaultDataReader) : dcps, install {
   sharedname     = ratehelpersDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils ratehelpers boost_date_time
@@ -628,14 +641,15 @@ project(scheduleDefaultDataReader) : dcps, install {
   sharedname     = scheduleDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils schedule boost_date_time
@@ -665,14 +679,15 @@ project(qlSwapNSDefaultDataReader) : dcps, install {
   sharedname     = qlSwapNSDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils qlSwapNS boost_date_time
@@ -702,14 +717,15 @@ project(swaptionDefaultDataReader) : dcps, install {
   sharedname     = swaptionDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils swaption boost_date_time
@@ -739,14 +755,15 @@ project(swaptionvolstructureDefaultDataReader) : dcps, install {
   sharedname     = swaptionvolstructureDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils swaptionvolstructure boost_date_time
@@ -776,14 +793,15 @@ project(vanillaswapDefaultDataReader) : dcps, install {
   sharedname     = vanillaswapDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils vanillaswap boost_date_time
@@ -813,14 +831,15 @@ project(volatilitiesDefaultDataReader) : dcps, install {
   sharedname     = volatilitiesDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
-  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/include \
-                $(QUANTLIB_ROOT)/include $(OH_ROOT)/include $(QUANTLIB_ADDIN_ROOT)/include
+
+  includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
-  libpaths      += $(QLDDS_ROOT)/qldds_utils $(BOOST_ROOT)/lib $(QUANTLIB_ROOT)/lib \
-                   $(OH_ROOT)/lib $(QUANTLIB_ADDIN_ROOT)/lib
+  libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils volatilities boost_date_time

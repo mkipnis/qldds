@@ -68,11 +68,14 @@ project(IRSCalculator) : dcpsexe, svc_utils {
                         $(QL_ROOT)/lib/libQuantLib.a \
 			$(QL_ROOT)/lib/libboost_system.a  \
 			$(QL_ROOT)/lib/libboost_serialization.a \
-			$(QL_ROOT)/lib/libboost_filesystem.a
+			$(QL_ROOT)/lib/libboost_filesystem.a \
+			$(QLDDS_ROOT)/lib/libratehelpersDefaultDataReader.a \
+			$(QLDDS_ROOT)/lib/libvanillaswapDefaultDataReader.a \
+			$(QLDDS_ROOT)/lib/libscheduleDefaultDataReader.a
 
 
 
-        libs           +=        qldds_utils IRSPortfolio  ratehelpers vanillaswap schedule ratehelpersDefaultDataReader vanillaswapDefaultDataReader scheduleDefaultDataReader
+        libs           +=        qldds_utils IRSPortfolio  ratehelpers vanillaswap schedule
 
 
 

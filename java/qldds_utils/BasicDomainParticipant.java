@@ -21,7 +21,7 @@ public class BasicDomainParticipant {
 	public void Disconnect() 
 	{
 		_participant.delete_contained_entities();
-		_dpf.delete_participant( _participant );
+		// _dpf.delete_participant( _participant );
 	};
 
 	  // Creates a publisher
@@ -65,71 +65,79 @@ public class BasicDomainParticipant {
 	 
 	 public DataWriterQos getDefaultDataWriterQos()
 	 {
-         DataWriterQos dw_qos = new DataWriterQos();
-         
-         dw_qos.durability = new DurabilityQosPolicy();
-         dw_qos.durability.kind = DurabilityQosPolicyKind.from_int(0);
-         dw_qos.durability_service = new DurabilityServiceQosPolicy();
-         dw_qos.durability_service.history_kind = HistoryQosPolicyKind.from_int(0);
-         dw_qos.durability_service.service_cleanup_delay = new Duration_t();
-         dw_qos.deadline = new DeadlineQosPolicy();
-         dw_qos.deadline.period = new Duration_t();
-         dw_qos.latency_budget = new LatencyBudgetQosPolicy();
-         dw_qos.latency_budget.duration = new Duration_t();
-         dw_qos.liveliness = new LivelinessQosPolicy();
-         dw_qos.liveliness.kind = LivelinessQosPolicyKind.from_int(0);
-         dw_qos.liveliness.lease_duration = new Duration_t();
-         dw_qos.reliability = new ReliabilityQosPolicy();
-         dw_qos.reliability.kind = ReliabilityQosPolicyKind.from_int(0);
-         dw_qos.reliability.max_blocking_time = new Duration_t();
-         dw_qos.destination_order = new DestinationOrderQosPolicy();
-         dw_qos.destination_order.kind = DestinationOrderQosPolicyKind.from_int(0);
-         dw_qos.history = new HistoryQosPolicy();
-         dw_qos.history.kind = HistoryQosPolicyKind.from_int(0);
-         dw_qos.resource_limits = new ResourceLimitsQosPolicy();
-         dw_qos.transport_priority = new TransportPriorityQosPolicy();
-         dw_qos.lifespan = new LifespanQosPolicy();
-         dw_qos.lifespan.duration = new Duration_t();
-         dw_qos.user_data = new UserDataQosPolicy();
-         dw_qos.user_data.value = new byte[0];
-         dw_qos.ownership = new OwnershipQosPolicy();
-         dw_qos.ownership.kind = OwnershipQosPolicyKind.from_int(0);
-         dw_qos.ownership_strength = new OwnershipStrengthQosPolicy();
-         dw_qos.writer_data_lifecycle = new WriterDataLifecycleQosPolicy();
-         
+                 DataWriterQos dw_qos = new DataWriterQos();
+        dw_qos.durability = new DurabilityQosPolicy();
+        dw_qos.durability.kind = DurabilityQosPolicyKind.from_int(0);
+        dw_qos.durability_service = new DurabilityServiceQosPolicy();
+        dw_qos.durability_service.history_kind = HistoryQosPolicyKind.from_int(0);
+        dw_qos.durability_service.service_cleanup_delay = new Duration_t();
+        dw_qos.deadline = new DeadlineQosPolicy();
+        dw_qos.deadline.period = new Duration_t();
+        dw_qos.latency_budget = new LatencyBudgetQosPolicy();
+        dw_qos.latency_budget.duration = new Duration_t();
+        dw_qos.liveliness = new LivelinessQosPolicy();
+        dw_qos.liveliness.kind = LivelinessQosPolicyKind.from_int(0);
+        dw_qos.liveliness.lease_duration = new Duration_t();
+        dw_qos.reliability = new ReliabilityQosPolicy();
+        dw_qos.reliability.kind = ReliabilityQosPolicyKind.from_int(0);
+        dw_qos.reliability.max_blocking_time = new Duration_t();
+        dw_qos.destination_order = new DestinationOrderQosPolicy();
+        dw_qos.destination_order.kind = DestinationOrderQosPolicyKind.from_int(0);
+        dw_qos.history = new HistoryQosPolicy();
+        dw_qos.history.kind = HistoryQosPolicyKind.from_int(0);
+        dw_qos.resource_limits = new ResourceLimitsQosPolicy();
+        dw_qos.transport_priority = new TransportPriorityQosPolicy();
+        dw_qos.lifespan = new LifespanQosPolicy();
+        dw_qos.lifespan.duration = new Duration_t();
+        dw_qos.user_data = new UserDataQosPolicy();
+        dw_qos.user_data.value = new byte[0];
+        dw_qos.ownership = new OwnershipQosPolicy();
+        dw_qos.ownership.kind = OwnershipQosPolicyKind.from_int(0);
+        dw_qos.ownership_strength = new OwnershipStrengthQosPolicy();
+        dw_qos.writer_data_lifecycle = new WriterDataLifecycleQosPolicy();
+        dw_qos.representation = new DataRepresentationQosPolicy();
+        dw_qos.representation.value = new short[0];
+
          return dw_qos;
  
 	 }
 	 
 	 public DataReaderQos getDefaultDataReaderQos()
 	 {
-	        DataReaderQos dr_qos = new DataReaderQos();
-	        dr_qos.durability = new DurabilityQosPolicy();
-	        dr_qos.durability.kind = DurabilityQosPolicyKind.from_int(0);
-	        dr_qos.deadline = new DeadlineQosPolicy();
-	        dr_qos.deadline.period = new Duration_t();
-	        dr_qos.latency_budget = new LatencyBudgetQosPolicy();
-	        dr_qos.latency_budget.duration = new Duration_t();
-	        dr_qos.liveliness = new LivelinessQosPolicy();
-	        dr_qos.liveliness.kind = LivelinessQosPolicyKind.from_int(0);
-	        dr_qos.liveliness.lease_duration = new Duration_t();
-	        dr_qos.reliability = new ReliabilityQosPolicy();
-	        dr_qos.reliability.kind = ReliabilityQosPolicyKind.from_int(0);
-	        dr_qos.reliability.max_blocking_time = new Duration_t();
-	        dr_qos.destination_order = new DestinationOrderQosPolicy();
-	        dr_qos.destination_order.kind = DestinationOrderQosPolicyKind.from_int(0);
-	        dr_qos.history = new HistoryQosPolicy();
-	        dr_qos.history.kind = HistoryQosPolicyKind.from_int(0);
-	        dr_qos.resource_limits = new ResourceLimitsQosPolicy();
-	        dr_qos.user_data = new UserDataQosPolicy();
-	        dr_qos.user_data.value = new byte[0];
-	        dr_qos.ownership = new OwnershipQosPolicy();
-	        dr_qos.ownership.kind = OwnershipQosPolicyKind.from_int(0);
-	        dr_qos.time_based_filter = new TimeBasedFilterQosPolicy();
-	        dr_qos.time_based_filter.minimum_separation = new Duration_t();
-	        dr_qos.reader_data_lifecycle = new ReaderDataLifecycleQosPolicy();
-	        dr_qos.reader_data_lifecycle.autopurge_nowriter_samples_delay = new Duration_t();
-	        dr_qos.reader_data_lifecycle.autopurge_disposed_samples_delay = new Duration_t();
+		       DataReaderQos dr_qos = new DataReaderQos();
+        dr_qos.durability = new DurabilityQosPolicy();
+        dr_qos.durability.kind = DurabilityQosPolicyKind.from_int(0);
+        dr_qos.deadline = new DeadlineQosPolicy();
+        dr_qos.deadline.period = new Duration_t();
+        dr_qos.latency_budget = new LatencyBudgetQosPolicy();
+        dr_qos.latency_budget.duration = new Duration_t();
+        dr_qos.liveliness = new LivelinessQosPolicy();
+        dr_qos.liveliness.kind = LivelinessQosPolicyKind.from_int(0);
+        dr_qos.liveliness.lease_duration = new Duration_t();
+        dr_qos.reliability = new ReliabilityQosPolicy();
+        dr_qos.reliability.kind = ReliabilityQosPolicyKind.from_int(0);
+        dr_qos.reliability.max_blocking_time = new Duration_t();
+        dr_qos.destination_order = new DestinationOrderQosPolicy();
+        dr_qos.destination_order.kind = DestinationOrderQosPolicyKind.from_int(0);
+        dr_qos.history = new HistoryQosPolicy();
+        dr_qos.history.kind = HistoryQosPolicyKind.from_int(0);
+        dr_qos.resource_limits = new ResourceLimitsQosPolicy();
+        dr_qos.user_data = new UserDataQosPolicy();
+        dr_qos.user_data.value = new byte[0];
+        dr_qos.ownership = new OwnershipQosPolicy();
+        dr_qos.ownership.kind = OwnershipQosPolicyKind.from_int(0);
+        dr_qos.time_based_filter = new TimeBasedFilterQosPolicy();
+        dr_qos.time_based_filter.minimum_separation = new Duration_t();
+        dr_qos.reader_data_lifecycle = new ReaderDataLifecycleQosPolicy();
+        dr_qos.reader_data_lifecycle.autopurge_nowriter_samples_delay = new Duration_t();
+        dr_qos.reader_data_lifecycle.autopurge_disposed_samples_delay = new Duration_t();
+        dr_qos.representation = new DataRepresentationQosPolicy();
+        dr_qos.representation.value = new short[0];
+        dr_qos.type_consistency = new TypeConsistencyEnforcementQosPolicy();
+        dr_qos.type_consistency.kind = 2;
+        dr_qos.type_consistency.ignore_member_names = false;
+        dr_qos.type_consistency.force_type_validation = false;
+
 	        
 	        return dr_qos;
 	 }
@@ -137,6 +145,7 @@ public class BasicDomainParticipant {
 	 
 	 public DataWriter createDataWriter( Topic topic, int matchedPublications, DataWriterQos dataWriterQos, boolean reliable )
 	 {
+
          DataWriterQosHolder qosh = new DataWriterQosHolder(dataWriterQos);
          _publisher.get_default_datawriter_qos(qosh);
          qosh.value.history.kind = HistoryQosPolicyKind.KEEP_ALL_HISTORY_QOS;
