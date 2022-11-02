@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef schedule_IDL
 #define schedule_IDL
@@ -38,8 +38,9 @@ module schedule {
 #pragma DCPS_DATA_TYPE "schedule::qlSchedule"
 #pragma DCPS_DATA_KEY "schedule::qlSchedule instanceID" 
 
+   @topic
    struct qlSchedule { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string EffectiveDate;
@@ -60,8 +61,9 @@ module schedule {
 #pragma DCPS_DATA_TYPE "schedule::qlScheduleFromDateVector"
 #pragma DCPS_DATA_KEY "schedule::qlScheduleFromDateVector instanceID" 
 
+   @topic
    struct qlScheduleFromDateVector { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              qldds_utils::StringSeq EffectiveDate;
@@ -73,8 +75,9 @@ module schedule {
 #pragma DCPS_DATA_TYPE "schedule::qlScheduleFullInterfaceFromDateVector"
 #pragma DCPS_DATA_KEY "schedule::qlScheduleFullInterfaceFromDateVector instanceID" 
 
+   @topic
    struct qlScheduleFullInterfaceFromDateVector { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              qldds_utils::StringSeq Dates;
@@ -93,8 +96,9 @@ module schedule {
 #pragma DCPS_DATA_TYPE "schedule::qlScheduleTruncated"
 #pragma DCPS_DATA_KEY "schedule::qlScheduleTruncated instanceID" 
 
+   @topic
    struct qlScheduleTruncated { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string OriginalSchedule;

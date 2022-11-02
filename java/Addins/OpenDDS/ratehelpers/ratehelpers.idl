@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef ratehelpers_IDL
 #define ratehelpers_IDL
@@ -38,8 +38,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlBondHelper"
 #pragma DCPS_DATA_KEY "ratehelpers::qlBondHelper instanceID" 
 
+   @topic
    struct qlBondHelper { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Price;
@@ -53,8 +54,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlDatedOISRateHelper"
 #pragma DCPS_DATA_KEY "ratehelpers::qlDatedOISRateHelper instanceID" 
 
+   @topic
    struct qlDatedOISRateHelper { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string StartDate;
@@ -70,8 +72,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlDepositRateHelper"
 #pragma DCPS_DATA_KEY "ratehelpers::qlDepositRateHelper instanceID" 
 
+   @topic
    struct qlDepositRateHelper { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Rate;
@@ -84,8 +87,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlDepositRateHelper2"
 #pragma DCPS_DATA_KEY "ratehelpers::qlDepositRateHelper2 instanceID" 
 
+   @topic
    struct qlDepositRateHelper2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Rate;
@@ -103,8 +107,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlFixedRateBondHelper"
 #pragma DCPS_DATA_KEY "ratehelpers::qlFixedRateBondHelper instanceID" 
 
+   @topic
    struct qlFixedRateBondHelper { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Price;
@@ -130,8 +135,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlFraRateHelper"
 #pragma DCPS_DATA_KEY "ratehelpers::qlFraRateHelper instanceID" 
 
+   @topic
    struct qlFraRateHelper { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Rate;
@@ -147,8 +153,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlFraRateHelper2"
 #pragma DCPS_DATA_KEY "ratehelpers::qlFraRateHelper2 instanceID" 
 
+   @topic
    struct qlFraRateHelper2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Rate;
@@ -169,8 +176,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlFuturesRateHelper"
 #pragma DCPS_DATA_KEY "ratehelpers::qlFuturesRateHelper instanceID" 
 
+   @topic
    struct qlFuturesRateHelper { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Price;
@@ -186,8 +194,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlFuturesRateHelper2"
 #pragma DCPS_DATA_KEY "ratehelpers::qlFuturesRateHelper2 instanceID" 
 
+   @topic
    struct qlFuturesRateHelper2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Price;
@@ -207,8 +216,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlFuturesRateHelper3"
 #pragma DCPS_DATA_KEY "ratehelpers::qlFuturesRateHelper3 instanceID" 
 
+   @topic
    struct qlFuturesRateHelper3 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Price;
@@ -225,8 +235,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlFxSwapRateHelper"
 #pragma DCPS_DATA_KEY "ratehelpers::qlFxSwapRateHelper instanceID" 
 
+   @topic
    struct qlFxSwapRateHelper { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double FwdPoint;
@@ -246,8 +257,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlOISRateHelper"
 #pragma DCPS_DATA_KEY "ratehelpers::qlOISRateHelper instanceID" 
 
+   @topic
    struct qlOISRateHelper { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              long SettlDays;
@@ -265,8 +277,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlRateHelperImpliedQuote"
 #pragma DCPS_DATA_KEY "ratehelpers::qlRateHelperImpliedQuote instanceID" 
 
+   @topic
    struct qlRateHelperImpliedQuote { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              boolean Trigger; 
@@ -275,8 +288,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlRateHelperQuoteError"
 #pragma DCPS_DATA_KEY "ratehelpers::qlRateHelperQuoteError instanceID" 
 
+   @topic
    struct qlRateHelperQuoteError { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              boolean Trigger; 
@@ -285,8 +299,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlRateHelperQuoteIsValid"
 #pragma DCPS_DATA_KEY "ratehelpers::qlRateHelperQuoteIsValid instanceID" 
 
+   @topic
    struct qlRateHelperQuoteIsValid { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              boolean Trigger; 
@@ -295,8 +310,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlRateHelperQuoteName"
 #pragma DCPS_DATA_KEY "ratehelpers::qlRateHelperQuoteName instanceID" 
 
+   @topic
    struct qlRateHelperQuoteName { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              boolean Trigger; 
@@ -305,8 +321,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlRateHelperQuoteValue"
 #pragma DCPS_DATA_KEY "ratehelpers::qlRateHelperQuoteValue instanceID" 
 
+   @topic
    struct qlRateHelperQuoteValue { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              boolean Trigger; 
@@ -315,8 +332,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlSwapRateHelper"
 #pragma DCPS_DATA_KEY "ratehelpers::qlSwapRateHelper instanceID" 
 
+   @topic
    struct qlSwapRateHelper { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Rate;
@@ -334,8 +352,9 @@ module ratehelpers {
 #pragma DCPS_DATA_TYPE "ratehelpers::qlSwapRateHelper2"
 #pragma DCPS_DATA_KEY "ratehelpers::qlSwapRateHelper2 instanceID" 
 
+   @topic
    struct qlSwapRateHelper2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Rate;

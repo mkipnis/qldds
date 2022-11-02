@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef pricingengines_IDL
 #define pricingengines_IDL
@@ -38,8 +38,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlAnalyticCapFloorEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlAnalyticCapFloorEngine instanceID" 
 
+   @topic
    struct qlAnalyticCapFloorEngine { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string HandleModel;
@@ -51,8 +52,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBachelierCapFloorEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlBachelierCapFloorEngine instanceID" 
 
+   @topic
    struct qlBachelierCapFloorEngine { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string YieldCurve;
@@ -65,8 +67,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBachelierCapFloorEngine2"
 #pragma DCPS_DATA_KEY "pricingengines::qlBachelierCapFloorEngine2 instanceID" 
 
+   @topic
    struct qlBachelierCapFloorEngine2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string YieldCurve;
@@ -80,8 +83,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBinomialPricingEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlBinomialPricingEngine instanceID" 
 
+   @topic
    struct qlBinomialPricingEngine { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string EngineID;
@@ -95,8 +99,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBlackCalculator"
 #pragma DCPS_DATA_KEY "pricingengines::qlBlackCalculator instanceID" 
 
+   @topic
    struct qlBlackCalculator { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string OptionType;
@@ -112,8 +117,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBlackCalculator2"
 #pragma DCPS_DATA_KEY "pricingengines::qlBlackCalculator2 instanceID" 
 
+   @topic
    struct qlBlackCalculator2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string PayoffID;
@@ -128,8 +134,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBlackCapFloorEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlBlackCapFloorEngine instanceID" 
 
+   @topic
    struct qlBlackCapFloorEngine { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string YieldCurve;
@@ -143,8 +150,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBlackCapFloorEngine2"
 #pragma DCPS_DATA_KEY "pricingengines::qlBlackCapFloorEngine2 instanceID" 
 
+   @topic
    struct qlBlackCapFloorEngine2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string YieldCurve;
@@ -159,8 +167,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBlackScholesCalculator"
 #pragma DCPS_DATA_KEY "pricingengines::qlBlackScholesCalculator instanceID" 
 
+   @topic
    struct qlBlackScholesCalculator { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string OptionType;
@@ -177,8 +186,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBlackScholesCalculator2"
 #pragma DCPS_DATA_KEY "pricingengines::qlBlackScholesCalculator2 instanceID" 
 
+   @topic
    struct qlBlackScholesCalculator2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string PayoffID;
@@ -194,8 +204,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBlackSwaptionEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlBlackSwaptionEngine instanceID" 
 
+   @topic
    struct qlBlackSwaptionEngine { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string YieldCurve;
@@ -208,8 +219,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBlackSwaptionEngine2"
 #pragma DCPS_DATA_KEY "pricingengines::qlBlackSwaptionEngine2 instanceID" 
 
+   @topic
    struct qlBlackSwaptionEngine2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string YieldCurve;
@@ -224,8 +236,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlBondEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlBondEngine instanceID" 
 
+   @topic
    struct qlBondEngine { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string YieldCurve;
@@ -237,8 +250,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlDiscountingSwapEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlDiscountingSwapEngine instanceID" 
 
+   @topic
    struct qlDiscountingSwapEngine { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string YieldCurve;
@@ -253,8 +267,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlJamshidianSwaptionEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlJamshidianSwaptionEngine instanceID" 
 
+   @topic
    struct qlJamshidianSwaptionEngine { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Model;
@@ -267,8 +282,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlModelG2SwaptionEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlModelG2SwaptionEngine instanceID" 
 
+   @topic
    struct qlModelG2SwaptionEngine { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Model;
@@ -282,8 +298,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlPricingEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlPricingEngine instanceID" 
 
+   @topic
    struct qlPricingEngine { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string EngineID;
@@ -296,8 +313,9 @@ module pricingengines {
 #pragma DCPS_DATA_TYPE "pricingengines::qlTreeSwaptionEngine"
 #pragma DCPS_DATA_KEY "pricingengines::qlTreeSwaptionEngine instanceID" 
 
+   @topic
    struct qlTreeSwaptionEngine { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Model;

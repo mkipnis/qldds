@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef qlIndex_IDL
 #define qlIndex_IDL
@@ -38,8 +38,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlBMAIndex"
 #pragma DCPS_DATA_KEY "qlIndex::qlBMAIndex instanceID" 
 
+   @topic
    struct qlBMAIndex { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string YieldCurve;
@@ -51,8 +52,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlEonia"
 #pragma DCPS_DATA_KEY "qlIndex::qlEonia instanceID" 
 
+   @topic
    struct qlEonia { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string YieldCurve;
@@ -64,8 +66,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlEuribor"
 #pragma DCPS_DATA_KEY "qlIndex::qlEuribor instanceID" 
 
+   @topic
    struct qlEuribor { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Tenor;
@@ -78,8 +81,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlEuribor365"
 #pragma DCPS_DATA_KEY "qlIndex::qlEuribor365 instanceID" 
 
+   @topic
    struct qlEuribor365 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Tenor;
@@ -92,8 +96,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlEuriborSwap"
 #pragma DCPS_DATA_KEY "qlIndex::qlEuriborSwap instanceID" 
 
+   @topic
    struct qlEuriborSwap { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string FixingType;
@@ -108,8 +113,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlEuriborSwapIsdaFixA"
 #pragma DCPS_DATA_KEY "qlIndex::qlEuriborSwapIsdaFixA instanceID" 
 
+   @topic
    struct qlEuriborSwapIsdaFixA { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Tenor;
@@ -123,8 +129,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlIborIndex"
 #pragma DCPS_DATA_KEY "qlIndex::qlIborIndex instanceID" 
 
+   @topic
    struct qlIborIndex { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string FamilyName;
@@ -144,8 +151,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlIndexAddFixings"
 #pragma DCPS_DATA_KEY "qlIndex::qlIndexAddFixings instanceID" 
 
+   @topic
    struct qlIndexAddFixings { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              qldds_utils::StringSeq FixingDates;
@@ -157,8 +165,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlLibor"
 #pragma DCPS_DATA_KEY "qlIndex::qlLibor instanceID" 
 
+   @topic
    struct qlLibor { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Currency;
@@ -172,8 +181,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlLiborSwap"
 #pragma DCPS_DATA_KEY "qlIndex::qlLiborSwap instanceID" 
 
+   @topic
    struct qlLiborSwap { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Currency;
@@ -189,8 +199,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlOvernightIndex"
 #pragma DCPS_DATA_KEY "qlIndex::qlOvernightIndex instanceID" 
 
+   @topic
    struct qlOvernightIndex { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string FamilyName;
@@ -207,8 +218,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlProxyIbor"
 #pragma DCPS_DATA_KEY "qlIndex::qlProxyIbor instanceID" 
 
+   @topic
    struct qlProxyIbor { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string FamilyName;
@@ -230,8 +242,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlSonia"
 #pragma DCPS_DATA_KEY "qlIndex::qlSonia instanceID" 
 
+   @topic
    struct qlSonia { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string YieldCurve;
@@ -243,8 +256,9 @@ module qlIndex {
 #pragma DCPS_DATA_TYPE "qlIndex::qlSwapIndex"
 #pragma DCPS_DATA_KEY "qlIndex::qlSwapIndex instanceID" 
 
+   @topic
    struct qlSwapIndex { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string FamilyName;

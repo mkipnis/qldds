@@ -2,7 +2,8 @@
 #pragma DCPS_DATA_TYPE "%(categoryName)s::%(functionName)s"
 #pragma DCPS_DATA_KEY "%(categoryName)s::%(functionName)s instanceID" 
 
+   @topic
    struct %(functionName)s { 
-          string instanceID;
+          @key string instanceID;
           %(idlDeclaration)s 
    };

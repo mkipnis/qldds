@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef garbagecollection_IDL
 #define garbagecollection_IDL
@@ -38,8 +38,9 @@ module garbagecollection {
 #pragma DCPS_DATA_TYPE "garbagecollection::ohRepositoryDeleteAllObjects"
 #pragma DCPS_DATA_KEY "garbagecollection::ohRepositoryDeleteAllObjects instanceID" 
 
+   @topic
    struct ohRepositoryDeleteAllObjects { 
-          string instanceID;
+          @key string instanceID;
           
              boolean DeletePermanent;
              boolean Trigger; 
@@ -48,8 +49,9 @@ module garbagecollection {
 #pragma DCPS_DATA_TYPE "garbagecollection::ohRepositoryLogObject"
 #pragma DCPS_DATA_KEY "garbagecollection::ohRepositoryLogObject instanceID" 
 
+   @topic
    struct ohRepositoryLogObject { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              boolean Trigger; 

@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef overnightindexedswap_IDL
 #define overnightindexedswap_IDL
@@ -38,8 +38,9 @@ module overnightindexedswap {
 #pragma DCPS_DATA_TYPE "overnightindexedswap::qlMakeDatedOIS"
 #pragma DCPS_DATA_KEY "overnightindexedswap::qlMakeDatedOIS instanceID" 
 
+   @topic
    struct qlMakeDatedOIS { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string StartDate;
@@ -56,8 +57,9 @@ module overnightindexedswap {
 #pragma DCPS_DATA_TYPE "overnightindexedswap::qlMakeOIS"
 #pragma DCPS_DATA_KEY "overnightindexedswap::qlMakeOIS instanceID" 
 
+   @topic
    struct qlMakeOIS { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              long SettlDays;
@@ -76,8 +78,9 @@ module overnightindexedswap {
 #pragma DCPS_DATA_TYPE "overnightindexedswap::qlOvernightIndexedSwap"
 #pragma DCPS_DATA_KEY "overnightindexedswap::qlOvernightIndexedSwap instanceID" 
 
+   @topic
    struct qlOvernightIndexedSwap { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string PayerReceiver;
@@ -96,8 +99,9 @@ module overnightindexedswap {
 #pragma DCPS_DATA_TYPE "overnightindexedswap::qlOvernightIndexedSwapFromOISRateHelper"
 #pragma DCPS_DATA_KEY "overnightindexedswap::qlOvernightIndexedSwapFromOISRateHelper instanceID" 
 
+   @topic
    struct qlOvernightIndexedSwapFromOISRateHelper { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string OISRateHelper;

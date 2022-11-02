@@ -130,7 +130,6 @@ project( *Server ) : dcpsexe, svc_utils {
         dcps_ts_flags   +=      -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS
         libpaths        +=      $(QL_ROOT)/lib $(QLDDS_ROOT)/qldds_utils $(QLDDS_ROOT)/Addins/OpenDDS
 
-        libs            +=      qldds_utils pricingengines exercise volatilities payoffs processes EquityOptions Straddles 
  	pure_libs       =     $(QL_ROOT)/lib/libQuantLibAddinCpp.a \
   	                    $(QL_ROOT)/lib/libQuantLibAddin.a \
                         $(QL_ROOT)/lib/libObjectHandler.a \
@@ -138,6 +137,8 @@ project( *Server ) : dcpsexe, svc_utils {
                         $(QL_ROOT)/lib/libboost_system.a  \
                         $(QL_ROOT)/lib/libboost_serialization.a \
                         $(QL_ROOT)/lib/libboost_filesystem.a
+
+        libs            +=      qldds_utils EquityOptions Straddles pricingengines exercise volatilities payoffs processes options
 
         idlflags        +=      -I$(QLDDS_ROOT)/qldds_utils -I$(QLDDS_ROOT)/Addins/OpenDDS
 

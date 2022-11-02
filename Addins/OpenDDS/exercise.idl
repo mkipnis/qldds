@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef exercise_IDL
 #define exercise_IDL
@@ -38,8 +38,9 @@ module exercise {
 #pragma DCPS_DATA_TYPE "exercise::qlAmericanExercise"
 #pragma DCPS_DATA_KEY "exercise::qlAmericanExercise instanceID" 
 
+   @topic
    struct qlAmericanExercise { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string EarliestDate;
@@ -53,8 +54,9 @@ module exercise {
 #pragma DCPS_DATA_TYPE "exercise::qlBermudanExercise"
 #pragma DCPS_DATA_KEY "exercise::qlBermudanExercise instanceID" 
 
+   @topic
    struct qlBermudanExercise { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              qldds_utils::StringSeq Dates;
@@ -67,8 +69,9 @@ module exercise {
 #pragma DCPS_DATA_TYPE "exercise::qlEuropeanExercise"
 #pragma DCPS_DATA_KEY "exercise::qlEuropeanExercise instanceID" 
 
+   @topic
    struct qlEuropeanExercise { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string ExpiryDate;

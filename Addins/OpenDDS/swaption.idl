@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef swaption_IDL
 #define swaption_IDL
@@ -38,8 +38,9 @@ module swaption {
 #pragma DCPS_DATA_TYPE "swaption::qlMakeSwaption"
 #pragma DCPS_DATA_KEY "swaption::qlMakeSwaption instanceID" 
 
+   @topic
    struct qlMakeSwaption { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string SwapIndex;
@@ -54,8 +55,9 @@ module swaption {
 #pragma DCPS_DATA_TYPE "swaption::qlSwaption"
 #pragma DCPS_DATA_KEY "swaption::qlSwaption instanceID" 
 
+   @topic
    struct qlSwaption { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string VanillaSwap;
