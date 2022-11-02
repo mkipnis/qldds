@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef serialization_IDL
 #define serialization_IDL
@@ -38,8 +38,9 @@ module serialization {
 #pragma DCPS_DATA_TYPE "serialization::ohObjectLoad"
 #pragma DCPS_DATA_KEY "serialization::ohObjectLoad instanceID" 
 
+   @topic
    struct ohObjectLoad { 
-          string instanceID;
+          @key string instanceID;
           
              string Directory;
              string Pattern;
@@ -51,8 +52,9 @@ module serialization {
 #pragma DCPS_DATA_TYPE "serialization::ohObjectLoadString"
 #pragma DCPS_DATA_KEY "serialization::ohObjectLoadString instanceID" 
 
+   @topic
    struct ohObjectLoadString { 
-          string instanceID;
+          @key string instanceID;
           
              string Xml;
              boolean Overwrite;
@@ -62,8 +64,9 @@ module serialization {
 #pragma DCPS_DATA_TYPE "serialization::ohObjectSave"
 #pragma DCPS_DATA_KEY "serialization::ohObjectSave instanceID" 
 
+   @topic
    struct ohObjectSave { 
-          string instanceID;
+          @key string instanceID;
           
              qldds_utils::StringSeq ObjectList;
              string Filename;
@@ -75,8 +78,9 @@ module serialization {
 #pragma DCPS_DATA_TYPE "serialization::ohObjectSaveString"
 #pragma DCPS_DATA_KEY "serialization::ohObjectSaveString instanceID" 
 
+   @topic
    struct ohObjectSaveString { 
-          string instanceID;
+          @key string instanceID;
           
              qldds_utils::StringSeq ObjectList;
              boolean Overwrite;

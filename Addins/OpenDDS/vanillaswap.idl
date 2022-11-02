@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef vanillaswap_IDL
 #define vanillaswap_IDL
@@ -38,8 +38,9 @@ module vanillaswap {
 #pragma DCPS_DATA_TYPE "vanillaswap::qlMakeIMMSwap"
 #pragma DCPS_DATA_KEY "vanillaswap::qlMakeIMMSwap instanceID" 
 
+   @topic
    struct qlMakeIMMSwap { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string SwapTenor;
@@ -57,8 +58,9 @@ module vanillaswap {
 #pragma DCPS_DATA_TYPE "vanillaswap::qlMakeVanillaSwap"
 #pragma DCPS_DATA_KEY "vanillaswap::qlMakeVanillaSwap instanceID" 
 
+   @topic
    struct qlMakeVanillaSwap { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              long SettlDays;
@@ -77,8 +79,9 @@ module vanillaswap {
 #pragma DCPS_DATA_TYPE "vanillaswap::qlVanillaSwap"
 #pragma DCPS_DATA_KEY "vanillaswap::qlVanillaSwap instanceID" 
 
+   @topic
    struct qlVanillaSwap { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string PayerReceiver;
@@ -99,8 +102,9 @@ module vanillaswap {
 #pragma DCPS_DATA_TYPE "vanillaswap::qlVanillaSwapFromSwapIndex"
 #pragma DCPS_DATA_KEY "vanillaswap::qlVanillaSwapFromSwapIndex instanceID" 
 
+   @topic
    struct qlVanillaSwapFromSwapIndex { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string SwapIndex;
@@ -113,8 +117,9 @@ module vanillaswap {
 #pragma DCPS_DATA_TYPE "vanillaswap::qlVanillaSwapFromSwapRateHelper"
 #pragma DCPS_DATA_KEY "vanillaswap::qlVanillaSwapFromSwapRateHelper instanceID" 
 
+   @topic
    struct qlVanillaSwapFromSwapRateHelper { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string SwapRateHelper;

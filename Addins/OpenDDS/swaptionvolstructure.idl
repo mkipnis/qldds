@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef swaptionvolstructure_IDL
 #define swaptionvolstructure_IDL
@@ -38,8 +38,9 @@ module swaptionvolstructure {
 #pragma DCPS_DATA_TYPE "swaptionvolstructure::qlConstantSwaptionVolatility"
 #pragma DCPS_DATA_KEY "swaptionvolstructure::qlConstantSwaptionVolatility instanceID" 
 
+   @topic
    struct qlConstantSwaptionVolatility { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              long NDays;
@@ -55,8 +56,9 @@ module swaptionvolstructure {
 #pragma DCPS_DATA_TYPE "swaptionvolstructure::qlRelinkableHandleSwaptionVolatilityStructure"
 #pragma DCPS_DATA_KEY "swaptionvolstructure::qlRelinkableHandleSwaptionVolatilityStructure instanceID" 
 
+   @topic
    struct qlRelinkableHandleSwaptionVolatilityStructure { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string CurrentLink;
@@ -68,8 +70,9 @@ module swaptionvolstructure {
 #pragma DCPS_DATA_TYPE "swaptionvolstructure::qlSmileSectionByCube"
 #pragma DCPS_DATA_KEY "swaptionvolstructure::qlSmileSectionByCube instanceID" 
 
+   @topic
    struct qlSmileSectionByCube { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string VolCube;
@@ -83,8 +86,9 @@ module swaptionvolstructure {
 #pragma DCPS_DATA_TYPE "swaptionvolstructure::qlSmileSectionByCube2"
 #pragma DCPS_DATA_KEY "swaptionvolstructure::qlSmileSectionByCube2 instanceID" 
 
+   @topic
    struct qlSmileSectionByCube2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string VolCube;
@@ -98,8 +102,9 @@ module swaptionvolstructure {
 #pragma DCPS_DATA_TYPE "swaptionvolstructure::qlSpreadedSwaptionVolatility"
 #pragma DCPS_DATA_KEY "swaptionvolstructure::qlSpreadedSwaptionVolatility instanceID" 
 
+   @topic
    struct qlSpreadedSwaptionVolatility { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string BaseVolStructure;
@@ -112,8 +117,9 @@ module swaptionvolstructure {
 #pragma DCPS_DATA_TYPE "swaptionvolstructure::qlSwaptionVTSMatrix"
 #pragma DCPS_DATA_KEY "swaptionvolstructure::qlSwaptionVTSMatrix instanceID" 
 
+   @topic
    struct qlSwaptionVTSMatrix { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Calendar;
@@ -130,8 +136,9 @@ module swaptionvolstructure {
 #pragma DCPS_DATA_TYPE "swaptionvolstructure::qlSwaptionVolCube1"
 #pragma DCPS_DATA_KEY "swaptionvolstructure::qlSwaptionVolCube1 instanceID" 
 
+   @topic
    struct qlSwaptionVolCube1 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string AtmVolStructure;
@@ -156,8 +163,9 @@ module swaptionvolstructure {
 #pragma DCPS_DATA_TYPE "swaptionvolstructure::qlSwaptionVolCube2"
 #pragma DCPS_DATA_KEY "swaptionvolstructure::qlSwaptionVolCube2 instanceID" 
 
+   @topic
    struct qlSwaptionVolCube2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string AtmVolStructure;

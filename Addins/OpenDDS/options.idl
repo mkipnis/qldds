@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef options_IDL
 #define options_IDL
@@ -38,8 +38,9 @@ module options {
 #pragma DCPS_DATA_TYPE "options::qlBarrierOption"
 #pragma DCPS_DATA_KEY "options::qlBarrierOption instanceID" 
 
+   @topic
    struct qlBarrierOption { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string BarrierType;
@@ -55,8 +56,9 @@ module options {
 #pragma DCPS_DATA_TYPE "options::qlCaAsianOption"
 #pragma DCPS_DATA_KEY "options::qlCaAsianOption instanceID" 
 
+   @topic
    struct qlCaAsianOption { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string AverageType;
@@ -70,8 +72,9 @@ module options {
 #pragma DCPS_DATA_TYPE "options::qlDaAsianOption"
 #pragma DCPS_DATA_KEY "options::qlDaAsianOption instanceID" 
 
+   @topic
    struct qlDaAsianOption { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string AverageType;
@@ -88,8 +91,9 @@ module options {
 #pragma DCPS_DATA_TYPE "options::qlDividendVanillaOption"
 #pragma DCPS_DATA_KEY "options::qlDividendVanillaOption instanceID" 
 
+   @topic
    struct qlDividendVanillaOption { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Payoff;
@@ -104,8 +108,9 @@ module options {
 #pragma DCPS_DATA_TYPE "options::qlEuropeanOption"
 #pragma DCPS_DATA_KEY "options::qlEuropeanOption instanceID" 
 
+   @topic
    struct qlEuropeanOption { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Payoff;
@@ -118,8 +123,9 @@ module options {
 #pragma DCPS_DATA_TYPE "options::qlForwardVanillaOption"
 #pragma DCPS_DATA_KEY "options::qlForwardVanillaOption instanceID" 
 
+   @topic
    struct qlForwardVanillaOption { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Moneyness;
@@ -134,8 +140,9 @@ module options {
 #pragma DCPS_DATA_TYPE "options::qlQuantoForwardVanillaOption"
 #pragma DCPS_DATA_KEY "options::qlQuantoForwardVanillaOption instanceID" 
 
+   @topic
    struct qlQuantoForwardVanillaOption { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              double Moneyness;
@@ -150,8 +157,9 @@ module options {
 #pragma DCPS_DATA_TYPE "options::qlQuantoVanillaOption"
 #pragma DCPS_DATA_KEY "options::qlQuantoVanillaOption instanceID" 
 
+   @topic
    struct qlQuantoVanillaOption { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Payoff;
@@ -164,8 +172,9 @@ module options {
 #pragma DCPS_DATA_TYPE "options::qlVanillaOption"
 #pragma DCPS_DATA_KEY "options::qlVanillaOption instanceID" 
 
+   @topic
    struct qlVanillaOption { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Payoff;

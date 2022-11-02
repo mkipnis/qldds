@@ -26,7 +26,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.module
+//      git/qldds/gensrc/stubs/stub.opendds.module
 
 #ifndef bonds_IDL
 #define bonds_IDL
@@ -38,8 +38,9 @@ module bonds {
 #pragma DCPS_DATA_TYPE "bonds::qlBond"
 #pragma DCPS_DATA_KEY "bonds::qlBond instanceID" 
 
+   @topic
    struct qlBond { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Description;
@@ -58,8 +59,9 @@ module bonds {
 #pragma DCPS_DATA_TYPE "bonds::qlCmsRateBond"
 #pragma DCPS_DATA_KEY "bonds::qlCmsRateBond instanceID" 
 
+   @topic
    struct qlCmsRateBond { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Description;
@@ -86,8 +88,9 @@ module bonds {
 #pragma DCPS_DATA_TYPE "bonds::qlFixedRateBond"
 #pragma DCPS_DATA_KEY "bonds::qlFixedRateBond instanceID" 
 
+   @topic
    struct qlFixedRateBond { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Description;
@@ -109,8 +112,9 @@ module bonds {
 #pragma DCPS_DATA_TYPE "bonds::qlFixedRateBond2"
 #pragma DCPS_DATA_KEY "bonds::qlFixedRateBond2 instanceID" 
 
+   @topic
    struct qlFixedRateBond2 { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Description;
@@ -131,8 +135,9 @@ module bonds {
 #pragma DCPS_DATA_TYPE "bonds::qlFloatingRateBond"
 #pragma DCPS_DATA_KEY "bonds::qlFloatingRateBond instanceID" 
 
+   @topic
    struct qlFloatingRateBond { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Description;
@@ -159,8 +164,9 @@ module bonds {
 #pragma DCPS_DATA_TYPE "bonds::qlZeroCouponBond"
 #pragma DCPS_DATA_KEY "bonds::qlZeroCouponBond instanceID" 
 
+   @topic
    struct qlZeroCouponBond { 
-          string instanceID;
+          @key string instanceID;
           
              string ObjectId;
              string Description;

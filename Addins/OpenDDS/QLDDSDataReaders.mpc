@@ -2,7 +2,7 @@
 // manually then your changes will be lost the next time gensrc runs.
 
 // This source code file was generated from the following stub:
-//      qldds/gensrc/stubs/stub.opendds.mpc.datareader
+//      git/qldds/gensrc/stubs/stub.opendds.mpc.datareader
 
 //
 //   Copyright (C) 2016 Mike Kipnis
@@ -28,6 +28,7 @@
 //   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //   SOFTWARE.
 
+
 project(garbagecollectionDefaultDataReader) : dcps, install {
 
   after    += qldds_utils garbagecollection
@@ -35,12 +36,15 @@ project(garbagecollectionDefaultDataReader) : dcps, install {
   sharedname     = garbagecollectionDefaultDataReader
   dynamicflags   = QLDDS_BUILD_DLL
   requires += tao_orbsvcs
+
   includes      += $(TAO_ROOT)/orbsvcs $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/include 
+
   idlflags      += -I$(TAO_ROOT)/orbsvcs -I$(QLDDS_ROOT)/qldds_utils  \
                    -Wb,export_macro=QLDDS_Export \
                    -Wb,export_include=../../qldds_utils/qldds_Export.h
   dcps_ts_flags += -I$(QLDDS_ROOT)/qldds_utils -Wb,export_macro=QLDDS_Export
   libpaths      += $(QLDDS_ROOT)/qldds_utils $(QL_ROOT)/lib
+
    libout        = $(QLDDS_ROOT)/lib
 
   libs  += ObjectHandler QuantLib QuantLibAddin QuantLibAddinCpp qldds_utils garbagecollection boost_date_time
@@ -52,17 +56,16 @@ project(garbagecollectionDefaultDataReader) : dcps, install {
   }
 
   Header_Files {
-                garbagecollectionDataReaderListenerImpl.hpp
+         	garbagecollectionDataReaderListenerImpl.hpp
 
   }
 
   Source_Files {
-                garbagecollectionDataReaderListenerImpl.cpp
+         	garbagecollectionDataReaderListenerImpl.cpp
 
   }
 
 }
-
 
 project(loggingDefaultDataReader) : dcps, install {
 
