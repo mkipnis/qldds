@@ -105,5 +105,5 @@ cd $CURRENT_DIR
 
 python3 ./configure.py --dds_dir=$HOME/qldds_deps_build/OpenDDS-3.22 --ql_dir=$HOME/qldds_deps_build
 . ./qldds_env.sh
-$ACE_ROOT/bin/mwc.pl -type gnuace
+$ACE_ROOT/bin/mwc.pl -type gnuace QLDDS.mwc 
 make

@@ -75,7 +75,7 @@ project(IRSCalculator) : dcpsexe, svc_utils {
 
 
 
-        libs           +=        qldds_utils IRSPortfolio  ratehelpers vanillaswap schedule
+        libs           +=        qldds_utils IRSPortfolio  ratehelpers vanillaswap schedule QuantLibAddinCpp
 
 
 
