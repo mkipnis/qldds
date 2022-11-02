@@ -37,16 +37,15 @@ data types and data readers are auto-generated and are located in
 ```$QLDDS_ROOT/Addins/OpenDDS```
 
 
-![N|Solid](https://github.com/mkipnis/qldds/blob/qldds-1.12.0/misc/overview.png?raw=true)
+![N|Solid](https://github.com/mkipnis/qldds/blob/qldds-1.22.0/misc/overview.png?raw=true)
 
 ## Dependences
 
 | Project| Version|
 | ------ | ------ |
-| [OpenDDS](https://www.opendds.org)| 3.7 |
-| [QuantLib](https://sourceforge.net/projects/quantlib/files/QuantLib/old%20releases%20from%201.0%20to%201.12/1.12/) | 1.12 |
-| [ObjectHandler](https://sourceforge.net/projects/quantlib/files/ObjectHandler/1.12.0/) | 1.12 |
-| [QuantLibAddin With C++](https://sourceforge.net/projects/quantlib/files/QuantLibAddin/1.12.0/) | 1.12 |
+| [OpenDDS](https://www.opendds.org)| 3.22 |
+| [QuantLib](https://github.com/lballabio/QuantLib/releases) | 1.22 |
+| [ObjectHandler/GenSrc/QuantLibAddinCpp](https://github.com/eehlers/QuantLibAddin-Old/releases/tag/QuantLibAddin-v1.22) | 1.22 |
 
 All QuantLib dependences need to be configured, compiled
 and installed(make install). OpenDDS needs to be configured and
