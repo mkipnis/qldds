@@ -96,11 +96,17 @@ project(*Server) : dcpsexe, svc_utils {
                         $(QL_ROOT)/lib/libQuantLib.a \
                         $(QL_ROOT)/lib/libboost_system.a  \
                         $(QL_ROOT)/lib/libboost_serialization.a \
-                        $(QL_ROOT)/lib/libboost_filesystem.a
+                        $(QL_ROOT)/lib/libboost_filesystem.a \
+                        $(QLDDS_ROOT)/lib/libratehelpersDefaultDataReader.a \
+                        $(QLDDS_ROOT)/lib/libvanillaswapDefaultDataReader.a \
+                        $(QLDDS_ROOT)/lib/libvolatilitiesDefaultDataReader.a \
+                        $(QLDDS_ROOT)/lib/libswaptionvolstructureDefaultDataReader.a \
+                        $(QLDDS_ROOT)/lib/libscheduleDefaultDataReader.a
 
 
 
-        libs           +=       qldds_utils  ratehelpers swaptionvolstructure boost_date_time ratehelpersDefaultDataReader swaptionvolstructureDefaultDataReader  Swaptions qldds_utils
+
+        libs           +=       qldds_utils  ratehelpers swaptionvolstructure boost_date_time Swaptions qldds_utils QuantLibAddinCpp qldds_utils
        
         Source_Files {
                SwaptionServer.cpp
